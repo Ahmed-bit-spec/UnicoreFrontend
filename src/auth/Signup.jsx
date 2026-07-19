@@ -1,5 +1,4 @@
 // src/features/auth/signup/SignupPage.jsx
-import axios from "axios";
 import {
   Eye, EyeOff, ArrowRight, Loader2, AlertCircle, CheckCircle2,
 } from "lucide-react";
@@ -154,8 +153,8 @@ const SignupPage = () => {
 
     try {
       await new Promise((r) => setTimeout(r, 2200));
-      await axios.post(
-        "/api/v1/auth/register",
+      await api.post(
+        "/auth/register",
         { ...registerData },
         { withCredentials: true }
       );

@@ -1,4 +1,3 @@
-import axios from "axios";
 import { Eye, EyeOff, ArrowRight } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
@@ -7,6 +6,7 @@ import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useAuth } from "@/context/AuthContext";
 import UnicoreLogo from "@/FrontDoorSystem/components/Logo";
+import api from "@/api/client";
 
 const LoginPage = () => {
   const { login } = useAuth();
@@ -49,8 +49,8 @@ const LoginPage = () => {
 
     try {
       console.log("[LoginPage] submitting login request");
-      const response = await axios.post(
-        "/api/v1/auth/login",
+      const response = await api.post(
+        "/auth/login",
         { ...formData },
         { withCredentials: true }
       );

@@ -1,10 +1,10 @@
-import axios from "axios";
 import { ArrowRight, ArrowLeft } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import UnicoreLogo from "@/FrontDoorSystem/components/Logo";
+import api from "@/api/client";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -101,7 +101,7 @@ const VerifyCode = () => {
     setLoading(true);
     setLoadingPhase(0);
     try {
-      await axios.post("/api/v1/auth/verify-email", {
+      await api.post("/auth/verify-email", {
         email: email.trim(),
         code: code.trim(),
       });

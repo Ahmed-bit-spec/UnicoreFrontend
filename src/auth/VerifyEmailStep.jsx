@@ -1,11 +1,11 @@
 // src/features/auth/signup/VerifyEmailStep.jsx
-import axios from "axios";
 import { ArrowRight, CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import UnicoreLogo from "@/FrontDoorSystem/components/Logo";
+import api from "@/api/client";
 
 /**
  * VerifyEmailStep
@@ -42,8 +42,8 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
 
     try {
       await new Promise((r) => setTimeout(r, 2200));
-      await axios.post(
-        "/api/v1/auth/verify-email",
+      await api.post(
+        "/auth/verify-email",
         { email: savedEmail, code: verifyCode },
         { withCredentials: true }
       );
@@ -63,8 +63,8 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
     setLoadingPhase(0);
     try {
       await new Promise((r) => setTimeout(r, 2200));
-      await axios.post(
-        "/api/v1/auth/resend-code",
+      await api.post(
+        "/auth/resend-code",
         { email: savedEmail },
         { withCredentials: true }
       );

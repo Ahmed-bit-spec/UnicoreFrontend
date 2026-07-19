@@ -1,5 +1,4 @@
 // src/features/auth/forgot-password/ForgotPassword.jsx
-import axios from "axios";
 import {
   Eye, EyeOff, ArrowRight, CheckCircle2, Loader2,
   AlertCircle, Lock, ShieldCheck,
@@ -9,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import UnicoreLogo from "@/FrontDoorSystem/components/Logo";
+import api from "@/api/client";
 
 // ─── Password strength engine (mirrors backend passwordService.validateStrength) ─
 const PW_CHECKS = [
@@ -199,7 +199,7 @@ const ForgotPassword = () => {
     setLoadingPhase(0);
 
     try {
-      await axios.post("/api/v1/auth/reset-password", { email, code, newPassword });
+      await api.post("/auth/reset-password", { email, code, newPassword });
       setStep("success");
       setTimeout(() => {
         toast.success(t("auth.resetSuccess"));
