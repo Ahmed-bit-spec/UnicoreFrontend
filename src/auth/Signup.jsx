@@ -45,8 +45,8 @@ const PasswordStrengthMeter = ({ password, t }) => {
             <div
               key={i}
               className={`h-1 flex-1 rounded-full transition-all duration-300 ${strength && i < strength.bars
-                  ? strength.bar
-                  : "bg-gray-200 dark:bg-gray-700"
+                ? strength.bar
+                : "bg-gray-200 dark:bg-gray-700"
                 }`}
             />
           ))}
@@ -64,8 +64,8 @@ const PasswordStrengthMeter = ({ password, t }) => {
           <div
             key={c.id}
             className={`flex items-center gap-1.5 text-[11px] transition-colors duration-200 ${c.met
-                ? "text-green-600 dark:text-green-400"
-                : "text-gray-400 dark:text-gray-500"
+              ? "text-green-600 dark:text-green-400"
+              : "text-gray-400 dark:text-gray-500"
               }`}
           >
             {c.met ? (
@@ -236,10 +236,11 @@ const SignupPage = () => {
 
               {/* Google SSO */}
               <button
-  onClick={() => {
-    window.location.href = `${api}/api/v1/auth/google`;
-  }}
-              className="mt-6 w-full flex items-center justify-center gap-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200 transition-all"
+                onClick={() => {
+                  window.location.href =
+                    `${import.meta.env.VITE_API_BASE_URL}/api/v1/auth/google`;
+                }}
+                className="mt-6 w-full flex items-center justify-center gap-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200 transition-all"
               >
                 <FcGoogle size={20} />
                 {t("auth.continueGoogle")}
