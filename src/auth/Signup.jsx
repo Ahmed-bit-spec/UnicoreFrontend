@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import UnicoreLogo from "@/FrontDoorSystem/components/Logo";
 import VerifyEmailStep from "./VerifyEmailStep";
+import api from "@/api/client";
 
 // ─── Password strength engine ─────────────────────────────────────────────────
 const PW_CHECKS = [
@@ -235,8 +236,10 @@ const SignupPage = () => {
 
               {/* Google SSO */}
               <button
-                onClick={() => { window.location.href = "/api/v1/auth/google"; }}
-                className="mt-6 w-full flex items-center justify-center gap-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200 transition-all"
+  onClick={() => {
+    window.location.href = `${api}/api/v1/auth/google`;
+  }}
+              className="mt-6 w-full flex items-center justify-center gap-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200 transition-all"
               >
                 <FcGoogle size={20} />
                 {t("auth.continueGoogle")}
