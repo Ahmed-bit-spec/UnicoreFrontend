@@ -15,6 +15,10 @@
     {
       "source": "/socket.io/(.*)",
       "destination": "https://unicorebackend-zrpk.onrender.com/socket.io/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
