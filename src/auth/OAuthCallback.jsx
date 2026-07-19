@@ -11,15 +11,12 @@ const OAuthCallback = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const completeGoogleLogin = async () => {
-      // If the backend redirected here with an error query param, show it and abort
+    const completeGoogleLogin = async (attempt = 0) => {
       const params = new URLSearchParams(window.location.search);
       const error = params.get("error");
       if (error) {
         console.error("OAuth callback error (redirect):", error);
-        // Use toast if available to show message then go to login
         try {
-          // lazy import to avoid adding a top-level dependency in this file
           const { toast } = await import("sonner");
           toast.error(decodeURIComponent(error));
         } catch (e) {
@@ -28,16 +25,23 @@ const OAuthCallback = () => {
         navigate("/login", { replace: true });
         return;
       }
+
       try {
-        // Fetch user data with credentials (cookie) already set by backend
-        const { data } = await api.get("auth/me", { withCredentials: true });
+        const { data } = await api.get("/auth/me", {
+          withCredentials: true,
+          headers: { "Cache-Control": "no-store" },
+        });
         const userObj = data.data || data.user;
         login(userObj);
 
-        // Navigate based on role
         const destination = userObj.role === "admin" ? "/admin/dashboard" : "/dashboard";
         navigate(destination, { replace: true });
       } catch (error) {
+        if (attempt < 2 && error?.response?.status === 401) {
+          await new Promise((resolve) => setTimeout(resolve, 800));
+          return completeGoogleLogin(attempt + 1);
+        }
+
         console.error("OAuth callback error:", error);
         navigate("/login", { replace: true });
       }

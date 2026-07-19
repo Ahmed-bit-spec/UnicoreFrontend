@@ -95,8 +95,10 @@ const LoginPage = () => {
   };
 
   const handleGoogle = () => {
-    const apiBase = import.meta.env.VITE_API_BASE_URL ?? "https://unicorebackend-zrpk.onrender.com";
-    window.location.href = `${apiBase}/api/v1/auth/google`;
+    const rawApiBase = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? "https://unicorebackend-zrpk.onrender.com";
+    const normalizedBase = String(rawApiBase || "").trim().replace(/\/+$/u, "");
+    const apiBase = normalizedBase.includes("/api/v1") ? normalizedBase : `${normalizedBase}/api/v1`;
+    window.location.href = `${apiBase}/auth/google`;
   };
 
 
