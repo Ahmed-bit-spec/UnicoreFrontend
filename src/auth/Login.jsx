@@ -95,9 +95,10 @@ const LoginPage = () => {
   };
 
   const handleGoogle = () => {
-    const rawApiBase = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? "https://unicorebackend-zrpk.onrender.com";
+    const isSameOriginHost = typeof window !== "undefined" && /localhost|127\.0\.0\.1|\.vercel\.app|\.vercel\.dev/i.test(window.location.hostname);
+    const rawApiBase = isSameOriginHost ? "" : (import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? "");
     const normalizedBase = String(rawApiBase || "").trim().replace(/\/+$/u, "");
-    const apiBase = normalizedBase.includes("/api/v1") ? normalizedBase : `${normalizedBase}/api/v1`;
+    const apiBase = normalizedBase.includes("/api/v1") ? normalizedBase : normalizedBase ? `${normalizedBase}/api/v1` : "/api/v1";
     window.location.href = `${apiBase}/auth/google`;
   };
 

@@ -1,12 +1,15 @@
 import axios from "axios";
 
-const fallbackBaseUrl = "https://unicorebackend-zrpk.onrender.com";
-const rawBaseUrl = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? fallbackBaseUrl;
+const isSameOriginHost = typeof window !== "undefined" && /localhost|127\.0\.0\.1|\.vercel\.app|\.vercel\.dev/i.test(window.location.hostname);
+const fallbackBaseUrl = isSameOriginHost ? "/api/v1" : "";
+const explicitBaseUrl = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL;
+const rawBaseUrl = isSameOriginHost ? fallbackBaseUrl : (explicitBaseUrl ?? fallbackBaseUrl);
 const normalizedBaseUrl = (() => {
     const url = String(rawBaseUrl || "").trim();
-    const looksLikeFrontendHost = /vercel\.app|vercel\.dev|localhost:3000|localhost:5173/i.test(url);
-    const selected = !url || looksLikeFrontendHost ? fallbackBaseUrl : url;
-    const cleaned = selected.replace(/\/+$/u, "");
+    const cleaned = url.replace(/\/+$/u, "");
+    if (!cleaned) {
+        return "/api/v1";
+    }
     if (/^https?:\/\//u.test(cleaned)) {
         return `${cleaned}/api/v1`;
     }
