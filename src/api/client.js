@@ -3,9 +3,10 @@ import axios from "axios";
 const fallbackBaseUrl = "https://unicorebackend-zrpk.onrender.com";
 const rawBaseUrl = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? fallbackBaseUrl;
 const normalizedBaseUrl = (() => {
-    const url = String(rawBaseUrl).trim();
-    if (!url) return `${fallbackBaseUrl}/api/v1`;
-    const cleaned = url.replace(/\/+$/u, "");
+    const url = String(rawBaseUrl || "").trim();
+    const looksLikeFrontendHost = /vercel\.app|vercel\.dev|localhost:3000|localhost:5173/i.test(url);
+    const selected = !url || looksLikeFrontendHost ? fallbackBaseUrl : url;
+    const cleaned = selected.replace(/\/+$/u, "");
     if (/^https?:\/\//u.test(cleaned)) {
         return `${cleaned}/api/v1`;
     }
