@@ -98,7 +98,7 @@ export const NotificationProvider = ({ children }) => {
 
     fetchNotifications?.("all", true);
 
-    const socket = io(import.meta.env.VITE_API_URL || "http://localhost:3000", {
+    const socket = io(import.meta.env.VITE_API_URL || "https://unicorebackend-zrpk.onrender.com", {
       auth:                 { token },
       transports:           ["websocket", "polling"],
       reconnectionAttempts: 10,

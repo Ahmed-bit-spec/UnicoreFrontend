@@ -14,7 +14,7 @@ import {
 const resolvePhoto = (photo) => {
   if (!photo) return null;
   if (photo.startsWith("blob:") || photo.startsWith("http")) return photo;
-  return `http://localhost:3000/${photo}`;
+  return `https://unicorebackend-zrpk.onrender.com/${photo}`;
 };
 
 const getInitials = (name = "") =>

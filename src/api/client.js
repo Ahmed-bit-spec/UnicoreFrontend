@@ -5,8 +5,11 @@ const normalizedBaseUrl = (() => {
     const url = String(rawBaseUrl).trim();
     if (!url) return "/api/v1";
     const cleaned = url.replace(/\/+$/u, "");
-    if (/^https?:\/\//u.test(cleaned) || cleaned.startsWith("/")) {
-        return cleaned;
+    if (/^https?:\/\//u.test(cleaned)) {
+        return `${cleaned}/api/v1`;
+    }
+    if (cleaned.startsWith("/")) {
+        return cleaned.includes("/api/v1") ? cleaned : `${cleaned}/api/v1`;
     }
     return `/${cleaned}`;
 })();
