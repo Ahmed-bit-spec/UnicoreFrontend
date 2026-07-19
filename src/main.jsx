@@ -98,56 +98,6 @@ axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "";
 window.API_BASE_URL = axios.defaults.baseURL;
 
-let isRefreshing = false;
-let refreshSubscribers = [];
-
-const subscribeTokenRefresh = (resolve, reject) => {
-    refreshSubscribers.push({ resolve, reject });
-};
-
-const onRefreshed = () => {
-    refreshSubscribers.forEach(({ resolve }) => resolve());
-    refreshSubscribers = [];
-};
-
-const onRefreshFailed = (error) => {
-    refreshSubscribers.forEach(({ reject }) => reject(error));
-    refreshSubscribers = [];
-};
-
-axios.interceptors.response.use(
-    (response) => response,
-    async (error) => {
-        const originalRequest = error.config;
-        const status = error.response?.status;
-        const isRefreshRequest = originalRequest?.url?.includes("/auth/refresh-token");
-
-        if (status === 401 && !originalRequest._retry && !isRefreshRequest) {
-            originalRequest._retry = true;
-
-            if (isRefreshing) {
-                return new Promise((resolve, reject) => {
-                    subscribeTokenRefresh(resolve, reject);
-                }).then(() => axios(originalRequest));
-            }
-
-            isRefreshing = true;
-            try {
-                await api.post("/auth/refresh-token", {}, { withCredentials: true });
-                onRefreshed();
-                return api(originalRequest);
-            } catch (refreshError) {
-                onRefreshFailed(refreshError);
-                return Promise.reject(refreshError);
-            } finally {
-                isRefreshing = false;
-            }
-        }
-
-        return Promise.reject(error);
-    }
-);
-
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
