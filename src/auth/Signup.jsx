@@ -237,8 +237,8 @@ const SignupPage = () => {
               {/* Google SSO */}
               <button
                 onClick={() => {
-                  window.location.href =
-                    `${import.meta.env.VITE_API_BASE_URL}/api/v1/auth/google`;
+                  const apiBase = import.meta.env.VITE_API_BASE_URL ?? "https://unicorebackend-zrpk.onrender.com";
+                  window.location.href = `${apiBase}/api/v1/auth/google`;
                 }}
                 className="mt-6 w-full flex items-center justify-center gap-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl py-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200 transition-all"
               >

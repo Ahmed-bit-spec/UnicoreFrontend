@@ -13,6 +13,7 @@ import MyReservationsPage from './student/pages/MyReservationsPage'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import LoginPage from './auth/Login'
 import { Toaster } from './components/ui/sonner'
+import api from './api/client'
 import PrivateRouter from './routes/PrivateRouter'
 import PublicRoute from './routes/PublicRoute'
 import "@fontsource/inter";
@@ -132,9 +133,9 @@ axios.interceptors.response.use(
 
             isRefreshing = true;
             try {
-                await axios.post("/api/v1/auth/refresh-token", {}, { withCredentials: true });
+                await api.post("/auth/refresh-token", {}, { withCredentials: true });
                 onRefreshed();
-                return axios(originalRequest);
+                return api(originalRequest);
             } catch (refreshError) {
                 onRefreshFailed(refreshError);
                 return Promise.reject(refreshError);

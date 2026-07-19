@@ -1,7 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
-
-axios.defaults.withCredentials = true;
+import api from "@/api/client";
 
 const AuthContext = createContext();
 
@@ -23,7 +21,7 @@ const AuthProvider = ({ children }) => {
     const checkAuth = async () => {
       try {
         console.log("[AuthContext] checking /auth/me with credentials");
-        const { data } = await axios.get("/api/v1/auth/me", { withCredentials: true });
+        const { data } = await api.get("/auth/me", { withCredentials: true });
         const userObj = normalizeUser(data.data || data.user);
         console.log("[AuthContext] auth check success", userObj);
         setUser(userObj);
@@ -63,7 +61,7 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("guestUser");
     setUser(null);
     try {
-      await axios.post("/api/v1/auth/logout", {}, { withCredentials: true });
+      await api.post("/auth/logout", {}, { withCredentials: true });
     } catch (err) {
       console.error("Logout error:", err);
     }

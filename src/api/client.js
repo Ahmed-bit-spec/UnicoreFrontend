@@ -1,9 +1,10 @@
 import axios from "axios";
 
-const rawBaseUrl = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? "/api/v1";
+const fallbackBaseUrl = "https://unicorebackend-zrpk.onrender.com";
+const rawBaseUrl = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? fallbackBaseUrl;
 const normalizedBaseUrl = (() => {
     const url = String(rawBaseUrl).trim();
-    if (!url) return "/api/v1";
+    if (!url) return `${fallbackBaseUrl}/api/v1`;
     const cleaned = url.replace(/\/+$/u, "");
     if (/^https?:\/\//u.test(cleaned)) {
         return `${cleaned}/api/v1`;
@@ -13,6 +14,10 @@ const normalizedBaseUrl = (() => {
     }
     return `/${cleaned}`;
 })();
+
+axios.defaults.baseURL = normalizedBaseUrl;
+axios.defaults.withCredentials = true;
+window.API_BASE_URL = normalizedBaseUrl;
 
 const api = axios.create({
     baseURL: normalizedBaseUrl,
@@ -54,7 +59,7 @@ api.interceptors.response.use(
 
             isRefreshing = true;
             try {
-                await axios.post("/api/v1/auth/refresh-token", {}, { withCredentials: true });
+                await api.post("/auth/refresh-token", {}, { withCredentials: true });
                 onRefreshed();
                 return api(originalRequest);
             } catch (refreshError) {
