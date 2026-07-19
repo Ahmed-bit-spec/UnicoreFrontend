@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useAuth } from "@/context/AuthContext";
+import api from "@/api/client";
 
 const OAuthCallback = () => {
   const { t } = useLanguage();
@@ -29,7 +30,7 @@ const OAuthCallback = () => {
       }
       try {
         // Fetch user data with credentials (cookie) already set by backend
-        const { data } = await axios.get("/api/v1/auth/me", { withCredentials: true });
+        const { data } = await api.get("auth/me", { withCredentials: true });
         const userObj = data.data || data.user;
         login(userObj);
 
