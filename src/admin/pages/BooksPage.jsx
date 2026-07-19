@@ -3,6 +3,12 @@
  * Green / White / Black palette · University admin feel
  * React Query + Axios · Bilingual-ready (all UI text via translation keys)
  * Supports: Physical | E-book | Both formats
+ *
+ * CHANGE: coverImage and ebookFile are now objects returned from Cloudinary
+ * ({ url, publicId } and { publicId, resourceType } respectively) instead
+ * of local file path strings. All reads below use book.coverImage?.url and
+ * book.ebookFile?.publicId accordingly. No public URL exists for ebookFile —
+ * "view" for a PDF happens through the protected /api/books/:id/read stream.
  */
 
 import { useState, useRef, useCallback, useMemo } from "react";
@@ -19,8 +25,6 @@ import {
   Download, ExternalLink, AlertTriangle, Loader2,
   Library, BarChart3, BookCopy, Bookmark,
 } from "lucide-react";
-
-
 
 // ─── API layer ─────────────────────────────────────────────────────────────────
 const api = {
@@ -51,6 +55,8 @@ const EMPTY_FORM = {
 
 // ─── Tiny helpers ──────────────────────────────────────────────────────────────
 const fmtInfo = (fmt, T) => getFormatOpts(T).find((f) => f.value === fmt) || getFormatOpts(T)[0];
+const coverUrl = (book) => book?.coverImage?.url || null;
+const hasEbook = (book) => Boolean(book?.ebookFile?.publicId);
 
 const FormatBadge = ({ format, T }) => {
   const f = fmtInfo(format, T);
@@ -199,7 +205,6 @@ const ModalShell = ({ open, onClose, title, subtitle, size = "md", children, foo
             className={`w-full ${widths[size]} bg-white dark:bg-gray-950 rounded-t-3xl sm:rounded-3xl border border-gray-100 dark:border-white/10 shadow-2xl flex flex-col max-h-[92dvh] overflow-hidden`}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Header */}
             <div className="flex-shrink-0 flex items-start justify-between px-6 pt-6 pb-5 border-b border-gray-100 dark:border-white/10">
               <div>
                 <h3 className="text-sm font-black text-gray-900 dark:text-white">{title}</h3>
@@ -210,12 +215,10 @@ const ModalShell = ({ open, onClose, title, subtitle, size = "md", children, foo
               </button>
             </div>
 
-            {/* Body */}
             <div className="flex-1 overflow-y-auto overscroll-contain px-6 py-5">
               {children}
             </div>
 
-            {/* Footer */}
             {footer && (
               <div className="flex-shrink-0 px-6 py-4 border-t border-gray-100 dark:border-white/10 bg-white dark:bg-gray-950 flex items-center justify-end gap-3">
                 {footer}
@@ -246,9 +249,9 @@ const StatCard = ({ label, value, icon: Icon, accent, sub }) => (
 const BookForm = ({ initial, onSubmit, isSaving, T }) => {
   const [form, setForm] = useState(initial || EMPTY_FORM);
   const [coverFile, setCoverFile] = useState(null);
-  const [coverPreview, setCoverPreview] = useState(initial?.coverImage || null);
+  const [coverPreview, setCoverPreview] = useState(coverUrl(initial) || null);
   const [pdfFile, setPdfFile] = useState(null);
-  const [pdfName, setPdfName] = useState(initial?.ebookFile ? "existing.pdf" : null);
+  const [pdfName, setPdfName] = useState(hasEbook(initial) ? "existing.pdf" : null);
 
   const FORMAT_OPTS = getFormatOpts(T);
   const STATUS_OPTS = getStatusOpts(T);
@@ -279,9 +282,7 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      {/* Cover + basic info */}
       <div className="flex gap-4">
-        {/* Cover drop zone */}
         <div className="w-32 flex-shrink-0">
           <p className="text-[10px] font-black uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-1.5">{T.actionUploadCover}</p>
           <DropZone
@@ -296,7 +297,6 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
           />
         </div>
 
-        {/* Title + Author */}
         <div className="flex-1 space-y-3">
           <Field label={T.fieldTitle} required>
             <Input value={form.title} onChange={(e) => set("title", e.target.value)} placeholder={T.phTitle} required />
@@ -307,7 +307,6 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
         </div>
       </div>
 
-      {/* ISBN + Category */}
       <div className="grid grid-cols-2 gap-3">
         <Field label={T.fieldISBN}>
           <Input value={form.isbn} onChange={(e) => set("isbn", e.target.value)} placeholder={T.phISBN} />
@@ -317,12 +316,10 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
         </Field>
       </div>
 
-      {/* Description */}
       <Field label={T.fieldDescription}>
         <Textarea rows={3} value={form.description} onChange={(e) => set("description", e.target.value)} placeholder={T.phDescription} />
       </Field>
 
-      {/* Format selector — button group */}
       <Field label={T.fieldFormat} required>
         <div className="grid grid-cols-3 gap-2">
           {FORMAT_OPTS.map((opt) => (
@@ -342,7 +339,6 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
         </div>
       </Field>
 
-      {/* Physical fields */}
       {needsShelf && (
         <div className="grid grid-cols-3 gap-3">
           <Field label={T.fieldShelf} className="col-span-1">
@@ -363,7 +359,6 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
         </div>
       )}
 
-      {/* PDF upload */}
       {needsPdf && (
         <Field label={T.actionUploadPdf}>
           <DropZone
@@ -379,7 +374,6 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
         </Field>
       )}
 
-      {/* Status */}
       <Field label={T.fieldStatus}>
         <div className="flex gap-2">
           {STATUS_OPTS.map((opt) => (
@@ -399,7 +393,6 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
         </div>
       </Field>
 
-      {/* Submit button (inside form, trigger from footer) */}
       <button type="submit" id="book-form-submit" className="hidden" />
     </form>
   );
@@ -431,9 +424,8 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
       }
     >
       <div className="space-y-5">
-        {/* Hero row */}
         <div className="flex gap-5">
-          <CoverImg src={book.coverImage} title={book.title} size="lg" />
+          <CoverImg src={coverUrl(book)} title={book.title} size="lg" />
           <div className="flex-1 min-w-0 space-y-2">
             <div className="flex items-start gap-2 flex-wrap">
               <FormatBadge format={book.format} T={T} />
@@ -449,7 +441,6 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
           </div>
         </div>
 
-        {/* Info grid */}
         <div className="grid grid-cols-2 gap-3">
           {book.isbn && (
             <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] px-4 py-3">
@@ -475,12 +466,14 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
             </div>
           )}
           {["ebook", "both"].includes(book.format) && (
-            <div className={`rounded-xl border px-4 py-3 ${book.ebookFile ? "border-green-200 dark:border-green-500/20 bg-green-50 dark:bg-green-500/10" : "border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03]"}`}>
+            <div className={`rounded-xl border px-4 py-3 ${hasEbook(book) ? "border-green-200 dark:border-green-500/20 bg-green-50 dark:bg-green-500/10" : "border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03]"}`}>
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">PDF</p>
-              {book.ebookFile ? (
-                <a href={book.ebookFile} target="_blank" rel="noopener noreferrer"
+              {hasEbook(book) ? (
+                // No public URL — the PDF is private on Cloudinary. Route through
+                // the protected reader page, which streams it server-side.
+                <a href={`/read/${book._id}`}
                   className="flex items-center gap-1.5 text-sm font-bold text-green-600 dark:text-green-400 hover:underline">
-                  <Download size={13} /> {T.pdfAvailable}
+                  <ExternalLink size={13} /> {T.pdfAvailable}
                 </a>
               ) : (
                 <p className="text-sm text-gray-400">{T.pdfNone}</p>
@@ -489,7 +482,6 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
           )}
         </div>
 
-        {/* Description */}
         {book.description && (
           <div>
             <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">{T.fieldDescription}</p>
@@ -557,16 +549,14 @@ const BooksPage = () => {
   const T = t.adminBooks;
   const queryClient = useQueryClient();
 
-  // UI state
   const [search, setSearch] = useState("");
   const [fmtFlt, setFmtFlt] = useState("all");
   const [stsFlt, setStsFlt] = useState("all");
   const [page, setPage] = useState(1);
   const [limit] = useState(12);
 
-  // Modal state
   const [viewing, setViewing] = useState(null);
-  const [editing, setEditing] = useState(null); // null = closed, {} = add, {book} = edit
+  const [editing, setEditing] = useState(null);
   const [deleting, setDeleting] = useState(null);
 
   const params = useMemo(() => ({
@@ -575,7 +565,6 @@ const BooksPage = () => {
     status: stsFlt !== "all" ? stsFlt : undefined,
   }), [page, limit, search, fmtFlt, stsFlt]);
 
-  // ── Queries ────────────────────────────────────────────────────────────────
   const { data, isLoading, isError } = useQuery({
     queryKey: ["admin-books", params],
     queryFn: async () => (await api.list(params)).data,
@@ -589,7 +578,6 @@ const BooksPage = () => {
   const invalidate = () => queryClient.invalidateQueries({ queryKey: ["admin-books"] });
   const errMsg = (e) => e?.response?.data?.message || T.toastError;
 
-  // ── Mutations ──────────────────────────────────────────────────────────────
   const createMut = useMutation({
     mutationFn: (fd) => api.create(fd),
     onSuccess: () => { toast.success(T.toastAdded); setEditing(null); invalidate(); },
@@ -618,7 +606,6 @@ const BooksPage = () => {
     }
   };
 
-  // Debounced search
   const searchTimer = useRef();
   const handleSearch = useCallback((v) => {
     clearTimeout(searchTimer.current);
@@ -648,7 +635,7 @@ const BooksPage = () => {
     const values = books.map((book) => {
       const copiesDisplay = ["physical", "both"].includes(book.format)
         ? `${book.availableCopies} / ${book.totalCopies}`
-        : book.ebookFile
+        : hasEbook(book)
           ? "PDF"
           : "—";
       return [
@@ -684,11 +671,9 @@ const BooksPage = () => {
     toast.success(T.toastSuccess);
   };
 
-  // ─── Render ────────────────────────────────────────────────────────────────
   return (
     <div className="space-y-7 pb-10">
 
-      {/* ── Page header ──────────────────────────────────────────────── */}
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div className="flex items-center gap-3">
           <div className="size-10 rounded-2xl bg-green-500 flex items-center justify-center shadow-lg shadow-green-500/30">
@@ -708,7 +693,6 @@ const BooksPage = () => {
         </button>
       </div>
 
-      {/* ── Stats strip ──────────────────────────────────────────────── */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
         <StatCard label={T.statsTotal} value={stats.total ?? pagination.total} icon={BookCopy} accent="bg-gray-800 dark:bg-gray-700" />
         <StatCard label={T.statsPhysical} value={stats.physical} icon={BookOpen} accent="bg-emerald-600" />
@@ -718,9 +702,7 @@ const BooksPage = () => {
         <StatCard label={T.statsArchived} value={stats.archived} icon={Archive} accent="bg-red-500" />
       </div>
 
-      {/* ── Toolbar ───────────────────────────────────────────────────── */}
       <div className="flex items-center gap-3 flex-wrap">
-        {/* Search */}
         <div className="relative flex-1 min-w-56">
           <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
           <input
@@ -753,7 +735,6 @@ const BooksPage = () => {
           ]}
         />
 
-        {/* Export button */}
         <button
           onClick={exportBooksCsv}
           disabled={books.length === 0}
@@ -765,7 +746,6 @@ const BooksPage = () => {
         </button>
       </div>
 
-      {/* ── Table ─────────────────────────────────────────────────────── */}
       <div className="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white dark:bg-white/[0.03] overflow-hidden">
         {isLoading ? (
           <div className="flex items-center justify-center py-20 gap-3">
@@ -810,21 +790,18 @@ const BooksPage = () => {
                       className="border-b border-gray-50 dark:border-white/[0.04] hover:bg-gray-50/70 dark:hover:bg-white/[0.03] transition-colors cursor-pointer group"
                       onClick={() => setViewing(book)}
                     >
-                      {/* Book col */}
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-3">
-                          <CoverImg src={book.coverImage} title={book.title} size="sm" />
+                          <CoverImg src={coverUrl(book)} title={book.title} size="sm" />
                           <div className="min-w-0">
                             <p className="text-xs font-bold text-gray-900 dark:text-white truncate max-w-[180px]">{book.title}</p>
                             <p className="text-[10px] text-gray-400 dark:text-gray-500 truncate">{book.author}</p>
                           </div>
                         </div>
                       </td>
-                      {/* ISBN */}
                       <td className="px-4 py-3">
                         <span className="text-[10px] font-mono text-gray-500 dark:text-gray-400">{book.isbn || "—"}</span>
                       </td>
-                      {/* Category */}
                       <td className="px-4 py-3">
                         {book.category ? (
                           <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-white/10 px-2 py-0.5 rounded-lg">
@@ -832,9 +809,7 @@ const BooksPage = () => {
                           </span>
                         ) : <span className="text-[10px] text-gray-300 dark:text-gray-700">—</span>}
                       </td>
-                      {/* Format */}
                       <td className="px-4 py-3"><FormatBadge format={book.format} T={T} /></td>
-                      {/* Copies */}
                       <td className="px-4 py-3">
                         {["physical", "both"].includes(book.format) ? (
                           <div className="text-xs">
@@ -842,14 +817,12 @@ const BooksPage = () => {
                             <span className="text-gray-400"> / {book.totalCopies}</span>
                           </div>
                         ) : (
-                          book.ebookFile
+                          hasEbook(book)
                             ? <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1"><FileText size={10} /> PDF</span>
                             : <span className="text-[10px] text-gray-300 dark:text-gray-700">—</span>
                         )}
                       </td>
-                      {/* Status */}
                       <td className="px-4 py-3"><StatusDot status={book.status} T={T} /></td>
-                      {/* Actions */}
                       <td className="px-4 py-3" onClick={(e) => e.stopPropagation()}>
                         <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                           <button onClick={() => setViewing(book)}
@@ -877,7 +850,6 @@ const BooksPage = () => {
           </div>
         )}
 
-        {/* Pagination */}
         {pagination.totalPages > 1 && (
           <div className="flex items-center justify-between px-4 py-3 border-t border-gray-100 dark:border-white/10">
             <span className="text-[11px] text-gray-400">
@@ -918,7 +890,6 @@ const BooksPage = () => {
         )}
       </div>
 
-      {/* ── View modal ─────────────────────────────────────────────────── */}
       <ViewModal
         book={viewing}
         open={Boolean(viewing)}
@@ -927,7 +898,6 @@ const BooksPage = () => {
         T={T}
       />
 
-      {/* ── Add / Edit modal ───────────────────────────────────────────── */}
       <ModalShell
         open={Boolean(editing)}
         onClose={() => setEditing(null)}
@@ -966,7 +936,6 @@ const BooksPage = () => {
         )}
       </ModalShell>
 
-      {/* ── Delete confirm ──────────────────────────────────────────────── */}
       <DeleteModal
         book={deleting}
         open={Boolean(deleting)}
