@@ -11,6 +11,9 @@
 import { useState, useRef, useEffect } from "react";
 import { Search, Sparkles, ArrowRight } from "lucide-react";
 import { OwlMascot, OwlMascotStyles } from "./owlmoscot";
+import InteractiveOwlMascot from "./interactiveOwl";
+import LearnVerseMascot from "./learnOwl";
+import QuizWithOwl from "./Quizowl";
 
 // Same chunky "Duolingo" button used elsewhere in the system.
 const PRIMARY_BTN =
@@ -109,6 +112,9 @@ const HeroBanner = ({ onSearch, searchValue, onSearchChange, placeholder }) => {
             <OwlMascot size={220} />
           </div>
           <OwlMascotStyles />
+          <InteractiveOwlMascot />
+          <LearnVerseMascot />
+          <QuizWithOwl />
         </div>
       </div>
     </div>
