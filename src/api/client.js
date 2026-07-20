@@ -51,8 +51,10 @@ api.interceptors.response.use(
         const originalRequest = error.config;
         const status = error.response?.status;
         const isRefreshRequest = originalRequest?.url?.includes("/auth/refresh-token");
-        const isAuthRequest = /\/auth\/(login|logout|me|refresh-token)/i.test(originalRequest?.url || "");
-
+        const isAuthRequest =
+            /\/auth\/(login|logout|refresh-token)/i.test(
+                originalRequest?.url || ""
+            );
         if (status === 401 && !originalRequest?._retry && !isRefreshRequest && !isAuthRequest) {
             originalRequest._retry = true;
 

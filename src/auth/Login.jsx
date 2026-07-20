@@ -56,7 +56,6 @@ const LoginPage = () => {
       );
 
       console.log("[LoginPage] login response", response.status, response.data);
-      console.log("[LoginPage] browser cookies after login", document.cookie);
 
       toast.success(t("auth.welcomeToast"));
       setFormData({ email: "", password: "" });
