@@ -1,31 +1,31 @@
+const DEFAULT_BACKEND_URL = "https://unicorebackend-zrpk.onrender.com";
+
 export const resolveApiBaseUrl = (provided = "", host = "") => {
-  const isSameOriginHost =
-    typeof window !== "undefined" &&
-    /localhost|127\.0\.0\.1|\.vercel\.app|\.vercel\.dev/i.test(
-      host || window.location.hostname
-    );
-
-  const fallbackBaseUrl = isSameOriginHost ? "/api/v1" : "";
   const raw = String(provided ?? "").trim();
-  const cleaned = raw.replace(/\/+$/u, "");
 
-  if (!cleaned) {
-    return fallbackBaseUrl || "/api/v1";
+  if (raw) {
+    const cleaned = raw.replace(/\/+$/u, "");
+
+    if (/^https?:\/\//u.test(cleaned)) {
+      return cleaned.endsWith("/api/v1") || cleaned.endsWith("/api")
+        ? cleaned
+        : `${cleaned}/api/v1`;
+    }
+
+    if (cleaned.startsWith("/")) {
+      return cleaned.includes("/api/v1") || cleaned.includes("/api")
+        ? cleaned
+        : `${cleaned}/api/v1`;
+    }
+
+    return `/${cleaned}`;
   }
 
-  if (/^https?:\/\//u.test(cleaned)) {
-    return cleaned.endsWith("/api/v1") || cleaned.endsWith("/api")
-      ? cleaned
-      : `${cleaned}/api/v1`;
-  }
+  const isLocalHost =
+    typeof window !== "undefined" &&
+    /localhost|127\.0\.0\.1/i.test(host || window.location.hostname);
 
-  if (cleaned.startsWith("/")) {
-    return cleaned.includes("/api/v1") || cleaned.includes("/api")
-      ? cleaned
-      : `${cleaned}/api/v1`;
-  }
-
-  return `/${cleaned}`;
+  return isLocalHost ? "/api/v1" : `${DEFAULT_BACKEND_URL}/api/v1`;
 };
 
 export const buildGoogleAuthUrl = (provided = "", host = "") => {

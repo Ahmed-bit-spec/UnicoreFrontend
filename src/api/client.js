@@ -1,23 +1,8 @@
 import axios from "axios";
+import { resolveApiBaseUrl } from "./baseUrl.js";
 
-const isSameOriginHost = typeof window !== "undefined" && /localhost|127\.0\.0\.1|\.vercel\.app|\.vercel\.dev/i.test(window.location.hostname);
-const fallbackBaseUrl = isSameOriginHost ? "/api/v1" : "";
-const explicitBaseUrl = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL;
-const rawBaseUrl = isSameOriginHost ? fallbackBaseUrl : (explicitBaseUrl ?? fallbackBaseUrl);
-const normalizedBaseUrl = (() => {
-    const url = String(rawBaseUrl || "").trim();
-    const cleaned = url.replace(/\/+$/u, "");
-    if (!cleaned) {
-        return "/api/v1";
-    }
-    if (/^https?:\/\//u.test(cleaned)) {
-        return `${cleaned}/api/v1`;
-    }
-    if (cleaned.startsWith("/")) {
-        return cleaned.includes("/api/v1") ? cleaned : `${cleaned}/api/v1`;
-    }
-    return `/${cleaned}`;
-})();
+const explicitBaseUrl = import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? "";
+const normalizedBaseUrl = resolveApiBaseUrl(explicitBaseUrl);
 
 axios.defaults.baseURL = normalizedBaseUrl;
 axios.defaults.withCredentials = true;
