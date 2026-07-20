@@ -7,6 +7,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { useAuth } from "@/context/AuthContext";
 import UnicoreLogo from "@/FrontDoorSystem/components/Logo";
 import api from "@/api/client";
+import { buildGoogleAuthUrl } from "@/api/baseUrl";
 
 const LoginPage = () => {
   const { login } = useAuth();
@@ -94,11 +95,10 @@ const LoginPage = () => {
   };
 
   const handleGoogle = () => {
-    const isSameOriginHost = typeof window !== "undefined" && /localhost|127\.0\.0\.1|\.vercel\.app|\.vercel\.dev/i.test(window.location.hostname);
-    const rawApiBase = isSameOriginHost ? "" : (import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? "");
-    const normalizedBase = String(rawApiBase || "").trim().replace(/\/+$/u, "");
-    const apiBase = normalizedBase.includes("/api/v1") ? normalizedBase : normalizedBase ? `${normalizedBase}/api/v1` : "/api/v1";
-    window.location.href = `${apiBase}/auth/google`;
+    const apiBase = buildGoogleAuthUrl(
+      import.meta.env.VITE_API_BASE_URL ?? import.meta.env.VITE_API_URL ?? ""
+    );
+    window.location.href = apiBase;
   };
 
 
