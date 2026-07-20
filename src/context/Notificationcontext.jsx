@@ -98,11 +98,14 @@ export const NotificationProvider = ({ children }) => {
 
     fetchNotifications?.("all", true);
 
-    const socket = io(import.meta.env.VITE_API_URL || "https://unicorebackend-zrpk.onrender.com", {
+    const socketUrl = import.meta.env.VITE_SOCKET_URL || import.meta.env.VITE_API_SERVER_URL || import.meta.env.VITE_API_URL || "https://api.unicores.site";
+    const socket = io(socketUrl, {
       auth:                 { token },
       transports:           ["websocket", "polling"],
       reconnectionAttempts: 10,
       reconnectionDelay:    1500,
+      withCredentials:      true,
+      path: "/socket.io",
     });
     socketRef.current = socket;
 

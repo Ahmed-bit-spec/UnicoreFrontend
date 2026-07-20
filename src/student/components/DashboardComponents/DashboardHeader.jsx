@@ -21,7 +21,7 @@ import { MobileSidebarDrawer } from "@/student/components/Sidebar";
 const resolvePhoto = (photo) => {
   if (!photo) return null;
   if (photo.startsWith("blob:") || photo.startsWith("http")) return photo;
-  return `${import.meta.env.VITE_API_BASE_URL ?? "https://unicorebackend-zrpk.onrender.com"}/${photo}`;
+  return `${import.meta.env.VITE_API_BASE_URL ?? "https://api.unicores.site/api/v1"}/${photo}`;
 };
 const getInitials = (name = "") =>
   name.split(" ").map((w) => w[0]).join("").toUpperCase().slice(0, 2) || "?";

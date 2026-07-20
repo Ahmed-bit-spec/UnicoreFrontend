@@ -14,7 +14,7 @@ import {
 const resolvePhoto = (photo) => {
   if (!photo) return null;
   if (photo.startsWith("blob:") || photo.startsWith("http")) return photo;
-  return `https://unicorebackend-zrpk.onrender.com/${photo}`;
+  return `${import.meta.env.VITE_API_BASE_URL ?? "https://api.unicores.site/api/v1"}/${photo}`;
 };
 
 const getInitials = (name = "") =>
