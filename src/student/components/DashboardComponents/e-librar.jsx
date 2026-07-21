@@ -255,7 +255,7 @@ const LibraryHome = () => {
                <div>
                  <h2
                    className="text-[17px] font-black text-black tracking-tight m-0"
-                   style={{ fontFamily: "'Georgia', serif" }}
+                   style={{ fontFamily: "'Inter', 'Segoe UI', sans-serif" }}
                  >
                    {t["recommended.title"] ?? "Recommended for You"}
                  </h2>

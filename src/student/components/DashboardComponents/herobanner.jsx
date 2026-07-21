@@ -152,7 +152,7 @@ const HeroStyles = () => (
 
 .hero-title {
   margin: 0 0 4px;
-  font-family: Georgia, 'Iowan Old Style', serif;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
   font-size: clamp(30px, 3.8vw, 44px);   /* was clamp(26px, 3.4vw, 38px) */
   line-height: 1.15;
   font-weight: 700;
