@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import api from "@/api/client";
 import { motion } from "framer-motion";
 import {
   BookOpen,
@@ -18,7 +19,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const API_BASE = import.meta.env.VITE_API_URL ?? "/api";
+
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 16 },
@@ -53,15 +54,10 @@ const TeacherClassDetailPage = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/teacher/classes/${classId}`, {
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-      });
-      if (!res.ok) throw new Error(`Server error: ${res.status}`);
-      const json = await res.json();
+      const { data: json } = await api.get(`/teacher/classes/${classId}`);
       setData(json.data);
     } catch (err) {
-      setError(err.message ?? "Failed to load class");
+      setError(err.response?.data?.message ?? err.message ?? "Failed to load class");
     } finally {
       setLoading(false);
     }
