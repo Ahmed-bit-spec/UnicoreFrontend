@@ -1,13 +1,12 @@
 // src/components/Logo.jsx
 // Usage: <UnicoreLogo size="md" />
-// Place your logo file at: src/assets/unic.png (or public/unic.png — see note below)
 
-import unicLogo from "../../assets/unic.png.jpeg";
+import unicLogo from "../../assets/unic.png.png";
 
 const sizes = {
-  sm: { height: "h-6" },   // ~24px
-  md: { height: "h-8" },   // ~32px
-  lg: { height: "h-12" },  // ~48px
+  sm: { height: "h-9" },   // ~36px — mobile drawer header
+  md: { height: "h-12" },  // ~48px — main navbar
+  lg: { height: "h-16" },  // ~64px — footer / hero / large placements
 };
 
 const UnicoreLogo = ({ size = "md", className = "" }) => {
@@ -17,7 +16,7 @@ const UnicoreLogo = ({ size = "md", className = "" }) => {
     <img
       src={unicLogo}
       alt="UNICORE"
-      className={`${s.height} w-auto select-none ${className}`}
+      className={`${s.height} w-auto object-contain select-none ${className}`}
     />
   );
 };
