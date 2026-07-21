@@ -161,7 +161,6 @@ const SettingsDrawer = ({ open, onClose }) => {
 
       const res = await axios.put("/api/v1/auth/profile", fd, {
         withCredentials: true,
-        headers: { "Content-Type": "multipart/form-data" },
       });
 
       if (setUser) setUser(res.data.user); // update global auth context → header avatar updates too

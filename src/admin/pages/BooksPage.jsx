@@ -30,8 +30,8 @@ import {
 const api = {
   list: (p) => apiClient.get("/admin/books", { params: p }),
   get: (id) => apiClient.get(`/admin/books/${id}`),
-  create: (fd) => apiClient.post("/admin/books", fd, { headers: { "Content-Type": "multipart/form-data" } }),
-  update: (id, fd) => apiClient.put(`/admin/books/${id}`, fd, { headers: { "Content-Type": "multipart/form-data" } }),
+  create: (fd) => apiClient.post("/admin/books", fd),
+  update: (id, fd) => apiClient.put(`/admin/books/${id}`, fd),
   remove: (id) => apiClient.delete(`/admin/books/${id}`),
 };
 
