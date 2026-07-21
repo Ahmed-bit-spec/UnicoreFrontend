@@ -109,7 +109,7 @@ const HeroBanner = ({ onSearch, searchValue, onSearchChange, placeholder }) => {
           <div className="hero-owl-frame">
             <OwlMascot size={220} />
           </div>
-        
+
         </div>
       </div>
     </div>
@@ -133,19 +133,31 @@ const HeroStyles = () => (
       pointer-events: none;
       background: radial-gradient(ellipse at 15% 0%, rgba(88,204,2,0.08) 0%, transparent 55%);
     }
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 64px 44px;      /* was 48px 44px */
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
 
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      padding: 48px 44px;
-      max-width: 1280px;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
+.hero-owl-frame {
+  width: 260px;            /* was 220px */
+}
+
+.hero-title {
+  margin: 0 0 4px;
+  font-family: Georgia, 'Iowan Old Style', serif;
+  font-size: clamp(30px, 3.8vw, 44px);   /* was clamp(26px, 3.4vw, 38px) */
+  line-height: 1.15;
+  font-weight: 700;
+  color: #14171A;
+}
 
     .hero-left {
       flex: 1 1 480px;
@@ -161,10 +173,7 @@ const HeroStyles = () => (
       justify-content: center;
     }
 
-    .hero-owl-frame {
-      width: 220px;
-    }
-
+   
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
@@ -201,14 +210,7 @@ const HeroStyles = () => (
       color: #3F9100;
     }
 
-    .hero-title {
-      margin: 0 0 4px;
-      font-family: Georgia, 'Iowan Old Style', serif;
-      font-size: clamp(26px, 3.4vw, 38px);
-      line-height: 1.15;
-      font-weight: 700;
-      color: #14171A;
-    }
+    
 
     /* ── the "AI-style" search field ── */
     .hero-search-shell {
