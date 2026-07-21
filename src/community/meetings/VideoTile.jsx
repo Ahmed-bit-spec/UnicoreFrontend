@@ -104,6 +104,9 @@ export const VideoTile = memo(function VideoTile({
     if (!videoRef.current) return;
     if (sameTracks(videoRef.current.srcObject, stream)) return;
     videoRef.current.srcObject = stream ?? null;
+    if (stream && videoRef.current.paused) {
+      videoRef.current.play().catch(e => console.warn("play blocked:", e));
+    }
   }, [stream]);
 
   useEffect(() => {
@@ -215,65 +218,58 @@ export const VideoTile = memo(function VideoTile({
         .animate-wave-3 { animation: wave-pulse 0.6s ease-in-out infinite 0.3s; }
       `}</style>
 
-      {/* ── Main feed or avatar ── */}
-      {hasLiveVideo ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          muted={isLocal}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${hasLiveVideo ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-            }`}
-        />) : (
-        <>
-          {/* Audio-only: hidden video still handles the audio track */}
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            muted={isLocal}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${hasLiveVideo ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-              }`}
-          />
-          {/* Avatar fallback */}
-          <div
-            className="w-full h-full flex flex-col items-center justify-center bg-[#1a1a1a] px-3"
-            style={{ gap: compact ? 6 : 16 }}
-          >
-            {photoUrl ? (
-              <img
-                src={photoUrl}
-                alt={name}
-                className={[
-                  "rounded-full object-cover ring-4 ring-[#58CC02]/30 shrink-0",
-                  compact ? "w-12 h-12" : "w-20 h-20",
-                ].join(" ")}
-                onError={(e) => { e.target.style.display = "none"; }}
-              />
-            ) : (
-              <div className={[
-                "rounded-full bg-[#58CC02] text-white font-black flex items-center justify-center shrink-0",
-                compact ? "w-12 h-12 text-base" : "w-20 h-20 text-2xl",
-              ].join(" ")}>
-                {getInitials(name)}
-              </div>
-            )}
-
-            <div className="text-center w-full">
-              <p className={["text-white font-bold truncate", compact ? "text-[11px]" : "text-sm"].join(" ")}>
-                {name}{isLocal ? " (You)" : ""}
-              </p>
-              {universityId && (
-                <p className={["text-[#58CC02]/80 font-mono mt-0.5", compact ? "text-[9px]" : "text-[11px]"].join(" ")}>
-                  {universityId}
-                </p>
-              )}
-              {!compact && (
-                <p className="text-white/40 text-xs capitalize mt-1">{role}</p>
-              )}
+      {/* ── Main feed always rendered so srcObject persists ── */}
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        muted={isLocal}
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+          hasLiveVideo ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+        }`}
+      />
+      
+      {/* ── Avatar fallback (shown only if no live video) ── */}
+      {!hasLiveVideo && (
+        <div
+          className="w-full h-full flex flex-col items-center justify-center bg-[#1a1a1a] px-3 z-0"
+          style={{ gap: compact ? 6 : 16 }}
+        >
+          {photoUrl ? (
+            <img
+              src={photoUrl}
+              alt={name}
+              className={[
+                "rounded-full object-cover ring-4 ring-[#58CC02]/30 shrink-0",
+                compact ? "w-12 h-12" : "w-20 h-20",
+              ].join(" ")}
+              onError={(e) => { e.target.style.display = "none"; }}
+            />
+          ) : (
+            <div
+              className={[
+                "rounded-full flex items-center justify-center bg-[#58CC02] text-white shrink-0 font-black",
+                compact ? "w-12 h-12 text-base" : "w-20 h-20 text-3xl",
+              ].join(" ")}
+            >
+              {getInitials(name)}
             </div>
+          )}
+
+          <div className="text-center w-full">
+            <p className={["text-white font-bold truncate", compact ? "text-[11px]" : "text-sm"].join(" ")}>
+              {name}{isLocal ? " (You)" : ""}
+            </p>
+            {universityId && (
+              <p className={["text-[#58CC02]/80 font-mono mt-0.5", compact ? "text-[9px]" : "text-[11px]"].join(" ")}>
+                {universityId}
+              </p>
+            )}
+            {!compact && (
+              <p className="text-white/40 text-xs capitalize mt-1">{role}</p>
+            )}
           </div>
-        </>
+        </div>
       )}
 
 

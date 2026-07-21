@@ -400,9 +400,15 @@ export function useMeetingWebRTC({ meetingCode, user, role, enabled, isHost = fa
   const toggleMute = useCallback(async () => {
     let stream = localStreamRef.current;
     if (!stream) stream = await ensureAudio();
-    if (!stream) return;
+    if (!stream) {
+      toast.error("Could not access microphone. Please check permissions.");
+      return;
+    }
     const track = stream.getAudioTracks()[0];
-    if (!track) return;
+    if (!track) {
+      toast.error("No audio track found in microphone stream.");
+      return;
+    }
     const nextMuted = !isMuted;
     track.enabled = !nextMuted;
     setIsMuted(nextMuted);
@@ -445,7 +451,10 @@ export function useMeetingWebRTC({ meetingCode, user, role, enabled, isHost = fa
     for (const c of constraints) {
       try { camStream = await navigator.mediaDevices.getUserMedia(c); break; } catch {}
     }
-    if (!camStream) { toast.error("Could not access camera"); return; }
+    if (!camStream) {
+      toast.error("Could not access camera. Please check permissions.");
+      return;
+    }
 
     cameraStreamRef.current = camStream;
     const videoTrack = camStream.getVideoTracks()[0];
