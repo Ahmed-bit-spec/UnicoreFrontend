@@ -126,6 +126,11 @@ const LoginPage = () => {
       return;
     }
 
+    if (!turnstileToken || turnstileToken === "dev-bypass") {
+      toast.error("Please complete Cloudflare verification before continuing.");
+      return;
+    }
+
     await submitLogin();
   };
 

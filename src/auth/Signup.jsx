@@ -164,6 +164,11 @@ const SignupPage = () => {
       return;
     }
 
+    if (!turnstileToken || turnstileToken === "dev-bypass") {
+      setRegisterError("Please complete Cloudflare verification before continuing.");
+      return;
+    }
+
     const pw = registerData.password;
     if (pw.length < 8) {
       setRegisterError(t("auth.passwordShort")); return;
