@@ -2,17 +2,9 @@
 // All data persisted in MongoDB. No localStorage for user data.
 // localStorage used ONLY for optimistic UI caching (invalidated on mount).
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-
-// ── Axios instance ─────────────────────────────────────────────────────────────
-const api = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL ?? "" });
-api.interceptors.request.use((cfg) => {
-  const token = localStorage.getItem("token");
-  if (token) cfg.headers.Authorization = `Bearer ${token}`;
-  return cfg;
-});
+import api from "@/api/client";
 
 export const CATEGORY_ICONS = {
 
@@ -126,7 +118,7 @@ export const useELibrary = () => {
   const { data: booksData, isLoading, isFetching, error } = useQuery({
     queryKey: ["books", debouncedSearch, activeCategory, page],
     queryFn: () =>
-      api.get("/api/books", { params: { search: debouncedSearch, category: activeCategory, page, limit: 12 } })
+      api.get("/books", { params: { search: debouncedSearch, category: activeCategory, page, limit: 12 } })
         .then((r) => r.data),
     keepPreviousData: true,
     staleTime: 30_000,
@@ -135,7 +127,7 @@ export const useELibrary = () => {
   // ── Personalized recommendations ─────────────────────────────────────────
   const { data: recData, isLoading: recLoading } = useQuery({
     queryKey: ["recommendations", "personalized"],
-    queryFn: () => api.get("/api/e-library/recommendations").then((r) => r.data),
+    queryFn: () => api.get("/e-library/recommendations").then((r) => r.data),
     staleTime: 120_000,
     retry: 1,
   });
@@ -143,12 +135,12 @@ export const useELibrary = () => {
   // ── Favorites ────────────────────────────────────────────────────────────
   const { data: favData } = useQuery({
     queryKey: ["favorites"],
-    queryFn: () => api.get("/api/e-library/favorites").then((r) => r.data.data ?? []),
+    queryFn: () => api.get("/e-library/favorites").then((r) => r.data.data ?? []),
     staleTime: 60_000,
   });
 
   const favoriteMutation = useMutation({
-    mutationFn: (bookId) => api.post(`/api/e-library/favorites/${bookId}`).then((r) => r.data),
+    mutationFn: (bookId) => api.post(`/e-library/favorites/${bookId}`).then((r) => r.data),
     onMutate: async (bookId) => {
       await qc.cancelQueries({ queryKey: ["favorites"] });
       const prev = qc.getQueryData(["favorites"]) ?? [];
@@ -199,31 +191,31 @@ export const useBookReader = (bookId) => {
   // ── Progress ─────────────────────────────────────────────────────────────
   const { data: progressData } = useQuery({
     queryKey: ["progress", bookId],
-    queryFn: () => bookId ? api.get(`/api/books/${bookId}/progress`).then((r) => r.data.data) : null,
+    queryFn: () => bookId ? api.get(`/books/${bookId}/progress`).then((r) => r.data.data) : null,
     enabled: !!bookId,
     staleTime: 10_000,
   });
 
   const saveProgressMutation = useMutation({
-    mutationFn: (body) => api.put(`/api/books/${bookId}/progress`, body).then((r) => r.data.data),
+    mutationFn: (body) => api.put(`/books/${bookId}/progress`, body).then((r) => r.data.data),
     onSuccess: (data) => qc.setQueryData(["progress", bookId], data),
   });
 
   // ── Bookmarks ─────────────────────────────────────────────────────────────
   const { data: bmData } = useQuery({
     queryKey: ["bookmarks", bookId],
-    queryFn: () => bookId ? api.get(`/api/books/${bookId}/bookmarks`).then((r) => r.data.data ?? []) : [],
+    queryFn: () => bookId ? api.get(`/books/${bookId}/bookmarks`).then((r) => r.data.data ?? []) : [],
     enabled: !!bookId,
     staleTime: 30_000,
   });
 
   const addBmMutation = useMutation({
-    mutationFn: (body) => api.post(`/api/books/${bookId}/bookmarks`, body).then((r) => r.data.data),
+    mutationFn: (body) => api.post(`/books/${bookId}/bookmarks`, body).then((r) => r.data.data),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["bookmarks", bookId] }),
   });
 
   const removeBmMutation = useMutation({
-    mutationFn: (bmId) => api.delete(`/api/books/${bookId}/bookmarks/${bmId}`),
+    mutationFn: (bmId) => api.delete(`/books/${bookId}/bookmarks/${bmId}`),
     onMutate: async (bmId) => {
       await qc.cancelQueries({ queryKey: ["bookmarks", bookId] });
       const prev = qc.getQueryData(["bookmarks", bookId]) ?? [];
@@ -252,13 +244,13 @@ export const useNotes = (bookId) => {
 
   const { data } = useQuery({
     queryKey: ["notes", bookId],
-    queryFn: () => bookId ? api.get(`/api/books/${bookId}/notes`).then((r) => r.data.data ?? {}) : {},
+    queryFn: () => bookId ? api.get(`/books/${bookId}/notes`).then((r) => r.data.data ?? {}) : {},
     enabled: !!bookId,
     staleTime: 30_000,
   });
 
   const mutateFn = useMutation({
-    mutationFn: ({ page, text }) => api.put(`/api/books/${bookId}/notes/${page}`, { text }).then((r) => r.data),
+    mutationFn: ({ page, text }) => api.put(`/books/${bookId}/notes/${page}`, { text }).then((r) => r.data),
     onMutate: async ({ page, text }) => {
       await qc.cancelQueries({ queryKey: ["notes", bookId] });
       const prev = qc.getQueryData(["notes", bookId]) ?? {};
@@ -283,9 +275,9 @@ export const useNotes = (bookId) => {
 //  useMyLibrary — My Library page: all user data in one place
 // ══════════════════════════════════════════════════════════════════════════════
 export const useMyLibrary = () => {
-  const { data: favData, isLoading: fl } = useQuery({ queryKey: ["favorites"], queryFn: () => api.get("/api/books/favorites/mine").then((r) => r.data.data ?? []), staleTime: 60_000 });
-  const { data: progressData, isLoading: pl } = useQuery({ queryKey: ["progress/all"], queryFn: () => api.get("/api/books/progress/all").then((r) => r.data.data ?? []), staleTime: 30_000 });
-  const { data: bmData, isLoading: bl } = useQuery({ queryKey: ["bookmarks/all"], queryFn: () => api.get("/api/books/bookmarks/all").then((r) => r.data.data ?? []), staleTime: 30_000 });
+  const { data: favData, isLoading: fl } = useQuery({ queryKey: ["favorites"], queryFn: () => api.get("/books/favorites/mine").then((r) => r.data.data ?? []), staleTime: 60_000 });
+  const { data: progressData, isLoading: pl } = useQuery({ queryKey: ["progress/all"], queryFn: () => api.get("/books/progress/all").then((r) => r.data.data ?? []), staleTime: 30_000 });
+  const { data: bmData, isLoading: bl } = useQuery({ queryKey: ["bookmarks/all"], queryFn: () => api.get("/books/bookmarks/all").then((r) => r.data.data ?? []), staleTime: 30_000 });
 
   const allProgress = progressData ?? [];
 

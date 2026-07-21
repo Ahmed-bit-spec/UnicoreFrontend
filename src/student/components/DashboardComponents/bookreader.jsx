@@ -48,7 +48,7 @@ api.interceptors.request.use((cfg) => {
   return cfg;
 });
 const fetchBook = async (id) => {
-  const { data } = await api.get(`/api/books/${id}`);
+  const { data } = await api.get(`/books/${id}`);
   return data.data ?? data.book;
 };
 
@@ -721,7 +721,7 @@ const BookReader = () => {
     enabled: !!id,
   });
 
-  const pdfUrl = book ? `${import.meta.env.VITE_API_BASE_URL ?? ""}/api/books/${id}/read` : null;
+  const pdfUrl = book ? `${import.meta.env.VITE_API_BASE_URL ?? ""}/books/${id}/read` : null;
 
   const onDocumentLoad = useCallback(async (pdf) => {
     setNumPages(pdf.numPages);
