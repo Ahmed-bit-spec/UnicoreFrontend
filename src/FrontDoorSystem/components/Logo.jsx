@@ -1,7 +1,7 @@
 // src/components/Logo.jsx
 // Usage: <UnicoreLogo size="md" />
 
-import unicLogo from "../../assets/unic.png.png";
+import unicLogo from "../../assets/logo.jpeg";
 
 const sizes = {
   sm: { height: "h-9" },   // ~36px — mobile drawer header
