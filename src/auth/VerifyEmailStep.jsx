@@ -206,11 +206,7 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
                 <button
                   onClick={handleResendCode}
                   disabled={step === "sending"}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600 dark:text-green-400 hover:underline disabled:opacity-50   bg-[#58CC02] text-white text-sm font-bold
-                    shadow-[0_4px_0_#46A302]
-                    hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
-                    active:translate-y-1 active:shadow-none
-                    transition-all duration-150"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600 dark:text-green-400 hover:underline disabled:opacity-50 "
                 >
                   {t("auth.resendCode")}
                 </button>
