@@ -185,7 +185,11 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
                 <button
                   type="submit"
                   disabled={!verifyCode.trim() || step === "verifying"}
-                  className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm py-3 rounded-xl transition-all shadow-sm shadow-green-200 dark:shadow-none"
+                  className="w-full flex items-center justify-center gap-2  hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm py-3 rounded-xl  bg-[#58CC02] text-white text-sm font-bold
+                    shadow-[0_4px_0_#46A302]
+                    hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+                    active:translate-y-1 active:shadow-none
+                    transition-all duration-150"
                 >
                   {step === "verifying"
                     ? <><Loader2 className="w-5 h-5 animate-spin" />{t("auth.verifyingCode")}</>
@@ -202,7 +206,11 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
                 <button
                   onClick={handleResendCode}
                   disabled={step === "sending"}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600 dark:text-green-400 hover:underline disabled:opacity-50"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600 dark:text-green-400 hover:underline disabled:opacity-50   bg-[#58CC02] text-white text-sm font-bold
+                    shadow-[0_4px_0_#46A302]
+                    hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+                    active:translate-y-1 active:shadow-none
+                    transition-all duration-150"
                 >
                   {t("auth.resendCode")}
                 </button>
