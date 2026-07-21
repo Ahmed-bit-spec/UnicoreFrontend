@@ -1,6 +1,9 @@
 // BookReader.jsx — Uniso E-Library v3
 // Production-grade: immersive layout, smooth transitions, full dark mode, real watermark
 // v3.1: AI panel can now expand/restore (Library Tutor), width transitions smoothly
+// v3.2: FIX — PDF now loads with an authenticated request (react-pdf's <Document>
+//       does its own fetch and was not going through the axios instance / token,
+//       so protected /books/:id/read calls were rejected and showed "Failed to load PDF")
 
 import { useState, useCallback, useEffect, useRef, memo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -721,7 +724,25 @@ const BookReader = () => {
     enabled: !!id,
   });
 
+  // ── FIX: react-pdf's <Document> performs its own network request and does
+  // NOT go through the `api` axios instance above, so the auth token was
+  // never attached to this request. The backend's readEbook() requires
+  // req.user?.universityVerified, so the unauthenticated request was
+  // rejected (401/403) and react-pdf surfaced that as "Failed to load PDF".
+  // Passing the object form of `file` (with httpHeaders) makes react-pdf
+  // attach the Authorization header itself.
   const pdfUrl = book ? `${import.meta.env.VITE_API_BASE_URL ?? ""}/books/${id}/read` : null;
+  const pdfFile = pdfUrl
+    ? {
+        url: pdfUrl,
+        httpHeaders: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        // Include if your backend also relies on a session cookie in addition
+        // to (or instead of) the bearer token. Harmless to leave on otherwise.
+        withCredentials: true,
+      }
+    : null;
 
   const onDocumentLoad = useCallback(async (pdf) => {
     setNumPages(pdf.numPages);
@@ -958,9 +979,15 @@ const BookReader = () => {
             </div>
           ) : (
             <Document
-              file={pdfUrl}
+              file={pdfFile}
               onLoadSuccess={onDocumentLoad}
-              onLoadError={() => setPdfError(true)}
+              onLoadError={(err) => {
+                // Keep this during debugging — it will show a 401/403 (auth),
+                // a CORS error, or a stream/parse error, which tells you
+                // exactly which of the three causes it is.
+                console.error("PDF load error:", err);
+                setPdfError(true);
+              }}
               loading={
                 <div style={{ marginTop: "100px", textAlign: "center" }}>
                   <div style={{ width: "32px", height: "32px", border: `2px solid ${T.accent}`, borderTopColor: "transparent", borderRadius: "50%", margin: "0 auto 14px", animation: "spin 0.8s linear infinite" }} />
