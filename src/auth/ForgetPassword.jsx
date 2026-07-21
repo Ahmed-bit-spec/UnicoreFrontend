@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import UnicoreLogo from "@/FrontDoorSystem/components/Logo";
 import api from "@/api/client";
+import TurnstileWidget from "@/components/TurnstileWidget";
 
 // ─── Password strength engine (mirrors backend passwordService.validateStrength) ─
 const PW_CHECKS = [
@@ -143,6 +144,7 @@ const ForgotPassword = () => {
 
   const [emailError, setEmailError] = useState("");
   const [resetError, setResetError] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   // Rotate loading text
   useEffect(() => {
@@ -159,12 +161,16 @@ const ForgotPassword = () => {
   const handleSendCode = async (e) => {
     e.preventDefault();
     if (!email) { setEmailError(t("auth.fillAllFields")); return; }
+    if (!turnstileToken || turnstileToken === "dev-bypass") {
+      setEmailError("Please complete Cloudflare verification before continuing.");
+      return;
+    }
     setEmailError("");
     setStep("sending");
     setLoadingPhase(0);
 
     try {
-      await axios.post("/api/v1/auth/forgot-password", { email });
+      await api.post("/auth/forgot-password", { email, turnstileToken }, { withCredentials: true });
       // Transition directly to verify — no extra animating state needed
       setStep("verify");
     } catch (err) {
@@ -212,10 +218,14 @@ const ForgotPassword = () => {
   };
 
   const handleResend = async () => {
+    if (!turnstileToken || turnstileToken === "dev-bypass") {
+      setResetError("Please complete Cloudflare verification before continuing.");
+      return;
+    }
     setStep("sending");
     setLoadingPhase(0);
     try {
-      await axios.post("/api/v1/auth/forgot-password", { email });
+      await api.post("/auth/forgot-password", { email, turnstileToken }, { withCredentials: true });
       setStep("verify");
       toast.success(t("auth.codeResent"));
     } catch (err) {
@@ -318,6 +328,13 @@ const ForgotPassword = () => {
                     placeholder={t("auth.emailPlaceholder")}
                     autoFocus
                     className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
+                  />
+                </div>
+
+                <div className="mt-1">
+                  <TurnstileWidget
+                    onVerify={setTurnstileToken}
+                    onExpire={() => setTurnstileToken("")}
                   />
                 </div>
 
