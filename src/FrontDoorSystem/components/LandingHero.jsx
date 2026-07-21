@@ -15,16 +15,7 @@ const stagger = { animate: { transition: { staggerChildren: 0.09 } } };
 const Hero = ({ t }) => (
   <section className="relative w-full bg-white dark:bg-black" aria-label="Hero">
 
-    {/* Green gradient glow — light mode */}
-    <div
-      className="absolute inset-0 pointer-events-none dark:hidden"
-      style={{
-        background: `
-        radial-gradient(ellipse 1100px 550px at 50% -5%, rgba(99, 223, 78, 0.22) 0%, rgba(99, 223, 78, 0.10) 40%, rgba(255,255,255,0) 75%),
-        linear-gradient(180deg, #FFFFFF 0%, #F7FFF3 45%, #FFFFFF 100%)
-      `,
-      }}
-    />
+  
 
     {/* Green gradient glow — dark mode */}
     <div
