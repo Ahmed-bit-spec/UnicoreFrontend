@@ -406,7 +406,13 @@ const SignupPage = () => {
         <div className="absolute top-0 left-0 right-0 h-1 bg-green-500" />
 
         <div className="relative z-10 max-w-sm">
-          <div className="w-14 h-14 rounded-2xl bg-green-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
+          <div className="w-14 h-14 rounded-2xl bg-[#58CC02]
+              text-white text-sm font-bold
+              shadow-[0_4px_0_#46A302]
+              hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+              active:translate-y-1 active:shadow-none
+              transition-all duration-150
+              flex items-center justify-center mx-auto mb-6">
             <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
               <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
               <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />

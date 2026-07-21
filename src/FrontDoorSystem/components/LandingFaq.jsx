@@ -99,13 +99,13 @@ const Faq = ({ t }) => {
               transition-all
               duration-150">
           <div className="px-8 sm:px-12 py-12 sm:py-16 text-center">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-black/50 mb-3">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-white mb-3">
               {t?.landing?.faqCtaEyebrow || "University of Somalia"}
             </p>
-            <h3 className="text-2xl sm:text-3xl font-black text-black max-w-lg mx-auto leading-tight">
+            <h3 className="text-2xl sm:text-3xl font-black text-white max-w-lg mx-auto leading-tight">
               {t?.landing?.faqCtaTitle || "Ready to access your library?"}
             </h3>
-            <p className="text-black/60 text-sm mt-3 mb-8 max-w-sm mx-auto leading-relaxed">
+            <p className="text-white/80 text-sm mt-3 mb-8 max-w-sm mx-auto leading-relaxed">
               {t?.landing?.faqCtaDescription || "Create a free account and start reserving seats and reading books today."}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -117,7 +117,7 @@ const Faq = ({ t }) => {
               </Link>
               <Link
                 to="/login"
-                className="px-7 py-3 text-sm font-semibold text-black/60 hover:text-black transition-colors"
+                className="px-7 py-3 text-sm font-semibold text-white/80 hover:text-white transition-colors"
               >
                 {t?.navbar?.signIn || "Sign In"}
               </Link>

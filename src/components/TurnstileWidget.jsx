@@ -2,6 +2,7 @@
  * Cloudflare Turnstile widget — Duolingo-styled.
  * Calls onVerify(token) on success, onExpire() when the challenge expires.
  * Falls back to a dev-bypass when VITE_TURNSTILE_SITE_KEY is not set.
+ * Width stretches to fill its parent, matching the form inputs.
  */
 import React, { useCallback, useEffect, useState } from "react";
 
@@ -14,7 +15,7 @@ function TurnstileDevBypass({ onVerify, className }) {
   }, [onVerify]);
 
   return (
-    <div className={`text-[11px] text-gray-400 dark:text-gray-600 text-center py-1 ${className}`}>
+    <div className={`text-[11px] text-gray-400 dark:text-gray-600 text-center py-1 w-full ${className}`}>
       Turnstile: dev mode (no SITE_KEY)
     </div>
   );
@@ -44,15 +45,16 @@ function TurnstileReal({ onVerify, onExpire, className }) {
   const handleError = useCallback(() => setStatus("error"), []);
 
   return (
-    <div className={`flex flex-col items-center gap-1.5 ${className}`}>
-      <div className="flex justify-center w-full min-h-[68px] items-center">
+    <div className={`flex flex-col w-full gap-1.5 ${className}`}>
+      <div className="w-full min-h-[68px] flex items-center justify-center">
         {TurnstileComp ? (
           <TurnstileComp
             siteKey={SITE_KEY}
             onSuccess={handleSuccess}
             onExpire={handleExpire}
             onError={handleError}
-            options={{ theme: "auto", size: "normal" }}
+            options={{ theme: "auto", size: "flexible" }}
+            className="w-full"
           />
         ) : (
           <div className="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 border-t-green-500 animate-spin" />
