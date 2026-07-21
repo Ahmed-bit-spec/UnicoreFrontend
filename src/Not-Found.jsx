@@ -97,7 +97,13 @@ const NotFound = () => {
         <button
           type="button"
           onClick={() => window.history.back()}
-          className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors px-6 py-3.5"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors px-6 py-3.5 
+           bg-[#58CC02] text-white text-sm font-bold
+                              shadow-[0_4px_0_#46A302]
+                              hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+                              active:translate-y-1 active:shadow-none
+                              transition-all duration-150"
+
         >
           <ArrowLeft size={16} />
           {goBackLabel}
