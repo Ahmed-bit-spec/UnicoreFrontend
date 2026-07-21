@@ -94,7 +94,7 @@ const LoginPage = () => {
     try {
       const response = await api.post(
         "/auth/login",
-        { ...formData, cfTurnstileResponse: turnstileToken },
+        { ...formData, turnstileToken },
         { withCredentials: true }
       );
 

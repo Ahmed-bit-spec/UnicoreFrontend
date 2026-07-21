@@ -197,7 +197,7 @@ const SignupPage = () => {
       await new Promise((r) => setTimeout(r, 2200));
       await api.post(
         "/auth/register",
-        { ...registerData, cfTurnstileResponse: turnstileToken },
+        { ...registerData, turnstileToken },
         { withCredentials: true }
       );
       setSavedEmail(registerData.email);
