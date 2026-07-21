@@ -63,15 +63,20 @@ const CoverImage = ({ src, title, format }) => {
     );
   }
 
-  return (
-    <img
-      src={src.startsWith("http") ? src : `${import.meta.env.VITE_API_BASE_URL ?? ""}/${src.replace(/^\//, "")}`}
-      alt={title}
-      onError={() => setError(true)}
-      className="w-full h-full object-cover"
-    />
-  );
-};
+return (
+  <img
+    src={
+      (typeof src === "object" ? src?.url : src)?.startsWith("http")
+        ? (typeof src === "object" ? src?.url : src)
+        : `${import.meta.env.VITE_API_BASE_URL ?? ""}/${(typeof src === "object" ? src?.url : src)?.replace(/^\//, "")}`
+    }
+    alt={title}
+    onError={() => setError(true)}
+    className="w-full h-full object-cover"
+  />
+)
+
+}
 
 // ── Format badge ───────────────────────────────────────────────────────────────
 const FormatBadge = ({ format }) => {
