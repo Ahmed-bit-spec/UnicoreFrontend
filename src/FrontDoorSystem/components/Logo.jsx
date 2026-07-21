@@ -2,7 +2,7 @@
 // Usage: <UnicoreLogo size="md" />
 // Place your logo file at: src/assets/unic.png (or public/unic.png — see note below)
 
-import unicLogo from "../../assets/unic.png"; // Adjust the path as necessary
+import unicLogo from "../../assets/unic.png.jpeg";
 
 const sizes = {
   sm: { height: "h-6" },   // ~24px
