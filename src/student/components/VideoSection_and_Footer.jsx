@@ -108,7 +108,7 @@ export const TutorialSection = () => {
   }));
 
   return (
-    <section className="max-w-6xl mx-auto mt-10 px-6">
+    <section className="w-full mt-10 px-6">
       <div className="grid md:grid-cols-2 gap-6 items-start">
         <div className="md:sticky md:top-24">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-gray-200 dark:border-gray-800 rounded-full mb-5">
