@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
+import apiClient from "@/api/client";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { format } from "date-fns";
@@ -216,14 +217,14 @@ const AdminNotificationsPage = () => {
       if (search)             params.search = search;
       if (typeFilter   !== "all") params.type   = typeFilter;
       if (statusFilter !== "all") params.status = statusFilter;
-      const { data } = await axios.get("/api/v1/notifications/admin/all", { params });
+      const { data } = await apiClient.get("/notifications/admin/all", { params });
       return data;
     },
     staleTime: 30_000,
   });
 
   const sendMutation = useMutation({
-    mutationFn: (payload) => axios.post("/api/v1/notifications/admin/send", payload),
+    mutationFn: (payload) => apiClient.post("/notifications/admin/send", payload),
     onSuccess: () => {
       toast.success(t?.notification?.sendSuccess ?? "Notification sent");
       qc.invalidateQueries(["adminNotifications"]);
@@ -234,7 +235,7 @@ const AdminNotificationsPage = () => {
   });
 
   const editMutation = useMutation({
-    mutationFn: ({ id, payload }) => axios.put(`/api/v1/notifications/admin/${id}`, payload),
+    mutationFn: ({ id, payload }) => apiClient.put(`/notifications/admin/${id}`, payload),
     onSuccess: () => {
       toast.success("Notification updated");
       qc.invalidateQueries(["adminNotifications"]);
@@ -244,7 +245,7 @@ const AdminNotificationsPage = () => {
   });
 
   const deleteMutation = useMutation({
-    mutationFn: (id) => axios.delete(`/api/v1/notifications/admin/${id}`),
+    mutationFn: (id) => apiClient.delete(`/notifications/admin/${id}`),
     onSuccess: () => {
       toast.success("Deleted");
       qc.invalidateQueries(["adminNotifications"]);

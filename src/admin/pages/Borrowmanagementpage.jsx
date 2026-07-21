@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+import apiClient from "@/api/client";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import {
@@ -15,15 +15,15 @@ import PageHeader from "@/admin/components/PageHeader";
 
 // ─── API ──────────────────────────────────────────────────────────────────────
 const api = {
-    stats: () => axios.get("/api/v1/admin/borrows/stats"),
-    list: (params) => axios.get("/api/v1/admin/borrows", { params }),
-    get: (id) => axios.get(`/api/v1/admin/borrows/${id}`),
-    issue: (body) => axios.post("/api/v1/admin/borrows", body),
-    return: (id) => axios.post(`/api/v1/admin/borrows/${id}/return`),
-    extend: (id, dueDate) => axios.patch(`/api/v1/admin/borrows/${id}/extend`, { dueDate }),
-    lost: (id) => axios.patch(`/api/v1/admin/borrows/${id}/lost`),
-    searchStudents: (q) => axios.get("/api/v1/admin/borrows/students/search", { params: { q } }),
-    searchBooks: (q) => axios.get("/api/v1/admin/books", { params: { search: q, limit: 10 } }),
+    stats: () => apiClient.get("/admin/borrows/stats"),
+    list: (params) => apiClient.get("/admin/borrows", { params }),
+    get: (id) => apiClient.get(`/admin/borrows/${id}`),
+    issue: (body) => apiClient.post("/admin/borrows", body),
+    return: (id) => apiClient.post(`/admin/borrows/${id}/return`),
+    extend: (id, dueDate) => apiClient.patch(`/admin/borrows/${id}/extend`, { dueDate }),
+    lost: (id) => apiClient.patch(`/admin/borrows/${id}/lost`),
+    searchStudents: (q) => apiClient.get("/admin/borrows/students/search", { params: { q } }),
+    searchBooks: (q) => apiClient.get("/admin/books", { params: { search: q, limit: 10 } }),
 };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────

@@ -12,7 +12,7 @@ import PageHeader from "@/admin/components/PageHeader";
 import DashboardCard from "@/admin/components/DashboardCard";
 import { useLanguage } from "@/hooks/useLanguage";
 import { fetchQrStats } from "@/api/admin";
-import axios from "axios";
+import apiClient from "@/api/client";
 
 
 // ─── helpers ──────────────────────────────────────────────────────────────────
@@ -34,11 +34,11 @@ const getStatusColor = (status) => ({
   no_show:   { bg: "bg-orange-500/10", text: "text-orange-500", border: "border-orange-500/30" },
 })[status] ?? { bg: "bg-gray-100", text: "text-gray-500", border: "border-gray-300" };
 
-// ─── API calls ────────────────────────────────────────────────────────────────
-const lookupByQr  = (qrCode)        => axios.get(`/api/v1/admin/reservations/lookup/qr/${qrCode}`);
-const lookupById  = (reservationId) => axios.get(`/api/v1/admin/reservations/lookup/id/${reservationId}`);
-const adminCheckin  = (reservationId) => axios.post(`/api/v1/admin/reservations/checkin/${reservationId}`);
-const adminCheckout = (reservationId) => axios.post(`/api/v1/admin/reservations/checkout/${reservationId}`);
+// ─── API calls ────────────────────────────────────────────────────────────────────────────
+const lookupByQr  = (qrCode)        => apiClient.get(`/admin/reservations/lookup/qr/${qrCode}`);
+const lookupById  = (reservationId) => apiClient.get(`/admin/reservations/lookup/id/${reservationId}`);
+const adminCheckin  = (reservationId) => apiClient.post(`/admin/reservations/checkin/${reservationId}`);
+const adminCheckout = (reservationId) => apiClient.post(`/admin/reservations/checkout/${reservationId}`);
 
 // ─── Reservation Detail Card ──────────────────────────────────────────────────
 const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => {

@@ -11,11 +11,11 @@
  * "view" for a PDF happens through the protected /api/books/:id/read stream.
  */
 
-import { useState, useRef, useCallback, useMemo } from "react";
+import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
+import apiClient from "@/api/client";
 import { toast } from "sonner";
 import {
   BookOpen, BookMarked, FileText, Search, Filter,
@@ -28,11 +28,11 @@ import {
 
 // ─── API layer ─────────────────────────────────────────────────────────────────
 const api = {
-  list: (p) => axios.get("/api/v1/admin/books", { params: p }),
-  get: (id) => axios.get(`/api/v1/admin/books/${id}`),
-  create: (fd) => axios.post("/api/v1/admin/books", fd, { headers: { "Content-Type": "multipart/form-data" } }),
-  update: (id, fd) => axios.put(`/api/v1/admin/books/${id}`, fd, { headers: { "Content-Type": "multipart/form-data" } }),
-  remove: (id) => axios.delete(`/api/v1/admin/books/${id}`),
+  list: (p) => apiClient.get("/admin/books", { params: p }),
+  get: (id) => apiClient.get(`/admin/books/${id}`),
+  create: (fd) => apiClient.post("/admin/books", fd, { headers: { "Content-Type": "multipart/form-data" } }),
+  update: (id, fd) => apiClient.put(`/admin/books/${id}`, fd, { headers: { "Content-Type": "multipart/form-data" } }),
+  remove: (id) => apiClient.delete(`/admin/books/${id}`),
 };
 
 // ─── Constants (functions so they receive T from the hook at runtime) ──────────
@@ -253,6 +253,15 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
   const [pdfFile, setPdfFile] = useState(null);
   const [pdfName, setPdfName] = useState(hasEbook(initial) ? "existing.pdf" : null);
 
+  // Re-initialise the form whenever the book being edited changes
+  useEffect(() => {
+    setForm(initial || EMPTY_FORM);
+    setCoverFile(null);
+    setCoverPreview(coverUrl(initial) || null);
+    setPdfFile(null);
+    setPdfName(hasEbook(initial) ? "existing.pdf" : null);
+  }, [initial]);
+
   const FORMAT_OPTS = getFormatOpts(T);
   const STATUS_OPTS = getStatusOpts(T);
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
@@ -270,7 +279,12 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const fd = new FormData();
-    Object.entries(form).forEach(([k, v]) => fd.append(k, v));
+    // Append only non-empty values to avoid triggering required-field errors
+    // for optional fields that were left blank.
+    Object.entries(form).forEach(([k, v]) => {
+      const str = String(v ?? "").trim();
+      if (str !== "") fd.append(k, str);
+    });
     if (coverFile) fd.append("coverImage", coverFile);
     if (pdfFile) fd.append("ebookFile", pdfFile);
     onSubmit(fd);
