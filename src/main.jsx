@@ -144,7 +144,9 @@ createRoot(document.getElementById('root')).render(
                                             <Route path="/student/dashboard" element={<Navigate to="/dashboard" replace />} />
                                             <Route path="/seats" element={<StudentSeatsPage />} />
                                             <Route path="/e-library/my-borrows" element={<MyBorrowsPage />} />
-
+                                            <Route path="/e-library" element={<LibraryHome />} />
+                                            <Route path="/e-library/my-library" element={<MyLibrary />} />
+                                            <Route path="/e-library/reader/:id" element={<BookReader />} />
 
                                             <Route path="/my-reservations" element={<MyReservationsPage />} />
                                             <Route path="/notifications" element={<NotificationsPage />} />
@@ -152,9 +154,7 @@ createRoot(document.getElementById('root')).render(
                                             <Route path="/results" element={<StudentResultsPage />} />
                                         </Route>
 
-                                        <Route path="/e-library" element={<LibraryHome />} />
-                                        <Route path="/e-library/my-library" element={<MyLibrary />} />
-                                        <Route path="/e-library/reader/:id" element={<BookReader />} />
+
 
 
 

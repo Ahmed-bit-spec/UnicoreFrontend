@@ -8,6 +8,29 @@ axios.defaults.baseURL = normalizedBaseUrl;
 axios.defaults.withCredentials = true;
 window.API_BASE_URL = normalizedBaseUrl;
 
+const normalizeRequestUrl = (url = "", base = "") => {
+  if (!url || /^https?:\/\//i.test(url) || url.startsWith("blob:") || url.startsWith("data:")) {
+    return url;
+  }
+
+  const cleanedBase = String(base || normalizedBaseUrl || "").trim().replace(/\/+$/u, "");
+  const cleanedUrl = String(url).replace(/^\/+/, "");
+
+  if (!cleanedBase) {
+    return `/${cleanedUrl}`;
+  }
+
+  if (cleanedUrl.startsWith("api/v1/") && cleanedBase.endsWith("/api/v1")) {
+    return `${cleanedBase}/${cleanedUrl.replace(/^api\/v1\/?/u, "")}`;
+  }
+
+  if (cleanedUrl.startsWith("api/") && cleanedBase.endsWith("/api/v1")) {
+    return `${cleanedBase}/${cleanedUrl.replace(/^api\/?/u, "")}`;
+  }
+
+  return `${cleanedBase}/${cleanedUrl}`;
+};
+
 const api = axios.create({
   baseURL: normalizedBaseUrl,
   withCredentials: true,
@@ -30,6 +53,11 @@ api.interceptors.request.use((config) => {
   if (inMemoryAccessToken && !config.headers["Authorization"]) {
     config.headers["Authorization"] = `Bearer ${inMemoryAccessToken}`;
   }
+
+  if (config.url) {
+    config.url = normalizeRequestUrl(config.url, config.baseURL || api.defaults.baseURL);
+  }
+
   return config;
 });
 
