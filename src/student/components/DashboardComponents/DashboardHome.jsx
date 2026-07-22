@@ -13,17 +13,17 @@ const Owl = ({ size = 120 }) => (
     {/* Shadow */}
     <ellipse cx="100" cy="210" rx="45" ry="8" fill="rgba(0,0,0,0.12)" />
     {/* Body */}
-    <ellipse cx="100" cy="130" rx="62" ry="72" fill="#58CC02" />
+    <ellipse cx="100" cy="130" rx="62" ry="72" fill="#2C2DE0" />
     {/* Head */}
-    <ellipse cx="100" cy="75" rx="58" ry="55" fill="#58CC02" />
+    <ellipse cx="100" cy="75" rx="58" ry="55" fill="#2C2DE0" />
     {/* Ear tufts */}
-    <ellipse cx="62" cy="28" rx="16" ry="22" fill="#46A302" transform="rotate(-15 62 28)" />
-    <ellipse cx="138" cy="28" rx="16" ry="22" fill="#46A302" transform="rotate(15 138 28)" />
+    <ellipse cx="62" cy="28" rx="16" ry="22" fill="#1E1FAA" transform="rotate(-15 62 28)" />
+    <ellipse cx="138" cy="28" rx="16" ry="22" fill="#1E1FAA" transform="rotate(15 138 28)" />
     {/* Belly */}
     <ellipse cx="100" cy="150" rx="40" ry="48" fill="#89E219" />
     {/* Wings */}
-    <path d="M38 120 Q10 140 22 175 Q42 158 50 135 Z" fill="#46A302" />
-    <path d="M162 120 Q190 140 178 175 Q158 158 150 135 Z" fill="#46A302" />
+    <path d="M38 120 Q10 140 22 175 Q42 158 50 135 Z" fill="#1E1FAA" />
+    <path d="M162 120 Q190 140 178 175 Q158 158 150 135 Z" fill="#1E1FAA" />
     {/* Eye whites */}
     <ellipse cx="76" cy="76" rx="24" ry="26" fill="white" />
     <ellipse cx="124" cy="76" rx="24" ry="26" fill="white" />
@@ -49,10 +49,10 @@ const Owl = ({ size = 120 }) => (
 
 const SmallOwl = ({ size = 52 }) => (
   <svg width={size} height={size} viewBox="0 0 200 220" fill="none">
-    <ellipse cx="100" cy="130" rx="62" ry="72" fill="#58CC02" />
-    <ellipse cx="100" cy="75" rx="58" ry="55" fill="#58CC02" />
-    <ellipse cx="62" cy="28" rx="16" ry="22" fill="#46A302" transform="rotate(-15 62 28)" />
-    <ellipse cx="138" cy="28" rx="16" ry="22" fill="#46A302" transform="rotate(15 138 28)" />
+    <ellipse cx="100" cy="130" rx="62" ry="72" fill="#2C2DE0" />
+    <ellipse cx="100" cy="75" rx="58" ry="55" fill="#2C2DE0" />
+    <ellipse cx="62" cy="28" rx="16" ry="22" fill="#1E1FAA" transform="rotate(-15 62 28)" />
+    <ellipse cx="138" cy="28" rx="16" ry="22" fill="#1E1FAA" transform="rotate(15 138 28)" />
     <ellipse cx="100" cy="150" rx="40" ry="48" fill="#89E219" />
     <ellipse cx="76" cy="76" rx="24" ry="26" fill="white" />
     <ellipse cx="124" cy="76" rx="24" ry="26" fill="white" />
@@ -163,13 +163,13 @@ const BellIconStat = () => (
 
 const TrendUp = () => (
   <svg width="36" height="24" viewBox="0 0 36 24" fill="none">
-    <path d="M2 20 L10 12 L16 16 L26 6 L34 6" stroke="#58CC02" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    <path d="M28 4 L34 6 L32 12" stroke="#58CC02" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <path d="M2 20 L10 12 L16 16 L26 6 L34 6" stroke="#2C2DE0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <path d="M28 4 L34 6 L32 12" stroke="#2C2DE0" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
   </svg>
 );
 
 // ── Notification icons ────────────────────────────────────────────────────
-const CheckCircleIcon = ({ color = "#58CC02" }) => (
+const CheckCircleIcon = ({ color = "#2C2DE0" }) => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2">
     <circle cx="12" cy="12" r="10" />
     <path d="M9 12l2 2 4-4" />
@@ -233,7 +233,7 @@ export default function UniSoDashboard() {
       <header style={{ background: "white", borderBottom: "1px solid #e8e8e8", height: 60, display: "flex", alignItems: "center", padding: "0 24px", position: "sticky", top: 0, zIndex: 100, gap: 32 }}>
         {/* Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
-          <div style={{ width: 32, height: 32, background: "#58CC02", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: 32, height: 32, background: "#2C2DE0", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
               <path d="M12 2 L15 8 L22 9 L17 14 L18 21 L12 18 L6 21 L7 14 L2 9 L9 8 Z" />
             </svg>
@@ -245,7 +245,7 @@ export default function UniSoDashboard() {
         <nav style={{ display: "flex", gap: 28, alignItems: "center", flex: 1 }}>
           {navLinks.map(({ label }) => (
             <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" key={label} onClick={() => setActiveNav(label)}
-              style={{ background: "none", border: "none", cursor: "pointer", fontWeight: 700, fontSize: 14, color: activeNav === label ? "#58CC02" : "#888", paddingBottom: 4, borderBottom: activeNav === label ? "2.5px solid #58CC02" : "2.5px solid transparent", transition: "all .15s", display: "flex", alignItems: "center", gap: 5 }}>
+              style={{ background: "none", border: "none", cursor: "pointer", fontWeight: 700, fontSize: 14, color: activeNav === label ? "#2C2DE0" : "#888", paddingBottom: 4, borderBottom: activeNav === label ? "2.5px solid #2C2DE0" : "2.5px solid transparent", transition: "all .15s", display: "flex", alignItems: "center", gap: 5 }}>
               {label === "Dashboard" && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>}
               {label === "Library" && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>}
               {label === "Community" && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>}
@@ -270,7 +270,7 @@ export default function UniSoDashboard() {
             <div style={{ width: 36, height: 36, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", background: "#f5f5f5" }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
             </div>
-            <span style={{ position: "absolute", top: -3, right: -3, background: "#58CC02", color: "white", borderRadius: "50%", width: 17, height: 17, fontSize: 10, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center" }}>3</span>
+            <span style={{ position: "absolute", top: -3, right: -3, background: "#2C2DE0", color: "white", borderRadius: "50%", width: 17, height: 17, fontSize: 10, fontWeight: 800, display: "flex", alignItems: "center", justifyContent: "center" }}>3</span>
           </div>
           {/* Lang */}
           <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 8px", border: "1.5px solid #e0e0e0", borderRadius: 8, fontSize: 12, fontWeight: 700, color: "#555", cursor: "pointer" }}>
@@ -279,7 +279,7 @@ export default function UniSoDashboard() {
           </div>
           {/* Avatar */}
           <div style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer", padding: "4px 8px", borderRadius: 10, background: "#f5f5f5" }}>
-            <div style={{ width: 32, height: 32, borderRadius: 8, background: "linear-gradient(135deg,#58CC02,#3a9900)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 900, fontSize: 13 }}>A</div>
+            <div style={{ width: 32, height: 32, borderRadius: 8, background: "linear-gradient(135deg,#2C2DE0,#3a9900)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 900, fontSize: 13 }}>A</div>
             <div style={{ lineHeight: 1.2 }}>
               <div style={{ fontWeight: 700, fontSize: 12 }}>Ahmed Abdi</div>
               <div style={{ fontSize: 10, color: "#888" }}>Student</div>
@@ -293,7 +293,7 @@ export default function UniSoDashboard() {
       <main style={{ maxWidth: 1320, margin: "0 auto", padding: "24px 24px 40px" }}>
 
         {/* ── WELCOME BANNER ── */}
-        <div style={{ borderRadius: 20, background: "linear-gradient(120deg,#58CC02 0%,#72e010 60%,#a8f040 100%)", padding: "28px 36px", display: "flex", alignItems: "center", justifyContent: "space-between", position: "relative", overflow: "hidden", marginBottom: 20 }}>
+        <div style={{ borderRadius: 20, background: "linear-gradient(120deg,#2C2DE0 0%,#72e010 60%,#a8f040 100%)", padding: "28px 36px", display: "flex", alignItems: "center", justifyContent: "space-between", position: "relative", overflow: "hidden", marginBottom: 20 }}>
           {/* Decorative circles */}
           <div style={{ position: "absolute", top: -30, right: 220, width: 100, height: 100, borderRadius: "50%", background: "rgba(255,255,255,0.12)" }} />
           <div style={{ position: "absolute", bottom: -20, left: "38%", width: 160, height: 60, borderRadius: "50%", background: "rgba(255,255,255,0.08)" }} />
@@ -337,7 +337,7 @@ export default function UniSoDashboard() {
               <div style={{ fontWeight: 800, fontSize: 13, color: "#555" }}>Day Streak</div>
               <div style={{ fontSize: 11, color: "#aaa", marginTop: 2 }}>Keep it up!</div>
               <div style={{ marginTop: 6, height: 6, width: 90, background: "#e8e8e8", borderRadius: 3, overflow: "hidden" }}>
-                <div style={{ width: "60%", height: "100%", background: "#58CC02", borderRadius: 3 }} />
+                <div style={{ width: "60%", height: "100%", background: "#2C2DE0", borderRadius: 3 }} />
               </div>
             </div>
           </div>
@@ -360,7 +360,7 @@ export default function UniSoDashboard() {
                 <div style={{ fontSize: 11, fontWeight: 600, color: "#999", marginTop: 3 }}>{label}</div>
               </div>
               {trend && <div style={{ marginLeft: "auto" }}>{trend}</div>}
-              {sparkle && <div style={{ position: "absolute", top: 14, right: 14, fontSize: 18, color: sparkle === "✦" ? (label.includes("Reservation") ? "#42A5F5" : label.includes("Due") ? "#FFA726" : "#AB47BC") : "#58CC02", opacity: 0.7 }}>✦</div>}
+              {sparkle && <div style={{ position: "absolute", top: 14, right: 14, fontSize: 18, color: sparkle === "✦" ? (label.includes("Reservation") ? "#42A5F5" : label.includes("Due") ? "#FFA726" : "#AB47BC") : "#2C2DE0", opacity: 0.7 }}>✦</div>}
             </div>
           ))}
         </div>
@@ -396,10 +396,10 @@ export default function UniSoDashboard() {
           <div style={{ background: "white", border: "1.5px solid #f0f0f0", borderRadius: 16, overflow: "hidden" }}>
             <div style={{ padding: "14px 18px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#58CC02" strokeWidth="2.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2C2DE0" strokeWidth="2.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
                 <span style={{ fontWeight: 900, fontSize: 13 }}>Active Reservations</span>
               </div>
-              <a href="#" style={{ fontSize: 11, fontWeight: 800, color: "#58CC02", textDecoration: "none", display: "flex", alignItems: "center", gap: 2 }}>View all <ChevronRight /></a>
+              <a href="#" style={{ fontSize: 11, fontWeight: 800, color: "#2C2DE0", textDecoration: "none", display: "flex", alignItems: "center", gap: 2 }}>View all <ChevronRight /></a>
             </div>
             <div style={{ padding: "0 18px" }}>
               {/* Row 1 */}
@@ -413,7 +413,7 @@ export default function UniSoDashboard() {
                 <div style={{ textAlign: "right", flexShrink: 0 }}>
                   <span style={{ background: "#e8fbe6", color: "#2d8a00", fontWeight: 800, fontSize: 10, padding: "3px 8px", borderRadius: 20 }}>Approved</span>
                   <div style={{ fontSize: 10, color: "#aaa", marginTop: 3 }}>Pick up by</div>
-                  <div style={{ fontSize: 10, fontWeight: 800, color: "#58CC02" }}>30 Jun 2026</div>
+                  <div style={{ fontSize: 10, fontWeight: 800, color: "#2C2DE0" }}>30 Jun 2026</div>
                 </div>
               </div>
               {/* Row 2 */}
@@ -434,15 +434,15 @@ export default function UniSoDashboard() {
             {/* Queue bar */}
             <div style={{ padding: "10px 18px", borderTop: "1px solid #f8f8f8", display: "flex", alignItems: "center", gap: 10 }}>
               <div style={{ height: 6, borderRadius: 3, background: "#e8e8e8", flex: 1, overflow: "hidden" }}>
-                <div style={{ width: "35%", height: "100%", background: "#58CC02", borderRadius: 3 }} />
+                <div style={{ width: "35%", height: "100%", background: "#2C2DE0", borderRadius: 3 }} />
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58CC02" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#2C2DE0" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 <span style={{ fontSize: 11, fontWeight: 800, color: "#555", whiteSpace: "nowrap" }}>You're #2 in queue</span>
               </div>
               {/* Avatar */}
               <div style={{ display: "flex", gap: -4 }}>
-                <div style={{ width: 24, height: 24, borderRadius: "50%", background: "#58CC02", border: "2px solid white", fontSize: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 800, zIndex: 2 }}>A</div>
+                <div style={{ width: 24, height: 24, borderRadius: "50%", background: "#2C2DE0", border: "2px solid white", fontSize: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 800, zIndex: 2 }}>A</div>
                 <div style={{ width: 24, height: 24, borderRadius: "50%", background: "#FFA726", border: "2px solid white", marginLeft: -6, fontSize: 10, display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 800 }}>B</div>
               </div>
             </div>
@@ -452,16 +452,16 @@ export default function UniSoDashboard() {
           <div style={{ background: "white", border: "1.5px solid #f0f0f0", borderRadius: 16, overflow: "hidden" }}>
             <div style={{ padding: "14px 18px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#58CC02" strokeWidth="2.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2C2DE0" strokeWidth="2.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
                 <span style={{ fontWeight: 900, fontSize: 13 }}>Borrowed Books</span>
               </div>
-              <a href="#" style={{ fontSize: 11, fontWeight: 800, color: "#58CC02", textDecoration: "none", display: "flex", alignItems: "center", gap: 2 }}>View all <ChevronRight /></a>
+              <a href="#" style={{ fontSize: 11, fontWeight: 800, color: "#2C2DE0", textDecoration: "none", display: "flex", alignItems: "center", gap: 2 }}>View all <ChevronRight /></a>
             </div>
             <div style={{ padding: "0 18px" }}>
               {[
                 { color: "#1565C0", label: "Computer Networks", title: "Computer Networks", author: "Andrew S. Tanenbaum", due: "Due in", days: "4 days", daysColor: "#EF5350", renew: true },
                 { color: "#6A1B9A", label: "Database System", title: "Database System Concepts", author: "Abraham Silberschatz", due: "Due in", days: "10 days", daysColor: "#FFA726", renew: true },
-                { color: "#1B5E20", label: "OS Concepts", title: "Operating System Concepts", author: "Abraham Silberschatz", due: "Due in", days: "16 days", daysColor: "#58CC02", renew: true },
+                { color: "#1B5E20", label: "OS Concepts", title: "Operating System Concepts", author: "Abraham Silberschatz", due: "Due in", days: "16 days", daysColor: "#2C2DE0", renew: true },
               ].map((book, i, arr) => (
                 <div key={book.title} style={{ display: "flex", alignItems: "center", gap: 12, padding: "13px 0", borderBottom: i < arr.length - 1 ? "1px solid #f8f8f8" : "none" }}>
                   <BookCover color={book.color} label={book.label} />
@@ -485,10 +485,10 @@ export default function UniSoDashboard() {
           <div style={{ background: "white", border: "1.5px solid #f0f0f0", borderRadius: 16, overflow: "hidden" }}>
             <div style={{ padding: "14px 18px", borderBottom: "1px solid #f0f0f0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#58CC02" strokeWidth="2.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2C2DE0" strokeWidth="2.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
                 <span style={{ fontWeight: 900, fontSize: 13 }}>Notifications</span>
               </div>
-              <a href="#" style={{ fontSize: 11, fontWeight: 800, color: "#58CC02", textDecoration: "none", display: "flex", alignItems: "center", gap: 2 }}>View all <ChevronRight /></a>
+              <a href="#" style={{ fontSize: 11, fontWeight: 800, color: "#2C2DE0", textDecoration: "none", display: "flex", alignItems: "center", gap: 2 }}>View all <ChevronRight /></a>
             </div>
             <div style={{ padding: "0 18px" }}>
               {[
@@ -516,7 +516,7 @@ export default function UniSoDashboard() {
           <SmallOwl size={56} />
           <div>
             <p style={{ margin: 0, fontWeight: 700, fontSize: 14, color: "#1a1a1a" }}>"Consistent study today leads to a brighter tomorrow."</p>
-            <p style={{ margin: "4px 0 0", fontSize: 12, color: "#58CC02", fontWeight: 800 }}>— Keep going, you're doing great!</p>
+            <p style={{ margin: "4px 0 0", fontSize: 12, color: "#2C2DE0", fontWeight: 800 }}>— Keep going, you're doing great!</p>
           </div>
           {/* Decorative tree right */}
           <div style={{ marginLeft: "auto", display: "flex", alignItems: "flex-end", gap: 8, opacity: 0.6 }}>

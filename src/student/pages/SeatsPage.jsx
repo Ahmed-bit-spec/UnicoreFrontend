@@ -174,7 +174,7 @@ const SeatCard = ({ seat, isFullyBooked, lockedUnverified, lockedGirlsOnly, onSe
           w-14 h-14 rounded-2xl flex items-center justify-center mb-3 transition-all duration-200
           ${disabled ? "bg-gray-100 dark:bg-gray-900"
             : isGirlsOnly ? "bg-pink-50 dark:bg-pink-500/10 group-hover:bg-pink-100 dark:group-hover:bg-pink-500/15"
-              : "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 group-hover:bg-[#2C2DE0] dark:group-hover:bg-[#2C2DE0]/15"}
+              : "bg-[#2C2DE0]/10 dark:bg-[#2C2DE0]/15 group-hover:bg-[#2C2DE0]/20 dark:group-hover:bg-[#2C2DE0]/25"}
         `}>
           <SeatIconSVG color={accentColor} size={28} />
         </div>
@@ -324,7 +324,7 @@ const ReservedTable = ({ reservations, isLoading, lang, t, common }) => {
 const StatCard = ({ label, value, isLoading, variant }) => {
   const variants = {
     default: { number: "text-gray-900 dark:text-white", bg: "bg-white dark:bg-gray-950", border: "border-gray-100 dark:border-gray-800", dot: null },
-    available: { number: "text-[#2C2DE0]", bg: "bg-[#2C2DE0]/50 dark:bg-[#2C2DE0]/5", border: "border-[#2C2DE0] dark:border-[#2C2DE0]/40", dot: "bg-[#2C2DE0]" },
+    available: { number: "text-[#2C2DE0]", bg: "bg-[#2C2DE0]/8 dark:bg-[#2C2DE0]/5", border: "border-[#2C2DE0]/30 dark:border-[#2C2DE0]/40", dot: "bg-[#2C2DE0]" },
     reserved: { number: "text-red-400", bg: "bg-red-50/50 dark:bg-red-500/5", border: "border-red-100 dark:border-red-900/30", dot: "bg-red-400" },
   };
   const v = variants[variant] || variants.default;

@@ -5,7 +5,7 @@
 
 import { useMemo } from "react";
 
-const CONFETTI_COLORS = ["#FFFFFF", "#9DE83A", "#FFD86B", "#EAF8DC"];
+const CONFETTI_COLORS = ["#FFFFFF", "#6366F1", "#FFD86B", "#EEF2FF"];
 
 export const AmbientParticles = ({ count = 14, reducedMotion = false, paused = false }) => {
   const particles = useMemo(

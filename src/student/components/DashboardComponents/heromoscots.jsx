@@ -63,18 +63,18 @@ export const GraduateBot = ({
         <ellipse cx="50" cy="114" rx="26" ry="5" fill="#14171a" opacity="0.1" />
         <rect x="34" y="86" width="10" height="22" rx="4" fill="#2D6A00" />
         <rect x="56" y="86" width="10" height="22" rx="4" fill="#2D6A00" />
-        <rect x="24" y="46" width="52" height="46" rx="14" fill="#58CC02" style={{ animation: "mBreathe 4.5s ease-in-out infinite" }} />
-        <rect x="34" y="58" width="32" height="22" rx="8" fill="#EAF8DC" />
+        <rect x="24" y="46" width="52" height="46" rx="14" fill="#2C2DE0" style={{ animation: "mBreathe 4.5s ease-in-out infinite" }} />
+        <rect x="34" y="58" width="32" height="22" rx="8" fill="#EEF2FF" />
         <g style={{ transformOrigin: "74px 56px", animation: "mWaveRight 6s ease-in-out infinite", animationDelay: "4s" }}>
-          <rect x="70" y="40" width="9" height="26" rx="4.5" fill="#3F9100" />
+          <rect x="70" y="40" width="9" height="26" rx="4.5" fill="#2C2DE0" />
         </g>
-        <rect x="21" y="56" width="9" height="22" rx="4.5" fill="#3F9100" />
+        <rect x="21" y="56" width="9" height="22" rx="4.5" fill="#2C2DE0" />
         <g style={{ transformOrigin: "50px 30px", animation: "mLookAround 7s ease-in-out infinite" }}>
-          <rect x="28" y="10" width="44" height="38" rx="14" fill="#58CC02" />
+          <rect x="28" y="10" width="44" height="38" rx="14" fill="#2C2DE0" />
           <rect x="36" y="20" width="28" height="18" rx="6" fill="#14171a" />
-          <circle cx="45" cy="29" r="2.6" fill="#9DE83A" style={{ animation: "mBlink 5s ease-in-out infinite" }} />
-          <circle cx="55" cy="29" r="2.6" fill="#9DE83A" style={{ animation: "mBlink 5s ease-in-out infinite" }} />
-          <path d="M44 33 Q50 37 56 33" stroke="#9DE83A" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+          <circle cx="45" cy="29" r="2.6" fill="#6366F1" style={{ animation: "mBlink 5s ease-in-out infinite" }} />
+          <circle cx="55" cy="29" r="2.6" fill="#6366F1" style={{ animation: "mBlink 5s ease-in-out infinite" }} />
+          <path d="M44 33 Q50 37 56 33" stroke="#6366F1" strokeWidth="1.6" fill="none" strokeLinecap="round" />
         </g>
         <rect x="30" y="2" width="40" height="6" rx="2" fill="#14171a" />
         <path d="M22 6 L50 -4 L78 6 L50 16 Z" fill="#14171a" />
@@ -103,21 +103,21 @@ export const Sprout = ({ size = 70, event, label = "Sprout, your cheerful compan
       <svg viewBox="0 0 90 100" width={size} height={size * 1.1} fill="none" style={{ transformOrigin: "50% 100%", ...reaction }}>
         <ellipse cx="45" cy="94" rx="22" ry="4.5" fill="#14171a" opacity="0.1" />
         <g style={{ animation: "mBreathe 3.2s ease-in-out infinite" }}>
-          <path d="M40 16 Q26 4 14 10 Q22 22 38 24Z" fill="#3F9100" />
-          <path d="M50 16 Q64 4 76 10 Q68 22 52 24Z" fill="#3F9100" style={{ transformOrigin: "60px 14px", animation: "mWaveRight 5s ease-in-out infinite" }} />
-          <ellipse cx="45" cy="58" rx="32" ry="34" fill="#9DE83A" />
-          <ellipse cx="45" cy="64" rx="20" ry="22" fill="#EAF8DC" />
+          <path d="M40 16 Q26 4 14 10 Q22 22 38 24Z" fill="#2C2DE0" />
+          <path d="M50 16 Q64 4 76 10 Q68 22 52 24Z" fill="#2C2DE0" style={{ transformOrigin: "60px 14px", animation: "mWaveRight 5s ease-in-out infinite" }} />
+          <ellipse cx="45" cy="58" rx="32" ry="34" fill="#6366F1" />
+          <ellipse cx="45" cy="64" rx="20" ry="22" fill="#EEF2FF" />
           <g style={{ transformOrigin: "16px 56px", animation: "mWaveLeft 6s ease-in-out infinite", animationDelay: "4s" }}>
-            <ellipse cx="13" cy="50" rx="7" ry="14" fill="#3F9100" />
+            <ellipse cx="13" cy="50" rx="7" ry="14" fill="#2C2DE0" />
           </g>
-          <ellipse cx="77" cy="62" rx="7" ry="14" fill="#3F9100" />
+          <ellipse cx="77" cy="62" rx="7" ry="14" fill="#2C2DE0" />
           <circle cx="36" cy="56" r="6" fill="#14171a" style={{ animation: "mBlink 4.5s ease-in-out infinite" }} />
           <circle cx="54" cy="56" r="6" fill="#14171a" style={{ animation: "mBlink 4.5s ease-in-out infinite" }} />
           <circle cx="38" cy="54" r="1.8" fill="#fff" />
           <circle cx="56" cy="54" r="1.8" fill="#fff" />
           <path d="M37 66 Q45 73 53 66" stroke="#2D6A00" strokeWidth="2.4" fill="none" strokeLinecap="round" />
-          <ellipse cx="34" cy="92" rx="7" ry="3.5" fill="#3F9100" />
-          <ellipse cx="56" cy="92" rx="7" ry="3.5" fill="#3F9100" />
+          <ellipse cx="34" cy="92" rx="7" ry="3.5" fill="#2C2DE0" />
+          <ellipse cx="56" cy="92" rx="7" ry="3.5" fill="#2C2DE0" />
         </g>
       </svg>
     </button>
@@ -145,7 +145,7 @@ export const SpiritBot = ({ size = 92, event, label = "SpiritBot, your AI study 
           <circle cx="48" cy="52" r="34" fill="#46B3E8" />
           <circle cx="48" cy="52" r="34" fill="url(#spiritSheen)" opacity="0.5" />
           <line x1="48" y1="18" x2="48" y2="6" stroke="#1F6FA0" strokeWidth="2.5" />
-          <circle cx="48" cy="5" r="4" fill="#9DE83A" style={{ animation: "mFlicker 2.2s ease-in-out infinite" }} />
+          <circle cx="48" cy="5" r="4" fill="#6366F1" style={{ animation: "mFlicker 2.2s ease-in-out infinite" }} />
           <circle cx="38" cy="50" r="6.5" fill="#0D2B3A" style={{ animation: "mBlink 5s ease-in-out infinite" }} />
           <circle cx="58" cy="50" r="6.5" fill="#0D2B3A" style={{ animation: "mBlink 5s ease-in-out infinite" }} />
           <circle cx="40" cy="47.5" r="2" fill="#fff" />
@@ -163,8 +163,8 @@ export const SpiritBot = ({ size = 92, event, label = "SpiritBot, your AI study 
           </radialGradient>
           <radialGradient id="bookGlow" cx="50%" cy="30%" r="80%">
             <stop offset="0%" stopColor="#EFFFD6" />
-            <stop offset="60%" stopColor="#9DE83A" />
-            <stop offset="100%" stopColor="#58CC02" />
+            <stop offset="60%" stopColor="#6366F1" />
+            <stop offset="100%" stopColor="#2C2DE0" />
           </radialGradient>
         </defs>
       </svg>

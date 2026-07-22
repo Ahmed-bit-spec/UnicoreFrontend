@@ -56,13 +56,13 @@ const UniversityVerificationBanner = () => {
           <div className="flex items-center gap-2 pl-2 sm:pl-0 shrink-0">
             <Link
               to="/verify-university-id"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl   bg-[#58CC02]
+              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl   bg-[#2C2DE0]
               text-white
               text-sm
               font-bold
-              shadow-[0_4px_0_#46A302]
+              shadow-[0_4px_0_#1E1FAA]
               hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
+              hover:shadow-[0_2px_0_#1E1FAA]
               active:translate-y-1
               active:shadow-none
               transition-all
@@ -100,12 +100,12 @@ const UniversityVerificationBanner = () => {
     return (
       <div className="max-w-6xl mx-auto px-6 mt-6 banner-enter">
         <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 w-fit shadow-sm">
-          <ShieldCheck size={15} className="text-[#58CC02] shrink-0" />
+          <ShieldCheck size={15} className="text-[#2C2DE0] shrink-0" />
           <span className="text-xs font-semibold text-gray-900 dark:text-white">
             {t.banner?.verifiedBadge ?? "Verified student"}
           </span>
           <span className="text-xs text-gray-300 dark:text-gray-700 dark:text-gray-300">·</span>
-          <span className="text-xs font-mono font-bold tracking-wider bg-[#58CC02] text-white px-3 py-1.5 rounded-lg shadow-[0_3px_0_#2D6A00]">
+          <span className="text-xs font-mono font-bold tracking-wider bg-[#2C2DE0] text-white px-3 py-1.5 rounded-lg shadow-[0_3px_0_#2D6A00]">
             {universityId}
           </span>
         </div>

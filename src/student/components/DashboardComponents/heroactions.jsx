@@ -20,7 +20,7 @@ export const HeroCTAs = ({ isGuest, t }) => (
   <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
     <Link
       to={isGuest ? "/verify-university-id" : "/seats"}
-      className="inline-flex items-center gap-2 bg-white dark:bg-gray-900 text-[#3F9100] text-sm font-bold px-5 py-3 rounded-xl
+      className="inline-flex items-center gap-2 bg-white dark:bg-gray-900 text-[#2C2DE0] text-sm font-bold px-5 py-3 rounded-xl
         shadow-[0_4px_0_#E2F4D0] hover:translate-y-0.5 hover:shadow-[0_2px_0_#E2F4D0]
         active:translate-y-1 active:shadow-none transition-all duration-150"
     >

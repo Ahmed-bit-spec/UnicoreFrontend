@@ -7,7 +7,7 @@ export const FireworksOverlay = ({ active }) => {
   if (!active) return null;
   const bursts = [
     { top: "20%", left: "20%", color: "#FFD86B", delay: "0s" },
-    { top: "15%", left: "55%", color: "#9DE83A", delay: "0.2s" },
+    { top: "15%", left: "55%", color: "#6366F1", delay: "0.2s" },
     { top: "30%", left: "80%", color: "#FFFFFF", delay: "0.4s" },
   ];
   return (
@@ -45,16 +45,16 @@ export const QRHologram = ({ active }) =>
 export const NotificationPulse = ({ active, label }) =>
   !active ? null : (
     <div
-      className="absolute top-2 right-2 flex items-center gap-1.5 bg-white dark:bg-gray-900/95 text-[#3F9100] text-[11px] font-bold px-2.5 py-1.5 rounded-full shadow-md"
+      className="absolute top-2 right-2 flex items-center gap-1.5 bg-white dark:bg-gray-900/95 text-[#2C2DE0] text-[11px] font-bold px-2.5 py-1.5 rounded-full shadow-md"
       style={{ animation: "noteShow 2.6s ease forwards" }}
       role="status"
     >
-      <span className="w-4 h-4 rounded-full bg-[#58CC02]" style={{ animation: "bellShake 0.6s ease 2" }} />
+      <span className="w-4 h-4 rounded-full bg-[#2C2DE0]" style={{ animation: "bellShake 0.6s ease 2" }} />
       {label}
     </div>
   );
 
-export const RingPulse = ({ active, color = "#9DE83A" }) =>
+export const RingPulse = ({ active, color = "#6366F1" }) =>
   !active ? null : (
     <span
       aria-hidden="true"
@@ -74,7 +74,7 @@ export const PartyModeOverlay = ({ active }) =>
           style={{
             top: "-10px",
             left: `${(i * 41) % 100}%`,
-            backgroundColor: ["#FFD86B", "#9DE83A", "#46B3E8", "#FFFFFF"][i % 4],
+            backgroundColor: ["#FFD86B", "#6366F1", "#46B3E8", "#FFFFFF"][i % 4],
             animation: `confettiFall ${0.8 + (i % 5) * 0.2}s ease-in ${(i % 6) * 0.15}s infinite`,
           }}
         />

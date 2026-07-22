@@ -52,7 +52,7 @@ const StepCard = ({ step, index, isLast }) => {
   return (
     <div className="relative flex gap-5">
       <div className="flex flex-col items-center flex-shrink-0">
-        <div className="w-10 h-10 rounded-2xl bg-[#58CC02] flex items-center justify-center shadow-sm shadow-[#2C2DE0] dark:shadow-none flex-shrink-0">
+        <div className="w-10 h-10 rounded-2xl bg-[#2C2DE0] flex items-center justify-center shadow-sm shadow-[#2C2DE0] dark:shadow-none flex-shrink-0">
           <Icon size={18} className="text-white" strokeWidth={2} />
         </div>
         {!isLast && (
@@ -143,8 +143,8 @@ export const TutorialSection = () => {
 
           <a
             href="/seats"
-            className="mt-8 inline-flex items-center gap-2 bg-[#58CC02] text-white text-sm font-bold px-5 py-3 rounded-xl
-              shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+            className="mt-8 inline-flex items-center gap-2 bg-[#2C2DE0] text-white text-sm font-bold px-5 py-3 rounded-xl
+              shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA]
               active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {tut?.cta || "Reserve your seat"}

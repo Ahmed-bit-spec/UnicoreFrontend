@@ -32,16 +32,16 @@ export const OwlMascot = ({ size = 220 }) => (
                 </radialGradient>
                 <radialGradient id="lumiBelly" cx="50%" cy="20%" r="80%">
                     <stop offset="0%" stopColor="#FFFFFF" />
-                    <stop offset="100%" stopColor="#EAF8DC" />
+                    <stop offset="100%" stopColor="#EEF2FF" />
                 </radialGradient>
                 <radialGradient id="lanternGlow" cx="50%" cy="35%" r="75%">
-                    <stop offset="0%" stopColor="#EAF8DC" />
-                    <stop offset="55%" stopColor="#58CC02" />
-                    <stop offset="100%" stopColor="#3F9100" />
+                    <stop offset="0%" stopColor="#EEF2FF" />
+                    <stop offset="55%" stopColor="#2C2DE0" />
+                    <stop offset="100%" stopColor="#2C2DE0" />
                 </radialGradient>
                 <linearGradient id="pageGrad" x1="0" y1="0" x2="1" y2="1">
                     <stop offset="0%" stopColor="#FFFFFF" />
-                    <stop offset="100%" stopColor="#EAF8DC" />
+                    <stop offset="100%" stopColor="#EEF2FF" />
                 </linearGradient>
             </defs>
 
@@ -86,17 +86,17 @@ export const OwlMascot = ({ size = 220 }) => (
             {/* eyes (glasses-like rings, scholarly) */}
             <circle cx="80" cy="86" r="17" fill="#14171A" />
             <circle cx="120" cy="86" r="17" fill="#14171A" />
-            <circle cx="80" cy="86" r="17" fill="none" stroke="#58CC02" strokeWidth="2.5" />
-            <circle cx="120" cy="86" r="17" fill="none" stroke="#58CC02" strokeWidth="2.5" />
-            <circle className="owl-blink" cx="80" cy="86" r="8.5" fill="#EAF8DC" style={{ transformOrigin: "80px 86px" }} />
-            <circle className="owl-blink" cx="120" cy="86" r="8.5" fill="#EAF8DC" style={{ transformOrigin: "120px 86px" }} />
+            <circle cx="80" cy="86" r="17" fill="none" stroke="#2C2DE0" strokeWidth="2.5" />
+            <circle cx="120" cy="86" r="17" fill="none" stroke="#2C2DE0" strokeWidth="2.5" />
+            <circle className="owl-blink" cx="80" cy="86" r="8.5" fill="#EEF2FF" style={{ transformOrigin: "80px 86px" }} />
+            <circle className="owl-blink" cx="120" cy="86" r="8.5" fill="#EEF2FF" style={{ transformOrigin: "120px 86px" }} />
             <circle cx="83" cy="83" r="2.6" fill="#14171A" />
             <circle cx="123" cy="83" r="2.6" fill="#14171A" />
             <circle cx="80" cy="86" r="1.4" fill="#fff" />
             <circle cx="120" cy="86" r="1.4" fill="#fff" />
 
             {/* beak */}
-            <path d="M96 100 L104 100 L100 110 Z" fill="#58CC02" />
+            <path d="M96 100 L104 100 L100 110 Z" fill="#2C2DE0" />
 
             {/* feet */}
             <path d="M84 184 v10 M84 194 l-6 5 M84 194 l6 5" stroke="#14171A" strokeWidth="3" strokeLinecap="round" fill="none" />
@@ -105,9 +105,9 @@ export const OwlMascot = ({ size = 220 }) => (
             {/* the lantern-book she cradles */}
             <g transform="translate(64,150)">
                 <ellipse cx="36" cy="20" rx="30" ry="16" fill="url(#lanternGlow)" opacity="0.55" filter="blur(2px)" />
-                <path d="M4 8 L36 0 L68 8 L68 24 L36 16 L4 24 Z" fill="url(#pageGrad)" stroke="#3F9100" strokeWidth="1.5" />
-                <path d="M36 0 L36 16" stroke="#3F9100" strokeWidth="1.5" />
-                <path d="M10 12 L30 8 M10 17 L30 13 M42 8 L62 12 M42 13 L62 17" stroke="#58CC02" strokeWidth="1" opacity="0.5" />
+                <path d="M4 8 L36 0 L68 8 L68 24 L36 16 L4 24 Z" fill="url(#pageGrad)" stroke="#2C2DE0" strokeWidth="1.5" />
+                <path d="M36 0 L36 16" stroke="#2C2DE0" strokeWidth="1.5" />
+                <path d="M10 12 L30 8 M10 17 L30 13 M42 8 L62 12 M42 13 L62 17" stroke="#2C2DE0" strokeWidth="1" opacity="0.5" />
             </g>
         </svg>
     </div>

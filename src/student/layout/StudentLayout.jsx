@@ -88,8 +88,8 @@ const StudentLayout = () => {
       <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => setMobileNavOpen(true)}
         aria-label="Open menu"
-        className="lg:hidden fixed bottom-5 left-5 z-40 w-12 h-12 rounded-2xl bg-[#58CC02] text-white
-          shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+        className="lg:hidden fixed bottom-5 left-5 z-40 w-12 h-12 rounded-2xl bg-[#2C2DE0] text-white
+          shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA]
           active:translate-y-1 active:shadow-none transition-all duration-150
           flex items-center justify-center"
       >

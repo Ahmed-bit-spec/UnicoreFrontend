@@ -9,8 +9,8 @@ import NetworkingLab from "@/teacher/components/NetworkingLab";
 import WindowsLab from "@/teacher/components/WindowsLab";
 
 const PRIMARY_BTN =
-  "bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] " +
-  "hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] " +
+  "bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] " +
+  "hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] " +
   "active:translate-y-1 active:shadow-none transition-all duration-150";
 
 const LABS = [
@@ -79,7 +79,7 @@ export default function StudentLabsPage() {
       <header className="border-b border-neutral-800 bg-neutral-900/80 backdrop-blur sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#58CC02] flex items-center justify-center text-sm font-bold text-white">
+            <div className="w-8 h-8 rounded-lg bg-[#2C2DE0] flex items-center justify-center text-sm font-bold text-white">
               L
             </div>
             <div>
@@ -92,12 +92,12 @@ export default function StudentLabsPage() {
             </div>
           </div>
           <nav className="flex items-center gap-4 text-xs">
-            <Link to="/dashboard" className="text-neutral-400 hover:text-[#58CC02]">
+            <Link to="/dashboard" className="text-neutral-400 hover:text-[#2C2DE0]">
               {t("labs.dashboard") || "Dashboard"}
             </Link>
             <Link
               to="/exam-portal"
-              className="text-neutral-400 hover:text-[#58CC02] flex items-center gap-1"
+              className="text-neutral-400 hover:text-[#2C2DE0] flex items-center gap-1"
             >
               {t("labs.exams") || "Exams"} <ArrowRight className="w-3 h-3" />
             </Link>

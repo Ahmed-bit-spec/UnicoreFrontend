@@ -17,7 +17,7 @@ const HeroStats = ({ user, resolvedClassLabel, streak, dailyGoal, completedToday
   return (
     <div className="flex-shrink-0 self-start lg:self-center bg-white dark:bg-[#14171a] rounded-2xl p-5 w-full lg:w-[200px] shadow-xl shadow-black/20 flex flex-col gap-4">
       <div className="flex items-center gap-3">
-        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#7FE83A] to-[#3F9100] flex items-center justify-center text-white font-black text-sm flex-shrink-0">
+        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#7FE83A] to-[#2C2DE0] flex items-center justify-center text-white font-black text-sm flex-shrink-0">
           {initials}
         </div>
         <div className="min-w-0">
@@ -43,7 +43,7 @@ const HeroStats = ({ user, resolvedClassLabel, streak, dailyGoal, completedToday
         </div>
         <div className="h-2 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
           <div
-            className="h-full rounded-full transition-all duration-700 bg-gradient-to-r from-[#7FE83A] to-[#3F9100]"
+            className="h-full rounded-full transition-all duration-700 bg-gradient-to-r from-[#7FE83A] to-[#2C2DE0]"
             style={{ width: `${goalPct}%` }}
           />
         </div>

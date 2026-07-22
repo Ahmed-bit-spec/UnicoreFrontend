@@ -2,7 +2,7 @@
 // Design: green-500 · black · white only (Tailwind)
 // All strings via useLanguage hook
 // Supports _reason / _reasonLabel metadata from smart recommendations
-// Primary CTA now uses the shared "pill-button" 3D style (bg-[#58CC02])
+// Primary CTA now uses the shared "pill-button" 3D style (bg-[#2C2DE0])
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 // ── Shared primary-action style ────────────────────────────────────────────────
 // Use this exact class string anywhere a "primary" action button appears.
 export const PRIMARY_BTN =
-  "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150";
+  "bg-[#2C2DE0] text-white shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150";
 
 // ── Cover gradient fallback ────────────────────────────────────────────────────
 const GRADIENTS = [

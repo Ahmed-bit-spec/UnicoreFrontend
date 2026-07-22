@@ -435,9 +435,9 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
               </div>
 
               {selectedSlot && endSlot && (
-                <div className="bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 rounded-2xl px-4 py-3 flex items-center justify-between">
+                <div className="bg-[#2C2DE0]/8 dark:bg-[#2C2DE0]/10 border border-[#2C2DE0]/30 dark:border-[#2C2DE0]/20 rounded-2xl px-4 py-3 flex items-center justify-between">
                   <div>
-                    <p className="text-[10px] text-gray-400 mb-0.5">
+                    <p className="text-[10px] text-[#2C2DE0]/70 dark:text-[#2C2DE0]/60 font-semibold mb-0.5">
                       {copy.yourSession ?? "Your session"}
                     </p>
                     <p className="text-sm font-black text-gray-900 dark:text-white">
@@ -447,10 +447,10 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-[10px] text-gray-400 mb-0.5">
+                    <p className="text-[10px] text-[#2C2DE0]/70 dark:text-[#2C2DE0]/60 font-semibold mb-0.5">
                       {copy.seat ?? "Seat"}
                     </p>
-                    <p className="text-sm font-black text-[#2C2DE0] dark:text-[#2C2DE0]">
+                    <p className="text-sm font-black text-[#2C2DE0] dark:text-[#6366f1]">
                       #{seat.seatNumber}
                     </p>
                   </div>

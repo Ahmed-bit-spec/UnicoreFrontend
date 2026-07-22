@@ -41,8 +41,8 @@ const NavItem = ({ item, active, collapsed }) => {
       className={`group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-bold transition-all duration-150
         ${collapsed ? "justify-center px-0 w-11 mx-auto" : ""}
         ${active
-          ? "bg-[#58CC02] text-white shadow-[0_3px_0_#46A302]"
-          : "text-gray-500 dark:text-gray-400 hover:bg-[#2C2DE0] dark:hover:bg-white/5 hover:text-[#3F9100] dark:hover:text-[#9DE83A]"}`}
+          ? "bg-[#2C2DE0] text-white shadow-[0_3px_0_#1E1FAA]"
+          : "text-gray-500 dark:text-gray-400 hover:bg-[#2C2DE0]/10 dark:hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] dark:hover:text-[#6366f1]"}`}
     >
       <Icon size={18} className="flex-shrink-0" />
       {!collapsed && <span className="truncate">{item.label}</span>}
@@ -108,8 +108,8 @@ const Sidebar = ({ collapsed, onToggle }) => {
           to="/seats"
           title={collapsed ? (t?.nav?.findSeat || "Find a seat") : undefined}
           className={`flex items-center gap-2.5 rounded-xl text-sm font-bold text-white
-            bg-[#58CC02] shadow-[0_4px_0_#46A302]
-            hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+            bg-[#2C2DE0] shadow-[0_4px_0_#1E1FAA]
+            hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA]
             active:translate-y-1 active:shadow-none transition-all duration-150
             ${collapsed ? "w-11 h-11 mx-auto justify-center" : "px-3.5 py-2.5 justify-center"}`}
         >
@@ -143,8 +143,8 @@ const Sidebar = ({ collapsed, onToggle }) => {
 
       {/* Streak / quick stat teaser — only shown expanded, keeps the rail lightweight */}
       {!collapsed && (
-        <div className="mx-3 mb-3 rounded-xl bg-gradient-to-br from-[#EAF8DC] to-[#F6FCEF] dark:from-white/5 dark:to-white/[0.02] border border-[#2C2DE0] dark:border-white/10 px-3.5 py-3 flex items-center gap-2.5">
-          <Zap size={16} className="text-[#F5A623] flex-shrink-0" />
+        <div className="mx-3 mb-3 rounded-xl bg-[#2C2DE0]/5 dark:bg-[#2C2DE0]/10 border border-[#2C2DE0]/20 dark:border-[#2C2DE0]/10 px-3.5 py-3 flex items-center gap-2.5">
+          <Zap size={16} className="text-[#2C2DE0] flex-shrink-0" />
           <p className="text-[11px] font-bold text-gray-600 dark:text-gray-300 leading-snug">
             {t?.nav?.sidebarTip || "Reserve early — seats fill up fast in exam weeks."}
           </p>
@@ -185,8 +185,8 @@ export const MobileSidebarDrawer = ({ open, onClose }) => {
             to="/seats"
             onClick={onClose}
             className="flex items-center justify-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm font-bold text-white
-              bg-[#58CC02] shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+              bg-[#2C2DE0] shadow-[0_4px_0_#1E1FAA]
+              hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA]
               active:translate-y-1 active:shadow-none transition-all duration-150"
           >
             <Grid3x3 size={17} />

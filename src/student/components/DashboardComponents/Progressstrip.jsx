@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { BookMarked, CalendarClock, AlarmClock, Bell } from "lucide-react";
 
 const STAT_CONFIG = [
-  { key: "borrowed",     icon: BookMarked,   label: "Borrowed books",        href: "/e-library/my-borrows",  tint: "#58CC02", bg: "#EAF8DC" },
+  { key: "borrowed",     icon: BookMarked,   label: "Borrowed books",        href: "/e-library/my-borrows",  tint: "#2C2DE0", bg: "#EEF2FF" },
   { key: "reservations", icon: CalendarClock, label: "Active reservations",  href: "/my-reservations",       tint: "#2F8FE0", bg: "#E6F2FE" },
   { key: "dueSoon",      icon: AlarmClock,   label: "Due within 3 days",     href: "/e-library/my-borrows",  tint: "#F5A623", bg: "#FFF4E0" },
   { key: "unread",       icon: Bell,         label: "Unread notifications",  href: "/notifications",         tint: "#9B5DE5", bg: "#F3E9FE" },

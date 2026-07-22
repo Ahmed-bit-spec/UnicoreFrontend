@@ -5,7 +5,7 @@
 //   2. Search   — one unmistakable search field (glowing glass, "smart" look)
 //   3. Lumi the owl — pure branding, lights the way, does nothing functional
 //
-// Palette: white background, black text/ink (#14171A), green-500 (#58CC02)
+// Palette: white background, black text/ink (#14171A), green-500 (#2C2DE0)
 // as the single accent. No indigo, no gold — matches the rest of the design system.
 
 import { useState, useRef, useEffect } from "react";
@@ -15,7 +15,7 @@ import { OwlMascot, OwlMascotStyles } from "./owlmoscot";
 
 // Same chunky "Duolingo" button used elsewhere in the system.
 const PRIMARY_BTN =
-  "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150";
+  "bg-[#2C2DE0] text-white shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150";
 
 const QUOTES = [
   { text: "A room without books is like a body without a soul.", author: "Cicero" },
@@ -183,7 +183,7 @@ const HeroStyles = () => (
       border-radius: 999px;
       background: rgba(88,204,2,0.08);
       border: 1px solid rgba(88,204,2,0.25);
-      color: #3F9100;
+      color: #2C2DE0;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -207,7 +207,7 @@ const HeroStyles = () => (
     .hero-quote-author {
       font-style: normal;
       font-weight: 700;
-      color: #3F9100;
+      color: #2C2DE0;
     }
 
     
@@ -255,7 +255,7 @@ const HeroStyles = () => (
 
     .hero-search-icon {
       flex-shrink: 0;
-      color: #58CC02;
+      color: #2C2DE0;
     }
     .hero-search-input {
       flex: 1;
@@ -303,7 +303,7 @@ const HeroStyles = () => (
       width: 4px;
       height: 4px;
       border-radius: 50%;
-      background: #58CC02;
+      background: #2C2DE0;
       opacity: 0;
       animation: moteRise 9s linear infinite;
     }

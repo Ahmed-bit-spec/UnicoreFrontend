@@ -62,9 +62,9 @@ const UniversityVerificationBanner = () => {
             <Link
               to="/verify-university-id"
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white
-                bg-[#58CC02]
-                shadow-[0_4px_0_#46A302]
-                hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
+                bg-[#2C2DE0]
+                shadow-[0_4px_0_#1E1FAA]
+                hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA]
                 active:translate-y-1 active:shadow-none
                 transition-all duration-150 group"
             >

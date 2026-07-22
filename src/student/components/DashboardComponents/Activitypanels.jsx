@@ -35,11 +35,11 @@ const Cover = ({ color = "#2D6A00", initials = "?" }) => (
 );
 
 const STATUS_STYLES = {
-  approved: { bg: "#EAF8DC", text: "#2D6A00", label: "Approved" },
+  approved: { bg: "#EEF2FF", text: "#2D6A00", label: "Approved" },
   pending:  { bg: "#FFF4E0", text: "#B97300", label: "Pending"  },
 };
 
-const urgencyColor = (days) => (days <= 3 ? "#E5484D" : days <= 7 ? "#F5A623" : "#58CC02");
+const urgencyColor = (days) => (days <= 3 ? "#E5484D" : days <= 7 ? "#F5A623" : "#2C2DE0");
 
 export const ReservationsPanel = ({ items = [] }) => (
   <PanelShell icon={CalendarCheck} title="Active reservations" viewAllHref="/my-reservations">

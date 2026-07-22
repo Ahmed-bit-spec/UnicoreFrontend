@@ -22,8 +22,8 @@
 
 import { PartyPopper, Clock, BookOpen, Zap } from "lucide-react";
 
-const PRIMARY_GREEN = "#58CC02";
-const PRIMARY_GREEN_SHADOW = "#46A302";
+const PRIMARY_GREEN = "#2C2DE0";
+const PRIMARY_GREEN_SHADOW = "#1E1FAA";
 const primaryBtn = (pressed = false) => ({
   background: PRIMARY_GREEN,
   color: "#fff",

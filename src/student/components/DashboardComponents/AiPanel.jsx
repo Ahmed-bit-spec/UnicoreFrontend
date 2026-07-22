@@ -12,9 +12,9 @@ import {
 
 const BACKEND_AI_URL = `${import.meta.env.VITE_API_BASE_URL ?? ""}/api/v1/ai/chat`;
 
-const PRIMARY_BTN_SHADOW = "0 4px 0 #46A302";
-const PRIMARY_BTN_SHADOW_ACTIVE = "0 2px 0 #46A302";
-const PRIMARY_GREEN = "#58CC02";
+const PRIMARY_BTN_SHADOW = "0 4px 0 #1E1FAA";
+const PRIMARY_BTN_SHADOW_ACTIVE = "0 2px 0 #1E1FAA";
+const PRIMARY_GREEN = "#2C2DE0";
 
 // ── Markdown renderer (no external deps) ─────────────────────────────────────
 const renderMarkdown = (text, T) => {

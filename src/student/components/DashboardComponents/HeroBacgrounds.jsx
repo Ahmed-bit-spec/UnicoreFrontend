@@ -9,12 +9,12 @@ import { useMemo } from "react";
 
 const ATMOSPHERES = {
   sunrise: {
-    gradient: "from-[#FFB46B] via-[#7CD13B] to-[#3F9100]",
+    gradient: "from-[#FFB46B] via-[#7CD13B] to-[#2C2DE0]",
     glow: "bg-[#FFD7A0]/30",
     rayOpacity: 0.16,
   },
   sunny: {
-    gradient: "from-[#58CC02] via-[#4FB802] to-[#3F9100]",
+    gradient: "from-[#2C2DE0] via-[#4FB802] to-[#2C2DE0]",
     glow: "bg-white dark:bg-gray-900/15",
     rayOpacity: 0.12,
   },
@@ -25,7 +25,7 @@ const ATMOSPHERES = {
   },
   night: {
     gradient: "from-[#0E2B12] via-[#16401A] to-[#0B1F0D]",
-    glow: "bg-[#9DE83A]/10",
+    glow: "bg-[#6366F1]/10",
     rayOpacity: 0.05,
   },
 };
@@ -133,7 +133,7 @@ const HeroBackground = ({ atmosphere = "sunny", paused = false, reducedMotion = 
             }}
           >
             <svg viewBox="0 0 20 20" fill="none">
-              <path d="M10 2C4 6 2 14 10 18C18 14 16 6 10 2Z" fill="#EAF8DC" opacity="0.5" />
+              <path d="M10 2C4 6 2 14 10 18C18 14 16 6 10 2Z" fill="#EEF2FF" opacity="0.5" />
             </svg>
           </span>
         ))}
@@ -170,7 +170,7 @@ const HeroBackground = ({ atmosphere = "sunny", paused = false, reducedMotion = 
           {fireflies.map((f, i) => (
             <span
               key={`firefly-${i}`}
-              className="absolute w-1.5 h-1.5 rounded-full bg-[#9DE83A] shadow-[0_0_6px_2px_rgba(157,232,58,0.6)] pointer-events-none"
+              className="absolute w-1.5 h-1.5 rounded-full bg-[#6366F1] shadow-[0_0_6px_2px_rgba(157,232,58,0.6)] pointer-events-none"
               style={{
                 top: f.top,
                 left: f.left,

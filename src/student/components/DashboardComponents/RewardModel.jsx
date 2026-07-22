@@ -17,8 +17,8 @@
 
 import { Star, Flame, TrendingUp } from "lucide-react";
 
-const PRIMARY_GREEN = "#58CC02";
-const PRIMARY_GREEN_SHADOW = "#46A302";
+const PRIMARY_GREEN = "#2C2DE0";
+const PRIMARY_GREEN_SHADOW = "#1E1FAA";
 const primaryBtn = () => ({
   background: PRIMARY_GREEN, color: "#fff", border: "none",
   boxShadow: `0 4px 0 ${PRIMARY_GREEN_SHADOW}`, transition: "all 0.12s",

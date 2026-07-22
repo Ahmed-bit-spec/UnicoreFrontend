@@ -3,7 +3,7 @@
 //        bilingual label fallback guard,
 //        spacing tightened
 // v2: active category pill now uses the shared 3D pill style
-//     (bg-[#58CC02], shadow-[0_4px_0_#46A302], presses down on click)
+//     (bg-[#2C2DE0], shadow-[0_4px_0_#1E1FAA], presses down on click)
 
 import { useRef } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -33,9 +33,9 @@ const SLUG_LABELS = {
 };
 
 // Shared 3D primary style, expressed as inline styles (this file doesn't use Tailwind)
-const PRIMARY_GREEN = "#58CC02";
-const PRIMARY_SHADOW = "0 4px 0 #46A302";
-const PRIMARY_SHADOW_PRESSED = "0 2px 0 #46A302";
+const PRIMARY_GREEN = "#2C2DE0";
+const PRIMARY_SHADOW = "0 4px 0 #1E1FAA";
+const PRIMARY_SHADOW_PRESSED = "0 2px 0 #1E1FAA";
 
 const CategoryBar = ({ activeCategory, onSelect }) => {
   const { t } = useLanguage();

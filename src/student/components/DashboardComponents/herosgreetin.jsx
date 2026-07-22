@@ -16,7 +16,7 @@ const HeroGreeting = ({ greetingLine, name, subLine, visible = true, typingDurat
     <div className="hero-note absolute left-1/2 -translate-x-1/2 -top-3 sm:-top-5 z-10 pointer-events-none" role="status">
       <div className="relative bg-white dark:bg-[#14171a] rounded-2xl px-4 py-2.5 shadow-lg shadow-black/10 border border-[#2C2DE0] dark:border-white/10 whitespace-nowrap overflow-hidden">
         <p
-          className="text-sm font-black text-gray-900 dark:text-white leading-snug inline-block overflow-hidden whitespace-nowrap align-bottom border-r-2 border-[#58CC02]"
+          className="text-sm font-black text-gray-900 dark:text-white leading-snug inline-block overflow-hidden whitespace-nowrap align-bottom border-r-2 border-[#2C2DE0]"
           style={{
             width: `${charCount}ch`,
             animation: `heroType ${typingDurationMs}ms steps(${charCount}) forwards, caretBlink 0.8s step-end infinite`,

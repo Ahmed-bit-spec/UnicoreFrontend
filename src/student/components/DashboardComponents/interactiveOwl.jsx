@@ -62,7 +62,7 @@ const MOODS = {
 // ─── Speech bubble ──────────────────────────────────────────────────────────
 const SpeechBubble = ({ message, mood }) => {
   if (!message) return null;
-  const color = mood === "sad" ? "#6B7280" : "#3F9100";
+  const color = mood === "sad" ? "#6B7280" : "#2C2DE0";
   return (
     <div
       className="owl-speech-pop"
@@ -104,7 +104,7 @@ const SpeechBubble = ({ message, mood }) => {
 // ─── Confetti burst (celebrate mood only) ──────────────────────────────────
 const Confetti = () => {
   const pieces = Array.from({ length: 10 });
-  const colors = ["#58CC02", "#3F9100", "#EAF8DC", "#14171A"];
+  const colors = ["#2C2DE0", "#2C2DE0", "#EEF2FF", "#14171A"];
   return (
     <>
       {pieces.map((_, i) => {
@@ -189,7 +189,7 @@ export const InteractiveOwlMascot = ({
           </radialGradient>
           <radialGradient id="lumiBelly2" cx="50%" cy="20%" r="80%">
             <stop offset="0%" stopColor="#FFFFFF" />
-            <stop offset="100%" stopColor="#EAF8DC" />
+            <stop offset="100%" stopColor="#EEF2FF" />
           </radialGradient>
         </defs>
 
@@ -270,10 +270,10 @@ export const InteractiveOwlMascot = ({
         {/* eyes (glasses-like rings) */}
         <circle cx="80" cy={m.lookUp ? 83 : 86} r="17" fill="#14171A" />
         <circle cx="120" cy={m.lookUp ? 83 : 86} r="17" fill="#14171A" />
-        <circle cx="80" cy="86" r="17" fill="none" stroke="#58CC02" strokeWidth="2.5" />
-        <circle cx="120" cy="86" r="17" fill="none" stroke="#58CC02" strokeWidth="2.5" />
+        <circle cx="80" cy="86" r="17" fill="none" stroke="#2C2DE0" strokeWidth="2.5" />
+        <circle cx="120" cy="86" r="17" fill="none" stroke="#2C2DE0" strokeWidth="2.5" />
         <circle
-          cx="80" cy={m.lookUp ? 83 : 86} r="8.5" fill="#EAF8DC"
+          cx="80" cy={m.lookUp ? 83 : 86} r="8.5" fill="#EEF2FF"
           style={{
             transform: `scaleY(${m.eyeScaleY})`,
             transformOrigin: `80px ${m.lookUp ? 83 : 86}px`,
@@ -281,7 +281,7 @@ export const InteractiveOwlMascot = ({
           }}
         />
         <circle
-          cx="120" cy={m.lookUp ? 83 : 86} r="8.5" fill="#EAF8DC"
+          cx="120" cy={m.lookUp ? 83 : 86} r="8.5" fill="#EEF2FF"
           style={{
             transform: `scaleY(${m.eyeScaleY})`,
             transformOrigin: `120px ${m.lookUp ? 83 : 86}px`,
@@ -294,8 +294,8 @@ export const InteractiveOwlMascot = ({
         <circle cx="120" cy={m.lookUp ? 83 : 86} r="1.4" fill="#fff" />
 
         {/* cheeks — flush pink-green when happy/celebrating */}
-        <circle cx="58" cy="98" r="7" fill="#58CC02" opacity={m.cheek} style={{ transition: "opacity 0.3s ease" }} />
-        <circle cx="142" cy="98" r="7" fill="#58CC02" opacity={m.cheek} style={{ transition: "opacity 0.3s ease" }} />
+        <circle cx="58" cy="98" r="7" fill="#2C2DE0" opacity={m.cheek} style={{ transition: "opacity 0.3s ease" }} />
+        <circle cx="142" cy="98" r="7" fill="#2C2DE0" opacity={m.cheek} style={{ transition: "opacity 0.3s ease" }} />
 
         {/* beak — opens for happy/celebrate/wave */}
         <path
@@ -304,7 +304,7 @@ export const InteractiveOwlMascot = ({
               ? `M95 100 L105 100 L102 ${110 + m.beakOpen} L98 ${110 + m.beakOpen} Z`
               : "M96 100 L104 100 L100 110 Z"
           }
-          fill="#58CC02"
+          fill="#2C2DE0"
           style={{ transition: "d 0.25s ease" }}
         />
 
@@ -314,7 +314,7 @@ export const InteractiveOwlMascot = ({
 
         {/* sparkles when happy/celebrating */}
         {m.sparkle && (
-          <g className="owl-sparkles" fill="#58CC02">
+          <g className="owl-sparkles" fill="#2C2DE0">
             <path d="M40 60 l2.4 6.2 6.2 2.4 -6.2 2.4 -2.4 6.2 -2.4 -6.2 -6.2 -2.4 6.2 -2.4 Z" />
             <path d="M164 52 l2 5.2 5.2 2 -5.2 2 -2 5.2 -2 -5.2 -5.2 -2 5.2 -2 Z" opacity="0.85" />
           </g>

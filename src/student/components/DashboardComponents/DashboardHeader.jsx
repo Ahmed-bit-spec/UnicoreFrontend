@@ -44,7 +44,7 @@ const GlobalSearch = ({ className = "", placeholder }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
-        className="w-full pl-8 pr-3 h-[34px] rounded-[10px] text-[13px] bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#58CC02]/40 focus:border-[#58CC02] transition-all duration-200"
+        className="w-full pl-8 pr-3 h-[34px] rounded-[10px] text-[13px] bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#2C2DE0] transition-all duration-200"
       />
     </form>
   );
@@ -57,7 +57,7 @@ const LanguageToggle = () => {
   return (
     <button
       onClick={() => setLang?.(isSo ? "en" : "so")}
-      className="flex items-center gap-1.5 px-2.5 h-[34px] rounded-lg border border-gray-200 dark:border-gray-800 text-xs font-extrabold text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0] dark:hover:bg-white/5 hover:border-[#58CC02]/40 hover:text-[#3F9100] dark:hover:text-[#9DE83A] transition-colors"
+      className="flex items-center gap-1.5 px-2.5 h-[34px] rounded-lg border border-gray-200 dark:border-gray-800 text-xs font-extrabold text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0]/10 dark:hover:bg-[#2C2DE0]/10 hover:border-[#2C2DE0]/40 hover:text-[#2C2DE0] dark:hover:text-[#6366F1] transition-colors"
       aria-label="Change language"
       title={isSo ? "Switch to English" : "U bedel Af-Soomaali"}
     >
@@ -130,7 +130,7 @@ const DashboardHeader = () => {
               aria-expanded={openProfile}
               className="flex items-center gap-2 pl-1.5 pr-2 h-[38px] rounded-[10px] bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-800 transition-all duration-150"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#7FE83A] to-[#3F9100] text-white font-bold shadow-sm overflow-hidden flex items-center justify-center text-[13px] flex-shrink-0">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#7FE83A] to-[#2C2DE0] text-white font-bold shadow-sm overflow-hidden flex items-center justify-center text-[13px] flex-shrink-0">
                 {photoUrl ? (
                   <img
                     src={photoUrl}
@@ -160,7 +160,7 @@ const DashboardHeader = () => {
             >
               <div className="px-4 pt-4 pb-3 border-b border-gray-100 dark:border-gray-800">
                 <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 rounded-2xl overflow-hidden bg-gradient-to-br from-[#7FE83A] to-[#3F9100] flex items-center justify-center text-white font-black text-xl shadow flex-shrink-0">
+                  <div className="w-14 h-14 rounded-2xl overflow-hidden bg-gradient-to-br from-[#6366f1] to-[#2C2DE0] flex items-center justify-center text-white font-black text-xl shadow flex-shrink-0">
                     {photoUrl ? (
                       <img src={photoUrl} alt="avatar" className="w-full h-full object-cover"
                         onError={(e) => { e.target.style.display = "none"; e.target.parentElement.textContent = getInitials(user?.name); }} />
@@ -168,7 +168,7 @@ const DashboardHeader = () => {
                   </div>
                   <div className="min-w-0">
                     <p className="text-sm font-bold text-gray-900 dark:text-white truncate">{user?.name}</p>
-                    <p className="text-xs text-[#3F9100] dark:text-[#9DE83A] font-medium capitalize">{user?.role}</p>
+                    <p className="text-xs text-[#2C2DE0] dark:text-[#6366F1] font-medium capitalize">{user?.role}</p>
                     <p className="text-[10px] text-gray-400 truncate mt-0.5">{user?.email}</p>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ const DashboardHeader = () => {
                     onClick={() => setOpenProfile(false)}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white transition-all"
                   >
-                    <Icon size={15} className="text-[#58CC02]" />
+                    <Icon size={15} className="text-[#2C2DE0]" />
                     {label}
                   </Link>
                 ))}
@@ -196,7 +196,7 @@ const DashboardHeader = () => {
                   onClick={() => { setOpenProfile(false); setOpenSettings(true); }}
                   className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white transition-all"
                 >
-                  <Settings size={15} className="text-[#58CC02]" />
+                  <Settings size={15} className="text-[#2C2DE0]" />
                   {t?.nav?.settings || "Settings"}
                 </button>
               </div>

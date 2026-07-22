@@ -9,8 +9,8 @@ import { ArrowRight, Lock, Clock, ShieldCheck, Download, Loader2 } from "lucide-
 import "../../styles/examtheme.css";
 
 const PRIMARY_BTN =
-  "bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] " +
-  "hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] " +
+  "bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] " +
+  "hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] " +
   "active:translate-y-1 active:shadow-none transition-all duration-150";
 
 // Sound played once, right when the exam token successfully verifies.
@@ -227,7 +227,7 @@ export default function StudentExamPortal() {
   return (
     <div className="exam-root min-h-screen bg-neutral-50 dark:bg-neutral-900 p-6 flex flex-col items-center justify-center">
       <div className="max-w-md w-full bg-white dark:bg-neutral-800 rounded-2xl shadow-sm border border-neutral-100 dark:border-neutral-700 p-8">
-        <div className="w-12 h-12 bg-[#58CC02]/10 rounded-xl flex items-center justify-center mb-6 text-[#46A302] dark:text-[#58CC02]">
+        <div className="w-12 h-12 bg-[#2C2DE0]/10 rounded-xl flex items-center justify-center mb-6 text-[#1E1FAA] dark:text-[#2C2DE0]">
           <Lock className="w-6 h-6" />
         </div>
 
@@ -248,7 +248,7 @@ export default function StudentExamPortal() {
                 type="text"
                 value={tokenInput}
                 onChange={e => setTokenInput(e.target.value)}
-                className="w-full border-neutral-300 dark:border-neutral-600 dark:bg-neutral-700 rounded-lg p-3 text-lg tracking-wider font-mono uppercase focus:ring-[#58CC02] focus:border-[#58CC02]"
+                className="w-full border-neutral-300 dark:border-neutral-600 dark:bg-neutral-700 rounded-lg p-3 text-lg tracking-wider font-mono uppercase focus:ring-[#2C2DE0] focus:border-[#2C2DE0]"
                 placeholder="CS101-MID"
                 required
               />
@@ -268,7 +268,7 @@ export default function StudentExamPortal() {
           // together immediately, rather than making the student try the
           // button first and only revealing the install link on failure.
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-[#58CC02]/10 rounded-xl p-5 border border-[#58CC02]/20">
+            <div className="bg-[#2C2DE0]/10 rounded-xl p-5 border border-[#2C2DE0]/20">
               <h3 className="font-display font-semibold text-lg text-[#2f6b01] dark:text-[#8fe040] mb-2">
                 {examData.title || "Secure Exam"}
               </h3>
@@ -284,7 +284,7 @@ export default function StudentExamPortal() {
                 Opening Safe Exam Browser…
               </button>
             ) : launchState === "handed-off" ? (
-              <div className="text-sm text-[#2f6b01] dark:text-[#8fe040] bg-[#58CC02]/10 p-4 rounded-lg border border-[#58CC02]/20 flex items-center gap-3">
+              <div className="text-sm text-[#2f6b01] dark:text-[#8fe040] bg-[#2C2DE0]/10 p-4 rounded-lg border border-[#2C2DE0]/20 flex items-center gap-3">
                 <ShieldCheck className="w-5 h-5 shrink-0" />
                 Safe Exam Browser is opening your exam now. You can close this tab.
               </div>
@@ -334,7 +334,7 @@ export default function StudentExamPortal() {
         ) : (
           // ── Normal path: no SEB required, or we're already running inside it ──
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-[#58CC02]/10 rounded-xl p-5 border border-[#58CC02]/20">
+            <div className="bg-[#2C2DE0]/10 rounded-xl p-5 border border-[#2C2DE0]/20">
               <h3 className="font-display font-semibold text-lg text-[#2f6b01] dark:text-[#8fe040] mb-4">
                 {examData.title}
               </h3>
@@ -345,7 +345,7 @@ export default function StudentExamPortal() {
                   <span className="font-medium">{examData.duration} {t("exam.duration") || "minutes"}</span>
                 </div>
                 <div className="flex items-center gap-3 text-[#2f6b01] dark:text-[#8fe040]">
-                  <div className="w-5 h-5 flex items-center justify-center rounded-full bg-[#58CC02]/25 text-xs font-bold">
+                  <div className="w-5 h-5 flex items-center justify-center rounded-full bg-[#2C2DE0]/25 text-xs font-bold">
                     {examData.questionsCount}
                   </div>
                   <span className="font-medium">{examData.questionsCount} {t("exam.questions") || "questions"}</span>

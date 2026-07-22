@@ -29,8 +29,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
 // ─── Shared primary-action style (Duolingo-style 3D button) ──────────────────
 // This is the ONE button style used everywhere in the system.
-const PRIMARY_GREEN = "#58CC02";
-const PRIMARY_GREEN_SHADOW = "#46A302";
+const PRIMARY_GREEN = "#2C2DE0";
+const PRIMARY_GREEN_SHADOW = "#1E1FAA";
 const primaryBtnStyle = (pressed = false) => ({
   background: PRIMARY_GREEN,
   color: "#fff",
@@ -41,7 +41,7 @@ const primaryBtnStyle = (pressed = false) => ({
 });
 // Tailwind class-string twin of primaryBtnStyle, for plain <button className>  use.
 const PRIMARY_BTN =
-  "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150";
+  "bg-[#2C2DE0] text-white shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150";
 
 // ─── Axios ────────────────────────────────────────────────────────────────────
 const api = axios.create({ baseURL: import.meta.env.VITE_API_BASE_URL ?? "" });
@@ -80,7 +80,7 @@ const extractPlainPageText = async (pdfRef, pageNumber) => {
 };
 
 // ─── Themes ───────────────────────────────────────────────────────────────────
-// Single accent (#58CC02) across every theme — green / white / black system only.
+// Single accent (#2C2DE0) across every theme — green / white / black system only.
 const THEMES = {
   light: {
     id: "light", label: "Light", icon: Sun,
@@ -88,7 +88,7 @@ const THEMES = {
     border: "#e4e4e2", text: "#111111", textMuted: "#555555",
     textFaint: "#aaaaaa", toolbar: "#ffffff", toolbarBorder: "#e4e4e2",
     pdfBg: "#e8e4de", aiPanel: "#fafaf9", aiPanelBorder: "#e4e4e2",
-    hover: "rgba(0,0,0,0.04)", accent: "#58CC02", accentBg: "rgba(88,204,2,0.08)",
+    hover: "rgba(0,0,0,0.04)", accent: "#2C2DE0", accentBg: "rgba(88,204,2,0.08)",
     shadow: "0 2px 4px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.08)",
     pageShadow: "0 4px 48px rgba(0,0,0,0.16), 0 1px 4px rgba(0,0,0,0.08)",
     pdfFilter: "none",
@@ -100,7 +100,7 @@ const THEMES = {
     border: "#ddd0b0", text: "#3b2f1e", textMuted: "#7a6548",
     textFaint: "#b09a78", toolbar: "#fdf6e3", toolbarBorder: "#ddd0b0",
     pdfBg: "#ede3c0", aiPanel: "#fdf6e3", aiPanelBorder: "#ddd0b0",
-    hover: "rgba(59,47,32,0.06)", accent: "#58CC02", accentBg: "rgba(88,204,2,0.08)",
+    hover: "rgba(59,47,32,0.06)", accent: "#2C2DE0", accentBg: "rgba(88,204,2,0.08)",
     shadow: "0 2px 4px rgba(59,47,32,0.08), 0 8px 32px rgba(59,47,32,0.07)",
     pageShadow: "0 4px 48px rgba(59,47,32,0.2), 0 1px 4px rgba(59,47,32,0.08)",
     pdfFilter: "sepia(0.35) brightness(0.97)",
@@ -112,7 +112,7 @@ const THEMES = {
     border: "#2a2a2a", text: "#e2e2e2", textMuted: "#888888",
     textFaint: "#444444", toolbar: "#1a1a1a", toolbarBorder: "#252525",
     pdfBg: "#111111", aiPanel: "#1a1a1a", aiPanelBorder: "#252525",
-    hover: "rgba(255,255,255,0.05)", accent: "#58CC02", accentBg: "rgba(88,204,2,0.12)",
+    hover: "rgba(255,255,255,0.05)", accent: "#2C2DE0", accentBg: "rgba(88,204,2,0.12)",
     shadow: "0 2px 4px rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.3)",
     pageShadow: "0 4px 48px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.3)",
     pdfFilter: "invert(0.88) hue-rotate(180deg) brightness(1.05) contrast(0.88)",
@@ -124,7 +124,7 @@ const THEMES = {
     border: "#1e1e1e", text: "#999999", textMuted: "#555555",
     textFaint: "#2a2a2a", toolbar: "#050505", toolbarBorder: "#1a1a1a",
     pdfBg: "#000000", aiPanel: "#0c0c0c", aiPanelBorder: "#1e1e1e",
-    hover: "rgba(255,255,255,0.04)", accent: "#58CC02", accentBg: "rgba(88,204,2,0.09)",
+    hover: "rgba(255,255,255,0.04)", accent: "#2C2DE0", accentBg: "rgba(88,204,2,0.09)",
     shadow: "0 2px 4px rgba(0,0,0,0.8), 0 8px 32px rgba(0,0,0,0.5)",
     pageShadow: "0 4px 48px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.5)",
     pdfFilter: "invert(1) hue-rotate(180deg) brightness(0.8) contrast(1.08)",

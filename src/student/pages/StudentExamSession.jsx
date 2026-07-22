@@ -48,8 +48,8 @@ import WindowsLab from "@/teacher/components/WindowsLab";
 
 // ─── Shared Duolingo-style primary button ─────────────────────────────────────
 const PRIMARY_BTN =
-  "bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] " +
-  "hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] " +
+  "bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] " +
+  "hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] " +
   "active:translate-y-1 active:shadow-none transition-all duration-150";
 
 function unescapeHtml(str) {
@@ -278,7 +278,7 @@ export default function StudentExamSession() {
       {/* ── Header ───────────────────────────────────────────────────────── */}
       <header className="h-16 bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700 flex items-center justify-between px-6 shrink-0 shadow-sm">
         <div className="flex items-center gap-4">
-          <div className="w-10 h-10 bg-[#58CC02]/10 rounded-lg flex items-center justify-center text-[#46A302] dark:text-[#58CC02] font-display font-bold tracking-wider">
+          <div className="w-10 h-10 bg-[#2C2DE0]/10 rounded-lg flex items-center justify-center text-[#1E1FAA] dark:text-[#2C2DE0] font-display font-bold tracking-wider">
             EX
           </div>
           <div>
@@ -376,7 +376,7 @@ export default function StudentExamSession() {
                     isActive
                       ? `${PRIMARY_BTN} border-transparent`
                       : isAnswered
-                      ? "border-transparent bg-[#58CC02]/20 text-[#2f6b01] dark:bg-[#58CC02]/20 dark:text-[#8fe040] transition-colors"
+                      ? "border-transparent bg-[#2C2DE0]/20 text-[#2f6b01] dark:bg-[#2C2DE0]/20 dark:text-[#8fe040] transition-colors"
                       : "border-neutral-200 bg-white text-neutral-600 hover:border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 transition-colors"
                   }`}
                 >
@@ -403,7 +403,7 @@ export default function StudentExamSession() {
                   <span className="text-neutral-400 mr-2">{currentQ + 1}.</span>
                   {unescapeHtml(activeQuestion.question)}
                 </h2>
-                <div className="bg-[#58CC02]/15 text-[#2f6b01] dark:text-[#8fe040] px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap exam-no-select">
+                <div className="bg-[#2C2DE0]/15 text-[#2f6b01] dark:text-[#8fe040] px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap exam-no-select">
                   {activeQuestion.marks} {t("exam.marks") || "marks"}
                 </div>
               </div>
