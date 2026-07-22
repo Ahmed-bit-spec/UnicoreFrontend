@@ -81,14 +81,14 @@ const ChapterComplete = ({ T, pagesRead, minutes, xpEarned, onContinue, onTakeQu
 
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
         {hasQuiz && (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={onTakeQuiz}
             style={{ ...primaryBtn(), padding: "13px", borderRadius: "14px", fontSize: "14px", fontWeight: 700, cursor: "pointer" }}
           >
             Take Quiz
           </button>
         )}
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={onContinue}
           style={{
             padding: "12px", borderRadius: "14px", fontSize: "13.5px", fontWeight: 700,

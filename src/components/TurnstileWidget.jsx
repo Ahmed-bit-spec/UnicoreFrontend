@@ -15,7 +15,7 @@ function TurnstileDevBypass({ onVerify, className }) {
   }, [onVerify]);
 
   return (
-    <div className={`text-[11px] text-gray-400 dark:text-gray-600 text-center py-1 w-full ${className}`}>
+    <div className={`text-[11px] text-gray-400 dark:text-gray-600 dark:text-gray-400 text-center py-1 w-full ${className}`}>
       Turnstile: dev mode (no SITE_KEY)
     </div>
   );

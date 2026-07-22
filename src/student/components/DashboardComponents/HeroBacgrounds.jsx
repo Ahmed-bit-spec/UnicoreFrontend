@@ -15,7 +15,7 @@ const ATMOSPHERES = {
   },
   sunny: {
     gradient: "from-[#58CC02] via-[#4FB802] to-[#3F9100]",
-    glow: "bg-white/15",
+    glow: "bg-white dark:bg-gray-900/15",
     rayOpacity: 0.12,
   },
   dusk: {
@@ -97,7 +97,7 @@ const HeroBackground = ({ atmosphere = "sunny", paused = false, reducedMotion = 
         style={{ animation: reducedMotion || paused ? "none" : "blobDrift2 18s ease-in-out infinite" }}
       />
       <div
-        className="absolute top-1/3 left-1/2 w-52 h-52 rounded-full bg-white/8 blur-2xl pointer-events-none"
+        className="absolute top-1/3 left-1/2 w-52 h-52 rounded-full bg-white dark:bg-gray-900/8 blur-2xl pointer-events-none"
         style={{ animation: reducedMotion || paused ? "none" : "blobDrift3 13s ease-in-out infinite" }}
       />
 
@@ -144,7 +144,7 @@ const HeroBackground = ({ atmosphere = "sunny", paused = false, reducedMotion = 
         sparkles.map((s, i) => (
           <span
             key={`sparkle-${i}`}
-            className="absolute w-1 h-1 rounded-full bg-white pointer-events-none"
+            className="absolute w-1 h-1 rounded-full bg-white dark:bg-gray-900 pointer-events-none"
             style={{ top: s.top, left: s.left, animation: `sparkleTwinkle 2.4s ease-in-out infinite`, animationDelay: s.delay }}
           />
         ))}
@@ -156,7 +156,7 @@ const HeroBackground = ({ atmosphere = "sunny", paused = false, reducedMotion = 
           {stars.map((s, i) => (
             <span
               key={`star-${i}`}
-              className="absolute rounded-full bg-white pointer-events-none"
+              className="absolute rounded-full bg-white dark:bg-gray-900 pointer-events-none"
               style={{
                 top: s.top,
                 left: s.left,

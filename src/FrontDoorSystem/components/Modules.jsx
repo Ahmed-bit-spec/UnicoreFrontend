@@ -36,7 +36,7 @@ const modules = [
 ];
 
 const tagColors = {
-  Core: "bg-white/8 text-white/50",
+  Core: "bg-white dark:bg-gray-900/8 text-white/50",
   AI: "bg-[#63DF4E]/12 text-[#63DF4E]",
   Analytics: "bg-blue-400/12 text-blue-300",
 };

@@ -39,7 +39,7 @@ export default function AiFeedbackTab({ submission, examId, subId, onRefresh }) 
         <button
           onClick={triggerFeedback}
           disabled={generating}
-          className="flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-indigo-900 font-bold rounded-xl hover:bg-purple-100 transition-colors disabled:opacity-50 shrink-0 shadow-md"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           {generating ? (
             <>
@@ -65,7 +65,7 @@ export default function AiFeedbackTab({ submission, examId, subId, onRefresh }) 
             <div key={idx} className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 p-5 space-y-3">
               <div className="flex items-center justify-between border-b border-gray-100 dark:border-zinc-800 pb-2">
                 <span className="text-xs font-bold text-gray-400">Question {idx + 1}</span>
-                <span className="text-xs font-bold text-gray-500 font-mono">Score: {ans.finalScore} / {ans.maxMarks}</span>
+                <span className="text-xs font-bold text-gray-500 dark:text-gray-400 font-mono">Score: {ans.finalScore} / {ans.maxMarks}</span>
               </div>
               <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">{ans.questionText}</p>
 
@@ -89,7 +89,7 @@ export default function AiFeedbackTab({ submission, examId, subId, onRefresh }) 
                     </div>
                   )}
                   {suggestions.encouragement && (
-                    <p className="text-xs italic text-gray-500 mt-2">"{suggestions.encouragement}"</p>
+                    <p className="text-xs italic text-gray-500 dark:text-gray-400 mt-2">"{suggestions.encouragement}"</p>
                   )}
                 </div>
               ) : (

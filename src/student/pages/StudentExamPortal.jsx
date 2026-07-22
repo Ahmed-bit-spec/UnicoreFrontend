@@ -256,7 +256,7 @@ export default function StudentExamPortal() {
             <button
               type="submit"
               disabled={isValidating || !tokenInput}
-              className={`${PRIMARY_BTN} w-full rounded-lg py-3 flex items-center justify-center gap-2 disabled:opacity-50`}
+              className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
             >
               {isValidating ? (t("exam.verifying") || "Verifying…") : (t("exam.verifyToken") || "Verify token")}
             </button>
@@ -279,7 +279,7 @@ export default function StudentExamPortal() {
             </div>
 
             {launchState === "launching" ? (
-              <button disabled className={`${PRIMARY_BTN} w-full rounded-lg py-3 flex items-center justify-center gap-2 opacity-70`}>
+              <button disabled className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}>
                 <Loader2 className="w-4 h-4 animate-spin" />
                 Opening Safe Exam Browser…
               </button>
@@ -299,7 +299,7 @@ export default function StudentExamPortal() {
                 {/* Already installed */}
                 <button
                   onClick={handleStartSecureExam}
-                  className={`${PRIMARY_BTN} w-full rounded-lg py-3 flex items-center justify-center gap-2`}
+                  className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                 >
                   <ShieldCheck className="w-4 h-4" />
                   Start Secure Exam
@@ -324,7 +324,7 @@ export default function StudentExamPortal() {
               </>
             )}
 
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => { setExamData(null); setLaunchState("idle"); hasPlayedSoundRef.current = false; }}
               className="w-full text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 text-sm font-medium"
             >
@@ -365,12 +365,12 @@ export default function StudentExamPortal() {
             <button
               onClick={handleStartExam}
               disabled={isStarting}
-              className={`${PRIMARY_BTN} w-full rounded-lg py-3 flex items-center justify-center gap-2 disabled:opacity-50`}
+              className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
             >
               {isStarting ? (t("exam.preparingSession") || "Preparing session…") : (t("exam.startTitle") || "Start your exam")}
               {!isStarting && <ArrowRight className="w-4 h-4" />}
             </button>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setExamData(null)}
               className="w-full text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 text-sm font-medium"
             >

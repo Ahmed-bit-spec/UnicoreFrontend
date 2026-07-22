@@ -45,10 +45,10 @@ const HeroClock = ({
       </div>
       <span
         className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-bold ${
-          isOpen ? "bg-white/20 text-white" : "bg-black/20 text-white/70"
+          isOpen ? "bg-white dark:bg-gray-900/20 text-white" : "bg-black/20 text-white/70"
         }`}
       >
-        <span className={`w-1.5 h-1.5 rounded-full ${isOpen ? "bg-[#9DE83A]" : "bg-white/40"}`} />
+        <span className={`w-1.5 h-1.5 rounded-full ${isOpen ? "bg-[#9DE83A]" : "bg-white dark:bg-gray-900/40"}`} />
         {isOpen ? (t?.hero?.libraryOpen ?? "Library open") : (t?.hero?.libraryClosed ?? "Library closed")}
         {isOpen && minutesUntilClose != null && (
           <span className="opacity-80">· {formatCountdown(minutesUntilClose * 60000)}</span>

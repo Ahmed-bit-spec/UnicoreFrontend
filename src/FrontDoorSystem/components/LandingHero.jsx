@@ -52,21 +52,22 @@ const Hero = ({ t }) => (
         </motion.div>
 
         {/* Headline */}
-        <motion.h1
-          variants={fadeUp}
-          className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tight text-black dark:text-white"
-        >
-          UNISO{" "}
-          <span
-            className="font-black text-[#2C2DE0]"
-            style={{
-              textShadow: "0 2px 0 #3FAF2E"
-            }}
-          >
-            Academic
-          </span>          <br />
-          Digital Ecosystem
-        </motion.h1>
+     <motion.h1
+  variants={fadeUp}
+  className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tight text-black dark:text-white"
+>
+  UNISO{" "}
+  <span
+    className="font-black text-[#2C2DE0]"
+    style={{
+      textShadow: "0 2px 0 #1E1FAA"
+    }}
+  >
+    Academic
+  </span>
+  <br />
+  Digital Ecosystem
+</motion.h1>
 
         {/* Description */}
         <motion.p
@@ -89,17 +90,17 @@ const Hero = ({ t }) => (
               items-center
               px-5 py-3
               rounded-2xl
-              bg-[#58CC02]
-              text-white
-              text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150    
+                bg-[#2C2DE0]
+    text-white
+    text-sm
+    font-bold
+    shadow-[0_4px_0_#1E1FAA]
+    hover:translate-y-0.5
+    hover:shadow-[0_2px_0_#1E1FAA]
+    active:translate-y-1
+    active:shadow-none
+    transition-all
+    duration-150    
               group"
           >
             {t?.landing?.createAccount || "Get Started — It's Free"}
@@ -109,7 +110,7 @@ const Hero = ({ t }) => (
           {/* Outline — adapts to mode */}
           <a
             href="#features"
-            className="inline-flex items-center gap-1.5 px-7 py-3.5 rounded-xl border border-black/20 dark:border-white/20 text-sm font-semibold text-black dark:text-white hover:border-black/50 dark:hover:border-white/50 hover:bg-black/5 dark:hover:bg-white/5 transition-colors group"
+            className="inline-flex items-center gap-1.5 px-7 py-3.5 rounded-xl border border-black/20 dark:border-white/20 text-sm font-semibold text-black dark:text-white hover:border-black/50 dark:hover:border-white/50 hover:bg-black/5 dark:hover:bg-white dark:bg-gray-900/5 transition-colors group"
           >
             {t?.landing?.exploreFeatures || "Explore Features"}
             <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -129,7 +130,7 @@ const Hero = ({ t }) => (
           ].map((s) => (
             <div
               key={s.label}
-              className="px-5 py-3 rounded-2xl border border-black/10 dark:border-white/10 bg-black/2 dark:bg-white/5"
+              className="px-5 py-3 rounded-2xl border border-black/10 dark:border-white/10 bg-black/2 dark:bg-white dark:bg-gray-900/5"
             >
               <p className="text-xl font-black text-black dark:text-white">{s.value}</p>
               <p className="text-[10px] text-black/40 dark:text-white/40 uppercase tracking-wider mt-0.5">{s.label}</p>

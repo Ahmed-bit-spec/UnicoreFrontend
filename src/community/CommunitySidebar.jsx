@@ -91,7 +91,7 @@ const BackToDashboard = ({ href }) => (
   >
     <ArrowLeft size={15} className="flex-shrink-0 group-hover:-translate-x-0.5 transition-transform" />
     <span className="flex-1 truncate">Back to dashboard</span>
-    <LayoutDashboard size={14} className="flex-shrink-0 text-gray-300 dark:text-gray-600" />
+    <LayoutDashboard size={14} className="flex-shrink-0 text-gray-300 dark:text-gray-600 dark:text-gray-400" />
   </Link>
 );
 
@@ -130,7 +130,7 @@ const CommunitySidebar = () => {
           {sections.map((section, si) => (
             <div key={si}>
               {section.label && (
-                <p className="px-3 mb-1.5 text-[10.5px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-600">
+                <p className="px-3 mb-1.5 text-[10.5px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-600 dark:text-gray-400">
                   {section.label}
                 </p>
               )}
@@ -153,7 +153,7 @@ const CommunitySidebar = () => {
             </p>
           </div>
 
-          <p className="mt-4 px-3 text-[10px] text-gray-300 dark:text-gray-700 leading-relaxed">
+          <p className="mt-4 px-3 text-[10px] text-gray-300 dark:text-gray-700 dark:text-gray-300 leading-relaxed">
             © {new Date().getFullYear()} Uniso ·{" "}
             <Link to="/privacy" className="hover:underline">Privacy</Link>{" "}
             ·{" "}

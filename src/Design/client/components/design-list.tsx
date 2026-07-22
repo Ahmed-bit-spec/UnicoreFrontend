@@ -21,7 +21,7 @@ export function DesignList() {
   return (
     <div className="flex flex-col gap-2">
       <button
-        className="w-full flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl border-none cursor-pointer bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150"
+        className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={createDesign}
       >
         <Plus size={14} />
@@ -38,7 +38,7 @@ export function DesignList() {
           className={`flex items-center px-2.5 py-2 rounded-lg border transition-all group cursor-pointer ${
             activeDesign?.id === d.id
               ? "border-accent bg-accent/10"
-              : "border-zinc-200 bg-white hover:border-zinc-600"
+              : "border-zinc-200 bg-white dark:bg-gray-900 hover:border-zinc-600"
           }`}
           onClick={() => {
             navigate(`/design/${d.id}`);
@@ -69,7 +69,7 @@ export function DesignList() {
           )}
           <div className="flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity ml-1">
             <button
-              className="p-1 rounded text-zinc-400 bg-transparent border-none cursor-pointer hover:text-zinc-800 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={(e) => {
                 e.stopPropagation();
                 startRename(d.id, d.name);
@@ -78,7 +78,7 @@ export function DesignList() {
               <Edit3 size={12} />
             </button>
             <button
-              className="p-1 rounded text-zinc-400 bg-transparent border-none cursor-pointer hover:text-red-400 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={(e) => {
                 e.stopPropagation();
                 deleteDesign(d.id);

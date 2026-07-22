@@ -33,14 +33,7 @@ function DuoButton({ children, onClick, disabled, className = "" }) {
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`
-        bg-[#58CC02] text-white text-sm font-bold rounded-2xl px-5 py-3
-        shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
-        active:translate-y-1 active:shadow-none transition-all duration-150
-        inline-flex items-center justify-center gap-2 select-none
-        disabled:opacity-50 disabled:pointer-events-none
-        ${className}
-      `}
+      className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
     >
       {children}
     </button>
@@ -172,7 +165,7 @@ export default function ReportsPage() {
       <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
         <div className="flex items-center gap-1 rounded-2xl p-1" style={{ background: "#F0F5E6" }}>
           {PERIODS.map((p) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={p.key}
               onClick={() => setPeriod(p.key)}
               className="text-[12px] font-bold rounded-xl px-4 py-2 transition-all duration-150"
@@ -188,13 +181,13 @@ export default function ReportsPage() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button onClick={() => shiftDate(-1)} className="w-8 h-8 flex items-center justify-center rounded-lg border" style={{ borderColor: "#E3EED3" }}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => shiftDate(-1)} className="w-8 h-8 flex items-center justify-center rounded-lg border" style={{ borderColor: "#E3EED3" }}>
             <ChevronLeft size={14} color="#6B7A5E" />
           </button>
           <span className="text-[13px] font-bold" style={{ color: "#17390B" }}>
             {report?.rangeLabel ?? "…"}
           </span>
-          <button onClick={() => shiftDate(1)} className="w-8 h-8 flex items-center justify-center rounded-lg border" style={{ borderColor: "#E3EED3" }}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => shiftDate(1)} className="w-8 h-8 flex items-center justify-center rounded-lg border" style={{ borderColor: "#E3EED3" }}>
             <ChevronRight size={14} color="#6B7A5E" />
           </button>
         </div>
@@ -275,7 +268,7 @@ export default function ReportsPage() {
                   Explain this report with AI
                 </span>
               </div>
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => setShowAiNotice(true)}
                 className="text-[12px] font-bold rounded-xl px-4 py-2"
                 style={{ background: "#F0F5E6", color: "#58A700" }}

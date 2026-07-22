@@ -522,7 +522,7 @@ const AIPanel = ({
             <p style={{ fontSize: "10.5px", color: T.textMuted, lineHeight: 1.3, marginTop: "2px", transition: "opacity 0.15s" }}>{statusLabel}</p>
           </div>
           <div style={{ display: "flex", gap: "5px" }}>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setLanguage((l) => l === "en" ? "so" : "en")}
               title={language === "en" ? "Switch to Somali" : "Switch to English"}
               style={{
@@ -535,7 +535,7 @@ const AIPanel = ({
               {language === "en" ? "EN" : "SO"}
             </button>
             {onToggleExpand && (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={onToggleExpand}
                 title={expanded ? "Restore panel size" : "Maximize panel"}
                 style={{ width: "30px", height: "30px", borderRadius: "8px", border: `1px solid ${T.border}`, background: T.surface, color: T.textMuted, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
@@ -544,7 +544,7 @@ const AIPanel = ({
               </button>
             )}
             {messages.length > 0 && (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => { setMessages([]); setStreamText(""); window.speechSynthesis?.cancel(); }}
                 title="Clear conversation"
                 style={{ width: "30px", height: "30px", borderRadius: "8px", border: `1px solid ${T.border}`, background: T.surface, color: T.textMuted, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}
@@ -558,7 +558,7 @@ const AIPanel = ({
         {/* Quick actions */}
         <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
           {QUICK.slice(0, expanded ? 5 : 3).map((action) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={action.id}
               onClick={() => handleSend(buildActionMsg({ id: action.id, currentPage, selectedText, language }), action.id)}
               disabled={loading}
@@ -618,7 +618,7 @@ const AIPanel = ({
                   maxWidth: "100%",
                 }}>
                   {renderMarkdown(m.content, T)}
-                  <button
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     onClick={() => toggleSpeak(i, m.content)}
                     title={speakingIdx === i ? "Stop reading" : "Read aloud"}
                     style={{
@@ -692,7 +692,7 @@ const AIPanel = ({
           borderRadius: "16px", padding: "10px 12px",
           transition: "border-color 0.15s",
         }}>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={toggleListening}
             title={listening ? "Stop listening" : "Ask by voice"}
             style={{
@@ -726,7 +726,7 @@ const AIPanel = ({
               color: T.text, fontFamily: "inherit", maxHeight: "104px", overflow: "auto",
             }}
           />
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => handleSend(question)}
             disabled={!question.trim() || loading}
             style={{

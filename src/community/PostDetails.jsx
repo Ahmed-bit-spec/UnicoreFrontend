@@ -105,10 +105,10 @@ const CommentItem = ({ comment, currentUser, postId, onDeleted, onReplyAdded, t,
             <div className="ml-auto flex items-center gap-1">
               {isOwner && !editing && (
                 <>
-                  <button onClick={() => setEditing(true)} className="text-gray-300 hover:text-[#58CC02] transition-colors p-1">
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setEditing(true)} className="text-gray-300 hover:text-[#58CC02] transition-colors p-1">
                     <Pencil size={11} />
                   </button>
-                  <button onClick={handleDelete} disabled={deleting} className="text-gray-300 hover:text-red-400 transition-colors p-1">
+                  <button onClick={handleDelete} disabled={deleting} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                     {deleting ? <Loader2 size={11} className="animate-spin" /> : <Trash2 size={11} />}
                   </button>
                 </>
@@ -128,7 +128,7 @@ const CommentItem = ({ comment, currentUser, postId, onDeleted, onReplyAdded, t,
                 <button onClick={handleEdit} disabled={sending} className={BTN_PRIMARY + " !py-1.5 !px-3 !text-xs"}>
                   {t["feed.save"] ?? "Save"}
                 </button>
-                <button onClick={() => setEditing(false)} className={BTN_SECONDARY + " !py-1.5 !px-3 !text-xs"}>
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setEditing(false)} className={BTN_SECONDARY + " !py-1.5 !px-3 !text-xs"}>
                   {t["feed.cancel"] ?? "Cancel"}
                 </button>
               </div>
@@ -140,7 +140,7 @@ const CommentItem = ({ comment, currentUser, postId, onDeleted, onReplyAdded, t,
           )}
 
           {!editing && currentUser && (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setReplying((s) => !s)}
               className="mt-1.5 flex items-center gap-1 text-[12px] font-semibold text-gray-400 hover:text-[#58CC02] transition-colors"
             >
@@ -202,7 +202,7 @@ const CommentForm = ({ postId, currentUser, onAdded, t }) => {
 
   return (
     <div className="flex items-start gap-3 mt-4">
-      <button onClick={() => navigate(`/community/user/${post.author._id}`)}>
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => navigate(`/community/user/${post.author._id}`)}>
         <Avatar name={currentUser?.name} photo={currentUser?.photo} size={36} />
       </button>
 
@@ -218,7 +218,7 @@ const CommentForm = ({ postId, currentUser, onAdded, t }) => {
         <button
           onClick={handleSend}
           disabled={!text.trim() || sending}
-          className="absolute right-3 bottom-3 text-[#58CC02] disabled:opacity-30 hover:text-[#46A302] transition-colors"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           {sending ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}
         </button>
@@ -463,7 +463,7 @@ const PostDetail = () => {
   if (error || !post) {
     return (
       <div className="text-center py-32">
-        <p className="text-gray-500 mb-4">{error || (t["feed.postNotFound"] ?? "Post not found.")}</p>
+        <p className="text-gray-500 dark:text-gray-400 mb-4">{error || (t["feed.postNotFound"] ?? "Post not found.")}</p>
         <Link to="/community" className="text-[#58CC02] text-sm font-bold hover:underline">
           ← {t["feed.backToFeed"] ?? "Back to feed"}
         </Link>
@@ -485,7 +485,7 @@ const PostDetail = () => {
 
   return (
     <article className="max-w-2xl mx-auto">
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => navigate(-1)}
         className="flex items-center gap-1.5 text-[13px] text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 mb-6 transition-colors"
       >
@@ -496,11 +496,11 @@ const PostDetail = () => {
       <div className={`${CARD_SURFACE} p-4 sm:p-6`}>
         {/* Author */}
         <div className="flex items-center gap-3 mb-4">
-          <button type="button" onClick={() => setProfileOpen(true)} className="rounded-full focus:outline-none focus:ring-2 focus:ring-[#58CC02]/40">
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" type="button" onClick={() => setProfileOpen(true)} className="rounded-full focus:outline-none focus:ring-2 focus:ring-[#58CC02]/40">
             <Avatar name={post.author?.name} photo={post.author?.photo} size={44} />
           </button>
           <div className="flex-1">
-            <button type="button" onClick={() => setProfileOpen(true)} className="text-[14px] font-bold text-gray-900 dark:text-white hover:underline text-left">
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" type="button" onClick={() => setProfileOpen(true)} className="text-[14px] font-bold text-gray-900 dark:text-white hover:underline text-left">
               <AuthorName user={post.author} />
             </button>
             <p className="text-[12px] text-gray-400">
@@ -509,12 +509,12 @@ const PostDetail = () => {
             </p>
           </div>
           {isOwner && !editing && (
-            <button onClick={() => setEditing(true)} className="p-2 rounded-lg text-gray-400 hover:text-[#58CC02] hover:bg-[#58CC02]/10 transition-colors">
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setEditing(true)} className="p-2 rounded-lg text-gray-400 hover:text-[#58CC02] hover:bg-[#58CC02]/10 transition-colors">
               <Pencil size={16} />
             </button>
           )}
           {!isOwner && (
-            <button onClick={handleReport} className="p-2 rounded-lg text-gray-400 hover:text-orange-500 hover:bg-orange-50 dark:hover:bg-orange-950/20 transition-colors">
+            <button onClick={handleReport} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               <Flag size={16} />
             </button>
           )}
@@ -542,7 +542,7 @@ const PostDetail = () => {
                 {saving ? <Loader2 size={14} className="animate-spin" /> : null}
                 {t["feed.save"] ?? "Save"}
               </button>
-              <button onClick={() => setEditing(false)} className={BTN_SECONDARY}>
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setEditing(false)} className={BTN_SECONDARY}>
                 {t["feed.cancel"] ?? "Cancel"}
               </button>
             </div>
@@ -557,7 +557,7 @@ const PostDetail = () => {
               <button
                 onClick={handleTranslate}
                 disabled={translating}
-                className="inline-flex items-center gap-1.5 mb-4 text-[12.5px] font-bold text-gray-400 hover:text-[#58CC02] transition-colors disabled:opacity-60"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 {translating ? <Loader2 size={12} className="animate-spin" /> : <Languages size={12} />}
                 {translateLabel}
@@ -582,17 +582,14 @@ const PostDetail = () => {
           <button
             onClick={handleLike}
             disabled={liking}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-bold transition-all ${liked
-              ? "text-[#58CC02] bg-[#58CC02]/10 dark:bg-[#58CC02]/15"
-              : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900"
-              }`}
+            className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
           >
             <Heart size={16} className={liked ? "fill-current" : ""} />
             <span>{post.likesCount ?? post.likes?.length ?? 0}</span>
             <span className="hidden sm:inline">{liked ? (t["feed.liked"] ?? "Liked") : (t["feed.like"] ?? "Like")}</span>
           </button>
 
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => commentsRef.current?.scrollIntoView({ behavior: "smooth" })}
             className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-bold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all"
           >
@@ -601,7 +598,7 @@ const PostDetail = () => {
             <span className="hidden sm:inline">{t["feed.comment"] ?? "Comment"}</span>
           </button>
 
-          <button onClick={handleShare} className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-bold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all">
+          <button onClick={handleShare} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <Share2 size={16} />
             <span className="hidden sm:inline">{t["feed.share"] ?? "Share"}</span>
           </button>
@@ -610,8 +607,7 @@ const PostDetail = () => {
 
           <button
             onClick={handleBookmark}
-            className={`p-2 rounded-xl transition-all ${bookmarked ? "text-[#58CC02] bg-[#58CC02]/10" : "text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900"
-              }`}
+            className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
           >
             <Bookmark size={16} className={bookmarked ? "fill-current" : ""} />
           </button>
@@ -628,7 +624,7 @@ const PostDetail = () => {
           <CommentForm postId={post._id} currentUser={user} onAdded={handleCommentAdded} t={t} />
         ) : (
           <div className="mt-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-950 border border-gray-100 dark:border-gray-800 text-center">
-            <p className="text-[13px] text-gray-500 mb-2">{t["feed.signInToComment"] ?? "Sign in to join the conversation."}</p>
+            <p className="text-[13px] text-gray-500 dark:text-gray-400 mb-2">{t["feed.signInToComment"] ?? "Sign in to join the conversation."}</p>
             <Link to="/login" className="text-[13px] font-bold text-[#58CC02] hover:underline">
               {t["feed.signIn"] ?? "Sign in"}
             </Link>

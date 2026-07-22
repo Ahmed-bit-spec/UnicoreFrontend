@@ -108,7 +108,7 @@ export default function StudentLabsPage() {
       <div className="max-w-7xl mx-auto p-6 flex gap-6">
         <aside className="w-56 shrink-0 space-y-1">
           {LABS.map(({ id, icon: Icon }) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={id}
               type="button"
               onClick={() => setActive(id)}

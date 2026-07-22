@@ -140,7 +140,7 @@ export const Avatar = ({ name, photo, size = 36, ring = false }) => {
 export const Tag = ({ label, onClick }) => (
   <button
     onClick={onClick}
-    className="px-2.5 py-0.5 rounded-full bg-[#58CC02]/10 dark:bg-[#58CC02]/15 text-[11px] font-semibold text-[#46A302] dark:text-[#8fe040] hover:bg-[#58CC02]/20 dark:hover:bg-[#58CC02]/25 transition-colors"
+    className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
   >
     #{label}
   </button>

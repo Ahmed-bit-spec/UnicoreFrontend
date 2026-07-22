@@ -24,7 +24,7 @@ const FILE_TYPE_MAP = {
 function getExt(name = "") { return name.split(".").pop()?.toLowerCase() ?? ""; }
 function getFileMeta(name) {
   const ext = getExt(name);
-  return FILE_TYPE_MAP[ext] ?? { icon: File, color: "text-white/60", bg: "bg-white/10" };
+  return FILE_TYPE_MAP[ext] ?? { icon: File, color: "text-white/60", bg: "bg-white dark:bg-gray-900/10" };
 }
 function formatBytes(bytes) {
   if (bytes < 1024) return `${bytes} B`;
@@ -104,7 +104,7 @@ export function FilesPanel({ isHost, userName, meetingCode, sharedFiles = [], on
       {/* Drop zone */}
       <div
         className={`m-3 shrink-0 border-2 border-dashed rounded-2xl p-4 text-center transition-all cursor-pointer
-          ${dragging ? "border-[#58CC02] bg-[#58CC02]/10" : "border-white/20 hover:border-white/40 hover:bg-white/5"}`}
+          ${dragging ? "border-[#58CC02] bg-[#58CC02]/10" : "border-white/20 hover:border-white/40 hover:bg-white dark:bg-gray-900/5"}`}
         onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
         onDragLeave={() => setDragging(false)}
         onDrop={handleDrop}
@@ -139,7 +139,7 @@ export function FilesPanel({ isHost, userName, meetingCode, sharedFiles = [], on
             return (
               <div
                 key={f.id}
-                className="flex items-center gap-3 p-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-colors group"
+                className="flex items-center gap-3 p-3 bg-white dark:bg-gray-900/5 hover:bg-white dark:bg-gray-900/10 border border-white/10 rounded-xl transition-colors group"
               >
                 {/* Icon */}
                 <div className={`w-9 h-9 rounded-xl ${meta.bg} flex items-center justify-center shrink-0`}>
@@ -158,25 +158,25 @@ export function FilesPanel({ isHost, userName, meetingCode, sharedFiles = [], on
                 {/* Actions */}
                 <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                   {f.blobUrl && (
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => setPreviewFile(f)}
                       title="Preview"
-                      className="p-1.5 rounded-lg hover:bg-white/10 text-white/50 hover:text-white"
+                      className="p-1.5 rounded-lg hover:bg-white dark:bg-gray-900/10 text-white/50 hover:text-white"
                     >
                       <Eye size={13} />
                     </button>
                   )}
                   {f.blobUrl && (
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => downloadFile(f)}
                       title="Download"
-                      className="p-1.5 rounded-lg hover:bg-white/10 text-white/50 hover:text-white"
+                      className="p-1.5 rounded-lg hover:bg-white dark:bg-gray-900/10 text-white/50 hover:text-white"
                     >
                       <Download size={13} />
                     </button>
                   )}
                   {(isHost || f.uploader === userName) && (
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => deleteFile(f.id)}
                       title="Remove"
                       className="p-1.5 rounded-lg hover:bg-red-500/20 text-white/50 hover:text-red-400"
@@ -203,7 +203,7 @@ export function FilesPanel({ isHost, userName, meetingCode, sharedFiles = [], on
           >
             <div className="flex items-center justify-between p-4 border-b border-white/10">
               <span className="text-white font-bold text-sm">{previewFile.name}</span>
-              <button onClick={() => setPreviewFile(null)} className="text-white/50 hover:text-white p-1 rounded-lg hover:bg-white/10">
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setPreviewFile(null)} className="text-white/50 hover:text-white p-1 rounded-lg hover:bg-white dark:bg-gray-900/10">
                 ✕
               </button>
             </div>
@@ -216,7 +216,7 @@ export function FilesPanel({ isHost, userName, meetingCode, sharedFiles = [], on
                 <div className="flex flex-col items-center justify-center py-12 gap-3 text-white/40">
                   <span className="text-5xl">📄</span>
                   <p className="text-sm">Preview not available for this file type</p>
-                  <button onClick={() => downloadFile(previewFile)} className="px-4 py-2 rounded-xl bg-[#58CC02] text-white text-sm font-bold">
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => downloadFile(previewFile)} className="px-4 py-2 rounded-xl bg-[#58CC02] text-white text-sm font-bold">
                     Download to view
                   </button>
                 </div>

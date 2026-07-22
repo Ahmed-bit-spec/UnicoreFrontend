@@ -25,7 +25,7 @@ const HeroGreeting = ({ greetingLine, name, subLine, visible = true, typingDurat
           {fullText}
         </p>
         {subLine && (
-          <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5 leading-none opacity-0 hero-subline">{subLine}</p>
+          <p className="text-[11px] text-gray-400 dark:text-gray-500 dark:text-gray-400 mt-0.5 leading-none opacity-0 hero-subline">{subLine}</p>
         )}
         <div className="absolute left-1/2 -translate-x-1/2 -bottom-[6px] w-3 h-3 bg-white dark:bg-[#14171a] border-b border-r border-[#2C2DE0] dark:border-white/10 rotate-45" />
       </div>

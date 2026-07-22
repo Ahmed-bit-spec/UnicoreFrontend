@@ -19,14 +19,7 @@ export default function DuolingoGoogleButton({ onSuccess, onError, label = "Cont
       type="button"
       onClick={handleGoogleRedirect}
       disabled={loading}
-      className={`
-        relative w-full py-3.5 px-6 rounded-2xl font-bold text-base tracking-wide
-        flex items-center justify-center gap-3 transition-all duration-150 ease-in-out
-        bg-white text-gray-800 border-2 border-gray-200
-        shadow-[0_4px_0_0_#e5e7eb] active:shadow-[0_1px_0_0_#e5e7eb]
-        active:translate-y-1 hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-blue-100
-        disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer select-none
-      `}
+      className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
       style={{
         textTransform: "uppercase",
         letterSpacing: "0.05em",

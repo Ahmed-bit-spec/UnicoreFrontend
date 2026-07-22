@@ -83,15 +83,11 @@ export function LeftSidebar() {
   return (
     <aside className="flex flex-row shrink-0">
       {/* Icon Rail */}
-      <div className="w-[70px] bg-white border-r border-zinc-200 flex flex-col items-center pt-2 gap-0.5 shrink-0">
+      <div className="w-[70px] bg-white dark:bg-gray-900 border-r border-zinc-200 flex flex-col items-center pt-2 gap-0.5 shrink-0">
         {SECTIONS.map((s) => (
           <button
             key={s.key}
-            className={`flex flex-col items-center justify-center gap-0.5 w-[56px] h-[56px] rounded-lg bg-transparent border-none cursor-pointer transition-all ${
-              activeSection === s.key
-                ? "text-accent bg-accent/10"
-                : "text-zinc-500 hover:text-zinc-700 hover:bg-zinc-50"
-            }`}
+            className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
             onClick={() => handleSectionClick(s.key)}
           >
             <s.icon size={20} />
@@ -102,7 +98,7 @@ export function LeftSidebar() {
 
       {/* Content Panel */}
       <div
-        className="bg-white border-r border-zinc-200 overflow-hidden transition-all duration-200 ease-in-out"
+        className="bg-white dark:bg-gray-900 border-r border-zinc-200 overflow-hidden transition-all duration-200 ease-in-out"
         style={{ width: isOpen ? "240px" : "0px" }}
       >
         <div className="w-[240px] h-full flex flex-col">
@@ -149,7 +145,7 @@ export function LeftSidebar() {
                   <div className="flex flex-col gap-2">
                     <p className="text-zinc-400 text-[11px] mb-1">Click to add text</p>
                     <button
-                      className="w-full text-left p-3 rounded-lg bg-white border border-zinc-200 cursor-pointer transition-all hover:border-accent hover:bg-accent/5 group"
+                      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => addText("heading")}
                     >
                       <span className="text-lg font-bold text-zinc-900 group-hover:text-accent transition-colors">
@@ -160,7 +156,7 @@ export function LeftSidebar() {
                       </span>
                     </button>
                     <button
-                      className="w-full text-left p-3 rounded-lg bg-white border border-zinc-200 cursor-pointer transition-all hover:border-accent hover:bg-accent/5 group"
+                      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => addText("subheading")}
                     >
                       <span className="text-sm font-medium text-zinc-900 group-hover:text-accent transition-colors">
@@ -171,7 +167,7 @@ export function LeftSidebar() {
                       </span>
                     </button>
                     <button
-                      className="w-full text-left p-3 rounded-lg bg-white border border-zinc-200 cursor-pointer transition-all hover:border-accent hover:bg-accent/5 group"
+                      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => addText("body")}
                     >
                       <span className="text-xs text-zinc-900 group-hover:text-accent transition-colors">
@@ -196,7 +192,7 @@ export function LeftSidebar() {
                       ].map((s) => (
                         <button
                           key={s.type}
-                          className="flex flex-col items-center gap-1.5 p-3 rounded-lg bg-white border border-zinc-200 cursor-pointer transition-all hover:border-accent hover:bg-accent/5"
+                          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           onClick={() => addShape(s.type)}
                         >
                           <s.icon size={24} className="text-zinc-400" />
@@ -242,7 +238,7 @@ export function LeftSidebar() {
                           {teacherColors.map((c, i) => (
                             <button
                               key={`tc-${i}`}
-                              className="w-full aspect-square rounded-md border border-zinc-300 cursor-pointer transition-all hover:scale-110 hover:border-accent"
+                              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                               style={{ background: c }}
                               onClick={() => setBackground("color", c)}
                             />
@@ -256,7 +252,7 @@ export function LeftSidebar() {
                       {BG_COLORS.map((c) => (
                         <button
                           key={c}
-                          className="w-full aspect-square rounded-md border border-zinc-300 cursor-pointer transition-all hover:scale-110 hover:border-accent"
+                          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           style={{ background: c }}
                           onClick={() => setBackground("color", c)}
                         />
@@ -277,7 +273,7 @@ export function LeftSidebar() {
                       {GRADIENT_PRESETS.map((g, i) => (
                         <button
                           key={i}
-                          className="w-full aspect-square rounded-md border border-zinc-300 cursor-pointer transition-all hover:scale-110 hover:border-accent"
+                          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           style={{ background: g }}
                           onClick={() => {
                             const match = g.match(/#[0-9a-f]{6}/gi);

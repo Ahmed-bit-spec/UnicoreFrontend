@@ -92,7 +92,7 @@ const RewardModal = ({ T, score, total, xpEarned, streak, leveledUp = false, onC
           )}
         </div>
 
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={onContinue}
           style={{ width: "100%", padding: "13px", borderRadius: "14px", fontSize: "14px", fontWeight: 700, cursor: "pointer", ...primaryBtn() }}
         >

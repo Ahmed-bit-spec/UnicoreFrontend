@@ -14,6 +14,7 @@ import Hero from "../components/LandingHero";
 import Features from "../components/FeatureCards";
 import HowItWorks from "../components/LandingHowItWorks";
 import Faq from "../components/LandingFaq";
+import { Helmet } from "react-helmet-async";
 
 // ═══════════════════════════════════════════════════════════════════
 // PAGE
@@ -22,6 +23,21 @@ const LandingPage = () => {
   const { t } = useLanguage() || {};
   return (
     <>
+    <Helmet>
+  <title>UniCORE - Academic Digital Ecosystem</title>
+
+  <meta
+    name="description"
+    content="UniCORE is an academic digital ecosystem that unifies learning, communication, attendance, AI, and university services in one platform."
+  />
+
+  <meta
+    name="keywords"
+    content="UniCORE, university management system, LMS, student portal, AI education"
+  />
+
+  <link rel="canonical" href="https://unicores.site/" />
+</Helmet>
       <Hero       t={t} />
       <Features   t={t} />
       <HowItWorks t={t} />

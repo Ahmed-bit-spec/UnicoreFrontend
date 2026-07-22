@@ -79,7 +79,7 @@ const QuizModal = ({ T, questions = [], onFinish, onClose }) => {
           <span style={{ fontSize: "11.5px", fontWeight: 700, color: T.textMuted, flexShrink: 0 }}>
             {idx + 1}/{questions.length}
           </span>
-          <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint }}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint }}>
             <X size={15} />
           </button>
         </div>
@@ -97,7 +97,7 @@ const QuizModal = ({ T, questions = [], onFinish, onClose }) => {
             else if (revealed && isPicked && !isCorrect) { bg = "rgba(239,68,68,0.08)"; border = "#ef4444"; color = "#ef4444"; }
 
             return (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={i}
                 onClick={() => choose(i)}
                 disabled={revealed}
@@ -116,7 +116,7 @@ const QuizModal = ({ T, questions = [], onFinish, onClose }) => {
           })}
         </div>
 
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={next}
           disabled={!revealed}
           style={{

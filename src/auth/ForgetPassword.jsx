@@ -25,7 +25,7 @@ function calcStrength(score, t) {
   if (score <= 2) return { label: t("auth.passwordStrengthWeak"), bars: 1, bar: "bg-red-500", text: "text-red-500" };
   if (score === 3) return { label: t("auth.passwordStrengthFair"), bars: 2, bar: "bg-orange-400", text: "text-orange-400" };
   if (score === 4) return { label: t("auth.passwordStrengthGood"), bars: 3, bar: "bg-yellow-500", text: "text-yellow-500" };
-  return { label: t("auth.passwordStrengthStrong"), bars: 4, bar: "bg-[#2C2DE0]", text: "text-[#2C2DE0]" };
+  return { label: t("auth.passwordStrengthStrong"), bars: 4, bar: "bg-green-500", text: "text-green-500" };
 }
 
 const PasswordStrengthMeter = ({ password, t }) => {
@@ -62,7 +62,7 @@ const PasswordStrengthMeter = ({ password, t }) => {
             key={c.id}
             className={`flex items-center gap-1.5 text-[11px] transition-colors duration-200 ${
               c.met
-                ? "text-[#2C2DE0] dark:text-[#2C2DE0]"
+                ? "text-green-600 dark:text-green-400"
                 : "text-gray-400 dark:text-gray-500"
             }`}
           >
@@ -92,7 +92,7 @@ const DotGrid = () => (
 
 // ─── Small logo mark ──────────────────────────────────────────────────────────
 const LogoMark = ({ size = 9 }) => (
-  <div className={`w-${size} h-${size} rounded-xl bg-[#2C2DE0] flex items-center justify-center shadow-sm shadow-[#2C2DE0]`}>
+  <div className={`w-${size} h-${size} rounded-xl bg-green-500 flex items-center justify-center shadow-sm shadow-green-200`}>
     <svg width={size === 9 ? 18 : 28} height={size === 9 ? 18 : 28} viewBox="0 0 16 16" fill="none">
       <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
       <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
@@ -106,9 +106,9 @@ const LogoMark = ({ size = 9 }) => (
 const StepPill = ({ n, active, done }) => (
   <div className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold transition-all shrink-0 ${
     done
-      ? "bg-[#2C2DE0] text-white"
+      ? "bg-green-500 text-white"
       : active
-        ? "bg-[#2C2DE0] text-white ring-4 ring-[#2C2DE0]/20"
+        ? "bg-green-500 text-white ring-4 ring-green-500/20"
         : "bg-gray-100 dark:bg-gray-800 text-gray-400"
   }`}>
     {done ? (
@@ -253,8 +253,8 @@ const ForgotPassword = () => {
           {/* ── SUCCESS ─────────────────────────────────────────────────────── */}
           {step === "success" && (
             <div className="flex flex-col items-center text-center py-8 anim-fadeup">
-              <div className="w-20 h-20 rounded-2xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 flex items-center justify-center mb-5 anim-scalein">
-                <CheckCircle2 size={40} className="text-[#2C2DE0]" />
+              <div className="w-20 h-20 rounded-2xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center mb-5 anim-scalein">
+                <CheckCircle2 size={40} className="text-green-500" />
               </div>
               <h1 className="text-xl font-black text-gray-900 dark:text-white">
                 {t("auth.passwordResetDone")}
@@ -263,7 +263,7 @@ const ForgotPassword = () => {
                 {t("auth.redirectingToLoginAfterReset")}
               </p>
               <div className="mt-8 w-full h-1 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                <div className="h-full bg-[#2C2DE0] rounded-full anim-progress" />
+                <div className="h-full bg-green-500 rounded-full anim-progress" />
               </div>
             </div>
           )}
@@ -272,16 +272,16 @@ const ForgotPassword = () => {
           {(step === "sending" || step === "verifying") && (
             <div className="flex flex-col items-center text-center py-12 anim-fadeup">
               <div className="relative w-16 h-16 mb-6">
-                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#2C2DE0]" />
-                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] border-t-transparent animate-spin" />
+                <div className="absolute inset-0 rounded-full border-4 border-green-100 dark:border-green-900" />
+                <div className="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" />
                 {step === "sending" ? (
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                    className="absolute inset-0 m-auto text-[#2C2DE0]">
+                    className="absolute inset-0 m-auto text-green-500">
                     <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                       stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 ) : (
-                  <ShieldCheck size={22} className="absolute inset-0 m-auto text-[#2C2DE0]" />
+                  <ShieldCheck size={22} className="absolute inset-0 m-auto text-green-500" />
                 )}
               </div>
               <p className="text-base font-bold text-gray-900 dark:text-white min-h-6 anim-textswap">
@@ -290,7 +290,7 @@ const ForgotPassword = () => {
               <div className="flex gap-1 mt-5">
                 {[0, 1, 2].map((i) => (
                   <span key={i}
-                    className="w-2 h-2 rounded-full bg-[#2C2DE0] animate-bounce"
+                    className="w-2 h-2 rounded-full bg-green-500 animate-bounce"
                     style={{ animationDelay: `${i * 150}ms` }}
                   />
                 ))}
@@ -327,7 +327,7 @@ const ForgotPassword = () => {
                     onChange={(e) => { setEmail(e.target.value); setEmailError(""); }}
                     placeholder={t("auth.emailPlaceholder")}
                     autoFocus
-                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all"
+                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
                   />
                 </div>
 
@@ -337,29 +337,18 @@ const ForgotPassword = () => {
                     onExpire={() => setTurnstileToken("")}
                   />
                 </div>
-
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-[#58CC02]
-                    text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150 disabled:cursor-not-allowed  py-3 rounded-xl
-                  text-white group"
-                >
-                  {t("auth.sendResetCode")}
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-                </button>
+<button
+  type="submit"
+  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
+>
+  {t("auth.sendResetCode")}
+  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+</button>
               </form>
 
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
                 {t("auth.haveAccount")}{" "}
-                <Link to="/login" className="text-[#2C2DE0] dark:text-[#2C2DE0] font-semibold hover:underline">
+                <Link to="/login" className="text-green-600 dark:text-green-400 font-semibold hover:underline">
                   {t("auth.signInLink")}
                 </Link>
               </p>
@@ -371,7 +360,7 @@ const ForgotPassword = () => {
             <div className="anim-slidein">
               <div className="flex items-center gap-2 mb-6">
                 <StepPill n={1} done />
-                <div className="h-px flex-1 bg-[#2C2DE0]" />
+                <div className="h-px flex-1 bg-green-400" />
                 <StepPill n={2} active />
               </div>
 
@@ -383,11 +372,11 @@ const ForgotPassword = () => {
               </p>
 
               {/* Locked email badge */}
-              <div className="mt-4 mb-1 flex items-center gap-2.5 bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/30 rounded-xl px-4 py-2.5">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="text-[#2C2DE0] shrink-0">
+              <div className="mt-4 mb-1 flex items-center gap-2.5 bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/30 rounded-xl px-4 py-2.5">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="text-green-500 shrink-0">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
                 </svg>
-                <span className="text-xs font-mono font-bold tracking-widest text-[#2C2DE0] dark:text-[#2C2DE0]">
+                <span className="text-xs font-mono font-bold tracking-widest text-green-700 dark:text-green-400">
                   {email}
                 </span>
               </div>
@@ -408,7 +397,7 @@ const ForgotPassword = () => {
                     placeholder={t("auth.resetCodePlaceholder")}
                     maxLength={6}
                     autoFocus
-                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm font-mono font-bold tracking-[0.3em] text-center text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all uppercase"
+                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm font-mono font-bold tracking-[0.3em] text-center text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all uppercase"
                   />
                   <p className="text-[11px] text-gray-400">{t("auth.codeHint")}</p>
                 </div>
@@ -425,9 +414,9 @@ const ForgotPassword = () => {
                       value={newPassword}
                       onChange={(e) => { setNewPassword(e.target.value); setResetError(""); }}
                       placeholder={t("auth.passwordMinPlaceholder")}
-                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pl-10 pr-11 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all"
+                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pl-10 pr-11 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
                     />
-                    <button type="button" onClick={() => setShowPw((s) => !s)}
+                    <button onClick={() => setShowPw((s) => !s)}
                       className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                       {showPw ? <EyeOff size={15} /> : <Eye size={15} />}
                     </button>
@@ -448,14 +437,14 @@ const ForgotPassword = () => {
                       value={confirmPw}
                       onChange={(e) => { setConfirmPw(e.target.value); setResetError(""); }}
                       placeholder={t("auth.confirmPasswordLabel")}
-                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pl-10 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all"
+                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pl-10 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
                     />
                   </div>
                   {/* Confirm match indicator */}
                   {confirmPw && (
                     <p className={`text-[11px] font-medium flex items-center gap-1 ${
                       newPassword === confirmPw
-                        ? "text-[#2C2DE0] dark:text-[#2C2DE0]"
+                        ? "text-green-600 dark:text-green-400"
                         : "text-red-500"
                     }`}>
                       {newPassword === confirmPw ? (
@@ -466,25 +455,16 @@ const ForgotPassword = () => {
                     </p>
                   )}
                 </div>
-
-                <button
-                  type="submit"
-                  disabled={!code.trim() || !newPassword || !confirmPw || step === "verifying"}
-                  className="w-full flex items-center justify-center gap-2  bg-[#58CC02]
-                    text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150 disabled:opacity-50 disabled:cursor-not-allowed text-white  py-3 rounded-xl  group"
-                >
-                  {t("auth.resetPassword")}
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-                </button>
-              </form>
+{/* 1. Reset Password */}
+<button
+  type="submit"
+  disabled={!code.trim() || !newPassword || !confirmPw || step === "verifying"}
+  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none disabled:opacity-60 disabled:pointer-events-none transition-all duration-150 group"
+>
+  {t("auth.resetPassword")}
+  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+</button>
+</form>
 
               {/* Resend */}
               <div className="mt-5 text-center">
@@ -493,17 +473,16 @@ const ForgotPassword = () => {
                 </p>
                 <button
                   onClick={handleResend}
-                  className="text-xs font-semibold text-[#2C2DE0] dark:text-[#2C2DE0] hover:underline"
+                  className="text-xs font-semibold text-green-600 dark:text-green-400 hover:underline"
                 >
                   {t("auth.forgotResendCode")}
                 </button>
               </div>
 
               {/* Back */}
-              <button
-                type="button"
+              <button 
                 onClick={() => { setStep("email"); setCode(""); setResetError(""); }}
-                className="w-full mt-4 text-center text-xs text-gray-400 hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] font-semibold transition-colors"
+                className="w-full mt-4 text-center text-xs text-gray-400 hover:text-green-600 dark:hover:text-green-400 font-semibold transition-colors"
               >
                 ← {t("auth.forgotBackToEmail")}
               </button>
@@ -516,14 +495,14 @@ const ForgotPassword = () => {
       {/* ══ RIGHT: Brand panel ══════════════════════════════════════════════════ */}
       <div className="hidden md:flex w-1/2 bg-black dark:bg-gray-950 flex-col justify-center items-center px-14 text-center relative overflow-hidden">
         <DotGrid />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-[#2C2DE0]" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-green-500" />
 
         {/* Decorative rings */}
-        <div className="absolute w-120 h-120 rounded-full border border-[#2C2DE0]/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-        <div className="absolute w-85 h-85 rounded-full border border-[#2C2DE0]/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute w-120 h-120 rounded-full border border-green-500/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute w-85 h-85 rounded-full border border-green-500/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
         <div className="relative z-10 max-w-sm">
-          <div className="w-14 h-14 rounded-2xl bg-[#2C2DE0] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#2C2DE0]/30">
+          <div className="w-14 h-14 rounded-2xl bg-green-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
             <LogoMark size={14} />
           </div>
           <h2 className="text-2xl font-black text-white leading-tight">
@@ -536,7 +515,7 @@ const ForgotPassword = () => {
           <div className="mt-8 flex flex-col gap-3 text-left">
             {(Array.isArray(forgotSideSteps) ? forgotSideSteps : []).map((label, i) => (
               <div key={i} className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-[#2C2DE0] text-white text-[11px] font-black flex items-center justify-center shrink-0">
+                <span className="w-7 h-7 rounded-lg bg-green-500 text-white text-[11px] font-black flex items-center justify-center shrink-0">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span className="text-sm text-gray-300 font-medium">{label}</span>
@@ -544,8 +523,8 @@ const ForgotPassword = () => {
             ))}
           </div>
 
-          <div className="mt-8 bg-[#2C2DE0]/10 border border-[#2C2DE0]/20 rounded-2xl px-5 py-4 text-left">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0] mb-1">
+          <div className="mt-8 bg-green-500/10 border border-green-500/20 rounded-2xl px-5 py-4 text-left">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-green-400 mb-1">
               {t("auth.forgotSecurityNote")}
             </p>
             <p className="text-xs text-gray-400 leading-relaxed">
@@ -553,8 +532,8 @@ const ForgotPassword = () => {
             </p>
           </div>
 
-          <p className="mt-8 text-gray-500 italic text-sm">{t("auth.forgotQuote")}</p>
-          <p className="mt-1 text-gray-600 text-xs">{t("auth.forgotQuoteAuthor")}</p>
+          <p className="mt-8 text-gray-500 dark:text-gray-400 italic text-sm">{t("auth.forgotQuote")}</p>
+          <p className="mt-1 text-gray-600 dark:text-gray-400 text-xs">{t("auth.forgotQuoteAuthor")}</p>
         </div>
       </div>
 

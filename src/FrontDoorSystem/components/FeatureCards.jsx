@@ -1,4 +1,3 @@
-
 import {
   ArrowRight, ChevronRight, ChevronDown,
   BookOpen, FileText, Bot, Users, LayoutDashboard, GraduationCap,
@@ -7,9 +6,6 @@ import {
 
 import { motion, AnimatePresence } from "framer-motion";
 
-// ═══════════════════════════════════════════════════════════════════
-// FEATURES — white bg, black text (unchanged, already light-first)
-// ═══════════════════════════════════════════════════════════════════
 const featureMeta = [
   { icon: BookOpen, span: 1 },
   { icon: FileText, span: 2 },
@@ -31,14 +27,14 @@ const Features = ({ t }) => {
 
   return (
     <section id="features" className="w-full bg-white dark:bg-black" aria-label="Features">
-      <div className="w-full max-w-350 mx-auto px-6 lg:px-10 py-24 sm:py-28">
-        <div className="mb-12">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#3FAF2]">
+      <div className="w-full max-w-350 mx-auto px-6 lg:px-10 py-16 sm:py-24 lg:py-28">
+        <div className="mb-10 sm:mb-12">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#2C2DE0]">
             {t?.landing?.sectionFeatures || "What the system does"}
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-black text-black dark:text-white leading-tight">
+          <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-black text-black dark:text-white leading-tight">
             {t?.landing?.headingMain || "Everything your university needs,"}{" "}
-            <span className="text-[#63DF4E]" style={{ textShadow: "0 2px 0 #3FAF2E" }} >
+            <span className="text-[#1E1FAA]" style={{ textShadow: "0 2px 0 #2C2DE0" }}>
               {t?.landing?.headingSub || "in one platform"}
             </span>
           </h2>
@@ -55,20 +51,12 @@ const Features = ({ t }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.07 }}
-                className={`group relative rounded-2xl border border-black/8 dark:border-white/8 bg-black/2 dark:bg-white/2 hover:bg-[#63DF4E]/5 hover:border-[#63DF4E]/40 transition-all duration-300 p-6 overflow-hidden ${f.span === 2 ? "lg:col-span-2" : ""
-                  }`}
+                className={`group relative rounded-2xl border border-black/8 dark:border-white/8 bg-black/2 dark:bg-white/2 hover:bg-[#2C2DE0]/5 hover:border-[#2C2DE0]/40 transition-all duration-300 p-5 sm:p-6 overflow-hidden ${
+                  f.span === 2 ? "lg:col-span-2" : ""
+                }`}
               >
-                <div className="w-10 h-10 rounded-xl bg-[#58CC02]
-              text-white
-              text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150 flex items-center justify-center mb-5">
+                {/* Icon badge — static decorative element, not a button, so it only needs a fill color */}
+                <div className="w-10 h-10 rounded-xl bg-[#2C2DE0] flex items-center justify-center mb-5">
                   <Icon size={18} className="text-white" />
                 </div>
                 <h3 className="text-base font-black text-black dark:text-white mb-2">{item.title}</h3>

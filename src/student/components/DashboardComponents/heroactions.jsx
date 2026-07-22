@@ -20,7 +20,7 @@ export const HeroCTAs = ({ isGuest, t }) => (
   <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3">
     <Link
       to={isGuest ? "/verify-university-id" : "/seats"}
-      className="inline-flex items-center gap-2 bg-white text-[#3F9100] text-sm font-bold px-5 py-3 rounded-xl
+      className="inline-flex items-center gap-2 bg-white dark:bg-gray-900 text-[#3F9100] text-sm font-bold px-5 py-3 rounded-xl
         shadow-[0_4px_0_#E2F4D0] hover:translate-y-0.5 hover:shadow-[0_2px_0_#E2F4D0]
         active:translate-y-1 active:shadow-none transition-all duration-150"
     >
@@ -29,8 +29,8 @@ export const HeroCTAs = ({ isGuest, t }) => (
     </Link>
     <Link
       to="/e-library"
-      className="inline-flex items-center gap-2 bg-white/15 text-white border border-white/30 text-sm font-bold px-5 py-3 rounded-xl
-        hover:bg-white/25 transition-all duration-150"
+      className="inline-flex items-center gap-2 bg-white dark:bg-gray-900/15 text-white border border-white/30 text-sm font-bold px-5 py-3 rounded-xl
+        hover:bg-white dark:bg-gray-900/25 transition-all duration-150"
     >
       {t?.hero?.browseCta || "Browse library"}
     </Link>
@@ -46,12 +46,12 @@ export const AssistantSuggestions = ({ suggestions, onSelect, t }) => {
       {suggestions.map((s) => {
         const Icon = SUGGESTION_ICONS[s.id] || Sparkles;
         return (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             key={s.id}
             type="button"
             role="listitem"
             onClick={() => onSelect?.(s)}
-            className="inline-flex items-center gap-1 bg-white/15 hover:bg-white/25 text-white text-[11px] font-semibold px-2.5 py-1.5 rounded-full border border-white/20 transition-colors"
+            className="inline-flex items-center gap-1 bg-white dark:bg-gray-900/15 hover:bg-white dark:bg-gray-900/25 text-white text-[11px] font-semibold px-2.5 py-1.5 rounded-full border border-white/20 transition-colors"
           >
             <Icon size={12} />
             {s.label}

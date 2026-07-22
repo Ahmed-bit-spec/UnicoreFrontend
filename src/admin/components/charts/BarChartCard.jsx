@@ -17,7 +17,7 @@ const BarChartCard = ({ title, data, dataKey = "value", className }) => (
     transition={{ duration: 0.4, delay: 0.15 }}
     className={cn(
       "rounded-2xl border border-gray-200/60 dark:border-white/10",
-      "bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-5 shadow-sm",
+      "bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl p-5 shadow-sm",
       className
     )}
   >

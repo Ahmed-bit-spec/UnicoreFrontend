@@ -37,7 +37,7 @@ export function RightSidebar() {
 
   if (!selectedObject) {
     return (
-      <aside className="w-[280px] bg-white border-l border-zinc-200 flex flex-col shrink-0">
+      <aside className="w-[280px] bg-white dark:bg-gray-900 border-l border-zinc-200 flex flex-col shrink-0">
         <div className="p-4 border-b border-zinc-200">
           <h2 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">Canvas</h2>
         </div>
@@ -58,7 +58,7 @@ export function RightSidebar() {
   }
 
   return (
-    <aside className="w-[280px] bg-white border-l border-zinc-200 flex flex-col shrink-0 overflow-y-auto">
+    <aside className="w-[280px] bg-white dark:bg-gray-900 border-l border-zinc-200 flex flex-col shrink-0 overflow-y-auto">
       {/* Header */}
       <div className="p-4 border-b border-zinc-200 flex items-center justify-between">
         <h2 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider">
@@ -66,7 +66,7 @@ export function RightSidebar() {
         </h2>
         <div className="flex gap-1">
           <button
-            className="p-1 rounded text-zinc-400 bg-transparent border-none cursor-pointer hover:text-zinc-800 hover:bg-zinc-100 transition-all"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={async () => {
               if (!canvas || !selectedObject) return;
               const clone = await selectedObject.clone();
@@ -79,7 +79,7 @@ export function RightSidebar() {
             <Copy size={14} />
           </button>
           <button
-            className="p-1 rounded text-zinc-400 bg-transparent border-none cursor-pointer hover:text-red-400 hover:bg-red-500/10 transition-all"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={deleteSelected}
             title="Delete"
           >
@@ -96,7 +96,7 @@ export function RightSidebar() {
             <div>
               <label className="text-[11px] text-zinc-400 mb-1 block">Font family</label>
               <select
-                className="w-full bg-white border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none cursor-pointer focus:border-accent"
+                className="w-full bg-white dark:bg-gray-900 border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none cursor-pointer focus:border-accent"
                 value={(selectedObject as any).fontFamily || "Inter"}
                 onChange={(e) =>
                   updateSelectedObject({ fontFamily: (e.target as HTMLSelectElement).value })
@@ -115,7 +115,7 @@ export function RightSidebar() {
               <label className="text-[11px] text-zinc-400 mb-1 block">Font size</label>
               <input
                 type="number"
-                className="w-full bg-white border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none focus:border-accent"
+                className="w-full bg-white dark:bg-gray-900 border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none focus:border-accent"
                 value={(selectedObject as any).fontSize || 18}
                 onInput={(e) =>
                   updateSelectedObject({
@@ -130,11 +130,7 @@ export function RightSidebar() {
               <label className="text-[11px] text-zinc-400 mb-1 block">Style</label>
               <div className="flex gap-1">
                 <button
-                  className={`p-1.5 rounded-md border cursor-pointer transition-all ${
-                    (selectedObject as any).fontWeight === "700" || (selectedObject as any).fontWeight === "bold"
-                      ? "bg-accent/20 border-accent text-accent"
-                      : "bg-transparent border-zinc-300 text-zinc-400 hover:text-zinc-900"
-                  }`}
+                  className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                   onClick={() =>
                     updateSelectedObject({
                       fontWeight:
@@ -147,11 +143,7 @@ export function RightSidebar() {
                   <Bold size={14} />
                 </button>
                 <button
-                  className={`p-1.5 rounded-md border cursor-pointer transition-all ${
-                    (selectedObject as any).fontStyle === "italic"
-                      ? "bg-accent/20 border-accent text-accent"
-                      : "bg-transparent border-zinc-300 text-zinc-400 hover:text-zinc-900"
-                  }`}
+                  className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                   onClick={() =>
                     updateSelectedObject({
                       fontStyle: (selectedObject as any).fontStyle === "italic" ? "normal" : "italic",
@@ -161,11 +153,7 @@ export function RightSidebar() {
                   <Italic size={14} />
                 </button>
                 <button
-                  className={`p-1.5 rounded-md border cursor-pointer transition-all ${
-                    (selectedObject as any).underline
-                      ? "bg-accent/20 border-accent text-accent"
-                      : "bg-transparent border-zinc-300 text-zinc-400 hover:text-zinc-900"
-                  }`}
+                  className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                   onClick={() =>
                     updateSelectedObject({ underline: !(selectedObject as any).underline })
                   }
@@ -186,11 +174,7 @@ export function RightSidebar() {
                 ].map(({ align, icon: Icon }) => (
                   <button
                     key={align}
-                    className={`p-1.5 rounded-md border cursor-pointer transition-all ${
-                      (selectedObject as any).textAlign === align
-                        ? "bg-accent/20 border-accent text-accent"
-                        : "bg-transparent border-zinc-300 text-zinc-400 hover:text-zinc-900"
-                    }`}
+                    className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                     onClick={() => updateSelectedObject({ textAlign: align })}
                   >
                     <Icon size={14} />
@@ -207,7 +191,7 @@ export function RightSidebar() {
                   {teacherColors.map((c, i) => (
                     <button
                       key={`text-color-${i}`}
-                      className="w-5 h-5 rounded border border-zinc-300 cursor-pointer transition-transform hover:scale-110"
+                      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       style={{ background: c }}
                       onClick={() => updateSelectedObject({ fill: c })}
                       title={c}
@@ -226,7 +210,7 @@ export function RightSidebar() {
                 />
                 <input
                   type="text"
-                  className="flex-1 bg-white border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none focus:border-accent font-mono"
+                  className="flex-1 bg-white dark:bg-gray-900 border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none focus:border-accent font-mono"
                   value={((selectedObject as any).fill as string) || "#ffffff"}
                   onInput={(e) =>
                     updateSelectedObject({ fill: (e.target as HTMLInputElement).value })
@@ -290,7 +274,7 @@ export function RightSidebar() {
                   {teacherColors.map((c, i) => (
                     <button
                       key={`fill-color-${i}`}
-                      className="w-5 h-5 rounded border border-zinc-300 cursor-pointer transition-transform hover:scale-110"
+                      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       style={{ background: c }}
                       onClick={() => updateSelectedObject({ fill: c })}
                       title={c}
@@ -309,7 +293,7 @@ export function RightSidebar() {
                 />
                 <input
                   type="text"
-                  className="flex-1 bg-white border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none focus:border-accent font-mono"
+                  className="flex-1 bg-white dark:bg-gray-900 border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none focus:border-accent font-mono"
                   value={(selectedObject.fill as string) || "#6366f1"}
                   onInput={(e) =>
                     updateSelectedObject({ fill: (e.target as HTMLInputElement).value })
@@ -326,7 +310,7 @@ export function RightSidebar() {
                   {teacherColors.map((c, i) => (
                     <button
                       key={`stroke-color-${i}`}
-                      className="w-5 h-5 rounded border border-zinc-300 cursor-pointer transition-transform hover:scale-110"
+                      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       style={{ background: c }}
                       onClick={() => updateSelectedObject({ stroke: c })}
                       title={c}
@@ -345,7 +329,7 @@ export function RightSidebar() {
                 />
                 <input
                   type="number"
-                  className="w-16 bg-white border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none focus:border-accent"
+                  className="w-16 bg-white dark:bg-gray-900 border border-zinc-300 rounded-md text-xs text-zinc-700 px-2 py-1.5 outline-none focus:border-accent"
                   value={selectedObject.strokeWidth || 0}
                   min={0}
                   placeholder="Width"
@@ -388,21 +372,13 @@ export function RightSidebar() {
               <label className="text-[11px] text-zinc-400 mb-1 block">Flip</label>
               <div className="flex gap-1">
                 <button
-                  className={`p-1.5 rounded-md border cursor-pointer transition-all ${
-                    selectedObject.flipX
-                      ? "bg-accent/20 border-accent text-accent"
-                      : "bg-transparent border-zinc-300 text-zinc-400 hover:text-zinc-900"
-                  }`}
+                  className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                   onClick={() => updateSelectedObject({ flipX: !selectedObject.flipX })}
                 >
                   <FlipHorizontal size={14} />
                 </button>
                 <button
-                  className={`p-1.5 rounded-md border cursor-pointer transition-all ${
-                    selectedObject.flipY
-                      ? "bg-accent/20 border-accent text-accent"
-                      : "bg-transparent border-zinc-300 text-zinc-400 hover:text-zinc-900"
-                  }`}
+                  className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                   onClick={() => updateSelectedObject({ flipY: !selectedObject.flipY })}
                 >
                   <FlipVertical size={14} />

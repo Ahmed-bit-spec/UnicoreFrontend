@@ -230,7 +230,7 @@ window.onerror = function(msg, src, line) {
     <div style={{ flex: 1, display: "flex", flexDirection: "column", overflow: "hidden" }}>
       <div style={{ display: "flex", alignItems: "center", background: "#252526", borderBottom: "1px solid #333", padding: "0.35rem 0.75rem", gap: 8, flexShrink: 0 }}>
         <span style={{ fontSize: 11, color: "#8b949e" }}>🌐 Live Preview</span>
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => setKey(k => k + 1)}
           title="Refresh preview"
           style={{
@@ -337,7 +337,7 @@ function ExecutionPanel({ code, langId, questionId, sqlSchema }) {
             {tables.map(t => <option key={t} value={t}>{t}</option>)}
           </select>
         )}
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={runCode}
           disabled={running}
           style={{
@@ -472,7 +472,7 @@ export function StudentCodingLab({ question, value, onSave }) {
           else if (id === "sql") filename = "query.sql";
 
           return (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={id}
               onClick={() => switchLang(id)}
               style={{
@@ -493,7 +493,7 @@ export function StudentCodingLab({ question, value, onSave }) {
             {lang?.icon} {selectedLangId === "html" ? "index.html" : selectedLangId === "css" ? "style.css" : selectedLangId === "javascript" ? "main.js" : selectedLangId === "sql" ? "query.sql" : `main${lang?.ext}`}
           </span>
           {isWebProject && (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setShowPreview(p => !p)}
               style={{
                 background: showPreview ? "#1a3652" : "#21262d",
@@ -506,7 +506,7 @@ export function StudentCodingLab({ question, value, onSave }) {
             </button>
           )}
           {supportsTerminal && (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setUseTerminal(t => !t)}
               title="Interactive terminal — needed if your program reads input()/scanf/Console.ReadLine"
               style={{
