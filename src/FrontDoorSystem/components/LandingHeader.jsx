@@ -84,7 +84,7 @@ const MegaMenu = ({ t }) => (
     transition={{ duration: 0.18 }}
     className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-215 z-100"
   >
-    <div className="h-0.5 bg-[#63DF4E]" />
+    <div className="h-0.5 bg-[#2C2DE0]" />
     <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-b-2xl shadow-2xl p-6">
       <p className="text-[12px] text-black/40 dark:text-white/40 mb-5 max-w-2xl leading-relaxed">
         UNICORE unifies library, AI learning, online examinations, and community into one intelligent university system.
@@ -92,15 +92,15 @@ const MegaMenu = ({ t }) => (
       <div className="grid grid-cols-4 gap-6">
         {getMegaMenuSections(t).map((section) => (
           <div key={section.title}>
-            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#63DF4E] mb-3">{section.title}</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#2C2DE0] mb-3">{section.title}</p>
             <ul className="flex flex-col gap-1">
               {section.items.map((item) => {
                 const Icon = item.icon;
                 return (
                   <li key={item.label}>
                     <a href="#" className="flex items-start gap-2.5 px-2.5 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/5 transition-colors group">
-                      <div className="w-8 h-8 rounded-lg bg-[#63DF4E]/10 border border-[#63DF4E]/20 flex items-center justify-center shrink-0 mt-0.5">
-                        <Icon size={14} className="text-[#63DF4E]" />
+                      <div className="w-8 h-8 rounded-lg bg-[#2C2DE0]/10 border border-[#2C2DE0]/20 flex items-center justify-center shrink-0 mt-0.5">
+                        <Icon size={14} className="text-[#2C2DE0]" />
                       </div>
                       <div>
                         <p className="text-[13px] font-semibold text-black dark:text-white leading-tight">{item.label}</p>
@@ -140,11 +140,11 @@ const LanguageSwitcher = ({ lang, setLang, isLightPage }) => {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-label="Change language"
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold transition-colors ${btnCls} ${open ? "border-[#63DF4E]!" : ""}`}
+        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold transition-colors ${btnCls} ${open ? "border-[#2C2DE0]!" : ""}`}
       >
-        <Globe size={14} className={open ? "text-[#63DF4E]" : ""} />
+        <Globe size={14} className={open ? "text-[#2C2DE0]" : ""} />
         {current.code.toUpperCase()}
-        <ChevronDown size={12} className={`transition-transform ${open ? "rotate-180 text-[#63DF4E]" : ""}`} />
+        <ChevronDown size={12} className={`transition-transform ${open ? "rotate-180 text-[#2C2DE0]" : ""}`} />
       </button>
 
       <AnimatePresence>
@@ -154,7 +154,7 @@ const LanguageSwitcher = ({ lang, setLang, isLightPage }) => {
             transition={{ duration: 0.16 }}
             className="absolute right-0 top-full mt-2 w-52 z-100"
           >
-            <div className="h-0.5 bg-[#63DF4E]" />
+            <div className="h-0.5 bg-[#2C2DE0]" />
             <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-b-2xl shadow-2xl py-2">
               {languages.map((l) => (
                 <button
@@ -167,7 +167,7 @@ const LanguageSwitcher = ({ lang, setLang, isLightPage }) => {
                     <span className="font-semibold">{l.native}</span>
                     <span className="text-black/30 dark:text-white/30 text-[10px]">{l.label}</span>
                   </span>
-                  {lang === l.code && <Check size={14} className="text-[#63DF4E]" />}
+                  {lang === l.code && <Check size={14} className="text-[#2C2DE0]" />}
                 </button>
               ))}
             </div>
@@ -252,7 +252,7 @@ const LandingHeader = () => {
                 className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${megaOpen ? textActive : textIdle}`}
               >
                 {t?.navbar?.modules || "Modules"}
-                <ChevronDown size={14} className={`transition-transform ${megaOpen ? "rotate-180 text-[#63DF4E]" : ""}`} />
+                <ChevronDown size={14} className={`transition-transform ${megaOpen ? "rotate-180 text-[#2C2DE0]" : ""}`} />
               </button>
               <AnimatePresence>{megaOpen && <MegaMenu t={t} />}</AnimatePresence>
             </div>
@@ -367,7 +367,7 @@ const LandingHeader = () => {
                     type="button"
                     onClick={() => setLanguage(l.code)}
                     className={`flex-1 py-2 rounded-lg text-xs font-bold border transition-colors ${(language || "en") === l.code
-                      ? "bg-[#63DF4E]/10 border-[#63DF4E]/40 text-[#63DF4E]"
+                      ? "bg-[#2C2DE0]/10 border-[#2C2DE0]/40 text-[#2C2DE0]"
                       : "border-black/15 dark:border-white/15 text-black/50 dark:text-white/50"
                       }`}
                   >
@@ -401,7 +401,7 @@ const LandingHeader = () => {
                         href="#"
                         className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl text-sm text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                       >
-                        <Icon size={14} className="text-[#63DF4E] shrink-0" />
+                        <Icon size={14} className="text-[#2C2DE0] shrink-0" />
                         {item.label}
                       </a>
                     );

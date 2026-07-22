@@ -32,7 +32,7 @@ const Hero = ({ t }) => (
     <div
       className="absolute inset-0 pointer-events-none hidden dark:block"
       style={{
-        backgroundImage: "radial-gradient(circle, #63DF4E 1px, transparent 1px)",
+        backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)",
         backgroundSize: "32px 32px",
         opacity: 0.04,
       }}
@@ -43,8 +43,8 @@ const Hero = ({ t }) => (
 
         {/* Badge */}
         <motion.div variants={fadeUp} className="inline-flex items-center gap-2 mb-8">
-          <span className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#63DF4E]/40 bg-[#63DF4E]/10 text-[#63DF4E] text-[11px] font-bold uppercase tracking-[0.2em]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#63DF4E] animate-pulse" style={{
+          <span className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2C2DE0]/40 bg-[#2C2DE0]/10 text-[#2C2DE0] text-[11px] font-bold uppercase tracking-[0.2em]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[##2C2DE0] animate-pulse" style={{
               textShadow: "0 2px 0 #3FAF2E"
             }} />
             {t?.landing?.heroBadge || "University of Somalia — Official System"}
@@ -58,7 +58,7 @@ const Hero = ({ t }) => (
         >
           UNISO{" "}
           <span
-            className="font-black text-[#63DF4E]"
+            className="font-black text-[#2C2DE0]"
             style={{
               textShadow: "0 2px 0 #3FAF2E"
             }}
