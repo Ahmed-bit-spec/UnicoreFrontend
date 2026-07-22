@@ -200,7 +200,7 @@ const SeatCard = ({ seat, isFullyBooked, lockedUnverified, lockedGirlsOnly, onSe
               ? "bg-gray-100 dark:bg-gray-800/60 text-gray-400 cursor-not-allowed"
               : isGirlsOnly
                 ? "bg-pink-500 hover:bg-pink-600 active:scale-95 text-white shadow-sm shadow-pink-200 dark:shadow-none"
-                : "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
+                : "bg-[#2C2DE0] text-white shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none"
             }
           `}
         >

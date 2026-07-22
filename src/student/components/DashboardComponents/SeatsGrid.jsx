@@ -136,7 +136,7 @@ const SeatCard = ({
       </span>
       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3 transition-colors ${isReservedNow || isFullyBooked
         ? "bg-gray-100 dark:bg-gray-800"
-        : "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 group-hover:bg-[#2C2DE0] dark:group-hover:bg-[#2C2DE0]/20"
+        : "bg-[#2C2DE0]/10 dark:bg-[#2C2DE0]/10 group-hover:bg-[#2C2DE0]/20 dark:group-hover:bg-[#2C2DE0]/20"
         }`}>
         <Armchair
           size={22}
@@ -157,9 +157,9 @@ const SeatCard = ({
         className={`mt-3 w-full py-2 rounded-xl text-xs font-bold transition-all duration-150 ${disabled
           ? "bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed"
           : isGirlsOnly
-            ? "bg-pink-500 hover:bg-pink-600 active:bg-pink-700 text-white shadow-sm shadow-pink-200 dark:shadow-none"
-            : "bg-[#2C2DE0] hover:bg-[#2C2DE0] active:bg-[#2C2DE0] text-white shadow-sm shadow-[#2C2DE0] dark:shadow-none"
-          } text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
+            ? "bg-pink-500 hover:bg-pink-600 active:bg-pink-700 text-white shadow-[0_4px_0_#9d174d] hover:translate-y-0.5 hover:shadow-[0_2px_0_#9d174d] active:translate-y-1 active:shadow-none"
+            : "bg-[#2C2DE0] text-white shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none"
+          }`}
       >
         {isReservedNow || isFullyBooked
           ? t.notAvailable
@@ -427,7 +427,7 @@ const SeatsGrid = () => {
           </div>
           <button
             onClick={handleRefetch}
-            className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 transition-all text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
+            className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] hover:bg-[#2C2DE0]/10 dark:hover:bg-[#2C2DE0]/10 transition-all duration-150 group"
           >
             <RefreshCw size={14} className={isFetching ? "animate-spin" : ""} />
           </button>

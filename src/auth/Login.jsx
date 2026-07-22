@@ -277,20 +277,15 @@ const LoginPage = () => {
                   className="mt-1"
                 />
 
-                {/* ── Duolingo-style submit button ─────────────────────── */}
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2
-                    bg-[#58CC02] text-white text-sm font-bold
-                    shadow-[0_4px_0_#46A302]
-                    hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
-                    active:translate-y-1 active:shadow-none
-                    transition-all duration-150
-                    py-3 rounded-xl mt-4 group"
-                >
-                  {t("auth.signIn")}
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-                </button>
+               {/* ── Duolingo-style submit button ─────────────────────── */}
+<button
+  type="submit"
+  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
+>
+  {t("auth.signIn")}
+  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+</button>
+
               </form>
 
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
@@ -306,55 +301,48 @@ const LoginPage = () => {
       </div>
 
       {/* ── RIGHT: Brand panel (50%) ──────────────────────────────────────────── */}
-      <div className="hidden md:flex w-1/2 bg-black dark:bg-gray-950 flex-col justify-center items-center px-14 text-center relative overflow-hidden">
+<div className="hidden md:flex w-1/2 bg-black dark:bg-gray-950 flex-col justify-center items-center px-14 text-center relative overflow-hidden">
+  <div
+    className="absolute inset-0 opacity-[0.07]"
+    style={{
+      backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)",
+      backgroundSize: "20px 20px",
+    }}
+  />
+  <div className="absolute top-0 left-0 right-0 h-1 bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
 
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)",
-            backgroundSize: "20px 20px",
-          }}
-        />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-[#2C2DE0]" />
+  <div className="relative z-10 max-w-sm">
+    <div className="w-14 h-14 rounded-2xl bg-[#2C2DE0] flex items-center justify-center mx-auto mb-6">
+      <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
+        <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
+        <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
+        <rect x="9" y="8" width="5" height="6" rx="1" fill="white" opacity="0.9" />
+        <rect x="2" y="11" width="5" height="3" rx="1" fill="white" opacity="0.6" />
+      </svg>
+    </div>
 
-        <div className="relative z-10 max-w-sm">
-          <div className="w-14 h-14 rounded-2xl bg-[#58CC02]
-              text-white text-sm font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1 active:shadow-none
-              transition-all duration-150
-              flex items-center justify-center mx-auto mb-6">
-            <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
-              <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
-              <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
-              <rect x="9" y="8" width="5" height="6" rx="1" fill="white" opacity="0.9" />
-              <rect x="2" y="11" width="5" height="3" rx="1" fill="white" opacity="0.6" />
-            </svg>
-          </div>
+    <h2 className="text-2xl font-black text-white leading-tight">
+      {t("auth.sideTitle")}
+    </h2>
 
-          <h2 className="text-2xl font-black text-white leading-tight">
-            {t("auth.sideTitle")}
-          </h2>
+    <p className="text-gray-400 mt-4 text-sm leading-relaxed">
+      {t("auth.sideDescription")}
+    </p>
 
-          <p className="text-gray-400 mt-4 text-sm leading-relaxed">
-            {t("auth.sideDescription")}
-          </p>
+    <div className="flex flex-wrap justify-center gap-2 mt-6">
+      {(t("auth.sideFeatures") || []).map((f) => (
+        <span key={f} className="px-3 py-1.5 bg-white/10 border border-white/10 rounded-full text-[11px] font-semibold text-gray-300">
+          {f}
+        </span>
+      ))}
+    </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mt-6">
-            {(t("auth.sideFeatures") || []).map((f) => (
-              <span key={f} className="px-3 py-1.5 bg-white/10 border border-white/10 rounded-full text-[11px] font-semibold text-gray-300">
-                {f}
-              </span>
-            ))}
-          </div>
-
-          <p className="mt-10 text-gray-500 italic text-sm">
-            {t("auth.quote")}
-          </p>
-          <p className="mt-1 text-gray-600 text-xs">{t("auth.quoteAuthor")}</p>
-        </div>
-      </div>
+    <p className="mt-10 text-gray-500 dark:text-gray-400 italic text-sm">
+      {t("auth.quote")}
+    </p>
+    <p className="mt-1 text-gray-600 dark:text-gray-400 text-xs">{t("auth.quoteAuthor")}</p>
+  </div>
+</div>
 
       {/* Animations */}
       <style>{`

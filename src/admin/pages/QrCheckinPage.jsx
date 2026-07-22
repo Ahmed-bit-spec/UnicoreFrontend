@@ -260,7 +260,7 @@ const CameraScanner = ({ onDetect, onClose }) => {
           (decodedText) => {
             if (!active) return;
             setScanning(false);
-            scanner.stop().catch(() => {});
+            try { scanner.stop().catch(() => {}); } catch(e) {}
             onDetect(decodedText);
           },
           () => {}
@@ -274,7 +274,7 @@ const CameraScanner = ({ onDetect, onClose }) => {
     return () => {
       active = false;
       if (streamRef.current) streamRef.current.getTracks().forEach((t) => t.stop());
-      if (scannerRef.current) scannerRef.current.stop().catch(() => {});
+      try { if (scannerRef.current) scannerRef.current.stop().catch(() => {}); } catch(e) {}
       document.body.removeChild(script);
     };
   }, [onDetect]);

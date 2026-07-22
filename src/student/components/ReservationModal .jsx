@@ -28,7 +28,7 @@ const PrimaryButton = ({ disabled, className = "", children, ...props }) => (
       py-3.5 rounded-2xl font-bold text-sm transition-all duration-150
       ${disabled
         ? "bg-gray-100 dark:bg-gray-800/60 text-gray-400 cursor-not-allowed shadow-none"
-        : "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
+        : "bg-[#2C2DE0] text-white shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none"
       }
       ${className}
     `}
@@ -314,9 +314,7 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
                     #{qrData.shortId}
                   </span>
                 </div>
-                <p className="relative z-10 text-[10px] text-gray-400 text-center">
-                  {copy.qrEmailSent ?? "A confirmation with your QR code has been sent to your email."}
-                </p>
+              
               </div>
 
               <ul className="mt-5 space-y-3">
@@ -381,7 +379,7 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
                       key={opt.value}
                       onClick={() => { setDuration(opt.value); setSelectedSlot(null); }}
                       className={`py-2.5 rounded-xl text-xs font-bold border transition-all duration-150 ${duration === opt.value
-                        ? "bg-[#58CC02] border-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
+                        ? "bg-[#2C2DE0] border-[#2C2DE0] text-white shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none"
                         : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#2C2DE0] hover:text-[#2C2DE0]"
                         }`}
                     >
@@ -419,7 +417,7 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
                         className={`py-2.5 rounded-xl text-xs font-semibold transition-all ${isSelected
                           ? "bg-[#2C2DE0] text-white ring-2 ring-[#2C2DE0] dark:ring-[#2C2DE0] shadow-sm"
                           : state === "free"
-                            ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/20 border border-[#2C2DE0] dark:border-[#2C2DE0] text-[#2C2DE0] dark:text-[#2C2DE0] hover:bg-[#2C2DE0]"
+                            ? "bg-[#2C2DE0]/10 dark:bg-[#2C2DE0]/20 border border-[#2C2DE0]/20 dark:border-[#2C2DE0]/30 text-[#2C2DE0] hover:bg-[#2C2DE0]/20"
                             : state === "taken"
                               ? "bg-gray-100 dark:bg-gray-800 text-gray-300 dark:text-gray-600 cursor-not-allowed line-through"
                               : "bg-white dark:bg-gray-900 text-gray-200 dark:text-gray-700 cursor-not-allowed opacity-50"

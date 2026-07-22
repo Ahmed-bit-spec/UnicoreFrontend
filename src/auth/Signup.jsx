@@ -68,7 +68,7 @@ function calcStrength(score, t) {
   if (score <= 2) return { label: t("auth.passwordStrengthWeak"), bars: 1, bar: "bg-red-500", text: "text-red-500" };
   if (score === 3) return { label: t("auth.passwordStrengthFair"), bars: 2, bar: "bg-orange-400", text: "text-orange-400" };
   if (score === 4) return { label: t("auth.passwordStrengthGood"), bars: 3, bar: "bg-yellow-500", text: "text-yellow-500" };
-  return { label: t("auth.passwordStrengthStrong"), bars: 4, bar: "bg-green-500", text: "text-green-500" };
+  return { label: t("auth.passwordStrengthStrong"), bars: 4, bar: "bg-[#2C2DE0]", text: "text-[#2C2DE0]" };
 }
 
 // ─── PasswordStrengthMeter ────────────────────────────────────────────────────
@@ -107,7 +107,7 @@ const PasswordStrengthMeter = ({ password, t }) => {
           <div
             key={c.id}
             className={`flex items-center gap-1.5 text-[11px] transition-colors duration-200 ${c.met
-              ? "text-green-600 dark:text-green-400"
+              ? "text-[#2C2DE0] dark:text-[#2C2DE0]"
               : "text-gray-400 dark:text-gray-500"
               }`}
           >
@@ -264,10 +264,10 @@ const SignupPage = () => {
           {step === "sending" && (
             <div className="flex flex-col items-center text-center py-12 anim-fadeup">
               <div className="relative w-16 h-16 mb-6">
-                <div className="absolute inset-0 rounded-full border-4 border-green-100 dark:border-green-900" />
-                <div className="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#2C2DE0]" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] border-t-transparent animate-spin" />
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                  className="absolute inset-0 m-auto text-green-500">
+                  className="absolute inset-0 m-auto text-[#2C2DE0]">
                   <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -278,7 +278,7 @@ const SignupPage = () => {
               <div className="flex gap-1 mt-5">
                 {[0, 1, 2].map((i) => (
                   <span key={i}
-                    className="w-2 h-2 rounded-full bg-green-500 animate-bounce"
+                    className="w-2 h-2 rounded-full bg-[#2C2DE0] animate-bounce"
                     style={{ animationDelay: `${i * 150}ms` }}
                   />
                 ))}
@@ -336,7 +336,7 @@ const SignupPage = () => {
                     onChange={handleRegisterChange}
                     placeholder={t("auth.namePlaceholder")}
                     autoComplete="off"
-                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
+                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all"
                   />
                 </div>
 
@@ -351,7 +351,7 @@ const SignupPage = () => {
                     onChange={handleRegisterChange}
                     placeholder={t("auth.emailPlaceholder")}
                     autoComplete="off" autoCapitalize="none" spellCheck={false}
-                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
+                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all"
                   />
                 </div>
 
@@ -368,7 +368,7 @@ const SignupPage = () => {
                       onChange={handleRegisterChange}
                       placeholder={t("auth.passwordMinPlaceholder")}
                       autoComplete="new-password"
-                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pr-11 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
+                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pr-11 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all"
                     />
                     <button 
                                        type="button"
@@ -390,8 +390,7 @@ const SignupPage = () => {
                   className="mt-1"
                 />
 
-
-   <button
+<button
   type="submit"
   disabled={step === "sending"}
   className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none disabled:opacity-60 disabled:pointer-events-none transition-all duration-150 group"
@@ -410,11 +409,12 @@ const SignupPage = () => {
 </button>
 
 
+
               </form>
 
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
                 {t("auth.haveAccount")}{" "}
-                <Link to="/login" className="text-green-600 dark:text-green-400 font-semibold hover:underline">
+                <Link to="/login" className="text-[#2C2DE0] dark:text-[#2C2DE0] font-semibold hover:underline">
                   {t("auth.signInLink")}
                 </Link>
               </p>
@@ -424,48 +424,42 @@ const SignupPage = () => {
       </div>
 
       {/* ── RIGHT: Brand panel ─────────────────────────────────────────────── */}
-      <div className="hidden md:flex w-1/2 bg-black dark:bg-gray-950 flex-col justify-center items-center px-14 text-center relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{ backgroundImage: "radial-gradient(circle, #22c55e 1px, transparent 1px)", backgroundSize: "20px 20px" }}
-        />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-green-500" />
+<div className="hidden md:flex w-1/2 bg-black dark:bg-gray-950 flex-col justify-center items-center px-14 text-center relative overflow-hidden">
+  <div
+    className="absolute inset-0 opacity-[0.07]"
+    style={{ backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)", backgroundSize: "20px 20px" }}
+  />
+  <div className="absolute top-0 left-0 right-0 h-1 bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
 
-        <div className="relative z-10 max-w-sm">
-          <div className="w-14 h-14 rounded-2xl bg-[#58CC02]
-              text-white text-sm font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1 active:shadow-none
-              transition-all duration-150
-              flex items-center justify-center mx-auto mb-6">
-            <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
-              <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
-              <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
-              <rect x="9" y="8" width="5" height="6" rx="1" fill="white" opacity="0.9" />
-              <rect x="2" y="11" width="5" height="3" rx="1" fill="white" opacity="0.6" />
-            </svg>
-          </div>
-          <h2 className="text-2xl font-black text-white leading-tight">{t("auth.signupSideTitle")}</h2>
-          <p className="text-gray-400 mt-4 text-sm leading-relaxed">{t("auth.signupSideDescription")}</p>
-          <div className="mt-8 flex flex-col gap-3 text-left">
-            {[
-              { n: "01", label: t("auth.signupSteps")[0] },
-              { n: "02", label: t("auth.signupSteps")[1] },
-              { n: "03", label: t("auth.signupSteps")[2] },
-            ].map((s) => (
-              <div key={s.n} className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-green-500 text-white text-[11px] font-black flex items-center justify-center shrink-0">
-                  {s.n}
-                </span>
-                <span className="text-sm text-gray-300 font-medium">{s.label}</span>
-              </div>
-            ))}
-          </div>
-          <p className="mt-10 text-gray-500 italic text-sm">{t("auth.signupQuote")}</p>
-          <p className="mt-1 text-gray-600 text-xs">{t("auth.signupQuoteAuthor")}</p>
+  <div className="relative z-10 max-w-sm">
+    <div className="w-14 h-14 rounded-2xl bg-[#2C2DE0] flex items-center justify-center mx-auto mb-6">
+      <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
+        <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
+        <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
+        <rect x="9" y="8" width="5" height="6" rx="1" fill="white" opacity="0.9" />
+        <rect x="2" y="11" width="5" height="3" rx="1" fill="white" opacity="0.6" />
+      </svg>
+    </div>
+    <h2 className="text-2xl font-black text-white leading-tight">{t("auth.signupSideTitle")}</h2>
+    <p className="text-gray-400 mt-4 text-sm leading-relaxed">{t("auth.signupSideDescription")}</p>
+    <div className="mt-8 flex flex-col gap-3 text-left">
+      {[
+        { n: "01", label: t("auth.signupSteps")[0] },
+        { n: "02", label: t("auth.signupSteps")[1] },
+        { n: "03", label: t("auth.signupSteps")[2] },
+      ].map((s) => (
+        <div key={s.n} className="flex items-center gap-3">
+          <span className="w-7 h-7 rounded-lg bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white text-[11px] font-black flex items-center justify-center shrink-0">
+            {s.n}
+          </span>
+          <span className="text-sm text-gray-300 font-medium">{s.label}</span>
         </div>
-      </div>
+      ))}
+    </div>
+    <p className="mt-10 text-gray-500 dark:text-gray-400 italic text-sm">{t("auth.signupQuote")}</p>
+    <p className="mt-1 text-gray-600 dark:text-gray-400 text-xs">{t("auth.signupQuoteAuthor")}</p>
+  </div>
+</div>
 
       <style>{`
         @keyframes fadeup {
