@@ -79,7 +79,7 @@ const CommunityHeader = ({ onWritePost, notificationCount = 0 }) => {
         <div className="flex items-center gap-1 sm:gap-2 ml-auto">
 
           <button
-            className="md:hidden p-2 rounded-full text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => setSearchOpen((s) => !s)}
             aria-label="Search"
           >
@@ -87,7 +87,7 @@ const CommunityHeader = ({ onWritePost, notificationCount = 0 }) => {
           </button>
 
           {/* Write — icon only, opens the WritePostModal via onWritePost */}
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={onWritePost ?? (() => navigate("/community/write"))}
             className="p-2 rounded-full text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
             aria-label="Write post"
@@ -96,20 +96,20 @@ const CommunityHeader = ({ onWritePost, notificationCount = 0 }) => {
           </button>
 
           <button
-            className="relative p-2 rounded-full text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             aria-label="Notifications"
             onClick={() => navigate("/community/notifications")}
           >
             <Bell size={18} />
             {notificationCount > 0 && (
-              <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-green-500 text-white text-[9px] font-black flex items-center justify-center">
+              <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white text-[9px] font-black flex items-center justify-center">
                 {notificationCount > 9 ? "9+" : notificationCount}
               </span>
             )}
           </button>
 
           <div className="relative" ref={profileRef}>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setProfileOpen((s) => !s)}
               className="flex items-center gap-1.5 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
               aria-label="Profile menu"
@@ -146,7 +146,7 @@ const CommunityHeader = ({ onWritePost, notificationCount = 0 }) => {
                 <div className="border-t border-gray-100 dark:border-gray-800 mt-1 pt-1">
                   <button
                     onClick={handleLogout}
-                    className="block w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+                    className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   >
                     {t["nav.signOut"] ?? "Sign out"}
                   </button>

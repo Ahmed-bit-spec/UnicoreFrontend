@@ -17,7 +17,7 @@ const LineChartCard = ({ title, data, dataKey = "value", className }) => (
     transition={{ duration: 0.4, delay: 0.1 }}
     className={cn(
       "rounded-2xl border border-gray-200/60 dark:border-white/10",
-      "bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-5 shadow-sm",
+      "bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl p-5 shadow-sm",
       className
     )}
   >
@@ -27,8 +27,8 @@ const LineChartCard = ({ title, data, dataKey = "value", className }) => (
         <AreaChart data={data} margin={{ top: 8, right: 8, left: -20, bottom: 0 }}>
           <defs>
             <linearGradient id="adminLineGreen" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#22c55e" stopOpacity={0.35} />
-              <stop offset="100%" stopColor="#22c55e" stopOpacity={0} />
+              <stop offset="0%" stopColor="#2C2DE0" stopOpacity={0.35} />
+              <stop offset="100%" stopColor="#2C2DE0" stopOpacity={0} />
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200/50 dark:stroke-white/10" />
@@ -56,7 +56,7 @@ const LineChartCard = ({ title, data, dataKey = "value", className }) => (
           <Area
             type="monotone"
             dataKey={dataKey}
-            stroke="#22c55e"
+            stroke="#2C2DE0"
             strokeWidth={2}
             fill="url(#adminLineGreen)"
           />

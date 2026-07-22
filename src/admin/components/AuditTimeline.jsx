@@ -18,7 +18,7 @@ const AuditTimeline = ({ items = [], labels }) => {
   }
 
   return (
-    <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.03]">
+    <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-xl dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]">
       <div className="space-y-0">
         {items.map((item, index) => (
           <motion.div
@@ -29,11 +29,11 @@ const AuditTimeline = ({ items = [], labels }) => {
             className="relative flex gap-4 pb-6 last:pb-0"
           >
             <div className="flex flex-col items-center">
-              <span className="flex size-8 items-center justify-center rounded-full bg-green-500/10 text-green-600 ring-1 ring-green-500/20 dark:text-green-400">
+              <span className="flex size-8 items-center justify-center rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#1E1FAA] dark:text-[#4F51FF] ring-1 ring-[#2C2DE0] dark:ring-[#4F51FF]/20 dark:text-[#4F51FF]">
                 <Activity size={15} />
               </span>
               {index < items.length - 1 && (
-                <span className="mt-2 h-full w-px bg-gray-200 dark:bg-white/10" />
+                <span className="mt-2 h-full w-px bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
               )}
             </div>
             <div className="min-w-0 flex-1">
@@ -48,7 +48,7 @@ const AuditTimeline = ({ items = [], labels }) => {
                   {item.details.changes.map((change) => (
                     <div
                       key={change.field}
-                      className="rounded-xl border border-gray-200/70 bg-white/50 px-3 py-2 text-xs dark:border-white/10 dark:bg-white/[0.03]"
+                      className="rounded-xl border border-gray-200/70 bg-white/50 px-3 py-2 text-xs dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]"
                     >
                       <p className="font-bold text-gray-700 dark:text-gray-200">
                         {labels.fields?.[change.field] || change.field}

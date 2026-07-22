@@ -9,19 +9,19 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useAuth } from "@/context/AuthContext";
 
-const EMAILJS_SERVICE_ID  = "service_n6brldi";
+const EMAILJS_SERVICE_ID = "service_n6brldi";
 const EMAILJS_TEMPLATE_ID = "template_6rmubv2";
-const EMAILJS_PUBLIC_KEY  = "oRluPcuRY4e2qvnLs";
+const EMAILJS_PUBLIC_KEY = "oRluPcuRY4e2qvnLs";
 
 const TOPICS = [
-  { value: "library",   icon: "📚", labelKey: "Library & Books" },
-  { value: "borrow",    icon: "📖", labelKey: "Borrow / Return" },
-  { value: "ai",        icon: "🤖", labelKey: "AI Assistant" },
-  { value: "exam",      icon: "📝", labelKey: "Examinations" },
-  { value: "forum",     icon: "💬", labelKey: "Forum & Community" },
-  { value: "account",   icon: "👤", labelKey: "My Account" },
+  { value: "library", icon: "📚", labelKey: "Library & Books" },
+  { value: "borrow", icon: "📖", labelKey: "Borrow / Return" },
+  { value: "ai", icon: "🤖", labelKey: "AI Assistant" },
+  { value: "exam", icon: "📝", labelKey: "Examinations" },
+  { value: "forum", icon: "💬", labelKey: "Forum & Community" },
+  { value: "account", icon: "👤", labelKey: "My Account" },
   { value: "technical", icon: "🔧", labelKey: "Technical Issue" },
-  { value: "other",     icon: "💡", labelKey: "Other" },
+  { value: "other", icon: "💡", labelKey: "Other" },
 ];
 
 const Contact = () => {
@@ -30,13 +30,13 @@ const Contact = () => {
   const formRef = useRef(null);
 
   const [form, setForm] = useState({
-    name:    user?.displayName || user?.name || "",
-    email:   user?.email || "",
+    name: user?.displayName || user?.name || "",
+    email: user?.email || "",
     subject: "",
-    topic:   "",
+    topic: "",
     message: "",
   });
-  const [status,   setStatus]   = useState("idle");
+  const [status, setStatus] = useState("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const set = (field) => (e) =>
@@ -61,7 +61,7 @@ const Contact = () => {
 
   const isLoading = status === "sending";
 
-  const inputCls = "bg-gray-50 dark:bg-gray-900/60 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#63DF4E]/30 focus:border-[#63DF4E] transition-all w-full";
+  const inputCls = "bg-gray-50 dark:bg-gray-900/60 border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all w-full";
 
   return (
     <div className="w-full dark:bg-black text-black dark:text-white">
@@ -69,14 +69,14 @@ const Contact = () => {
       <section className="w-full bg-white dark:bg-black/90 relative overflow-hidden">
         <div className="w-full max-w-350 mx-auto px-6 lg:px-10 pt-32 pb-16 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#63DF4E]/30 bg-[#63DF4E]/10 mb-7">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#63DF4E]">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#2C2DE0]/30 bg-[#2C2DE0]/10 mb-7">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0]">
                 {t?.contact?.eyebrow || "Get in Touch"}
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black dark:text-white leading-[1.05]">
               {t?.contact?.titleBefore || "We're here to"}{" "}
-              <span className="text-[#63DF4E]" style={{ textShadow: "0 2px 0 #3FAF2E" }}>{t?.contact?.titleHighlight || "help you"}</span>
+              <span className="text-[#2C2DE0]" style={{ textShadow: "0 2px 0 #1E1FAA" }}>{t?.contact?.titleHighlight || "help you"}</span>
             </h1>
             <p className="mt-5 text-base text-black/50 dark:text-white/50 max-w-lg mx-auto leading-relaxed">
               {t?.contact?.intro ||
@@ -93,15 +93,14 @@ const Contact = () => {
         </p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {TOPICS.map((tp) => (
-            <button
+            <button 
               key={tp.value}
               type="button"
               onClick={() => setForm((p) => ({ ...p, topic: tp.value, subject: tp.labelKey }))}
-              className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-sm font-semibold transition-all ${
-                form.topic === tp.value
-                  ? "bg-[#63DF4E]/10 border-[#63DF4E]/50 text-[#63DF4E]"
-                  : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-white/60 hover:border-[#63DF4E]/30 bg-white dark:bg-white/4"
-              }`}
+              className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-sm font-semibold transition-all ${form.topic === tp.value
+                  ? "bg-[#2C2DE0]/10 border-[#2C2DE0]/50 text-[#2C2DE0]"
+                  : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-white/60 hover:border-[#2C2DE0]/30 bg-white dark:bg-white dark:bg-gray-900/4"
+                }`}
             >
               <span>{tp.icon}</span>
               <span className="text-xs">{tp.labelKey}</span>
@@ -122,8 +121,8 @@ const Contact = () => {
 
             {status === "success" ? (
               <div className="flex flex-col items-center text-center py-12">
-                <div className="w-14 h-14 rounded-2xl bg-[#63DF4E]/10 flex items-center justify-center mb-4">
-                  <CheckCircle2 size={28} className="text-[#63DF4E]" />
+                <div className="w-14 h-14 rounded-2xl bg-[#2C2DE0]/10 flex items-center justify-center mb-4">
+                  <CheckCircle2 size={28} className="text-[#2C2DE0]" />
                 </div>
                 <p className="text-base font-black text-gray-900 dark:text-white">
                   {t?.contact?.messageSent || "Message sent!"}
@@ -134,9 +133,9 @@ const Contact = () => {
               </div>
             ) : (
               <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <input type="hidden" name="topic"     value={form.topic} />
+                <input type="hidden" name="topic" value={form.topic} />
                 <input type="hidden" name="user_role" value={user?.role || "guest"} />
-                <input type="hidden" name="user_id"   value={user?.uid  || ""} />
+                <input type="hidden" name="user_id" value={user?.uid || ""} />
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="flex flex-col gap-1.5">
@@ -182,22 +181,19 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl  bg-[#58CC02]
-              text-white
-              text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150 disabled:opacity-50 disabled:cursor-not-allowed "
+                  className="flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none disabled:opacity-60 disabled:pointer-events-none transition-all duration-150 group"
                 >
-                  {isLoading
-                    ? <><Loader2 size={15} className="animate-spin" /> {t?.contact?.sending || "Sending..."}</>
-                    : <><Send size={14} /> {t?.contact?.send || "Send Message"}</>
-                  }
+                  {isLoading ? (
+                    <>
+                      <Loader2 size={15} className="animate-spin" />
+                      {t?.contact?.sending || "Sending..."}
+                    </>
+                  ) : (
+                    <>
+                      <Send size={14} />
+                      {t?.contact?.send || "Send Message"}
+                    </>
+                  )}
                 </button>
               </form>
             )}
@@ -210,14 +206,14 @@ const Contact = () => {
           {/* Logged-in user badge */}
           {user && (
             <div className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/8 rounded-2xl px-5 py-4 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-[#63DF4E]/20 flex items-center justify-center text-[#63DF4E] font-black text-sm shrink-0">
+              <div className="w-9 h-9 rounded-full bg-[#2C2DE0]/20 flex items-center justify-center text-[#2C2DE0] font-black text-sm shrink-0">
                 {(user.displayName || user.name || "U")[0].toUpperCase()}
               </div>
               <div>
                 <p className="text-sm font-bold text-gray-900 dark:text-white">{user.displayName || user.name}</p>
                 <p className="text-xs text-gray-400 dark:text-white/40">{user.email}</p>
               </div>
-              <span className="ml-auto text-[10px] font-bold uppercase tracking-wider bg-[#63DF4E]/10 text-[#63DF4E] px-2 py-0.5 rounded-full border border-[#63DF4E]/20">
+              <span className="ml-auto text-[10px] font-bold uppercase tracking-wider bg-[#2C2DE0]/10 text-[#2C2DE0] px-2 py-0.5 rounded-full border border-[#2C2DE0]/20">
                 {user.role || "Student"}
               </span>
             </div>
@@ -233,7 +229,7 @@ const Contact = () => {
                 {
                   icon: Mail,
                   label: t?.common?.email || "Email",
-                  content: <a href="mailto:info@elibrary.com" className="text-sm text-gray-700 dark:text-gray-300 font-medium hover:text-[#63DF4E] transition-colors">info@elibrary.com</a>,
+                  content: <a href="mailto:info@elibrary.com" className="text-sm text-gray-700 dark:text-gray-300 font-medium hover:text-[#2C2DE0] transition-colors">info@elibrary.com</a>,
                 },
                 {
                   icon: MapPin,
@@ -249,8 +245,8 @@ const Contact = () => {
                 const Icon = item.icon;
                 return (
                   <div key={item.label} className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-xl bg-[#63DF4E]/10 flex items-center justify-center shrink-0">
-                      <Icon size={14} className="text-[#63DF4E]" />
+                    <div className="w-8 h-8 rounded-xl bg-[#2C2DE0]/10 flex items-center justify-center shrink-0">
+                      <Icon size={14} className="text-[#2C2DE0]" />
                     </div>
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-white/40 mb-0.5">{item.label}</p>
@@ -269,13 +265,13 @@ const Contact = () => {
             </p>
             <div className="flex flex-col gap-1.5">
               {[
-                { icon: "📚", label: t?.contact?.links?.library   || "Browse Library",   link: "/library" },
-                { icon: "📝", label: t?.contact?.links?.exams     || "My Exams",          link: "/exams" },
-                { icon: "💬", label: t?.contact?.links?.forum     || "Community Forum",   link: "/forum" },
-                { icon: "📊", label: t?.contact?.links?.dashboard || "My Dashboard",      link: "/dashboard" },
+                { icon: "📚", label: t?.contact?.links?.library || "Browse Library", link: "/library" },
+                { icon: "📝", label: t?.contact?.links?.exams || "My Exams", link: "/exams" },
+                { icon: "💬", label: t?.contact?.links?.forum || "Community Forum", link: "/forum" },
+                { icon: "📊", label: t?.contact?.links?.dashboard || "My Dashboard", link: "/dashboard" },
               ].map((item) => (
                 <a key={item.label} href={item.link}
-                  className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/50 hover:text-[#63DF4E] transition-colors py-0.5">
+                  className="flex items-center gap-2 text-sm text-gray-600 dark:text-white/50 hover:text-[#2C2DE0] transition-colors py-0.5">
                   <span>{item.icon}</span>
                   {item.label}
                 </a>
@@ -284,11 +280,11 @@ const Contact = () => {
           </div>
 
           {/* Urgent note */}
-          <div className="bg-[#63DF4E]/8 border border-[#63DF4E]/20 rounded-3xl p-5">
-            <p className="text-xs font-bold text-[#63DF4E] mb-1.5">
+          <div className="bg-[#2C2DE0]/8 border border-[#2C2DE0]/20 rounded-3xl p-5">
+            <p className="text-xs font-bold text-[#2C2DE0] mb-1.5">
               {t?.contact?.urgentTitle || "For urgent issues"}
             </p>
-            <p className="text-xs text-gray-600 dark:text-[#63DF4E]/70 leading-relaxed">
+            <p className="text-xs text-gray-600 dark:text-[#2C2DE0]/70 leading-relaxed">
               {t?.contact?.urgentBody || "If your reservation is broken or you cannot access your account, visit the library desk in person during operating hours:"}
               <span className="font-bold block mt-1">{t?.contact?.hoursDaily || "7:00 AM – 5:00 PM, every day."}</span>
             </p>

@@ -21,7 +21,7 @@ const ConfirmDialog = ({
   const confirmClass =
     variant === "danger"
       ? "bg-red-500 hover:bg-red-600 text-white"
-      : "bg-green-500 hover:bg-green-600 text-white";
+      : "bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55] text-white";
 
   return (
     <Modal
@@ -36,11 +36,11 @@ const ConfirmDialog = ({
             type="button"
             onClick={onClose}
             disabled={loading}
-            className="rounded-xl px-4 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {cancelLabel ?? ap.common.cancel}
           </button>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             type="button"
             disabled={loading}
             onClick={() => {

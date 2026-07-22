@@ -33,7 +33,7 @@ export const QRHologram = ({ active }) =>
   !active ? null : (
     <div
       aria-hidden="true"
-      className="absolute -top-2 right-2 w-10 h-10 rounded-md bg-white/90 grid grid-cols-3 gap-[2px] p-1 shadow-lg"
+      className="absolute -top-2 right-2 w-10 h-10 rounded-md bg-white dark:bg-gray-900/90 grid grid-cols-3 gap-[2px] p-1 shadow-lg"
       style={{ animation: "qrHologram 2.2s ease forwards" }}
     >
       {Array.from({ length: 9 }).map((_, i) => (
@@ -45,7 +45,7 @@ export const QRHologram = ({ active }) =>
 export const NotificationPulse = ({ active, label }) =>
   !active ? null : (
     <div
-      className="absolute top-2 right-2 flex items-center gap-1.5 bg-white/95 text-[#3F9100] text-[11px] font-bold px-2.5 py-1.5 rounded-full shadow-md"
+      className="absolute top-2 right-2 flex items-center gap-1.5 bg-white dark:bg-gray-900/95 text-[#3F9100] text-[11px] font-bold px-2.5 py-1.5 rounded-full shadow-md"
       style={{ animation: "noteShow 2.6s ease forwards" }}
       role="status"
     >

@@ -28,7 +28,7 @@ export default function AiAssistPanel({ suggestions, maxMarks, onApplyScore, onA
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {strengths.length > 0 && (
           <div>
-            <p className="text-xs font-bold text-green-600 dark:text-green-400 flex items-center gap-1 mb-1">
+            <p className="text-xs font-bold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] flex items-center gap-1 mb-1">
               <ThumbsUp className="w-3 h-3" /> Strengths
             </p>
             <ul className="text-xs space-y-0.5 text-gray-600 dark:text-gray-400">
@@ -60,7 +60,7 @@ export default function AiAssistPanel({ suggestions, maxMarks, onApplyScore, onA
 
       {/* Code review */}
       {codeReview && (
-        <div className="bg-black/5 dark:bg-white/5 rounded-lg p-3 text-xs space-y-1">
+        <div className="bg-black/5 dark:bg-white dark:bg-gray-900/5 rounded-lg p-3 text-xs space-y-1">
           {codeReview.logic && <p><span className="font-bold text-gray-700 dark:text-gray-300">Logic: </span>{codeReview.logic}</p>}
           {codeReview.style && <p><span className="font-bold text-gray-700 dark:text-gray-300">Style: </span>{codeReview.style}</p>}
           {codeReview.efficiency && <p><span className="font-bold text-gray-700 dark:text-gray-300">Efficiency: </span>{codeReview.efficiency}</p>}
@@ -76,7 +76,7 @@ export default function AiAssistPanel({ suggestions, maxMarks, onApplyScore, onA
       {/* Apply buttons */}
       <div className="flex flex-wrap gap-2 pt-2 border-t border-purple-200 dark:border-purple-500/20">
         {suggestedScore !== undefined && (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => onApplyScore(suggestedScore)}
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors"
           >
@@ -85,7 +85,7 @@ export default function AiAssistPanel({ suggestions, maxMarks, onApplyScore, onA
           </button>
         )}
         {suggestedFeedback && (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => onApplyFeedback(suggestedFeedback)}
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium border border-purple-300 dark:border-purple-500/30 text-purple-700 dark:text-purple-400 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-500/10 transition-colors"
           >

@@ -200,7 +200,7 @@ const AdminDashboardPage = () => {
 
   const base = isDark
     ? "bg-black border-white/10 text-white"
-    : "bg-white border-black/10 text-black";
+    : "bg-white dark:bg-gray-900 border-black/10 text-black";
 
   return (
     <PageTransition>
@@ -209,7 +209,7 @@ const AdminDashboardPage = () => {
       {/* ── User statistics ── */}
       <motion.p
         {...fadeUp(0)}
-        className="text-[11px] font-bold uppercase tracking-widest text-green-500 mb-3"
+        className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0] dark:text-[#4F51FF] mb-3"
       >
         {p.sectionUsers}
       </motion.p>
@@ -222,7 +222,7 @@ const AdminDashboardPage = () => {
       {/* ── Seat + Book statistics ── */}
       <motion.p
         {...fadeUp(0.1)}
-        className="text-[11px] font-bold uppercase tracking-widest text-green-500 mb-3"
+        className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0] dark:text-[#4F51FF] mb-3"
       >
         {p.sectionSeatsBooks}
       </motion.p>
@@ -275,7 +275,7 @@ const AdminDashboardPage = () => {
               Array.from({ length: 3 }).map((_, i) => (
                 <div
                   key={i}
-                  className={`h-12 rounded-lg animate-pulse ${isDark ? "bg-white/5" : "bg-black/4"
+                  className={`h-12 rounded-lg animate-pulse ${isDark ? "bg-white dark:bg-gray-900/5" : "bg-black/4"
                     }`}
                 />
               ))
@@ -286,7 +286,7 @@ const AdminDashboardPage = () => {
                 <div
                   key={r.id}
                   className={`flex items-center justify-between gap-2 p-3 rounded-lg border ${isDark
-                    ? "border-white/8 bg-white/[0.03]"
+                    ? "border-white/8 bg-white dark:bg-gray-900/[0.03]"
                     : "border-black/6 bg-black/[0.02]"
                     }`}
                 >
@@ -298,7 +298,7 @@ const AdminDashboardPage = () => {
                   </div>
                   <Link
                     to="/admin/reservations"
-                    className="shrink-0 text-[11px] px-2.5 py-1 rounded-md bg-green-500 text-black font-semibold hover:bg-green-400 transition-colors"
+                    className="shrink-0 text-[11px] px-2.5 py-1 rounded-md bg-[#2C2DE0] dark:bg-[#1E1FAA] text-black font-semibold hover:bg-[#4F51FF] transition-colors"
                   >
                     {ap.common.view}
                   </Link>
@@ -319,12 +319,12 @@ const AdminDashboardPage = () => {
                   key={link.path}
                   to={link.path}
                   className={`flex items-center justify-between rounded-lg p-3.5 border text-xs font-medium transition-colors ${isDark
-                    ? "border-white/8 hover:bg-white/4"
+                    ? "border-white/8 hover:bg-white dark:bg-gray-900/4"
                     : "border-black/8 hover:bg-black/3"
                     }`}
                 >
                   <div className="flex items-center gap-2">
-                    <Icon className="w-3.5 h-3.5 text-green-500" />
+                    <Icon className="w-3.5 h-3.5 text-[#2C2DE0] dark:text-[#4F51FF]" />
                     <span>{link.label}</span>
                   </div>
                   <ArrowRight className="w-3 h-3 opacity-30" />

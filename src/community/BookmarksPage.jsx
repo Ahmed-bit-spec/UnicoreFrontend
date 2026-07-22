@@ -39,7 +39,7 @@ const BookmarksPage = () => {
   return (
     <div className="w-full max-w-2xl mx-auto" style={{ fontFamily: "'Geist Variable', 'Inter', sans-serif" }}>
       <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-100 dark:border-gray-800">
-        <Bookmark size={18} className="text-green-500" />
+        <Bookmark size={18} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
         <h1 className="text-lg font-black text-gray-900 dark:text-white">
           {t["sidebar.bookmarks"] ?? "Saved posts"}
         </h1>
@@ -47,7 +47,7 @@ const BookmarksPage = () => {
 
       {loading && (
         <div className="flex justify-center py-20 text-gray-400">
-          <Spinner size={18} className="text-green-500 mr-2" />
+          <Spinner size={18} className="text-[#2C2DE0] dark:text-[#4F51FF] mr-2" />
           <span className="text-sm">{t["feed.loading"] ?? "Loading…"}</span>
         </div>
       )}
@@ -58,8 +58,8 @@ const BookmarksPage = () => {
 
       {!loading && !error && posts.length === 0 && (
         <div className="text-center py-24">
-          <Bookmark size={32} className="mx-auto text-gray-300 dark:text-gray-700 mb-3" />
-          <p className="text-sm font-semibold text-gray-500">
+          <Bookmark size={32} className="mx-auto text-gray-300 dark:text-gray-700 dark:text-gray-300 mb-3" />
+          <p className="text-sm font-semibold text-gray-500 dark:text-gray-400">
             {t["bookmarks.empty"] ?? "No saved posts yet."}
           </p>
           <p className="text-xs text-gray-400 mt-1">

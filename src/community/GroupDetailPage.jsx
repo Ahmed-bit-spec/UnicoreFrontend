@@ -58,7 +58,7 @@ const GroupDetailPage = () => {
     return (
         <div className="w-full max-w-6xl mx-auto px-4 py-6">
             <div className="mb-6">
-                <button onClick={() => navigate(-1)} className="text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white mb-4">
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => navigate(-1)} className="text-black/50 dark:text-white/50 hover:text-black dark:hover:text-white mb-4">
                     ← Back
                 </button>
                 <div className="flex items-start justify-between">
@@ -70,7 +70,7 @@ const GroupDetailPage = () => {
                             <p className="text-amber-600 dark:text-amber-400 font-bold">Official announcement channel</p>
                         </div>
                     </div>
-                    <button className="p-2 rounded-lg border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5">
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                         <MoreVertical size={18} />
                     </button>
                 </div>
@@ -79,7 +79,7 @@ const GroupDetailPage = () => {
             <div className="mb-6 border-b border-black/10 dark:border-white/10 overflow-x-auto">
                 <div className="flex gap-1">
                     {visibleTabs.map(({ id: tabId, label, icon: Icon }) => (
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                             key={tabId}
                             onClick={() => setActiveTab(tabId)}
                             className={`px-4 py-3 flex items-center gap-2 border-b-2 transition-colors whitespace-nowrap ${

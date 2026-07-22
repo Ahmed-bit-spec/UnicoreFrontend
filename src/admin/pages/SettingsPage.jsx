@@ -12,10 +12,10 @@ const SettingsSection = ({ icon: Icon, title, children }) => (
   <motion.section
     initial={{ opacity: 0, y: 8 }}
     animate={{ opacity: 1, y: 0 }}
-    className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-6"
+    className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl p-6"
   >
     <div className="flex items-center gap-3 mb-5">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10 text-green-500">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#2C2DE0] dark:text-[#4F51FF]">
         <Icon size={18} />
       </div>
       <h2 className="text-sm font-bold text-gray-900 dark:text-white">{title}</h2>
@@ -29,19 +29,19 @@ const ToggleRow = ({ label, defaultOn = false }) => {
   return (
     <div className="flex items-center justify-between py-3 border-b border-gray-100 dark:border-white/10 last:border-0">
       <span className="text-sm text-gray-700 dark:text-gray-300">{label}</span>
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         type="button"
         role="switch"
         aria-checked={on}
         onClick={() => setOn((v) => !v)}
         className={cn(
           "relative h-6 w-11 rounded-full transition-colors",
-          on ? "bg-green-500" : "bg-gray-300 dark:bg-gray-700"
+          on ? "bg-[#2C2DE0] dark:bg-[#1E1FAA]" : "bg-gray-300 dark:bg-gray-700"
         )}
       >
         <span
           className={cn(
-            "absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+            "absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white dark:bg-gray-900 shadow transition-transform",
             on && "translate-x-5"
           )}
         />
@@ -61,10 +61,10 @@ const SettingsPage = () => {
         title={p.title}
         subtitle={p.subtitle}
         actions={
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             type="button"
             onClick={() => toast.message(ap.toast.saved)}
-            className="rounded-xl bg-green-500 px-4 py-2.5 text-xs font-bold text-white hover:bg-green-600 transition-colors"
+            className="rounded-xl bg-[#2C2DE0] dark:bg-[#1E1FAA] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#1E1FAA] dark:bg-[#0F0F55] transition-colors"
           >
             {ap.common.save}
           </button>
@@ -85,14 +85,14 @@ const SettingsPage = () => {
             </span>
             <div className="flex gap-2">
               {["en", "so"].map((lang) => (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   key={lang}
                   type="button"
                   onClick={() => setLanguage(lang)}
                   className={cn(
                     "rounded-lg px-3 py-1.5 text-xs font-bold transition-colors",
                     language === lang
-                      ? "bg-green-500 text-white"
+                      ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white"
                       : "bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300"
                   )}
                 >
@@ -117,7 +117,7 @@ const SettingsPage = () => {
               <input
                 type="time"
                 defaultValue="07:00"
-                className="mt-2 w-full rounded-xl border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-2 text-sm"
+                className="mt-2 w-full rounded-xl border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-white dark:bg-gray-900/5 px-3 py-2 text-sm"
               />
             </div>
             <div>
@@ -127,7 +127,7 @@ const SettingsPage = () => {
               <input
                 type="time"
                 defaultValue="17:00"
-                className="mt-2 w-full rounded-xl border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-2 text-sm"
+                className="mt-2 w-full rounded-xl border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-white dark:bg-gray-900/5 px-3 py-2 text-sm"
               />
             </div>
           </div>
@@ -139,7 +139,7 @@ const SettingsPage = () => {
             <label className="text-xs font-bold uppercase tracking-widest text-gray-400">
               {p.sessionTimeout}
             </label>
-            <select className="mt-2 w-full rounded-xl border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-white/5 px-3 py-2 text-sm">
+            <select className="mt-2 w-full rounded-xl border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-white dark:bg-gray-900/5 px-3 py-2 text-sm">
               <option>{p.timeout15}</option>
               <option>{p.timeout30}</option>
               <option>{p.timeout60}</option>

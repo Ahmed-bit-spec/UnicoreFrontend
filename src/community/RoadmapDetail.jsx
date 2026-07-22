@@ -71,15 +71,15 @@ const RoadmapDetail = () => {
     }
   };
 
-  if (loading) return <div className="flex justify-center py-32"><Spinner size={24} className="text-green-500" /></div>;
-  if (!roadmap) return <p className="text-center py-32 text-gray-500">Not found</p>;
+  if (loading) return <div className="flex justify-center py-32"><Spinner size={24} className="text-[#2C2DE0] dark:text-[#4F51FF]" /></div>;
+  if (!roadmap) return <p className="text-center py-32 text-gray-500 dark:text-gray-400">Not found</p>;
 
   const selectedTopic = topics.find((t) => t.topicId === selectedId) || null;
   const selectedDone = selectedTopic && completedTopicIds.includes(selectedTopic.topicId);
 
   return (
     <article className="w-full" style={{ fontFamily: "'Geist Variable', 'Inter', sans-serif" }}>
-      <Link to="/community/roadmaps" className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-700 mb-6">
+      <Link to="/community/roadmaps" className="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-700 dark:text-gray-300 mb-6">
         <ArrowLeft size={14} /> Back to roadmaps
       </Link>
 
@@ -96,7 +96,7 @@ const RoadmapDetail = () => {
         <AuthorName user={roadmap.author} className="font-semibold" />
         <span className="text-gray-400">{timeAgo(roadmap.createdAt)}</span>
         {roadmap.semesterTag && (
-          <span className="text-xs font-bold text-green-600 bg-green-50 dark:bg-green-950/40 px-2 py-1 rounded-full">
+          <span className="text-xs font-bold text-[#1E1FAA] dark:text-[#4F51FF] bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/40 px-2 py-1 rounded-full">
             {roadmap.semesterTag}
           </span>
         )}
@@ -112,23 +112,23 @@ const RoadmapDetail = () => {
       <div className="mb-4 p-4 rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50/60 dark:bg-gray-900/40">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-bold text-gray-600 dark:text-gray-400">Your progress</span>
-          <span className="text-xs font-bold text-green-600">{progressPercent}% · {completedTopicIds.length}/{topics.length}</span>
+          <span className="text-xs font-bold text-[#1E1FAA] dark:text-[#4F51FF]">{progressPercent}% · {completedTopicIds.length}/{topics.length}</span>
         </div>
         <div className="h-2 rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
-          <div className="h-full bg-green-500 transition-all duration-300" style={{ width: `${progressPercent}%` }} />
+          <div className="h-full bg-[#2C2DE0] dark:bg-[#1E1FAA] transition-all duration-300" style={{ width: `${progressPercent}%` }} />
         </div>
       </div>
 
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={handleLike}
-          className={`flex items-center gap-1.5 text-sm font-semibold ${liked ? "text-green-600" : "text-gray-400"}`}
+          className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
         >
           <Heart size={16} className={liked ? "fill-current" : ""} />
           {roadmap.likesCount ?? 0}
         </button>
         {isOwner && (
-          <button onClick={handleDelete} className="flex items-center gap-1 text-sm text-red-500 ml-auto">
+          <button onClick={handleDelete} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <Trash2 size={14} /> Delete
           </button>
         )}
@@ -137,7 +137,7 @@ const RoadmapDetail = () => {
       {/* Topic path — everything is clickable, nothing is locked */}
       {topics.length === 0 ? (
         <div className="text-center py-20 rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/30">
-          <p className="text-sm font-semibold text-gray-500">This roadmap has no topics yet</p>
+          <p className="text-sm font-semibold text-gray-500 dark:text-gray-400">This roadmap has no topics yet</p>
         </div>
       ) : (
         <ol className="relative border-l-2 border-gray-100 dark:border-gray-800 ml-3 space-y-3">
@@ -147,14 +147,14 @@ const RoadmapDetail = () => {
               <li key={t.topicId} className="ml-5">
                 <span
                   className={`absolute -left-[11px] flex items-center justify-center w-5 h-5 rounded-full border-2 ${
-                    done ? "bg-green-500 border-green-500" : "bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-700"
+                    done ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] border-[#2C2DE0] dark:border-[#4F51FF]" : "bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-700"
                   }`}
                 >
                   {done && <CheckCircle2 size={12} className="text-white" />}
                 </span>
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => setSelectedId(t.topicId)}
-                  className="w-full text-left p-4 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-green-200 dark:hover:border-green-900 hover:shadow-sm transition-all"
+                  className="w-full text-left p-4 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] hover:shadow-sm transition-all"
                 >
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Topic {i + 1}</span>
                   <p className={`text-sm font-bold mt-1 ${done ? "text-gray-400 line-through" : "text-gray-900 dark:text-white"}`}>
@@ -181,10 +181,10 @@ const RoadmapDetail = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wide px-2 py-1 rounded-full bg-green-50 dark:bg-green-950/40 text-green-600">
+              <span className="text-xs font-bold uppercase tracking-wide px-2 py-1 rounded-full bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/40 text-[#1E1FAA] dark:text-[#4F51FF]">
                 Topic
               </span>
-              <button onClick={() => setSelectedId(null)} className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setSelectedId(null)} className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
                 <X size={16} />
               </button>
             </div>
@@ -198,7 +198,7 @@ const RoadmapDetail = () => {
 
             {selectedTopic.resources?.length > 0 && (
               <div className="mb-5">
-                <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Resources</p>
+                <p className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">Resources</p>
                 <div className="space-y-1.5">
                   {selectedTopic.resources.map((r) => (
                     <a
@@ -206,7 +206,7 @@ const RoadmapDetail = () => {
                       href={r.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-green-600 hover:underline"
+                      className="flex items-center gap-1.5 text-sm text-[#1E1FAA] dark:text-[#4F51FF] hover:underline"
                     >
                       <ExternalLink size={12} /> {r.title || r.url}
                     </a>
@@ -215,13 +215,13 @@ const RoadmapDetail = () => {
               </div>
             )}
 
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => handleToggleTopic(selectedTopic.topicId)}
               disabled={busy}
               className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold ${
                 selectedDone
                   ? "bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
-                  : "bg-green-500 text-white hover:bg-green-600"
+                  : "bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white hover:bg-[#1E1FAA] dark:bg-[#0F0F55]"
               }`}
             >
               {selectedDone ? (

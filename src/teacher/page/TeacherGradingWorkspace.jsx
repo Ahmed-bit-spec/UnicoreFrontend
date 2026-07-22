@@ -166,17 +166,17 @@ export default function TeacherGradingWorkspace() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <Loader2 className="w-8 h-8 animate-spin text-green-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#2C2DE0] dark:text-[#4F51FF]" />
       </div>
     );
   }
 
   if (!submission) {
     return (
-      <div className="flex flex-col items-center justify-center h-96 gap-4 text-gray-500">
+      <div className="flex flex-col items-center justify-center h-96 gap-4 text-gray-500 dark:text-gray-400">
         <AlertCircle className="w-12 h-12" />
         <p>Submission not found.</p>
-        <button onClick={() => navigate(-1)} className="text-green-600 hover:underline">
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => navigate(-1)} className="text-[#1E1FAA] dark:text-[#4F51FF] hover:underline">
           Go back
         </button>
       </div>
@@ -193,7 +193,7 @@ export default function TeacherGradingWorkspace() {
       {/* ── Header ──────────────────────────────────────────────────────────── */}
       <div className="sticky top-0 z-30 bg-white dark:bg-zinc-900 border-b border-gray-200 dark:border-zinc-800 shadow-sm">
         <div className="flex items-center gap-4 px-6 py-3">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => navigate(`/teacher/submissions?examId=${fromExamId}`)}
             className="p-2 text-gray-400 hover:text-gray-700 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg transition-colors"
           >
@@ -202,14 +202,14 @@ export default function TeacherGradingWorkspace() {
 
           {/* Student info */}
           <div className="flex items-center gap-3 flex-1 min-w-0">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2C2DE0] to-emerald-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
               {(student.fullName || "?")[0].toUpperCase()}
             </div>
             <div className="min-w-0">
               <p className="text-sm font-bold text-gray-900 dark:text-white truncate">
                 {student.fullName || "Unknown Student"}
               </p>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-500 dark:text-gray-400">
                 ID: {student.studentId || "—"} · {exam?.title}
               </p>
             </div>
@@ -228,11 +228,11 @@ export default function TeacherGradingWorkspace() {
 
           {/* Score pill */}
           <div className="hidden md:flex items-center gap-2 px-4 py-1.5 bg-gray-100 dark:bg-zinc-800 rounded-xl">
-            <Award className="w-4 h-4 text-green-500" />
+            <Award className="w-4 h-4 text-[#2C2DE0] dark:text-[#4F51FF]" />
             <span className="text-sm font-bold text-gray-900 dark:text-white">
               {computedTotal} / {maxMarksTotal}
             </span>
-            <span className={`text-xs font-semibold ${pct >= 60 ? "text-green-600" : "text-red-500"}`}>
+            <span className={`text-xs font-semibold ${pct >= 60 ? "text-[#1E1FAA] dark:text-[#4F51FF]" : "text-red-500"}`}>
               ({pct}%)
             </span>
           </div>
@@ -242,7 +242,7 @@ export default function TeacherGradingWorkspace() {
             <button
               onClick={saveDraft}
               disabled={saving}
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-800 rounded-lg transition-colors disabled:opacity-50"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               {saving ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
               Draft
@@ -250,7 +250,7 @@ export default function TeacherGradingWorkspace() {
             <button
               onClick={finalizeGrading}
               disabled={saving || isPublished}
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-40"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               {saving ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <CheckCircle2 className="w-3.5 h-3.5" />}
               Finalize
@@ -270,12 +270,12 @@ export default function TeacherGradingWorkspace() {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
             return (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium whitespace-nowrap border-b-2 transition-all
                   ${isActive
-                    ? "border-green-500 text-green-600 dark:text-green-400"
+                    ? "border-[#2C2DE0] dark:border-[#4F51FF] text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]"
                     : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
                   }`}
               >
@@ -335,10 +335,10 @@ function StatusBadge({ status }) {
     "submitted":    { label: "Submitted",     cls: "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400" },
     "auto-graded":  { label: "Auto-Graded",   cls: "bg-purple-100 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400" },
     "manual-review":{ label: "Needs Review",  cls: "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400" },
-    "graded":       { label: "Graded",        cls: "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400" },
-    "published":    { label: "Published",     cls: "bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-300" },
+    "graded":       { label: "Graded",        cls: "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 dark:text-[#4F51FF]" },
+    "published":    { label: "Published",     cls: "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-200 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/20 dark:text-[#2C2DE0]" },
   };
-  const c = config[status] || { label: status, cls: "bg-gray-100 text-gray-600" };
+  const c = config[status] || { label: status, cls: "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400" };
   return (
     <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider ${c.cls}`}>
       {c.label}

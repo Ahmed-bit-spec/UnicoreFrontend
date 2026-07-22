@@ -38,7 +38,7 @@ const GENDER_COLOR = {
 };
 
 const STATUS_COLOR = {
-  active: "bg-green-100 text-green-700 dark:bg-green-500/15 dark:text-green-400",
+  active: "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/15 dark:text-[#4F51FF]",
   inactive: "bg-gray-100 text-gray-500 dark:bg-white/10 dark:text-gray-400",
   graduated: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400",
 };
@@ -102,7 +102,7 @@ const TeacherClassDetailPage = () => {
       {error && (
         <motion.div {...fadeUp(0.05)} className="rounded-2xl border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20 p-5 flex items-center justify-between gap-4">
           <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
-          <button onClick={fetchDetail} className="flex items-center gap-1.5 text-xs font-semibold text-red-600 dark:text-red-400 hover:underline">
+          <button onClick={fetchDetail} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <RefreshCw size={12} /> Retry
           </button>
         </motion.div>
@@ -116,13 +116,13 @@ const TeacherClassDetailPage = () => {
           <div className="rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 shadow-sm">
             <div className="flex flex-col sm:flex-row sm:items-start gap-5">
               {/* Icon */}
-              <div className="w-14 h-14 rounded-2xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center shrink-0">
-                <BookOpen size={24} className="text-green-600 dark:text-green-400" />
+              <div className="w-14 h-14 rounded-2xl bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center shrink-0">
+                <BookOpen size={24} className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" />
               </div>
 
               {/* Info */}
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-green-600 dark:text-green-400 mb-1">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] mb-1">
                   {cls.classCode}
                 </p>
                 <h1 className="text-lg font-black text-gray-900 dark:text-white leading-tight">{cls.course.title}</h1>
@@ -154,10 +154,10 @@ const TeacherClassDetailPage = () => {
 
               {/* Student count pill */}
               <div className="sm:text-right shrink-0">
-                <div className="inline-flex items-center gap-2 bg-green-50 dark:bg-green-500/10 px-3.5 py-2 rounded-xl">
-                  <Users size={14} className="text-green-600 dark:text-green-400" />
-                  <span className="text-sm font-black text-green-600 dark:text-green-400">{cls.studentCount}</span>
-                  <span className="text-xs text-green-600/70 dark:text-green-400/60">students</span>
+                <div className="inline-flex items-center gap-2 bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 px-3.5 py-2 rounded-xl">
+                  <Users size={14} className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" />
+                  <span className="text-sm font-black text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]">{cls.studentCount}</span>
+                  <span className="text-xs text-[#1E1FAA] dark:text-[#4F51FF]/70 dark:text-[#4F51FF]/60">students</span>
                 </div>
                 {Object.keys(genderStats).length > 0 && (
                   <div className="flex gap-1.5 mt-2 sm:justify-end">
@@ -178,7 +178,7 @@ const TeacherClassDetailPage = () => {
       <motion.div {...fadeUp(0.12)}>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-green-600 dark:text-green-400 mb-0.5">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] mb-0.5">
               Roster
             </p>
             <h2 className="text-sm font-bold text-gray-900 dark:text-white">
@@ -193,7 +193,7 @@ const TeacherClassDetailPage = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search students…"
-              className="w-full pl-8 pr-4 py-2 text-sm rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30"
+              className="w-full pl-8 pr-4 py-2 text-sm rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30"
             />
           </div>
         </div>
@@ -210,7 +210,7 @@ const TeacherClassDetailPage = () => {
               {search ? "No students match your search." : "No students enrolled yet."}
             </p>
             {search && (
-              <button onClick={() => setSearch("")} className="text-xs text-green-600 dark:text-green-400 font-semibold hover:underline">
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setSearch("")} className="text-xs text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] font-semibold hover:underline">
                 Clear search
               </button>
             )}
@@ -278,7 +278,7 @@ const TeacherClassDetailPage = () => {
                       </td>
                       <td className="px-5 py-3.5">
                         {s.isClaimed ? (
-                          <CheckCircle2 size={15} className="text-green-500" />
+                          <CheckCircle2 size={15} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
                         ) : (
                           <Circle size={15} className="text-gray-300 dark:text-zinc-600" />
                         )}

@@ -7,23 +7,27 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FaqItem = ({ faq, isOpen, onToggle }) => (
-  <div className={`rounded-xl border transition-all duration-200 overflow-hidden ${isOpen
-      ? "border-[#63DF4E] bg-[#63DF4E]/5"
-      : "border-black/10 dark:border-white/10 bg-black/2 dark:bg-white/2 hover:border-black/20 dark:hover:border-white/20"
-    }`}>
+  <div
+    className={`rounded-xl border transition-all duration-200 overflow-hidden ${
+      isOpen
+        ? "border-[#2C2DE0] bg-[#2C2DE0]/5"
+        : "border-black/10 dark:border-white/10 bg-black/2 dark:bg-white/2 hover:border-black/20 dark:hover:border-white/20"
+    }`}
+  >
     <button
       type="button"
       onClick={onToggle}
       aria-expanded={isOpen}
-      className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
+      className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left"
     >
-      <span className={`text-sm font-semibold ${isOpen ? "text-[#63DF4E]" : "text-black dark:text-white"}`}>
+      <span className={`text-sm font-semibold ${isOpen ? "text-[#2C2DE0]" : "text-black dark:text-white"}`}>
         {faq.question}
       </span>
       <ChevronDown
         size={16}
-        className={`shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180 text-[#63DF4E]" : "text-black/30 dark:text-white/30"
-          }`}
+        className={`shrink-0 transition-transform duration-200 ${
+          isOpen ? "rotate-180 text-[#2C2DE0]" : "text-black/30 dark:text-white/30"
+        }`}
       />
     </button>
 
@@ -47,7 +51,6 @@ const Faq = ({ t }) => {
   const [openIndex, setOpenIndex] = useState(0);
   const toggle = (i) => setOpenIndex(openIndex === i ? null : i);
 
-  // Updated English default fallbacks to match the new flow (Advantages first, specific AI scope)
   const faqs = t?.landing?.faqs || [
     { question: "What is the main advantage of using this system?", answer: "The biggest advantage is having all your academic needs in one place—from reserving library seats and reading books to taking exams, saving you time and effort." },
     { question: "How does the system make using the library easier?", answer: "It allows you to reserve a physical seat in the library from home. You can also read e-books online 24/7 without needing to visit the campus." },
@@ -63,12 +66,12 @@ const Faq = ({ t }) => {
 
   return (
     <section id="faq" className="w-full bg-white dark:bg-black scroll-mt-20" aria-label="FAQ">
-      <div className="w-full max-w-350 mx-auto px-6 lg:px-10 py-24 sm:py-28">
-        <div className="mb-10">
-          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#63DF4E]">
+      <div className="w-full max-w-350 mx-auto px-6 lg:px-10 py-16 sm:py-24 lg:py-28">
+        <div className="mb-8 sm:mb-10">
+          <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#2C2DE0]">
             {t?.landing?.sectionFaq || "FAQ"}
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-black text-black dark:text-white leading-tight">
+          <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-black text-black dark:text-white leading-tight">
             {t?.landing?.commonQuestions || "Common questions"}
           </h2>
         </div>
@@ -87,22 +90,12 @@ const Faq = ({ t }) => {
         </div>
 
         {/* CTA Banner */}
-        <div className="mt-12 rounded-2xl overflow-hidden bg-[#58CC02]
-              text-white
-              text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150">
-          <div className="px-8 sm:px-12 py-12 sm:py-16 text-center">
+        <div className="mt-12 rounded-2xl overflow-hidden bg-[#2C2DE0]">
+          <div className="px-6 sm:px-8 lg:px-12 py-10 sm:py-12 lg:py-16 text-center">
             <p className="text-[11px] font-bold uppercase tracking-widest text-white mb-3">
               {t?.landing?.faqCtaEyebrow || "University of Somalia"}
             </p>
-            <h3 className="text-2xl sm:text-3xl font-black text-white max-w-lg mx-auto leading-tight">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white max-w-lg mx-auto leading-tight">
               {t?.landing?.faqCtaTitle || "Ready to access your library?"}
             </h3>
             <p className="text-white/80 text-sm mt-3 mb-8 max-w-sm mx-auto leading-relaxed">
@@ -111,13 +104,13 @@ const Faq = ({ t }) => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 to="/signup"
-                className="px-7 py-3 rounded-xl bg-black text-white text-sm font-bold hover:opacity-80 transition-opacity"
+                className="w-full sm:w-auto px-7 py-3 rounded-xl bg-black text-white text-sm font-bold hover:opacity-80 transition-opacity"
               >
                 {t?.landing?.getStarted || "Get Started Free"}
               </Link>
               <Link
                 to="/login"
-                className="px-7 py-3 text-sm font-semibold text-white/80 hover:text-white transition-colors"
+                className="w-full sm:w-auto px-7 py-3 text-sm font-semibold text-white/80 hover:text-white transition-colors"
               >
                 {t?.navbar?.signIn || "Sign In"}
               </Link>

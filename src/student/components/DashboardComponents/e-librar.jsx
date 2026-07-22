@@ -41,13 +41,13 @@ const SectionHeader = ({ title, subtitle, right }) => (
 
 
 // ── Thin rule ──────────────────────────────────────────────────────────────────
-const Divider = () => <div className="h-px w-full bg-gray-100" />;
+const Divider = () => <div className="h-px w-full bg-gray-100 dark:bg-gray-800" />;
 
 
 // ── Empty state ────────────────────────────────────────────────────────────────
 const EmptyState = ({ search, t }) => (
  <div className="py-18 flex flex-col items-center text-center">
-   <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3 bg-gray-50 border border-gray-200">
+   <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
      <BookOpen size={22} className="text-gray-300" />
    </div>
    <p className="font-bold text-black text-sm mb-1">
@@ -68,7 +68,7 @@ const BooksReadBanner = ({ count, inProgress, t }) => {
  return (
    <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-black border border-black">
      <div className="flex items-center gap-2">
-       <BookMarked size={15} className="text-green-500" />
+       <BookMarked size={15} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
        <span className="text-[13px] font-black text-white">
          {count}{" "}
          <span className="font-medium text-white/70">
@@ -78,9 +78,9 @@ const BooksReadBanner = ({ count, inProgress, t }) => {
      </div>
      {inProgress > 0 && (
        <>
-         <div className="h-4 w-px bg-white/20" />
+         <div className="h-4 w-px bg-white dark:bg-gray-900/20" />
          <div className="flex items-center gap-2">
-           <TrendingUp size={14} className="text-green-500" />
+           <TrendingUp size={14} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
            <span className="text-[13px] font-black text-white">
              {inProgress}{" "}
              <span className="font-medium text-white/70">
@@ -112,14 +112,7 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
    <button
      onClick={onClick}
      disabled={disabled}
-     className={`
-       w-8 h-8 flex items-center justify-center rounded-lg text-[13px] font-semibold
-       border transition-all duration-150
-       ${disabled
-         ? "border-gray-200 text-gray-300 cursor-not-allowed opacity-40"
-         : "border-gray-200 text-gray-400 cursor-pointer hover:border-green-500 hover:text-green-500"
-       }
-     `}
+     className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
    >
      {children}
    </button>
@@ -139,14 +132,14 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
            …
          </span>
        ) : (
-         <button
+         <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
            key={`p-${p}`}
            onClick={() => onPageChange(p)}
            className={`
              w-8 h-8 rounded-lg text-[13px] font-bold transition-all duration-150 cursor-pointer
              ${p === page
                ? PRIMARY_BTN
-               : "border border-gray-200 text-gray-500 hover:border-green-500 hover:text-green-500 bg-white"
+               : "border border-gray-200 text-gray-500 hover:border-[#2C2DE0] dark:border-[#4F51FF] hover:text-[#2C2DE0] dark:text-[#4F51FF] bg-white dark:bg-gray-900"
              }
            `}
          >
@@ -200,7 +193,7 @@ const LibraryHome = () => {
 
 
  return (
-   <div className="min-h-screen pb-8 bg-white">
+   <div className="min-h-screen pb-8 bg-white dark:bg-gray-900">
      <div
        style={{ maxWidth: "1440px", margin: "0 auto", padding: "20px 24px" }}
        className="flex flex-col gap-7"
@@ -220,7 +213,7 @@ const LibraryHome = () => {
        {isSearching && (
          <div className="flex items-center gap-1.5 text-[13px] text-gray-400">
            {isFetching ? (
-             <span className="flex items-center gap-1.5 text-green-500">
+             <span className="flex items-center gap-1.5 text-[#2C2DE0] dark:text-[#4F51FF]">
                <RefreshCw size={12} className="animate-spin" />
                {t["common.loading"] ?? "Searching…"}
              </span>
@@ -228,7 +221,7 @@ const LibraryHome = () => {
              <>
                <span className="font-bold text-black">{pagination?.total || 0}</span>{" "}
                {t["search.results"] ?? "results for"}{" "}
-               <span className="text-green-500 font-semibold">"{debouncedSearch}"</span>
+               <span className="text-[#2C2DE0] dark:text-[#4F51FF] font-semibold">"{debouncedSearch}"</span>
              </>
            )}
          </div>
@@ -320,7 +313,7 @@ const LibraryHome = () => {
 
          {/* Soft refetch indicator */}
          {!isLoading && isFetching && (
-           <div className="flex items-center gap-2 text-[12px] text-green-500 mb-3">
+           <div className="flex items-center gap-2 text-[12px] text-[#2C2DE0] dark:text-[#4F51FF] mb-3">
              <RefreshCw size={12} className="animate-spin" />
              <span>{t["common.loading"] ?? "Updating…"}</span>
            </div>
@@ -333,7 +326,7 @@ const LibraryHome = () => {
              <p className="text-red-500 text-[13px] mb-2.5">
                {t["common.error"] ?? "Something went wrong"}
              </p>
-             <button
+             <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                onClick={() => window.location.reload()}
                className={`text-[12px] font-bold px-4 py-2 rounded-lg ${PRIMARY_BTN}`}
              >

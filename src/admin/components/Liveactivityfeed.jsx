@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 // ── dot colour based on action text ──────────────────────────────────────────
 const typeColor = (action = "") => {
   const a = action.toLowerCase();
-  if (a.includes("reserved") || a.includes("reservation")) return "bg-green-500";
-  if (a.includes("checked in") || a.includes("check-in"))  return "bg-green-400";
-  if (a.includes("borrowed"))  return "bg-white";
-  if (a.includes("returned"))  return "bg-white/60";
-  if (a.includes("cancelled")) return "bg-white/30";
-  if (a.includes("admin"))     return "bg-green-600";
-  return "bg-white/40";
+  if (a.includes("reserved") || a.includes("reservation")) return "bg-[#2C2DE0] dark:bg-[#1E1FAA]";
+  if (a.includes("checked in") || a.includes("check-in"))  return "bg-[#4F51FF]";
+  if (a.includes("borrowed"))  return "bg-white dark:bg-gray-900";
+  if (a.includes("returned"))  return "bg-white dark:bg-gray-900/60";
+  if (a.includes("cancelled")) return "bg-white dark:bg-gray-900/30";
+  if (a.includes("admin"))     return "bg-[#1E1FAA] dark:bg-[#0F0F55]";
+  return "bg-white dark:bg-gray-900/40";
 };
 
 // ── normalise every activity item coming from the server ──────────────────────
@@ -36,7 +36,7 @@ const LiveActivityFeed = ({ activities = [] }) => {
     if (listRef.current) listRef.current.scrollTop = 0;
   }, [activities]);
 
-  const base = isDark ? "bg-black border-white/10" : "bg-white border-black/8";
+  const base = isDark ? "bg-black border-white/10" : "bg-white dark:bg-gray-900 border-black/8";
 
   const items = activities.slice(0, 20).map(normalise);
 
@@ -47,7 +47,7 @@ const LiveActivityFeed = ({ activities = [] }) => {
           Live Activity
         </h3>
         <div className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] animate-pulse" />
           <span
             className={cn(
               "text-[10px] font-semibold uppercase tracking-widest",

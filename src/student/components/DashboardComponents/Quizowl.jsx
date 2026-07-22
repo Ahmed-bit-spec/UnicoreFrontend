@@ -89,18 +89,18 @@ const QuizWithOwl = ({ onComplete }) => {
       {/* Streak + XP chips, Duolingo-style */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black text-white text-xs font-black">
-          <Flame size={13} className="text-green-500" />
+          <Flame size={13} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
           {streak} day streak
         </div>
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-black">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 border border-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 text-xs font-black">
           +{xp} XP
         </div>
       </div>
 
       {/* Progress bar across questions */}
-      <div className="w-full h-2 rounded-full bg-gray-100 overflow-hidden">
+      <div className="w-full h-2 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
         <div
-          className="h-full bg-green-500 rounded-full transition-all duration-300"
+          className="h-full bg-[#2C2DE0] dark:bg-[#1E1FAA] rounded-full transition-all duration-300"
           style={{ width: `${((qIndex + (locked ? 1 : 0)) / MOCK_QUESTIONS.length) * 100}%` }}
         />
       </div>
@@ -114,24 +114,24 @@ const QuizWithOwl = ({ onComplete }) => {
             const isSelected = selected === idx;
             const isCorrectOpt = idx === question.correctIndex;
 
-            let stateClass = "border-gray-200 bg-white text-black hover:border-green-300";
+            let stateClass = "border-gray-200 bg-white text-black hover:border-[#4F51FF] dark:border-blue-400";
             if (locked && isCorrectOpt) {
-              stateClass = "border-green-500 bg-green-50 text-green-700";
+              stateClass = "border-[#2C2DE0] dark:border-[#4F51FF] bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 text-[#0F0F55] dark:text-blue-300";
             } else if (locked && isSelected && !isCorrectOpt) {
               stateClass = "border-red-400 bg-red-50 text-red-600";
             } else if (!locked && isSelected) {
-              stateClass = "border-green-500 bg-green-50 text-green-700";
+              stateClass = "border-[#2C2DE0] dark:border-[#4F51FF] bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 text-[#0F0F55] dark:text-blue-300";
             }
 
             return (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={idx}
                 onClick={() => handleSelect(idx)}
                 disabled={locked}
                 className={`flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border-2 text-sm font-bold text-left transition-all ${stateClass}`}
               >
                 <span>{opt}</span>
-                {locked && isCorrectOpt && <Check size={16} className="text-green-600 shrink-0" />}
+                {locked && isCorrectOpt && <Check size={16} className="text-[#1E1FAA] dark:text-[#4F51FF] shrink-0" />}
                 {locked && isSelected && !isCorrectOpt && <X size={16} className="text-red-500 shrink-0" />}
               </button>
             );
@@ -144,14 +144,14 @@ const QuizWithOwl = ({ onComplete }) => {
         <button
           onClick={handleCheck}
           disabled={selected === null}
-          className={`w-full py-3.5 rounded-2xl text-sm font-black ${PRIMARY_BTN} disabled:opacity-40 disabled:pointer-events-none`}
+          className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
         >
           Check
         </button>
       ) : (
         <button
           onClick={handleContinue}
-          className={`w-full py-3.5 rounded-2xl text-sm font-black ${PRIMARY_BTN}`}
+          className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
         >
           {isLast ? "Finish lesson" : "Continue"}
         </button>

@@ -102,8 +102,8 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
           {/* SUCCESS STATE */}
           {step === "success" && (
             <div className="flex flex-col items-center text-center py-8 anim-fadeup">
-              <div className="w-20 h-20 rounded-2xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center mb-5 anim-scalein">
-                <CheckCircle2 size={40} className="text-green-500" />
+              <div className="w-20 h-20 rounded-2xl bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center mb-5 anim-scalein">
+                <CheckCircle2 size={40} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
               </div>
               <h1 className="text-xl font-black text-gray-900 dark:text-white">
                 {t("auth.accountVerified")}
@@ -112,7 +112,7 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
                 {t("auth.redirectingToLogin")}
               </p>
               <div className="mt-8 w-full h-1 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                <div className="h-full bg-green-500 rounded-full anim-progress" />
+                <div className="h-full bg-[#2C2DE0] dark:bg-[#1E1FAA] rounded-full anim-progress" />
               </div>
             </div>
           )}
@@ -121,9 +121,9 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
           {(step === "verifying" || step === "sending") && (
             <div className="flex flex-col items-center text-center py-12 anim-fadeup">
               <div className="relative w-16 h-16 mb-6">
-                <div className="absolute inset-0 rounded-full border-4 border-green-100 dark:border-green-900" />
-                <div className="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" />
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="absolute inset-0 m-auto text-green-500">
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#2C2DE0]" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#4F51FF] border-t-transparent animate-spin" />
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="absolute inset-0 m-auto text-[#2C2DE0] dark:text-[#4F51FF]">
                   <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
@@ -132,7 +132,7 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
               </p>
               <div className="flex gap-1 mt-5">
                 {[0, 1, 2].map((i) => (
-                  <span key={i} className="w-2 h-2 rounded-full bg-green-500 animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
+                  <span key={i} className="w-2 h-2 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] animate-bounce" style={{ animationDelay: `${i * 150}ms` }} />
                 ))}
               </div>
             </div>
@@ -149,11 +149,11 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
               </p>
 
               {/* Email badge */}
-              <div className="mt-5 flex items-center gap-2.5 bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/30 rounded-xl px-4 py-2.5">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="text-green-500 shrink-0">
+              <div className="mt-5 flex items-center gap-2.5 bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 border border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/30 rounded-xl px-4 py-2.5">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" className="text-[#2C2DE0] dark:text-[#4F51FF] shrink-0">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
                 </svg>
-                <span className="text-xs font-mono font-bold tracking-widest text-green-700 dark:text-green-400">
+                <span className="text-xs font-mono font-bold tracking-widest text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]">
                   {savedEmail}
                 </span>
               </div>
@@ -177,25 +177,20 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
                     onChange={(e) => { setVerifyCode(e.target.value); setVerifyError(""); }}
                     placeholder={t("auth.codePlaceholder")}
                     autoFocus
-                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm font-mono font-bold tracking-widest text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all uppercase"
+                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm font-mono font-bold tracking-widest text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF] transition-all uppercase"
                   />
                   <p className="text-[11px] text-gray-400">{t("auth.codeHint")}</p>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={!verifyCode.trim() || step === "verifying"}
-                  className="w-full flex items-center justify-center gap-2  hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm py-3 rounded-xl  bg-[#58CC02] text-white text-sm font-bold
-                    shadow-[0_4px_0_#46A302]
-                    hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
-                    active:translate-y-1 active:shadow-none
-                    transition-all duration-150"
-                >
-                  {step === "verifying"
-                    ? <><Loader2 className="w-5 h-5 animate-spin" />{t("auth.verifyingCode")}</>
-                    : <>{t("auth.verify")}<ArrowRight size={16} /></>
-                  }
-                </button>
+              {/* 4. University ID submit */}
+<button
+  type="submit"
+  disabled={!universityId.trim() || isLockedOut}
+  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none disabled:opacity-60 disabled:pointer-events-none transition-all duration-150 group"
+>
+  {copy.submit}
+  <ArrowRight size={16} />
+</button>
               </form>
 
               {/* Resend */}
@@ -206,7 +201,7 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
                 <button
                   onClick={handleResendCode}
                   disabled={step === "sending"}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-green-600 dark:text-green-400 hover:underline disabled:opacity-50 "
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   {t("auth.resendCode")}
                 </button>
@@ -216,7 +211,7 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
               <button
                 type="button"
                 onClick={onBack}
-                className="w-full mt-6 text-center text-xs text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 font-semibold transition-colors"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 ← {t("auth.backToRegister")}
               </button>
@@ -227,10 +222,10 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
 
       {/* ── RIGHT: Brand Panel — same as SignupPage ── */}
       <div className="hidden md:flex w-1/2 bg-black dark:bg-gray-950 flex-col justify-center items-center px-14 text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle, #22c55e 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-green-500" />
+        <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
         <div className="relative z-10 max-w-sm">
-          <div className="w-14 h-14 rounded-2xl bg-green-500 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30">
+          <div className="w-14 h-14 rounded-2xl bg-[#2C2DE0] dark:bg-[#1E1FAA] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#2C2DE0]/30">
             <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
               <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
               <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
@@ -243,13 +238,13 @@ const VerifyEmailStep = ({ savedEmail, onBack }) => {
           <div className="mt-8 flex flex-col gap-3 text-left">
             {[{ n: "01", label: t("auth.signupSteps")[0] }, { n: "02", label: t("auth.signupSteps")[1] }, { n: "03", label: t("auth.signupSteps")[2] }].map((s) => (
               <div key={s.n} className="flex items-center gap-3">
-                <span className="w-7 h-7 rounded-lg bg-green-500 text-white text-[11px] font-black flex items-center justify-center shrink-0">{s.n}</span>
+                <span className="w-7 h-7 rounded-lg bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white text-[11px] font-black flex items-center justify-center shrink-0">{s.n}</span>
                 <span className="text-sm text-gray-300 font-medium">{s.label}</span>
               </div>
             ))}
           </div>
-          <p className="mt-10 text-gray-500 italic text-sm">{t("auth.signupQuote")}</p>
-          <p className="mt-1 text-gray-600 text-xs">{t("auth.signupQuoteAuthor")}</p>
+          <p className="mt-10 text-gray-500 dark:text-gray-400 italic text-sm">{t("auth.signupQuote")}</p>
+          <p className="mt-1 text-gray-600 dark:text-gray-400 text-xs">{t("auth.signupQuoteAuthor")}</p>
         </div>
       </div>
 

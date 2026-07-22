@@ -58,14 +58,14 @@ const UserManagement = () => {
       <main className="max-w-6xl mx-auto px-6 py-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-green-500">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0] dark:text-[#4F51FF]">
               {t.admin.panel}
             </p>
             <h1 className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
               {t.admin.userManagement}
             </h1>
           </div>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => navigate("/admin")}
             className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-100 px-4 py-2.5 text-sm font-bold text-gray-700 transition-all hover:bg-gray-200 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800"
           >
@@ -96,14 +96,14 @@ const UserManagement = () => {
                       <select
                         value={user.role}
                         onChange={(e) => handleRoleChange(user._id, e.target.value)}
-                        className="rounded-lg border border-gray-300 bg-white px-2.5 py-1 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+                        className="rounded-lg border border-gray-300 bg-white px-2.5 py-1 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF] dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
                       >
                         <option value="student">Student</option>
                         <option value="admin">Admin</option>
                       </select>
                     </td>
                     <td className="px-4 py-3">
-                      <button
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         onClick={() => handleDelete(user._id)}
                         className="rounded-full border border-red-100 bg-red-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-red-600 hover:bg-red-100 dark:border-red-500/20 dark:bg-red-500/10 dark:text-red-400"
                       >

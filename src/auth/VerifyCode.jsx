@@ -156,10 +156,10 @@ const VerifyCode = () => {
           {loading && (
             <div className="flex flex-col items-center text-center py-12 anim-fadeup">
               <div className="relative w-16 h-16 mb-6">
-                <div className="absolute inset-0 rounded-full border-4 border-green-100 dark:border-green-900" />
-                <div className="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#2C2DE0]" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#4F51FF] border-t-transparent animate-spin" />
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                  className="absolute inset-0 m-auto text-green-500">
+                  className="absolute inset-0 m-auto text-[#2C2DE0] dark:text-[#4F51FF]">
                   <path d="M9 12l2 2 4-4m5-2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"
                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -172,7 +172,7 @@ const VerifyCode = () => {
               <div className="flex gap-1 mt-5">
                 {[0, 1, 2].map((i) => (
                   <span key={i}
-                    className="w-2 h-2 rounded-full bg-green-500 animate-bounce"
+                    className="w-2 h-2 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] animate-bounce"
                     style={{ animationDelay: `${i * 150}ms` }}
                   />
                 ))}
@@ -183,8 +183,8 @@ const VerifyCode = () => {
           {/* ── STEP INDICATOR ─────────────────────────────────────────── */}
           {!loading && (
             <div className="flex items-center gap-2 mb-6">
-              <div className={`h-1.5 flex-1 rounded-full transition-colors ${step >= 1 ? "bg-green-500" : "bg-gray-200 dark:bg-gray-800"}`} />
-              <div className={`h-1.5 flex-1 rounded-full transition-colors ${step >= 2 ? "bg-green-500" : "bg-gray-200 dark:bg-gray-800"}`} />
+              <div className={`h-1.5 flex-1 rounded-full transition-colors ${step >= 1 ? "bg-[#2C2DE0] dark:bg-[#1E1FAA]" : "bg-gray-200 dark:bg-gray-800"}`} />
+              <div className={`h-1.5 flex-1 rounded-full transition-colors ${step >= 2 ? "bg-[#2C2DE0] dark:bg-[#1E1FAA]" : "bg-gray-200 dark:bg-gray-800"}`} />
             </div>
           )}
 
@@ -215,7 +215,7 @@ const VerifyCode = () => {
                     className={`w-full bg-gray-50 dark:bg-gray-900 border rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all ${
                       emailError
                         ? "border-red-400 focus:ring-red-400/30 focus:border-red-400"
-                        : "border-gray-200 dark:border-gray-700 focus:ring-green-400/30 focus:border-green-400"
+                        : "border-gray-200 dark:border-gray-700 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF]"
                     }`}
                   />
                   {emailError && (
@@ -225,14 +225,7 @@ const VerifyCode = () => {
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-[#58CC02]
-                    text-white text-sm font-bold
-                    shadow-[0_4px_0_#46A302]
-                    hover:translate-y-0.5
-                    hover:shadow-[0_2px_0_#46A302]
-                    active:translate-y-1
-                    active:shadow-none
-                    transition-all duration-150 py-3 rounded-xl mt-2 group"
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   {t("auth.sendCodeButton") || t("auth.verifyAccountButton")}
                   <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
@@ -241,7 +234,7 @@ const VerifyCode = () => {
 
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
                 {t("auth.alreadyVerified")}{" "}
-                <Link to="/login" className="text-green-600 dark:text-green-400 font-semibold hover:underline">
+                <Link to="/login" className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] font-semibold hover:underline">
                   {t("auth.signInLink")}
                 </Link>
               </p>
@@ -251,8 +244,7 @@ const VerifyCode = () => {
           {/* ── STEP 2: CODE ─────────────────────────────────────────── */}
           {!loading && step === 2 && (
             <div className="anim-fadeup">
-              <button
-                onClick={() => setStep(1)}
+              <button 
                 className="flex items-center gap-1 text-xs font-semibold text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 mb-4 transition-colors"
               >
                 <ArrowLeft size={13} />
@@ -283,28 +275,21 @@ const VerifyCode = () => {
                     className={`w-full bg-gray-50 dark:bg-gray-900 border rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition-all tracking-[0.3em] text-center font-bold ${
                       codeError
                         ? "border-red-400 focus:ring-red-400/30 focus:border-red-400"
-                        : "border-gray-200 dark:border-gray-700 focus:ring-green-400/30 focus:border-green-400"
+                        : "border-gray-200 dark:border-gray-700 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF]"
                     }`}
                   />
                   {codeError && (
                     <span className="text-xs text-red-500 mt-0.5">{codeError}</span>
                   )}
                 </div>
-
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2 bg-[#58CC02]
-                    text-white text-sm font-bold
-                    shadow-[0_4px_0_#46A302]
-                    hover:translate-y-0.5
-                    hover:shadow-[0_2px_0_#46A302]
-                    active:translate-y-1
-                    active:shadow-none
-                    transition-all duration-150 py-3 rounded-xl mt-2 group"
-                >
-                  {t("auth.verifyAccountButton")}
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-                </button>
+{/* 2. Verify Account */}
+<button
+  type="submit"
+  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
+>
+  {t("auth.verifyAccountButton")}
+  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+</button>
               </form>
 
               <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
@@ -312,7 +297,7 @@ const VerifyCode = () => {
                 <button
                   onClick={handleResend}
                   disabled={resendLoading}
-                  className="mt-3 inline-flex items-center justify-center rounded-xl bg-gray-900 dark:bg-gray-800 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-gray-800 dark:hover:bg-gray-700 disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   {resendLoading ? t("auth.resendingCode") : t("auth.resendCode")}
                 </button>
@@ -329,11 +314,11 @@ const VerifyCode = () => {
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
-            backgroundImage: "radial-gradient(circle, #22c55e 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)",
             backgroundSize: "20px 20px",
           }}
         />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-green-500" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
 
         <div className="relative z-10 max-w-sm">
           <div className="w-14 h-14 rounded-2xl bg-[#58CC02]
@@ -353,10 +338,10 @@ const VerifyCode = () => {
             {t("auth.verifySideDescription") || t("auth.sideDescription")}
           </p>
 
-          <p className="mt-10 text-gray-500 italic text-sm">
+          <p className="mt-10 text-gray-500 dark:text-gray-400 italic text-sm">
             {t("auth.quote")}
           </p>
-          <p className="mt-1 text-gray-600 text-xs">{t("auth.quoteAuthor")}</p>
+          <p className="mt-1 text-gray-600 dark:text-gray-400 text-xs">{t("auth.quoteAuthor")}</p>
         </div>
       </div>
 

@@ -107,10 +107,10 @@ export default function TeacherSubmissionsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
-            <CheckSquare className="w-7 h-7 text-green-500" />
+            <CheckSquare className="w-7 h-7 text-[#2C2DE0] dark:text-[#4F51FF]" />
             Grading Workspace
           </h1>
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 dark:text-gray-400 text-sm">
             Select an exam to view, grade, and publish student submissions.
           </p>
         </div>
@@ -120,7 +120,7 @@ export default function TeacherSubmissionsPage() {
           <select
             value={selectedExamId}
             onChange={(e) => setSelectedExamId(e.target.value)}
-            className="px-4 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl text-sm font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="px-4 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl text-sm font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
           >
             <option value="">-- Choose Exam --</option>
             {exams.map((ex) => (
@@ -133,9 +133,9 @@ export default function TeacherSubmissionsPage() {
           <button
             onClick={fetchSubmissions}
             disabled={loading}
-            className="p-2 border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-gray-500 rounded-xl hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors disabled:opacity-50"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-green-500" : ""}`} />
+            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-[#2C2DE0] dark:text-[#4F51FF]" : ""}`} />
           </button>
         </div>
       </div>
@@ -165,7 +165,7 @@ export default function TeacherSubmissionsPage() {
 
         <div className="flex flex-wrap items-center gap-3">
           {/* Status */}
-          <div className="flex items-center gap-1.5 text-xs text-gray-500">
+          <div className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
             <Filter className="w-3.5 h-3.5" />
             <select
               value={statusFilter}
@@ -197,10 +197,10 @@ export default function TeacherSubmissionsPage() {
           </div>
 
           {/* Bulk Publish */}
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={handleBulkPublish}
             disabled={publishing || submissions.filter(s => ["graded", "auto-graded"].includes(s.status)).length === 0}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors disabled:opacity-40"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-[#1E1FAA] dark:bg-[#0F0F55] hover:bg-[#2C2DE0] text-white rounded-lg transition-colors disabled:opacity-40"
           >
             {publishing ? <Loader2 className="w-3 h-3 animate-spin" /> : <Send className="w-3 h-3" />}
             Publish Results
@@ -211,11 +211,11 @@ export default function TeacherSubmissionsPage() {
       {/* Submissions Grid / List */}
       {loading ? (
         <div className="flex items-center justify-center py-24">
-          <Loader2 className="w-8 h-8 animate-spin text-green-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#2C2DE0] dark:text-[#4F51FF]" />
         </div>
       ) : filtered.length === 0 ? (
-        <div className="text-center py-20 bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 text-gray-500">
-          <CheckCircle2 className="w-12 h-12 text-green-400 mx-auto mb-3" />
+        <div className="text-center py-20 bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 text-gray-500 dark:text-gray-400">
+          <CheckCircle2 className="w-12 h-12 text-[#4F51FF] mx-auto mb-3" />
           <p className="font-semibold text-gray-700 dark:text-gray-300">No submissions found</p>
           <p className="text-xs text-gray-400 mt-1">Try relaxing filters or check back later.</p>
         </div>
@@ -245,7 +245,7 @@ export default function TeacherSubmissionsPage() {
                         <div className="font-bold text-gray-900 dark:text-white">
                           {student.fullName || "Unknown"}
                         </div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs text-gray-500 dark:text-gray-400">
                           ID: {student.studentId || "—"}
                         </div>
                       </td>
@@ -254,7 +254,7 @@ export default function TeacherSubmissionsPage() {
                       </td>
                       <td className="px-6 py-4 text-right">
                         {sub.similarity !== undefined ? (
-                          <span className={`font-mono text-xs font-bold ${isFlagged ? "text-red-500" : "text-gray-500"}`}>
+                          <span className={`font-mono text-xs font-bold ${isFlagged ? "text-red-500" : "text-gray-500 dark:text-gray-400"}`}>
                             {sub.similarity}%
                           </span>
                         ) : (
@@ -275,9 +275,9 @@ export default function TeacherSubmissionsPage() {
                         {sub.totalScore !== undefined ? `${sub.totalScore} / ${sub.totalMaxMarks}` : "—"}
                       </td>
                       <td className="px-6 py-4 text-right">
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           onClick={() => navigate(`/teacher/submissions/${sub._id}?exam=${selectedExamId}`)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 rounded-lg hover:bg-green-100 dark:hover:bg-green-500/20 transition-all"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] rounded-lg hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/20 transition-all"
                         >
                           <Eye className="w-3.5 h-3.5" /> Grade
                         </button>
@@ -296,7 +296,7 @@ export default function TeacherSubmissionsPage() {
 
 function StatCard({ label, value, color }) {
   const colors = {
-    green:  "text-green-600 dark:text-green-400",
+    green:  "text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]",
     orange: "text-orange-500 dark:text-orange-400",
     blue:   "text-blue-500 dark:text-blue-400",
   };
@@ -305,7 +305,7 @@ function StatCard({ label, value, color }) {
       <p className={`text-2xl font-black ${colors[color] || "text-gray-900 dark:text-white"}`}>
         {value}
       </p>
-      <p className="text-xs text-gray-500 mt-1">{label}</p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{label}</p>
     </div>
   );
 }
@@ -316,10 +316,10 @@ function StatusBadge({ status }) {
     "submitted":     { label: "Submitted",     cls: "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400" },
     "auto-graded":   { label: "Auto-Graded",   cls: "bg-purple-100 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400" },
     "manual-review": { label: "Needs Review",  cls: "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400" },
-    "graded":        { label: "Graded",        cls: "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400" },
-    "published":     { label: "Published",     cls: "bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-300" },
+    "graded":        { label: "Graded",        cls: "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 dark:text-[#4F51FF]" },
+    "published":     { label: "Published",     cls: "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-200 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/20 dark:text-[#2C2DE0]" },
   };
-  const c = config[status] || { label: status, cls: "bg-gray-100 text-gray-600" };
+  const c = config[status] || { label: status, cls: "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400" };
   return (
     <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider ${c.cls}`}>
       {c.label}

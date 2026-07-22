@@ -48,7 +48,7 @@ ${html}
       title="live-preview"
       srcDoc={srcDoc}
       sandbox="allow-scripts"
-      className="w-full h-full min-h-[300px] bg-white border-0"
+      className="w-full h-full min-h-[300px] bg-white dark:bg-gray-900 border-0"
     />
   );
 }

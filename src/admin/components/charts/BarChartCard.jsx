@@ -17,7 +17,7 @@ const BarChartCard = ({ title, data, dataKey = "value", className }) => (
     transition={{ duration: 0.4, delay: 0.15 }}
     className={cn(
       "rounded-2xl border border-gray-200/60 dark:border-white/10",
-      "bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-5 shadow-sm",
+      "bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl p-5 shadow-sm",
       className
     )}
   >
@@ -48,7 +48,7 @@ const BarChartCard = ({ title, data, dataKey = "value", className }) => (
             }}
             cursor={{ fill: "rgba(34,197,94,0.08)" }}
           />
-          <Bar dataKey={dataKey} fill="#22c55e" radius={[6, 6, 0, 0]} maxBarSize={40} />
+          <Bar dataKey={dataKey} fill="#2C2DE0" radius={[6, 6, 0, 0]} maxBarSize={40} />
         </BarChart>
       </ResponsiveContainer>
     </div>

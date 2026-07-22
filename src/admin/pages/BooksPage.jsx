@@ -43,7 +43,7 @@ const getFormatOpts = (T) => [
 ];
 
 const getStatusOpts = (T) => [
-  { value: "active", label: T.statusActive, dot: "bg-green-500" },
+  { value: "active", label: T.statusActive, dot: "bg-[#2C2DE0] dark:bg-[#1E1FAA]" },
   { value: "archived", label: T.statusArchived, dot: "bg-gray-400" },
 ];
 
@@ -88,7 +88,7 @@ const DropZone = ({ accept, label, hint, icon: Icon, preview, onFile, onClear, T
   return (
     <div
       className={`relative rounded-2xl border-2 border-dashed transition-all cursor-pointer select-none
-        ${drag ? "border-green-400 bg-green-50 dark:bg-green-500/10" : "border-gray-200 dark:border-white/10 hover:border-green-300 dark:hover:border-green-600"}
+        ${drag ? "border-[#4F51FF] bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" : "border-gray-200 dark:border-white/10 hover:border-[#4F51FF] dark:border-blue-400 dark:hover:border-[#2C2DE0]"}
         ${preview ? "p-2" : "p-5"}`}
       onClick={() => inputRef.current.click()}
       onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
@@ -103,12 +103,12 @@ const DropZone = ({ accept, label, hint, icon: Icon, preview, onFile, onClear, T
           {accept.includes("image") ? (
             <img src={preview} alt="cover" className="w-full h-40 object-cover rounded-xl" />
           ) : (
-            <div className="flex items-center gap-3 px-3 py-3 bg-green-50 dark:bg-green-500/10 rounded-xl">
-              <FileText size={20} className="text-green-600 dark:text-green-400 flex-shrink-0" />
-              <span className="text-xs font-semibold text-green-700 dark:text-green-400 truncate">{T.pdfAvailable}</span>
+            <div className="flex items-center gap-3 px-3 py-3 bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 rounded-xl">
+              <FileText size={20} className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] flex-shrink-0" />
+              <span className="text-xs font-semibold text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] truncate">{T.pdfAvailable}</span>
             </div>
           )}
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             type="button"
             onClick={(e) => { e.stopPropagation(); onClear(); }}
             className="absolute -top-2 -right-2 size-6 rounded-full bg-red-500 text-white flex items-center justify-center hover:bg-red-600 transition-colors shadow"
@@ -118,12 +118,12 @@ const DropZone = ({ accept, label, hint, icon: Icon, preview, onFile, onClear, T
         </div>
       ) : (
         <div className="flex flex-col items-center gap-2 text-center">
-          <div className={`size-10 rounded-xl flex items-center justify-center ${drag ? "bg-green-100 dark:bg-green-500/20" : "bg-gray-100 dark:bg-white/5"}`}>
-            <Icon size={18} className={drag ? "text-green-600" : "text-gray-400"} />
+          <div className={`size-10 rounded-xl flex items-center justify-center ${drag ? "bg-[#2C2DE0] dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/20" : "bg-gray-100 dark:bg-white dark:bg-gray-900/5"}`}>
+            <Icon size={18} className={drag ? "text-[#1E1FAA] dark:text-[#4F51FF]" : "text-gray-400"} />
           </div>
           <div>
             <p className="text-xs font-bold text-gray-700 dark:text-gray-200">{label}</p>
-            <p className="text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">{hint}</p>
+            <p className="text-[10px] text-gray-400 dark:text-gray-500 dark:text-gray-400 mt-0.5">{hint}</p>
           </div>
         </div>
       )}
@@ -139,7 +139,7 @@ const CoverImg = ({ src, title, size = "md" }) => {
   if (!src || err) {
     return (
       <div className={`${s} bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center border border-gray-200 dark:border-white/10 overflow-hidden flex-shrink-0`}>
-        <BookOpen size={size === "lg" ? 28 : 16} className="text-gray-300 dark:text-gray-600" />
+        <BookOpen size={size === "lg" ? 28 : 16} className="text-gray-300 dark:text-gray-600 dark:text-gray-400" />
       </div>
     );
   }
@@ -165,21 +165,21 @@ const Field = ({ label, required, children, className = "" }) => (
 
 const Input = ({ className = "", ...props }) => (
   <input
-    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400 transition-all ${className}`}
+    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30 focus:border-[#4F51FF] transition-all ${className}`}
     {...props}
   />
 );
 
 const Textarea = ({ className = "", ...props }) => (
   <textarea
-    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400 transition-all resize-none ${className}`}
+    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30 focus:border-[#4F51FF] transition-all resize-none ${className}`}
     {...props}
   />
 );
 
 const Select = ({ className = "", children, ...props }) => (
   <select
-    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-900 px-3 py-2.5 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400 transition-all ${className}`}
+    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-900 px-3 py-2.5 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30 focus:border-[#4F51FF] transition-all ${className}`}
     {...props}
   >
     {children}
@@ -210,7 +210,7 @@ const ModalShell = ({ open, onClose, title, subtitle, size = "md", children, foo
                 <h3 className="text-sm font-black text-gray-900 dark:text-white">{title}</h3>
                 {subtitle && <p className="text-xs text-gray-400 mt-0.5">{subtitle}</p>}
               </div>
-              <button onClick={onClose} className="size-8 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors flex-shrink-0 ml-4">
+              <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                 <X size={15} />
               </button>
             </div>
@@ -233,7 +233,7 @@ const ModalShell = ({ open, onClose, title, subtitle, size = "md", children, foo
 
 // ─── Stat card ─────────────────────────────────────────────────────────────────
 const StatCard = ({ label, value, icon: Icon, accent, sub }) => (
-  <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] backdrop-blur-sm p-4">
+  <div className="flex items-center gap-3.5 rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-sm p-4">
     <div className={`size-11 rounded-xl flex items-center justify-center flex-shrink-0 ${accent}`}>
       <Icon size={20} className="text-white" />
     </div>
@@ -337,13 +337,13 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
       <Field label={T.fieldFormat} required>
         <div className="grid grid-cols-3 gap-2">
           {FORMAT_OPTS.map((opt) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={opt.value}
               type="button"
               onClick={() => set("format", opt.value)}
               className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold border transition-all ${form.format === opt.value
-                ? "bg-green-500 border-green-500 text-white shadow-sm"
-                : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:border-green-300 dark:hover:border-green-700"
+                ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] border-[#2C2DE0] dark:border-[#4F51FF] text-white shadow-sm"
+                : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:border-[#4F51FF] dark:border-blue-400 dark:hover:border-[#2C2DE0]"
                 }`}
             >
               <opt.icon size={13} />
@@ -391,12 +391,12 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
       <Field label={T.fieldStatus}>
         <div className="flex gap-2">
           {STATUS_OPTS.map((opt) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={opt.value}
               type="button"
               onClick={() => set("status", opt.value)}
               className={`flex items-center gap-2 flex-1 py-2.5 rounded-xl text-xs font-bold border transition-all ${form.status === opt.value
-                ? "bg-gray-900 dark:bg-white border-gray-900 dark:border-white text-white dark:text-gray-900 shadow-sm"
+                ? "bg-gray-900 dark:bg-white border-gray-900 dark:border-white text-white dark:text-gray-900 dark:text-gray-100 shadow-sm"
                 : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:border-gray-400"
                 } justify-center`}
             >
@@ -407,7 +407,7 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
         </div>
       </Field>
 
-      <button type="submit" id="book-form-submit" className="hidden" />
+      <button type="submit" id="book-form-submit" className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" />
     </form>
   );
 };
@@ -425,12 +425,12 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
       size="lg"
       footer={
         <>
-          <button onClick={onClose} className="px-4 py-2 rounded-xl text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+          <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             {T.close}
           </button>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => { onClose(); onEdit(book); }}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-green-500 hover:bg-green-600 text-white transition-colors shadow-sm"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55] text-white transition-colors shadow-sm"
           >
             <Pencil size={13} /> {T.actionEdit}
           </button>
@@ -448,7 +448,7 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
             <h2 className="text-base font-black text-gray-900 dark:text-white leading-snug">{book.title}</h2>
             <p className="text-sm text-gray-500 dark:text-gray-400">{book.author}</p>
             {book.category && (
-              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-white/10 px-2 py-1 rounded-lg">
+              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-white dark:bg-gray-900/10 px-2 py-1 rounded-lg">
                 <Tag size={9} /> {book.category}
               </span>
             )}
@@ -457,36 +457,36 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
 
         <div className="grid grid-cols-2 gap-3">
           {book.isbn && (
-            <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] px-4 py-3">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">{T.fieldISBN}</p>
+            <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white dark:bg-gray-900/[0.03] px-4 py-3">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400 mb-1">{T.fieldISBN}</p>
               <p className="text-sm font-mono font-bold text-gray-900 dark:text-white">{book.isbn}</p>
             </div>
           )}
           {book.shelfLocation && (
-            <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] px-4 py-3">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">{T.fieldShelf}</p>
+            <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white dark:bg-gray-900/[0.03] px-4 py-3">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400 mb-1">{T.fieldShelf}</p>
               <p className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-1.5">
-                <MapPin size={12} className="text-green-500" /> {book.shelfLocation}
+                <MapPin size={12} className="text-[#2C2DE0] dark:text-[#4F51FF]" /> {book.shelfLocation}
               </p>
             </div>
           )}
           {["physical", "both"].includes(book.format) && (
-            <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] px-4 py-3">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">{T.colCopies}</p>
+            <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white dark:bg-gray-900/[0.03] px-4 py-3">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400 mb-1">{T.colCopies}</p>
               <p className="text-sm font-bold text-gray-900 dark:text-white">
-                <span className="text-green-600 dark:text-green-400">{book.availableCopies}</span>
+                <span className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]">{book.availableCopies}</span>
                 <span className="text-gray-400"> / {book.totalCopies} {T.copies}</span>
               </p>
             </div>
           )}
           {["ebook", "both"].includes(book.format) && (
-            <div className={`rounded-xl border px-4 py-3 ${hasEbook(book) ? "border-green-200 dark:border-green-500/20 bg-green-50 dark:bg-green-500/10" : "border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03]"}`}>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">PDF</p>
+            <div className={`rounded-xl border px-4 py-3 ${hasEbook(book) ? "border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/20 bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" : "border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white dark:bg-gray-900/[0.03]"}`}>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400 mb-1">PDF</p>
               {hasEbook(book) ? (
                 // No public URL — the PDF is private on Cloudinary. Route through
                 // the protected reader page, which streams it server-side.
                 <a href={`/read/${book._id}`}
-                  className="flex items-center gap-1.5 text-sm font-bold text-green-600 dark:text-green-400 hover:underline">
+                  className="flex items-center gap-1.5 text-sm font-bold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] hover:underline">
                   <ExternalLink size={13} /> {T.pdfAvailable}
                 </a>
               ) : (
@@ -498,7 +498,7 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
 
         {book.description && (
           <div>
-            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-2">{T.fieldDescription}</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400 mb-2">{T.fieldDescription}</p>
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{book.description}</p>
           </div>
         )}
@@ -516,13 +516,13 @@ const DeleteModal = ({ book, open, onClose, onConfirm, isDeleting, T }) => (
     size="sm"
     footer={
       <>
-        <button onClick={onClose} className="flex-1 py-2.5 rounded-xl text-xs font-semibold text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">
+        <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
           {T.actionCancel}
         </button>
         <button
           onClick={onConfirm}
           disabled={isDeleting}
-          className="flex-1 py-2.5 rounded-xl text-xs font-bold text-white bg-red-500 hover:bg-red-600 disabled:opacity-50 transition-colors shadow-sm"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           {isDeleting ? T.deleting : T.actionConfirm}
         </button>
@@ -549,7 +549,7 @@ const FilterPill = ({ label, value, options, onChange }) => (
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="appearance-none pl-3 pr-7 py-2 rounded-xl text-xs font-bold border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500/30 cursor-pointer"
+      className="appearance-none pl-3 pr-7 py-2 rounded-xl text-xs font-bold border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30 cursor-pointer"
     >
       {options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
     </select>
@@ -690,7 +690,7 @@ const BooksPage = () => {
 
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div className="flex items-center gap-3">
-          <div className="size-10 rounded-2xl bg-green-500 flex items-center justify-center shadow-lg shadow-green-500/30">
+          <div className="size-10 rounded-2xl bg-[#2C2DE0] dark:bg-[#1E1FAA] flex items-center justify-center shadow-lg shadow-[#2C2DE0]/30">
             <Library size={20} className="text-white" />
           </div>
           <div>
@@ -698,9 +698,9 @@ const BooksPage = () => {
             <p className="text-xs text-gray-400 mt-0.5">{T.pageSubtitle}</p>
           </div>
         </div>
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => setEditing({})}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-green-500 hover:bg-green-600 text-white text-sm font-bold transition-all shadow-sm shadow-green-500/20"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55] text-white text-sm font-bold transition-all shadow-sm shadow-[#2C2DE0]/20"
         >
           <Plus size={16} />
           {T.actionAdd}
@@ -712,7 +712,7 @@ const BooksPage = () => {
         <StatCard label={T.statsPhysical} value={stats.physical} icon={BookOpen} accent="bg-emerald-600" />
         <StatCard label={T.statsEbook} value={stats.ebook} icon={FileText} accent="bg-blue-600" />
         <StatCard label={T.statsBoth} value={stats.both} icon={Layers} accent="bg-violet-600" />
-        <StatCard label={T.statsActive} value={stats.active} icon={Bookmark} accent="bg-green-500" />
+        <StatCard label={T.statsActive} value={stats.active} icon={Bookmark} accent="bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
         <StatCard label={T.statsArchived} value={stats.archived} icon={Archive} accent="bg-red-500" />
       </div>
 
@@ -723,7 +723,7 @@ const BooksPage = () => {
             type="text"
             placeholder={T.searchPlaceholder}
             onChange={(e) => handleSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-all"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30 transition-all"
           />
         </div>
 
@@ -753,17 +753,17 @@ const BooksPage = () => {
           onClick={exportBooksCsv}
           disabled={books.length === 0}
           title={T.actionExport}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 hover:border-green-400 hover:text-green-600 dark:hover:text-green-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           <Download size={14} />
           <span className="text-xs font-semibold hidden sm:inline">{T.actionExport}</span>
         </button>
       </div>
 
-      <div className="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white dark:bg-white/[0.03] overflow-hidden">
+      <div className="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white dark:bg-white dark:bg-gray-900/[0.03] overflow-hidden">
         {isLoading ? (
           <div className="flex items-center justify-center py-20 gap-3">
-            <Loader2 size={20} className="animate-spin text-green-500" />
+            <Loader2 size={20} className="animate-spin text-[#2C2DE0] dark:text-[#4F51FF]" />
             <span className="text-sm text-gray-400">{T.loading}</span>
           </div>
         ) : isError ? (
@@ -772,8 +772,8 @@ const BooksPage = () => {
           </div>
         ) : books.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
-            <div className="size-14 rounded-2xl bg-gray-100 dark:bg-white/10 flex items-center justify-center">
-              <BookOpen size={22} className="text-gray-300 dark:text-gray-600" />
+            <div className="size-14 rounded-2xl bg-gray-100 dark:bg-white dark:bg-gray-900/10 flex items-center justify-center">
+              <BookOpen size={22} className="text-gray-300 dark:text-gray-600 dark:text-gray-400" />
             </div>
             <div className="text-center">
               <p className="text-sm font-bold text-gray-900 dark:text-white">{T.emptyTitle}</p>
@@ -786,7 +786,7 @@ const BooksPage = () => {
               <thead>
                 <tr className="border-b border-gray-100 dark:border-white/10">
                   {[T.colBook, T.colISBN, T.colCategory, T.colFormat, T.colCopies, T.colStatus, T.colActions].map((h) => (
-                    <th key={h} className="px-4 py-3 text-[10px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-500 whitespace-nowrap">
+                    <th key={h} className="px-4 py-3 text-[10px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400 whitespace-nowrap">
                       {h}
                     </th>
                   ))}
@@ -801,7 +801,7 @@ const BooksPage = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
                       transition={{ delay: i * 0.03 }}
-                      className="border-b border-gray-50 dark:border-white/[0.04] hover:bg-gray-50/70 dark:hover:bg-white/[0.03] transition-colors cursor-pointer group"
+                      className="border-b border-gray-50 dark:border-white/[0.04] hover:bg-gray-50/70 dark:hover:bg-white dark:bg-gray-900/[0.03] transition-colors cursor-pointer group"
                       onClick={() => setViewing(book)}
                     >
                       <td className="px-4 py-3">
@@ -809,7 +809,7 @@ const BooksPage = () => {
                           <CoverImg src={coverUrl(book)} title={book.title} size="sm" />
                           <div className="min-w-0">
                             <p className="text-xs font-bold text-gray-900 dark:text-white truncate max-w-[180px]">{book.title}</p>
-                            <p className="text-[10px] text-gray-400 dark:text-gray-500 truncate">{book.author}</p>
+                            <p className="text-[10px] text-gray-400 dark:text-gray-500 dark:text-gray-400 truncate">{book.author}</p>
                           </div>
                         </div>
                       </td>
@@ -818,38 +818,38 @@ const BooksPage = () => {
                       </td>
                       <td className="px-4 py-3">
                         {book.category ? (
-                          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-white/10 px-2 py-0.5 rounded-lg">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-white dark:bg-gray-900/10 px-2 py-0.5 rounded-lg">
                             {book.category}
                           </span>
-                        ) : <span className="text-[10px] text-gray-300 dark:text-gray-700">—</span>}
+                        ) : <span className="text-[10px] text-gray-300 dark:text-gray-700 dark:text-gray-300">—</span>}
                       </td>
                       <td className="px-4 py-3"><FormatBadge format={book.format} T={T} /></td>
                       <td className="px-4 py-3">
                         {["physical", "both"].includes(book.format) ? (
                           <div className="text-xs">
-                            <span className="font-bold text-green-600 dark:text-green-400">{book.availableCopies}</span>
+                            <span className="font-bold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]">{book.availableCopies}</span>
                             <span className="text-gray-400"> / {book.totalCopies}</span>
                           </div>
                         ) : (
                           hasEbook(book)
                             ? <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1"><FileText size={10} /> PDF</span>
-                            : <span className="text-[10px] text-gray-300 dark:text-gray-700">—</span>
+                            : <span className="text-[10px] text-gray-300 dark:text-gray-700 dark:text-gray-300">—</span>
                         )}
                       </td>
                       <td className="px-4 py-3"><StatusDot status={book.status} T={T} /></td>
                       <td className="px-4 py-3" onClick={(e) => e.stopPropagation()}>
                         <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <button onClick={() => setViewing(book)}
+                          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setViewing(book)}
                             className="size-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-gray-700 dark:hover:text-white transition-colors"
                             title={T.actionView}>
                             <Eye size={13} />
                           </button>
-                          <button onClick={() => setEditing(book)}
-                            className="size-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-green-50 dark:hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setEditing(book)}
+                            className="size-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] transition-colors"
                             title={T.actionEdit}>
                             <Pencil size={13} />
                           </button>
-                          <button onClick={() => setDeleting(book)}
+                          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setDeleting(book)}
                             className="size-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-500 transition-colors"
                             title={T.actionDelete}>
                             <Trash2 size={13} />
@@ -870,32 +870,32 @@ const BooksPage = () => {
               Page {pagination.page} of {pagination.totalPages} · {pagination.total} books
             </span>
             <div className="flex items-center gap-1.5">
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page <= 1}
-                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-500 hover:border-green-400 hover:text-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-500 hover:border-[#4F51FF] hover:text-[#1E1FAA] dark:text-[#4F51FF] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronLeft size={14} />
               </button>
               {Array.from({ length: Math.min(5, pagination.totalPages) }, (_, i) => {
                 const pg = Math.max(1, Math.min(pagination.totalPages - 4, page - 2)) + i;
                 return (
-                  <button
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     key={pg}
                     onClick={() => setPage(pg)}
                     className={`size-8 rounded-lg text-xs font-bold transition-all ${pg === page
-                      ? "bg-green-500 text-white shadow-sm"
-                      : "border border-gray-200 dark:border-white/10 text-gray-500 hover:border-green-400 hover:text-green-600"
+                      ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white shadow-sm"
+                      : "border border-gray-200 dark:border-white/10 text-gray-500 hover:border-[#4F51FF] hover:text-[#1E1FAA] dark:text-[#4F51FF]"
                       }`}
                   >
                     {pg}
                   </button>
                 );
               })}
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => setPage((p) => Math.min(pagination.totalPages, p + 1))}
                 disabled={page >= pagination.totalPages}
-                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-500 hover:border-green-400 hover:text-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-500 hover:border-[#4F51FF] hover:text-[#1E1FAA] dark:text-[#4F51FF] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronRight size={14} />
               </button>
@@ -920,16 +920,16 @@ const BooksPage = () => {
         size="lg"
         footer={
           <>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setEditing(null)}
-              className="px-4 py-2.5 rounded-xl text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+              className="px-4 py-2.5 rounded-xl text-xs font-semibold text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white dark:bg-gray-900/10 transition-colors"
             >
               {T.actionCancel}
             </button>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => document.getElementById("book-form-submit").click()}
               disabled={isSaving}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-green-500 hover:bg-green-600 disabled:opacity-50 text-white transition-colors shadow-sm"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55] disabled:opacity-50 text-white transition-colors shadow-sm"
             >
               {isSaving
                 ? <><Loader2 size={13} className="animate-spin" /> {T.saving}</>

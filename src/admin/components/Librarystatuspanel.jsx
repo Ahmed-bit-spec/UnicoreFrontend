@@ -8,7 +8,7 @@ const LibraryStatusPanel = ({ stats, loading }) => {
 
   const base = isDark
     ? "bg-black border-white/10"
-    : "bg-white border-black/8";
+    : "bg-white dark:bg-gray-900 border-black/8";
 
   const occupancyPct =
     stats?.totalSeats > 0
@@ -21,8 +21,8 @@ const LibraryStatusPanel = ({ stats, loading }) => {
       value: loading ? "—" : String(stats?.occupiedSeats ?? 0),
       sub: `of ${stats?.totalSeats ?? 0} total`,
       icon: Armchair,
-      color: "text-green-500",
-      bg: "bg-green-500/10",
+      color: "text-[#2C2DE0] dark:text-[#4F51FF]",
+      bg: "bg-[#2C2DE0] dark:bg-[#1E1FAA]/10",
     },
     {
       label: "Available Seats",
@@ -30,15 +30,15 @@ const LibraryStatusPanel = ({ stats, loading }) => {
       sub: "right now",
       icon: Armchair,
       color: isDark ? "text-white/60" : "text-black/60",
-      bg: isDark ? "bg-white/6" : "bg-black/5",
+      bg: isDark ? "bg-white dark:bg-gray-900/6" : "bg-black/5",
     },
     {
       label: "Books Borrowed",
       value: loading ? "—" : String(stats?.borrowedBooks ?? 0),
       sub: `${stats?.overdueBooks ?? 0} overdue`,
       icon: BookOpen,
-      color: "text-green-500",
-      bg: "bg-green-500/10",
+      color: "text-[#2C2DE0] dark:text-[#4F51FF]",
+      bg: "bg-[#2C2DE0] dark:bg-[#1E1FAA]/10",
     },
     {
       label: "Active Today",
@@ -46,7 +46,7 @@ const LibraryStatusPanel = ({ stats, loading }) => {
       sub: "users logged in",
       icon: Users,
       color: isDark ? "text-white/60" : "text-black/60",
-      bg: isDark ? "bg-white/6" : "bg-black/5",
+      bg: isDark ? "bg-white dark:bg-gray-900/6" : "bg-black/5",
     },
   ];
 
@@ -82,14 +82,14 @@ const LibraryStatusPanel = ({ stats, loading }) => {
           >
             Seat Occupancy
           </span>
-          <span className="text-[11px] font-bold text-green-500">
+          <span className="text-[11px] font-bold text-[#2C2DE0] dark:text-[#4F51FF]">
             {loading ? "—" : `${occupancyPct}%`}
           </span>
         </div>
         <div
           className={cn(
             "h-1.5 rounded-full overflow-hidden",
-            isDark ? "bg-white/8" : "bg-black/8"
+            isDark ? "bg-white dark:bg-gray-900/8" : "bg-black/8"
           )}
         >
           {!loading && (
@@ -97,7 +97,7 @@ const LibraryStatusPanel = ({ stats, loading }) => {
               initial={{ width: 0 }}
               animate={{ width: `${occupancyPct}%` }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="h-full rounded-full bg-green-500"
+              className="h-full rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]"
             />
           )}
         </div>
@@ -115,7 +115,7 @@ const LibraryStatusPanel = ({ stats, loading }) => {
               transition={{ duration: 0.3, delay: i * 0.06 }}
               className={cn(
                 "flex items-center gap-3 p-2.5 rounded-lg",
-                isDark ? "bg-white/[0.03]" : "bg-black/[0.02]"
+                isDark ? "bg-white dark:bg-gray-900/[0.03]" : "bg-black/[0.02]"
               )}
             >
               <div
@@ -145,7 +145,7 @@ const LibraryStatusPanel = ({ stats, loading }) => {
                     <span
                       className={cn(
                         "inline-block h-3.5 w-8 rounded animate-pulse",
-                        isDark ? "bg-white/10" : "bg-black/8"
+                        isDark ? "bg-white dark:bg-gray-900/10" : "bg-black/8"
                       )}
                     />
                   ) : (

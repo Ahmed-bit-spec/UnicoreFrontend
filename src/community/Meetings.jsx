@@ -74,7 +74,7 @@ function StatusBadge({ status }) {
   if (status === "live") {
     return (
       <span className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-black bg-[#58CC02] text-white">
-        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+        <span className="w-1.5 h-1.5 rounded-full bg-white dark:bg-gray-900 animate-pulse" />
         Live
       </span>
     );
@@ -105,7 +105,7 @@ function MeetingCard({ meeting, onJoin, onDetails }) {
   return (
     <div
       className={`
-        group relative bg-white border-2 rounded-2xl p-5 flex flex-col gap-4
+        group relative bg-white dark:bg-gray-900 border-2 rounded-2xl p-5 flex flex-col gap-4
         cursor-pointer transition-all duration-200 hover:shadow-lg
         ${status === "live"
           ? "border-[#58CC02] shadow-[0_0_0_4px_rgba(88,204,2,0.08)] hover:shadow-[0_0_0_4px_rgba(88,204,2,0.15)]"
@@ -148,7 +148,7 @@ function MeetingCard({ meeting, onJoin, onDetails }) {
 
       <div className="flex gap-2 pt-1" onClick={(e) => e.stopPropagation()}>
         {canJoin ? (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => onJoin(meeting.meetingCode)}
             className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#58CC02] text-white text-xs font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all"
           >
@@ -159,14 +159,14 @@ function MeetingCard({ meeting, onJoin, onDetails }) {
             <XCircle size={12} /> Ended
           </div>
         )}
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => downloadIcs(meeting)}
           title="Add to calendar"
           className="px-3 rounded-xl border-2 border-black/10 hover:border-black/20 text-black/40 hover:text-black transition-colors"
         >
           <Calendar size={14} />
         </button>
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => {
             navigator.clipboard.writeText(
               `${window.location.origin}/community/meetings/room/${meeting.meetingCode}`
@@ -195,7 +195,7 @@ function MeetingDetailsDrawer({ meeting, onClose, onJoin }) {
   return (
     <div className="fixed inset-0 z-50 flex justify-end" onClick={onClose}>
       <div
-        className="w-full max-w-md h-full bg-white border-l-2 border-black/10 shadow-2xl flex flex-col overflow-y-auto animate-in slide-in-from-right duration-200"
+        className="w-full max-w-md h-full bg-white dark:bg-gray-900 border-l-2 border-black/10 shadow-2xl flex flex-col overflow-y-auto animate-in slide-in-from-right duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -210,7 +210,7 @@ function MeetingDetailsDrawer({ meeting, onClose, onJoin }) {
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-xl border-2 border-black/10 hover:border-black/20 text-black/40 hover:text-black transition-colors mt-1 shrink-0"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             <X size={15} />
           </button>
@@ -238,7 +238,7 @@ function MeetingDetailsDrawer({ meeting, onClose, onJoin }) {
         {/* Actions */}
         <div className="p-6 space-y-3 mt-auto">
           {canJoin && (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => onJoin(meeting.meetingCode)}
               className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#58CC02] text-white font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all"
             >
@@ -246,7 +246,7 @@ function MeetingDetailsDrawer({ meeting, onClose, onJoin }) {
             </button>
           )}
           <div className="grid grid-cols-2 gap-2">
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => {
                 navigator.clipboard.writeText(
                   `${window.location.origin}/community/meetings/room/${meeting.meetingCode}`
@@ -257,7 +257,7 @@ function MeetingDetailsDrawer({ meeting, onClose, onJoin }) {
             >
               <Copy size={13} /> Copy Link
             </button>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => downloadIcs(meeting)}
               className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border-2 border-black/10 hover:border-black/20 text-black/70 text-xs font-bold transition-colors"
             >
@@ -378,7 +378,7 @@ export default function Meetings() {
 
   // ─────────────────────────────────────────────────────────────────────────────
   return (
-    <div className="min-h-full bg-white text-black">
+    <div className="min-h-full bg-white dark:bg-gray-900 text-black">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 space-y-8">
 
         {/* ══ HEADER ══════════════════════════════════════════════════════════ */}
@@ -400,7 +400,7 @@ export default function Meetings() {
                 <span className="text-[#58CC02] text-xs font-bold">{liveMeetings.length} Live Now</span>
               </div>
             )}
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => loadData(true)}
               disabled={refreshing}
               title="Refresh"
@@ -415,7 +415,7 @@ export default function Meetings() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
           {/* Join card */}
-          <div className="bg-white border-2 border-black/10 rounded-2xl p-5">
+          <div className="bg-white dark:bg-gray-900 border-2 border-black/10 rounded-2xl p-5">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center">
                 <LogIn size={17} className="text-white" />
@@ -436,7 +436,7 @@ export default function Meetings() {
               <button
                 type="submit"
                 disabled={joining || joinCode.trim().length < 4}
-                className="px-5 py-3 rounded-xl bg-[#58CC02] text-white font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all disabled:opacity-40 disabled:translate-y-0 disabled:shadow-none"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 {joining ? <Spinner size={16} /> : "Join"}
               </button>
@@ -444,7 +444,7 @@ export default function Meetings() {
           </div>
 
           {/* Create card */}
-          <div className="bg-white border-2 border-black/10 rounded-2xl p-5">
+          <div className="bg-white dark:bg-gray-900 border-2 border-black/10 rounded-2xl p-5">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-[#58CC02] flex items-center justify-center shadow-[0_4px_0_#46A302]">
@@ -458,7 +458,7 @@ export default function Meetings() {
                 </div>
               </div>
               {canCreate && (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => setShowCreate(!showCreate)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border-2
                     ${showCreate
@@ -522,7 +522,7 @@ export default function Meetings() {
                 <button
                   type="submit"
                   disabled={creating}
-                  className="w-full py-2.5 rounded-xl bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all disabled:opacity-50"
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   {creating ? "Creating…" : createForm.isScheduled ? "Schedule Meeting" : "🚀 Start Live Session"}
                 </button>
@@ -562,7 +562,7 @@ export default function Meetings() {
               { id: "upcoming", label: "Upcoming" },
               { id: "ended",    label: "Ended" },
             ].map(({ id, label }) => (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={id}
                 onClick={() => setStatusFilter(id)}
                 className={`
@@ -611,7 +611,7 @@ export default function Meetings() {
               </p>
             </div>
             {canCreate && (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => setShowCreate(true)}
                 className="px-4 py-2 rounded-xl bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all"
               >

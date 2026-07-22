@@ -17,19 +17,19 @@ const TeacherPlaceholderPage = ({ title, icon: Icon, description }) => {
       <div
         className={cn(
           "w-16 h-16 rounded-2xl flex items-center justify-center mb-5 border",
-          isDark ? "bg-white/5 border-white/10" : "bg-green-50 border-green-100"
+          isDark ? "bg-white dark:bg-gray-900/5 border-white/10" : "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 border-[#2C2DE0]"
         )}
       >
-        <Icon size={28} className="text-green-500" />
+        <Icon size={28} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
       </div>
       <h2 className="text-xl font-black tracking-tight text-gray-900 dark:text-white mb-2">
         {title}
       </h2>
-      <p className="text-sm text-gray-400 dark:text-gray-500 max-w-sm leading-relaxed">
+      <p className="text-sm text-gray-400 dark:text-gray-500 dark:text-gray-400 max-w-sm leading-relaxed">
         {description}
       </p>
       <div className="mt-6">
-        <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-green-500 bg-green-500/10 border border-green-500/20 px-3 py-1.5 rounded-lg">
+        <span className="inline-block text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0] dark:text-[#4F51FF] bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 border border-[#2C2DE0] dark:border-[#4F51FF]/20 px-3 py-1.5 rounded-lg">
           Coming Soon
         </span>
       </div>

@@ -33,7 +33,7 @@ function renderMarkdown(text = "") {
     .replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-white">$1</strong>')
     .replace(/_(.+?)_/g, '<em class="italic text-white/90">$1</em>')
     .replace(/<u>(.+?)<\/u>/g, '<u class="underline text-white/90">$1</u>')
-    .replace(/`([^`]+)`/g, '<code class="bg-black/30 text-green-400 px-1.5 py-0.5 rounded text-xs font-mono">$1</code>')
+    .replace(/`([^`]+)`/g, '<code class="bg-black/30 text-[#4F51FF] px-1.5 py-0.5 rounded text-xs font-mono">$1</code>')
     .replace(/^- (.+)$/gm, '<li class="text-white/80 text-sm list-disc list-inside ml-2">$1</li>')
     .replace(/\|(.+)\|/g, (line) => {
       const cells = line.split("|").filter(Boolean).map((c) => c.trim());
@@ -128,12 +128,12 @@ export function NotesPanel({ canEdit = true, meetingCode, notesText, onNotesChan
       {/* Toolbar */}
       <div className="flex flex-wrap items-center gap-1 p-2 border-b border-white/10 shrink-0 bg-black/90">
         {TOOLBAR_ACTIONS.map((a) => (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             key={a.id}
             onClick={() => applyAction(a.action)}
             disabled={!canEdit || mode === "preview"}
             title={a.label}
-            className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white dark:bg-gray-900/10 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <a.icon size={13} />
           </button>
@@ -142,13 +142,13 @@ export function NotesPanel({ canEdit = true, meetingCode, notesText, onNotesChan
         <div className="ml-auto flex items-center gap-1">
           {/* Toggle edit/preview */}
           <div className="flex items-center bg-[#58CC02]/10 rounded-xl p-0.5">
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setMode("edit")}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${mode === "edit" ? "bg-[#58CC02]/20 text-white" : "text-white/50"}`}
             >
               <Edit3 size={11} /> Edit
             </button>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setMode("preview")}
               className={`flex items-center gap-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${mode === "preview" ? "bg-[#58CC02]/20 text-white" : "text-white/50"}`}
             >
@@ -159,7 +159,7 @@ export function NotesPanel({ canEdit = true, meetingCode, notesText, onNotesChan
           <button
             onClick={exportNotes}
             title="Export as Markdown"
-            className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             <Download size={13} />
           </button>

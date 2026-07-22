@@ -23,14 +23,14 @@ const TrendingTopicRow = ({ topic, rank }) => (
     to={`/community?tag=${encodeURIComponent(topic.tag)}`}
     className="flex items-start gap-3 px-3 py-2 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-900/60 transition-colors group"
   >
-    <span className="text-[11px] font-black text-gray-300 dark:text-gray-700 pt-0.5 w-4 flex-shrink-0">
+    <span className="text-[11px] font-black text-gray-300 dark:text-gray-700 dark:text-gray-300 pt-0.5 w-4 flex-shrink-0">
       {rank}
     </span>
     <div className="min-w-0">
       <p className="text-[13.5px] font-bold text-gray-800 dark:text-gray-200 group-hover:text-[#3F9100] dark:group-hover:text-[#9DE83A] transition-colors truncate">
         #{topic.tag}
       </p>
-      <p className="text-[11px] text-gray-400 dark:text-gray-600">
+      <p className="text-[11px] text-gray-400 dark:text-gray-600 dark:text-gray-400">
         {topic.posts} posts
       </p>
     </div>
@@ -48,7 +48,7 @@ const SuggestedMemberRow = ({ member }) => {
         </p>
         <p className="text-[11px] text-gray-400 capitalize">{member.role}</p>
       </div>
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => setFollowing((f) => !f)}
         className={`flex-shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[11px] font-bold transition-colors ${following
             ? "bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400"
@@ -87,7 +87,7 @@ const TrendingSidebar = () => {
         <div>
           <div className="flex items-center gap-2 px-3 mb-2">
             <Flame size={14} className="text-[#F5A623]" />
-            <p className="text-[11px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-600">
+            <p className="text-[11px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-600 dark:text-gray-400">
               {t["trending.title"] ?? "Trending"}
             </p>
           </div>
@@ -107,7 +107,7 @@ const TrendingSidebar = () => {
         <div>
           <div className="flex items-center gap-2 px-3 mb-2">
             <TrendingUp size={14} className="text-[#58CC02]" />
-            <p className="text-[11px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-600">
+            <p className="text-[11px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-600 dark:text-gray-400">
               {t["trending.hotPosts"] ?? "Hot posts"}
             </p>
           </div>
@@ -136,7 +136,7 @@ const TrendingSidebar = () => {
         </div>
       
 
-        <p className="px-3 text-[10px] text-gray-300 dark:text-gray-700 leading-relaxed">
+        <p className="px-3 text-[10px] text-gray-300 dark:text-gray-700 dark:text-gray-300 leading-relaxed">
           {t["trending.footer"] ?? "Topics update as the community posts."}
         </p>
       </div>

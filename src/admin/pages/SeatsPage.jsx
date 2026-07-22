@@ -134,8 +134,8 @@ const SeatsPage = () => {
     { value: "girls_only", label: p.zoneGirls },
   ];
 
-  const inputClass = "w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white";
-  const selectClass = "w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-gray-950 dark:text-white";
+  const inputClass = "w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0] dark:border-[#4F51FF]/40 focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/20 dark:border-white/10 dark:bg-white/5 dark:text-white";
+  const selectClass = "w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0] dark:border-[#4F51FF]/40 focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/20 dark:border-white/10 dark:bg-gray-950 dark:text-white";
   const labelClass = "space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300";
   const errorClass = "text-[11px] font-semibold text-red-500";
 
@@ -146,7 +146,7 @@ const SeatsPage = () => {
       sortable: true,
       render: (row) => (
         <span className="flex items-center gap-2 font-bold text-gray-900 dark:text-white">
-          <Armchair size={14} className="text-green-500" />
+          <Armchair size={14} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
           {row.seatNumber}
         </span>
       ),
@@ -175,7 +175,7 @@ const SeatsPage = () => {
       key: "activeSlotsToday",
       label: p.colActiveSlotsToday,
       render: (row) => (
-        <span className={`text-xs font-bold ${row.activeSlotsToday > 0 ? "text-green-600 dark:text-green-400" : "text-gray-400"}`}>
+        <span className={`text-xs font-bold ${row.activeSlotsToday > 0 ? "text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" : "text-gray-400"}`}>
           {row.activeSlotsToday ?? 0}
         </span>
       ),
@@ -234,9 +234,9 @@ const SeatsPage = () => {
           <FilterDropdown label={p.colZone} options={zoneOptions} value={filters.zone} onChange={(v) => updateFilter("zone", v)} />
         }
         headerActions={
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => setGeneratingSeats(true)}
-            className="flex items-center gap-1.5 rounded-xl border border-green-500/30 bg-green-500/10 px-3 py-2 text-xs font-bold text-green-700 transition-colors hover:bg-green-500/20 dark:text-green-400"
+            className="flex items-center gap-1.5 rounded-xl border border-[#2C2DE0] dark:border-[#4F51FF]/30 bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 px-3 py-2 text-xs font-bold text-[#0F0F55] dark:text-blue-300 transition-colors hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/20 dark:text-[#4F51FF]"
           >
             {p.bulkGenerate}
           </button>
@@ -253,21 +253,21 @@ const SeatsPage = () => {
         onBulkDelete={(ids) => bulkMutation.mutate({ ids, action: "softDelete" })}
         renderRowActions={(row) => (
           <div className="flex items-center gap-1.5">
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => navigate(`/admin/seats/${row._id || row.id}/timeline`)}
-              className="flex items-center gap-1 rounded-lg bg-green-500/10 px-2 py-1 text-[10px] font-bold text-green-700 hover:bg-green-500/20 dark:text-green-400 transition-colors"
+              className="flex items-center gap-1 rounded-lg bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 px-2 py-1 text-[10px] font-bold text-[#0F0F55] dark:text-blue-300 hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/20 dark:text-[#4F51FF] transition-colors"
             >
               <CalendarClock size={11} />
               {p.actionTimeline}
             </button>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => openEdit(row)}
               className="flex items-center gap-1 rounded-lg bg-gray-100 px-2 py-1 text-[10px] font-bold text-gray-700 hover:bg-gray-200 dark:bg-white/10 dark:text-gray-300 transition-colors"
             >
               <Pencil size={11} />
               {c.edit}
             </button>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setDeleteTarget(row)}
               className="flex items-center gap-1 rounded-lg bg-red-500/10 px-2 py-1 text-[10px] font-bold text-red-600 hover:bg-red-500/20 transition-colors"
             >
@@ -287,10 +287,10 @@ const SeatsPage = () => {
         size="sm"
         footer={
           <>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               type="button"
               onClick={() => { setEditingSeat(null); setCreatingSeat(false); setFormErrors({}); }}
-              className="rounded-xl px-4 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10 transition-colors"
+              className="rounded-xl px-4 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white dark:bg-gray-900/10 transition-colors"
             >
               {c.cancel}
             </button>
@@ -298,7 +298,7 @@ const SeatsPage = () => {
               type="button"
               disabled={updateMutation.isPending || createMutation.isPending}
               onClick={submitForm}
-              className="rounded-xl bg-green-500 px-4 py-2 text-xs font-bold text-white shadow-sm shadow-green-500/20 transition-colors hover:bg-green-600 disabled:cursor-not-allowed disabled:opacity-60"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               {updateMutation.isPending || createMutation.isPending ? p.saving : c.save}
             </button>
@@ -341,18 +341,18 @@ const SeatsPage = () => {
         size="sm"
         footer={
           <>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               type="button"
               onClick={() => { setGeneratingSeats(false); setGenErrors({}); }}
-              className="rounded-xl px-4 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white/10 transition-colors"
+              className="rounded-xl px-4 py-2 text-xs font-semibold text-gray-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-white dark:bg-gray-900/10 transition-colors"
             >
               {c.cancel}
             </button>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               type="button"
               disabled={generateMutation.isPending}
               onClick={() => { if (validateGen()) generateMutation.mutate(genForm); }}
-              className="rounded-xl bg-green-500 px-4 py-2 text-xs font-bold text-white shadow-sm shadow-green-500/20 transition-colors hover:bg-green-600 disabled:opacity-60"
+              className="rounded-xl bg-[#2C2DE0] dark:bg-[#1E1FAA] px-4 py-2 text-xs font-bold text-white shadow-sm shadow-[#2C2DE0]/20 transition-colors hover:bg-[#1E1FAA] dark:bg-[#0F0F55] disabled:opacity-60"
             >
               {generateMutation.isPending ? p.generating : p.generateAction}
             </button>
@@ -360,8 +360,8 @@ const SeatsPage = () => {
         }
       >
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="flex items-center gap-2 rounded-xl border border-green-500/20 bg-green-500/5 px-3 py-2 sm:col-span-2">
-            <span className="text-xs font-semibold text-green-700 dark:text-green-400">
+          <div className="flex items-center gap-2 rounded-xl border border-[#2C2DE0] dark:border-[#4F51FF]/20 bg-[#2C2DE0] dark:bg-[#1E1FAA]/5 px-3 py-2 sm:col-span-2">
+            <span className="text-xs font-semibold text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]">
               {p.generatePreview}: {genForm.prefix}-{genForm.start} → {genForm.prefix}-{genForm.end} ({Math.max(0, genForm.end - genForm.start + 1)} {p.seatsCount})
             </span>
           </div>

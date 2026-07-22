@@ -14,7 +14,7 @@ const HeroGreeting = ({ greetingLine, name, subLine, visible = true, typingDurat
 
   return (
     <div className="hero-note absolute left-1/2 -translate-x-1/2 -top-3 sm:-top-5 z-10 pointer-events-none" role="status">
-      <div className="relative bg-white dark:bg-[#14171a] rounded-2xl px-4 py-2.5 shadow-lg shadow-black/10 border border-green-100 dark:border-white/10 whitespace-nowrap overflow-hidden">
+      <div className="relative bg-white dark:bg-[#14171a] rounded-2xl px-4 py-2.5 shadow-lg shadow-black/10 border border-[#2C2DE0] dark:border-white/10 whitespace-nowrap overflow-hidden">
         <p
           className="text-sm font-black text-gray-900 dark:text-white leading-snug inline-block overflow-hidden whitespace-nowrap align-bottom border-r-2 border-[#58CC02]"
           style={{
@@ -25,9 +25,9 @@ const HeroGreeting = ({ greetingLine, name, subLine, visible = true, typingDurat
           {fullText}
         </p>
         {subLine && (
-          <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5 leading-none opacity-0 hero-subline">{subLine}</p>
+          <p className="text-[11px] text-gray-400 dark:text-gray-500 dark:text-gray-400 mt-0.5 leading-none opacity-0 hero-subline">{subLine}</p>
         )}
-        <div className="absolute left-1/2 -translate-x-1/2 -bottom-[6px] w-3 h-3 bg-white dark:bg-[#14171a] border-b border-r border-green-100 dark:border-white/10 rotate-45" />
+        <div className="absolute left-1/2 -translate-x-1/2 -bottom-[6px] w-3 h-3 bg-white dark:bg-[#14171a] border-b border-r border-[#2C2DE0] dark:border-white/10 rotate-45" />
       </div>
 
       <style>{`

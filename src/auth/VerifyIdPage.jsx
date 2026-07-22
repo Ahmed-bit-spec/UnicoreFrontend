@@ -204,7 +204,7 @@ const VerifyUniversityId = () => {
   if (loading || !user) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
-        <Loader2 className="w-8 h-8 animate-spin text-green-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#2C2DE0] dark:text-[#4F51FF]" />
       </div>
     );
   }
@@ -229,8 +229,8 @@ const VerifyUniversityId = () => {
           {/* ── SUCCESS ─────────────────────────────────────────────────── */}
           {step === "success" && (
             <div className="flex flex-col items-center text-center py-8 anim-fadeup">
-              <div className="w-20 h-20 rounded-2xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center mb-5 anim-scalein">
-                <CheckCircle2 size={40} className="text-green-500" />
+              <div className="w-20 h-20 rounded-2xl bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center mb-5 anim-scalein">
+                <CheckCircle2 size={40} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
               </div>
               <h1 className="text-xl font-black text-gray-900 dark:text-white">
                 {copy.successTitle}
@@ -245,7 +245,7 @@ const VerifyUniversityId = () => {
               )}
               {/* Progress bar */}
               <div className="mt-8 w-full h-1 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                <div className="h-full bg-green-500 rounded-full anim-progress" />
+                <div className="h-full bg-[#2C2DE0] dark:bg-[#1E1FAA] rounded-full anim-progress" />
               </div>
             </div>
           )}
@@ -254,9 +254,9 @@ const VerifyUniversityId = () => {
           {isChecking && (
             <div className="flex flex-col items-center text-center py-12 anim-fadeup">
               <div className="relative w-16 h-16 mb-6">
-                <div className="absolute inset-0 rounded-full border-4 border-green-100 dark:border-green-900" />
-                <div className="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" />
-                <GraduationCap size={22} className="absolute inset-0 m-auto text-green-500" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#2C2DE0]" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#4F51FF] border-t-transparent animate-spin" />
+                <GraduationCap size={22} className="absolute inset-0 m-auto text-[#2C2DE0] dark:text-[#4F51FF]" />
               </div>
               <p className="text-base font-bold text-gray-900 dark:text-white min-h-6 anim-textswap">
                 {loadingText}
@@ -265,7 +265,7 @@ const VerifyUniversityId = () => {
                 {[0, 1, 2].map(i => (
                   <span
                     key={i}
-                    className="w-2 h-2 rounded-full bg-green-500 animate-bounce"
+                    className="w-2 h-2 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] animate-bounce"
                     style={{ animationDelay: `${i * 150}ms` }}
                   />
                 ))}
@@ -295,31 +295,22 @@ const VerifyUniversityId = () => {
                     placeholder={copy.idPlaceholder}
                     disabled={isLockedOut}
                     autoFocus
-                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm font-mono font-bold tracking-[0.12em] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all uppercase disabled:opacity-50"
+                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm font-mono font-bold tracking-[0.12em] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF] transition-all uppercase disabled:opacity-50"
                   />
                 </div>
 
                 {errorMsg && <ErrorAlert msg={errorMsg} isLockedOut={isLockedOut} countdown={lockoutCountdown} copy={copy} />}
 
-                <button
-                  type="submit"
-                  disabled={!universityId.trim() || isLockedOut}
-                  className="w-full flex items-center justify-center gap-2  text-white  bg-[#58CC02]
-              text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150 disabled:cursor-not-allowed  py-3 rounded-xl"
-                >
-                  {copy.submit}
-                  <ArrowRight size={16} />
-                </button>
-                <button
-                  type="button"
+                {/* 4. University ID submit */}
+<button
+  type="submit"
+  disabled={!universityId.trim() || isLockedOut}
+  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none disabled:opacity-60 disabled:pointer-events-none transition-all duration-150 group"
+>
+  {copy.submit}
+  <ArrowRight size={16} />
+</button>
+                <button 
                   onClick={() => {
                     const guest = {
                       id: null,
@@ -354,7 +345,7 @@ const VerifyUniversityId = () => {
 
               <Link
                 to="/dashboard"
-                className="mt-6 block text-center text-xs text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 font-semibold transition-colors"
+                className="mt-6 block text-center text-xs text-gray-500 dark:text-gray-400 hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] font-semibold transition-colors"
               >
                 {t.navbar?.dashboard} →
               </Link>
@@ -368,7 +359,7 @@ const VerifyUniversityId = () => {
               <button
                 type="button"
                 onClick={() => { setStep("idle"); setErrorMsg(""); setFullName(""); setPassword(""); setAccountType(null); }}
-                className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-green-500 font-semibold mb-6 transition-colors"
+                className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#2C2DE0] dark:text-[#4F51FF] font-semibold mb-6 transition-colors"
               >
                 <ArrowLeft size={13} />
                 {copy.back}
@@ -382,12 +373,12 @@ const VerifyUniversityId = () => {
               </p>
 
               {/* ID badge */}
-              <div className="mt-5 flex items-center gap-2.5 bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/30 rounded-xl px-4 py-2.5">
-                <BadgeCheck size={15} className="text-green-500 shrink-0" />
-                <span className="text-xs font-mono font-bold tracking-widest text-green-700 dark:text-green-400">
+              <div className="mt-5 flex items-center gap-2.5 bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 border border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/30 rounded-xl px-4 py-2.5">
+                <BadgeCheck size={15} className="text-[#2C2DE0] dark:text-[#4F51FF] shrink-0" />
+                <span className="text-xs font-mono font-bold tracking-widest text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]">
                   {universityId}
                 </span>
-                <span className="ml-auto text-[10px] font-bold uppercase tracking-widest text-green-500">
+                <span className="ml-auto text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0] dark:text-[#4F51FF]">
                   {copy.idFoundBadge}
                 </span>
               </div>
@@ -435,7 +426,7 @@ const VerifyUniversityId = () => {
                       placeholder={copy.namePlaceholder}
                       disabled={isLockedOut}
                       autoFocus
-                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all disabled:opacity-50"
+                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF] transition-all disabled:opacity-50"
                     />
                   </div>
                   <p className="text-[11px] text-gray-400">{copy.nameHint}</p>
@@ -454,35 +445,26 @@ const VerifyUniversityId = () => {
                       onChange={(e) => { setPassword(e.target.value); setErrorMsg(""); }}
                       placeholder="••••••••"
                       disabled={isLockedOut}
-                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-16 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all disabled:opacity-50"
+                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-16 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF] transition-all disabled:opacity-50"
                     />
-                    <button
-                      type="button"
+                    <button 
                       onClick={() => setShowPassword(v => !v)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-bold text-gray-400 hover:text-green-500 transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-bold text-gray-400 hover:text-[#2C2DE0] dark:text-[#4F51FF] transition-colors"
                     >
                       {showPassword ? copy.hide : copy.show}
                     </button>
                   </div>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={!fullName.trim() || !password.trim() || isLockedOut}
-                  className="w-full flex items-center justify-center gap-2 bg-[#58CC02]
-              text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm py-3 rounded-xl transition-all shadow-sm shadow-green-200 dark:shadow-none"
-                >
-                  {copy.confirmCta}
-                  <ArrowRight size={16} />
-                </button>
+                {/* 5. Confirm / create password */}
+<button
+  type="submit"
+  disabled={!fullName.trim() || !password.trim() || isLockedOut}
+  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none disabled:opacity-60 disabled:pointer-events-none transition-all duration-150 group"
+>
+  {copy.confirmCta}
+  <ArrowRight size={16} />
+</button>
 
                 {attempts > 0 && !isLockedOut && (
                   <p className="text-center text-xs text-gray-400">
@@ -499,7 +481,7 @@ const VerifyUniversityId = () => {
       {/* ── RIGHT PANEL (branding) ─────────────────────────────────────── */}
       <div className="hidden md:flex md:w-1/2 bg-black relative overflow-hidden items-center justify-center p-16">
         {/* Subtle green glow top-left */}
-        <div className="absolute inset-0 bg-linear-to-br from-green-500/20 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-[#2C2DE0]/20 via-transparent to-transparent pointer-events-none" />
         {/* Dot grid */}
         <div className="absolute inset-0 opacity-[0.04]" style={{
           backgroundImage: "radial-gradient(circle, #fff 1px, transparent 1px)",
@@ -515,7 +497,7 @@ const VerifyUniversityId = () => {
               style={{
                 height: 140,
                 objectFit: "contain",
-                filter: "drop-shadow(0 0 2px #22c55eaa)"
+                filter: "drop-shadow(0 0 2px #2C2DE0aa)"
               }}
             />
           </div>
@@ -535,7 +517,7 @@ const VerifyUniversityId = () => {
                     className="shrink-0 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-500   bg-[#58CC"
                     style={{
                       background: active ? "#58CC02" : "#1a1a1a",
-                      border: `1.5px solid ${active ? "#22c55e" : "#333"}`,
+                      border: `1.5px solid ${active ? "#2C2DE0" : "#333"}`,
                     }}
                   >
                     {done
@@ -558,8 +540,8 @@ const VerifyUniversityId = () => {
 
           {/* Security badge */}
           <div className="flex items-start gap-3 bg-gray-900 border border-gray-800 rounded-xl p-4">
-            <ShieldCheck size={15} className="text-green-500 shrink-0 mt-0.5" />
-            <p className="text-xs text-gray-500 leading-relaxed">{copy.securityNote}</p>
+            <ShieldCheck size={15} className="text-[#2C2DE0] dark:text-[#4F51FF] shrink-0 mt-0.5" />
+            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{copy.securityNote}</p>
           </div>
         </div>
       </div>

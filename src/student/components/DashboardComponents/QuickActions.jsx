@@ -20,15 +20,15 @@ const QuickActions = () => (
       <Link
         key={href}
         to={href}
-        className="group relative bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-2xl px-4 pt-4 pb-3.5 flex flex-col gap-3 hover:border-green-300 dark:hover:border-green-700 hover:-translate-y-0.5 hover:shadow-md hover:shadow-black/5 transition-all duration-150"
+        className="group relative bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-2xl px-4 pt-4 pb-3.5 flex flex-col gap-3 hover:border-[#4F51FF] dark:border-blue-400 dark:hover:border-[#2C2DE0] hover:-translate-y-0.5 hover:shadow-md hover:shadow-black/5 transition-all duration-150"
       >
-        <div className="w-11 h-11 rounded-xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center">
-          <Icon size={19} className="text-green-500" strokeWidth={2.2} />
+        <div className="w-11 h-11 rounded-xl bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center">
+          <Icon size={19} className="text-[#2C2DE0] dark:text-[#4F51FF]" strokeWidth={2.2} />
         </div>
         <span className="text-[13px] font-bold text-gray-900 dark:text-white leading-snug">{label}</span>
         <ArrowUpRight
           size={13}
-          className="absolute top-4 right-4 text-gray-300 dark:text-gray-700 group-hover:text-green-500 transition-colors"
+          className="absolute top-4 right-4 text-gray-300 dark:text-gray-700 group-hover:text-[#2C2DE0] dark:text-[#4F51FF] transition-colors"
         />
       </Link>
     ))}

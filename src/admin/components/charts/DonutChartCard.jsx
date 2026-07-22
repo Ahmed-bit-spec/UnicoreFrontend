@@ -2,7 +2,7 @@ import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from "recha
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const COLORS = ["#22c55e", "#4ade80", "#86efac", "#bbf7d0", "#166534"];
+const COLORS = ["#2C2DE0", "#2C2DE0", "#2C2DE0", "#2C2DE0", "#2C2DE0"];
 
 const DonutChartCard = ({ title, data, className }) => (
   <motion.div
@@ -11,7 +11,7 @@ const DonutChartCard = ({ title, data, className }) => (
     transition={{ duration: 0.4, delay: 0.2 }}
     className={cn(
       "rounded-2xl border border-gray-200/60 dark:border-white/10",
-      "bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-5 shadow-sm",
+      "bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl p-5 shadow-sm",
       className
     )}
   >

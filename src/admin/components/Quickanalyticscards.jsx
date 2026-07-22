@@ -56,7 +56,7 @@ const CARDS = [
 const QuickAnalyticsCards = ({ stats, loading }) => {
   const { isDark } = useTheme();
 
-  const base = isDark ? "bg-black border-white/10" : "bg-white border-black/8";
+  const base = isDark ? "bg-black border-white/10" : "bg-white dark:bg-gray-900 border-black/8";
 
   return (
     <div className={cn("rounded-xl border p-5", base)}>
@@ -94,19 +94,19 @@ const QuickAnalyticsCards = ({ stats, loading }) => {
               className={cn(
                 "rounded-lg border p-3.5",
                 isDark
-                  ? "bg-white/[0.03] border-white/8"
+                  ? "bg-white dark:bg-gray-900/[0.03] border-white/8"
                   : "bg-black/[0.02] border-black/6"
               )}
             >
-              <div className="w-7 h-7 rounded-md flex items-center justify-center mb-2.5 bg-green-500/10">
-                <Icon size={13} className="text-green-500" />
+              <div className="w-7 h-7 rounded-md flex items-center justify-center mb-2.5 bg-[#2C2DE0] dark:bg-[#1E1FAA]/10">
+                <Icon size={13} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
               </div>
 
               {loading ? (
                 <div
                   className={cn(
                     "h-4 w-16 rounded animate-pulse mb-1",
-                    isDark ? "bg-white/8" : "bg-black/6"
+                    isDark ? "bg-white dark:bg-gray-900/8" : "bg-black/6"
                   )}
                 />
               ) : (

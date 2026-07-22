@@ -152,7 +152,7 @@ export function CanvasArea() {
                 {renamingId === page.id ? (
                   <input
                     ref={renameRef}
-                    className="text-[11px] text-zinc-700 bg-white border border-[#6366f1] rounded px-1.5 py-0.5 outline-none font-medium"
+                    className="text-[11px] text-zinc-700 bg-white dark:bg-gray-900 border border-[#6366f1] rounded px-1.5 py-0.5 outline-none font-medium"
                     style={{ width: 140 }}
                     value={renameValue}
                     onInput={(e) => setRenameValue((e.target as HTMLInputElement).value)}
@@ -175,14 +175,14 @@ export function CanvasArea() {
               {/* Action icons — visible on hover */}
               <div className="flex items-center gap-0.5">
                 <button
-                  className="p-1 rounded bg-transparent border-none cursor-pointer text-zinc-400 hover:text-[#6366f1] hover:bg-[#6366f1]/10 transition-all"
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => addPage(page.id)}
                   title="Add page below"
                 >
                   <Plus size={14} />
                 </button>
                 <button
-                  className="p-1 rounded bg-transparent border-none cursor-pointer text-zinc-400 hover:text-[#6366f1] hover:bg-[#6366f1]/10 transition-all"
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => duplicatePage(page.id)}
                   title="Duplicate page"
                 >
@@ -190,7 +190,7 @@ export function CanvasArea() {
                 </button>
                 {pages.length > 1 && (
                   <button
-                    className="p-1 rounded bg-transparent border-none cursor-pointer text-zinc-400 hover:text-red-500 hover:bg-red-500/10 transition-all"
+                    className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     onClick={() => deletePage(page.id)}
                     title="Delete page"
                   >
@@ -222,7 +222,7 @@ export function CanvasArea() {
             }}
           >
             <button
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-dashed border-zinc-300 bg-transparent cursor-pointer text-xs text-zinc-400 font-medium transition-all hover:border-[#6366f1] hover:text-[#6366f1] hover:bg-[#6366f1]/5"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => addPage()}
             >
               <Plus size={14} />

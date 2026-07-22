@@ -1,5 +1,5 @@
 // catergorybar.jsx — UniLibrary design system
-// Fixed: dark mode (CSS variables instead of hardcoded bg-white),
+// Fixed: dark mode (CSS variables instead of hardcoded bg-white dark:bg-gray-900),
 //        bilingual label fallback guard,
 //        spacing tightened
 // v2: active category pill now uses the shared 3D pill style
@@ -79,7 +79,7 @@ const CategoryBar = ({ activeCategory, onSelect }) => {
             : (SLUG_LABELS[slug] ?? slug);
 
           return (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={slug}
               onClick={() => onSelect(slug)}
               style={{

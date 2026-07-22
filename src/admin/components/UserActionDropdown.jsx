@@ -17,8 +17,8 @@ const UserActionDropdown = ({ labels, user, onView, onEdit, onPromote, onSuspend
 
   const itemClass = cn(
     "flex w-full items-center gap-2 px-3.5 py-2 text-left text-xs font-semibold",
-    "text-gray-700 hover:bg-green-500/10 hover:text-green-700",
-    "dark:text-gray-200 dark:hover:text-green-400 transition-colors"
+    "text-gray-700 hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 hover:text-[#0F0F55] dark:text-blue-300",
+    "dark:text-gray-200 dark:hover:text-[#4F51FF] transition-colors"
   );
 
   const run = (callback) => {
@@ -28,7 +28,7 @@ const UserActionDropdown = ({ labels, user, onView, onEdit, onPromote, onSuspend
 
   return (
     <div ref={ref} className="relative inline-flex justify-end">
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         type="button"
         onClick={() => setOpen((value) => !value)}
         className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-white/10 dark:hover:text-white transition-colors"
@@ -69,7 +69,7 @@ const UserActionDropdown = ({ labels, user, onView, onEdit, onPromote, onSuspend
             )}
             <button
               type="button"
-              className="flex w-full items-center gap-2 px-3.5 py-2 text-left text-xs font-semibold text-red-600 hover:bg-red-500/10 dark:text-red-400 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => run(onDelete)}
             >
               <Trash2 size={14} /> {labels.delete}

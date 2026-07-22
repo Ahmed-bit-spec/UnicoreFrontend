@@ -2,17 +2,17 @@ import { Tooltip, ResponsiveContainer } from "recharts";
 
 // ─── KPI Card ─────────────────────────────────────────────────────────────────
 export const KpiCard = ({ icon: Icon, label, value, sub, color, trend, trendValue }) => (
-  <div className="flex items-center gap-4 rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04]">
+  <div className="flex items-center gap-4 rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04]">
     <div className={`flex size-12 shrink-0 items-center justify-center rounded-2xl ${color}`}>
       <Icon size={22} className="text-white" />
     </div>
     <div className="min-w-0 flex-1">
       <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400">{label}</p>
       <p className="text-2xl font-black text-gray-900 dark:text-white">{value ?? "—"}</p>
-      {sub && <p className="text-[10px] text-gray-400 dark:text-gray-500">{sub}</p>}
+      {sub && <p className="text-[10px] text-gray-400 dark:text-gray-500 dark:text-gray-400">{sub}</p>}
     </div>
     {trendValue != null && (
-      <div className={`shrink-0 text-right ${trend === "up" ? "text-green-500" : "text-red-400"}`}>
+      <div className={`shrink-0 text-right ${trend === "up" ? "text-[#2C2DE0] dark:text-[#4F51FF]" : "text-red-400"}`}>
         <p className="text-xs font-black">{trend === "up" ? "↑" : "↓"} {Math.abs(trendValue)}%</p>
         <p className="text-[9px] text-gray-400">vs last mo.</p>
       </div>
@@ -22,9 +22,9 @@ export const KpiCard = ({ icon: Icon, label, value, sub, color, trend, trendValu
 
 // ─── Section wrapper ──────────────────────────────────────────────────────────
 export const Section = ({ title, children, className = "" }) => (
-  <div className={`rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04] ${className}`}>
+  <div className={`rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04] ${className}`}>
     {title && (
-      <p className="mb-5 text-[11px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-500">
+      <p className="mb-5 text-[11px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400">
         {title}
       </p>
     )}
@@ -49,13 +49,13 @@ export const ChartTooltip = ({ active, payload, label }) => {
 
 // ─── Period selector ──────────────────────────────────────────────────────────
 export const PeriodSelector = ({ value, onChange }) => (
-  <div className="flex gap-1 rounded-xl bg-gray-100 p-1 dark:bg-white/5">
+  <div className="flex gap-1 rounded-xl bg-gray-100 p-1 dark:bg-white dark:bg-gray-900/5">
     {[
       { label: "7 days", value: "7d" },
       { label: "30 days", value: "30d" },
       { label: "12 months", value: "12m" },
     ].map((opt) => (
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         key={opt.value}
         onClick={() => onChange(opt.value)}
         className={`rounded-lg px-3 py-1.5 text-[11px] font-bold transition-all ${
@@ -71,7 +71,7 @@ export const PeriodSelector = ({ value, onChange }) => (
 );
 
 // ─── Ranked list ──────────────────────────────────────────────────────────────
-export const RankList = ({ items = [], valueKey = "count", nameKey = "fullName", labelKey, badgeColor = "bg-green-500" }) => {
+export const RankList = ({ items = [], valueKey = "count", nameKey = "fullName", labelKey, badgeColor = "bg-[#2C2DE0] dark:bg-[#1E1FAA]" }) => {
   const max = items[0]?.[valueKey] || 1;
   return (
     <div className="space-y-2.5">
@@ -87,7 +87,7 @@ export const RankList = ({ items = [], valueKey = "count", nameKey = "fullName",
             {labelKey && (
               <p className="truncate text-[10px] text-gray-400">{item[labelKey]}</p>
             )}
-            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
+            <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-gray-100 dark:bg-white dark:bg-gray-900/10">
               <div
                 className={`h-full rounded-full ${badgeColor} transition-all duration-500`}
                 style={{ width: `${Math.min(100, (item[valueKey] / max) * 100)}%` }}
@@ -118,7 +118,7 @@ const DAY_LABELS  = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
 const HeatCell = ({ value, max }) => {
   const t = max > 0 ? value / max : 0;
   const bg = t === 0
-    ? "bg-gray-100 dark:bg-white/5"
+    ? "bg-gray-100 dark:bg-white dark:bg-gray-900/5"
     : t < 0.25  ? "bg-emerald-100 dark:bg-emerald-900/30"
     : t < 0.5   ? "bg-emerald-300 dark:bg-emerald-700/50"
     : t < 0.75  ? "bg-emerald-500 dark:bg-emerald-500/70"
@@ -152,7 +152,7 @@ export const Heatmap = ({ data = [] }) => {
         ))}
         <div className="mt-3 flex items-center gap-2">
           <span className="text-[9px] text-gray-400">Low</span>
-          {["bg-gray-100 dark:bg-white/5","bg-emerald-100","bg-emerald-300","bg-emerald-500","bg-emerald-700"].map((c,i) => (
+          {["bg-gray-100 dark:bg-white dark:bg-gray-900/5","bg-emerald-100","bg-emerald-300","bg-emerald-500","bg-emerald-700"].map((c,i) => (
             <div key={i} className={`h-3 w-5 rounded ${c}`} />
           ))}
           <span className="text-[9px] text-gray-400">High</span>
@@ -175,10 +175,10 @@ export const OverdueTable = ({ rows = [] }) => (
       </thead>
       <tbody className="divide-y divide-gray-50 dark:divide-white/5">
         {rows.map((r) => (
-          <tr key={r.id} className="hover:bg-gray-50/50 dark:hover:bg-white/[0.02]">
+          <tr key={r.id} className="hover:bg-gray-50/50 dark:hover:bg-white dark:bg-gray-900/[0.02]">
             <td className="py-2.5 pr-4 font-semibold text-gray-900 dark:text-white">{r.book}</td>
             <td className="py-2.5 pr-4 text-gray-600 dark:text-gray-300">{r.student}</td>
-            <td className="py-2.5 pr-4 text-gray-500">{new Date(r.dueDate).toLocaleDateString()}</td>
+            <td className="py-2.5 pr-4 text-gray-500 dark:text-gray-400">{new Date(r.dueDate).toLocaleDateString()}</td>
             <td className="py-2.5">
               <span className={`rounded-full px-2 py-0.5 text-[10px] font-black ${
                 r.daysOverdue > 14 ? "bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400"

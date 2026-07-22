@@ -6,6 +6,8 @@ import {
   ArrowRight, CheckCircle2, Code2, Flame, Server, Globe,
 } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+import { Helmet } from "react-helmet-async";
+
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -66,18 +68,23 @@ const About = () => {
 
   return (
     <div className="w-full dark:bg-black text-black dark:text-white">
+       <Helmet>
+        <title>About UniCORE - Academic Digital Ecosystem</title>
+        <meta name="description" content="Learn about UniCORE's mission to unify university digital tools." />
+        <link rel="canonical" href="https://unicores.site/about" />
+      </Helmet>
       {/* ── Hero ─────────────────────────────────────────────────── */}
       <section className="w-full bg-white dark:bg-black/90 relative overflow-hidden">
         <div className="w-full max-w-350 mx-auto px-6 lg:px-10 pt-32 pb-20 text-center">
           <motion.div {...fadeUp}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#63DF4E]" style={{ textShadow: "0 2px 0 #3FAF2E" }}>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0]" style={{ textShadow: "0 2px 0 #1E1FAA" }}>
                 {t?.about?.eyebrow || "About the System"}
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black dark:text-white leading-[1.05] tracking-tight">
               {t?.about?.titleBefore || "Built for"}{" "}
-              <span className="text-[#63DF4E]" style={{ textShadow: "0 2px 0 #3FAF2E" }}>
+              <span className="text-[#2C2DE0]" style={{ textShadow: "0 2px 0 #1E1FAA" }}>
                 {t?.about?.titleHighlight || "University of Somalia"}
               </span>{" "}
               {t?.about?.titleAfter || "Students"}
@@ -100,7 +107,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <p className="text-3xl font-black text-[#63DF4E]">{s.value}</p>
+              <p className="text-3xl font-black text-[#2C2DE0]">{s.value}</p>
               <p className="text-[11px] uppercase tracking-widest text-gray-400 dark:text-white/40 mt-1">{s.label}</p>
             </motion.div>
           ))}
@@ -124,13 +131,13 @@ const About = () => {
               <p className="text-sm text-gray-500 dark:text-white/40 mt-1">Mogadishu, Somalia</p>
             </div>
           </div>
-          <div className="absolute -bottom-4 -right-4  rounded-2xl px-5 py-3  shadow-[#63DF4E]/30 bg-[#58CC02]
+          <div className="absolute -bottom-4 -right-4  rounded-2xl px-5 py-3  shadow-[#2C2DE0]/30 bg-[#2C2DE0]
               text-white
               text-sm
               font-bold
-              shadow-[0_4px_0_#46A302]
+              shadow-[0_4px_0_#1E1FAA]
               hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
+              hover:shadow-[0_2px_0_#1E1FAA]
               active:translate-y-1
               active:shadow-none
               transition-all
@@ -149,7 +156,7 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-[11px] font-bold uppercase tracking-widest text-[#63DF4E] mb-3">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0] mb-3">
             {t?.about?.missionEyebrow || "Our Mission"}
           </p>
           <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white leading-tight">
@@ -187,10 +194,10 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="flex items-start gap-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/8 rounded-2xl p-5 hover:border-[#63DF4E]/25 hover:shadow-md transition-all"
+                  className="flex items-start gap-4 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/8 rounded-2xl p-5 hover:border-[#2C2DE0]/25 hover:shadow-md transition-all"
                 >
                   <div className="w-10 h-10 rounded-xl dark:bg-black flex items-center justify-center shrink-0">
-                    <Icon size={18} className="text-[#63DF4E]" />
+                    <Icon size={18} className="text-[#2C2DE0]" />
                   </div>
                   <div>
                     <p className="font-black text-gray-900 dark:text-white text-sm">{p.title}</p>
@@ -209,7 +216,7 @@ const About = () => {
       <section className="w-full bg-gray-50 dark:bg-black">
         <div className="w-full max-w-350 mx-auto px-6 lg:px-10 py-20 sm:py-24">
           <div className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/8 rounded-3xl p-8 md:p-12">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-[#63DF4E] mb-3">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0] mb-3">
               {t?.about?.commitmentsEyebrow || "Our Commitments"}
             </p>
             <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-8">
@@ -218,7 +225,7 @@ const About = () => {
             <div className="grid sm:grid-cols-2 gap-4">
               {values.map((v, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <CheckCircle2 size={15} className="text-[#63DF4E] shrink-0 mt-0.5" />
+                  <CheckCircle2 size={15} className="text-[#2C2DE0] shrink-0 mt-0.5" />
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{v}</p>
                 </div>
               ))}
@@ -241,10 +248,10 @@ const About = () => {
             <Link
               key={m.label}
               to={m.to}
-              className="flex items-center gap-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/8 rounded-2xl p-4 hover:border-[#63DF4E]/30 hover:bg-white dark:hover:bg-white/8 hover:shadow-md transition-all group"
+              className="flex items-center gap-3 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/8 rounded-2xl p-4 hover:border-[#2C2DE0]/30 hover:bg-white dark:hover:bg-white dark:bg-gray-900/8 hover:shadow-md transition-all group"
             >
               <span className="text-xl">{m.icon}</span>
-              <span className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-[#63DF4E] transition-colors">
+              <span className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-[#2C2DE0] transition-colors">
                 {m.label}
               </span>
             </Link>
@@ -258,30 +265,30 @@ const About = () => {
           <h2 className="text-3xl font-black text-black dark:text-white leading-tight">
             {t?.about?.ctaTitle || "Ready to get started?"}
           </h2>
-          <p className="text-gray-500 mt-3 text-sm max-w-sm mx-auto">
+          <p className="text-gray-500 dark:text-gray-400 mt-3 text-sm max-w-sm mx-auto">
             {t?.about?.ctaDescription || "Create your account and reserve your first seat in under two minutes."}
           </p>
           <div className="flex items-center justify-center gap-3 mt-8">
             <Link
               to="/signup"
-              className="flex items-center gap-2 bg-[#58CC02]
+              className="flex items-center gap-2 bg-[#2C2DE0]
               text-white
               text-sm
               font-bold
-              shadow-[0_4px_0_#46A302]
+              shadow-[0_4px_0_#1E1FAA]
               hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
+              hover:shadow-[0_2px_0_#1E1FAA]
               active:translate-y-1
               active:shadow-none
               transition-all
-              duration-150 hover:bg-[#7aee69]  dark:text-white leading-tight  px-7 py-3 rounded-xl  group"
+              duration-150 hover:bg-[#4F51FF]  dark:text-white leading-tight  px-7 py-3 rounded-xl  group"
             >
               {t?.auth?.createAccountButton || "Create Account"}
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
             <Link
               to="/login"
-              className="text-sm font-semibold text-gray-500 hover:text-white transition-colors"
+              className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-white transition-colors"
             >
               {t?.about?.alreadyHaveAccount || "Already have an account? Sign in"}
             </Link>

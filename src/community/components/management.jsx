@@ -39,7 +39,7 @@ const RequestCard = ({ request, resolved, onApprove, onReject }) => {
     return (
         <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4">
             <div className="flex items-center gap-3 mb-2">
-                <img src={request.studentId?.photo || ""} alt="" className="w-8 h-8 rounded-full bg-green-500" />
+                <img src={request.studentId?.photo || ""} alt="" className="w-8 h-8 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
                 <div>
                     <p className="font-bold text-sm text-black dark:text-white">{request.studentId?.name}</p>
                     <p className="text-[11px] text-black/40 dark:text-white/40">{new Date(request.createdAt).toLocaleString()}</p>
@@ -47,7 +47,7 @@ const RequestCard = ({ request, resolved, onApprove, onReject }) => {
                 {resolved && (
                     <span
                         className={`ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full ${request.status === "approved"
-                                ? "bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400"
+                                ? "bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]"
                                 : "bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-400"
                             }`}
                     >
@@ -73,14 +73,14 @@ const RequestCard = ({ request, resolved, onApprove, onReject }) => {
                             className="w-full p-2 rounded-lg text-sm bg-black/5 dark:bg-white/5 text-black dark:text-white focus:outline-none disabled:opacity-50"
                         />
                         <div className="flex justify-end gap-2">
-                            <button
+                            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                                 onClick={() => setRejecting(false)}
                                 disabled={rejecting_action}
                                 className="px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60 disabled:opacity-50 disabled:pointer-events-none"
                             >
                                 Cancel
                             </button>
-                            <button
+                            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                                 onClick={async () => {
                                     if (!reason.trim()) return;
                                     setRejectingAction(true);
@@ -101,7 +101,7 @@ const RequestCard = ({ request, resolved, onApprove, onReject }) => {
                     </div>
                 ) : (
                     <div className="flex gap-2">
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                             onClick={async () => {
                                 setApproving(true);
                                 try {
@@ -115,7 +115,7 @@ const RequestCard = ({ request, resolved, onApprove, onReject }) => {
                         >
                             {approving ? "Approving..." : "Approve"}
                         </button>
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                             onClick={() => setRejecting(true)}
                             disabled={approving}
                             className="px-3 py-1.5 rounded-lg text-sm font-bold text-red-600 border border-red-200 dark:border-red-900 hover:bg-red-50 dark:hover:bg-red-950 disabled:opacity-50 disabled:pointer-events-none"
@@ -207,8 +207,8 @@ const BroadcastPanel = ({ groupId }) => {
                 rows={3}
                 className="w-full p-2 rounded-lg text-sm bg-black/5 dark:bg-white/5 text-black dark:text-white focus:outline-none"
             />
-            {sent !== null && <p className="text-xs text-green-600">Sent to {sent} members.</p>}
-            <button onClick={handleSend} disabled={sending} className={`px-4 py-1.5 rounded-lg ${BTN_PRIMARY}`}>
+            {sent !== null && <p className="text-xs text-[#1E1FAA] dark:text-[#4F51FF]">Sent to {sent} members.</p>}
+            <button onClick={handleSend} disabled={sending} className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}>
                 {sending ? "Sending..." : "Send broadcast"}
             </button>
         </div>
@@ -292,12 +292,12 @@ const ManagementTab = ({ groupId }) => {
         <div className="flex gap-6">
             <nav className="w-52 flex-shrink-0 space-y-1 hidden md:block">
                 {SUBSECTIONS.map(({ key, label, icon: Icon }) => (
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         key={key}
                         onClick={() => setActive(key)}
                         className={`w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-bold transition-colors ${active === key
                                 ? "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302]"
-                                : "text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5"
+                                : "text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white dark:bg-gray-900/5"
                             }`}
                     >
                         <Icon size={16} />

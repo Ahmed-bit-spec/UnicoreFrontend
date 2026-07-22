@@ -28,25 +28,25 @@ import AdminHeader from "../../admin/components/Header/AdminHeader";
 
 // ── Type UI map ────────────────────────────────────────────────────────────────
 const TYPE_UI = {
-  reservation_created: { Icon: Calendar, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
-  reservation_approved: { Icon: Calendar, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
+  reservation_created: { Icon: Calendar, dot: "bg-[#2C2DE0] dark:bg-[#1E1FAA]", icon: "text-[#2C2DE0] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" },
+  reservation_approved: { Icon: Calendar, dot: "bg-[#2C2DE0] dark:bg-[#1E1FAA]", icon: "text-[#2C2DE0] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" },
   reservation_rejected: { Icon: Calendar, dot: "bg-red-500", icon: "text-red-500", bg: "bg-red-50 dark:bg-red-500/10" },
-  reservation_cancelled: { Icon: Calendar, dot: "bg-gray-400", icon: "text-gray-500", bg: "bg-gray-100 dark:bg-gray-800" },
-  reservation_expired: { Icon: Clock, dot: "bg-gray-400", icon: "text-gray-500", bg: "bg-gray-100 dark:bg-gray-800" },
-  reservation_noshow: { Icon: Clock, dot: "bg-gray-400", icon: "text-gray-500", bg: "bg-gray-100 dark:bg-gray-800" },
+  reservation_cancelled: { Icon: Calendar, dot: "bg-gray-400", icon: "text-gray-500 dark:text-gray-400", bg: "bg-gray-100 dark:bg-gray-800" },
+  reservation_expired: { Icon: Clock, dot: "bg-gray-400", icon: "text-gray-500 dark:text-gray-400", bg: "bg-gray-100 dark:bg-gray-800" },
+  reservation_noshow: { Icon: Clock, dot: "bg-gray-400", icon: "text-gray-500 dark:text-gray-400", bg: "bg-gray-100 dark:bg-gray-800" },
   reservation_start_warning: { Icon: Clock, dot: "bg-orange-500", icon: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-500/10" },
-  reservation_reminder_15: { Icon: Clock, dot: "bg-green-400", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
-  reservation_reminder_10: { Icon: Clock, dot: "bg-green-600", icon: "text-green-600", bg: "bg-green-50 dark:bg-green-500/10" },
-  checkin_success: { Icon: Calendar, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
+  reservation_reminder_15: { Icon: Clock, dot: "bg-[#4F51FF]", icon: "text-[#2C2DE0] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" },
+  reservation_reminder_10: { Icon: Clock, dot: "bg-[#1E1FAA] dark:bg-[#0F0F55]", icon: "text-[#1E1FAA] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" },
+  checkin_success: { Icon: Calendar, dot: "bg-[#2C2DE0] dark:bg-[#1E1FAA]", icon: "text-[#2C2DE0] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" },
   book_due_soon: { Icon: BookOpen, dot: "bg-orange-500", icon: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-500/10" },
   book_overdue: { Icon: BookOpen, dot: "bg-red-500", icon: "text-red-500", bg: "bg-red-50 dark:bg-red-500/10" },
-  book_returned: { Icon: BookOpen, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
+  book_returned: { Icon: BookOpen, dot: "bg-[#2C2DE0] dark:bg-[#1E1FAA]", icon: "text-[#2C2DE0] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" },
   book_borrowed: { Icon: BookOpen, dot: "bg-blue-500", icon: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
   book_extended: { Icon: BookOpen, dot: "bg-blue-500", icon: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
   book_lost: { Icon: BookOpen, dot: "bg-red-500", icon: "text-red-500", bg: "bg-red-50 dark:bg-red-500/10" },
-  student_verified: { Icon: Settings, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
-  user_created: { Icon: Settings, dot: "bg-green-400", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
-  system: { Icon: Settings, dot: "bg-gray-400", icon: "text-gray-500", bg: "bg-gray-100 dark:bg-gray-800" },
+  student_verified: { Icon: Settings, dot: "bg-[#2C2DE0] dark:bg-[#1E1FAA]", icon: "text-[#2C2DE0] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" },
+  user_created: { Icon: Settings, dot: "bg-[#4F51FF]", icon: "text-[#2C2DE0] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10" },
+  system: { Icon: Settings, dot: "bg-gray-400", icon: "text-gray-500 dark:text-gray-400", bg: "bg-gray-100 dark:bg-gray-800" },
   warning: { Icon: AlertTriangle, dot: "bg-orange-500", icon: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-500/10" },
   announcement: { Icon: Megaphone, dot: "bg-purple-500", icon: "text-purple-500", bg: "bg-purple-50 dark:bg-purple-500/10" },
 };
@@ -106,7 +106,7 @@ const NotifCard = ({ n, onRead, onDismiss }) => {
           <p className="text-xs text-blue-500 dark:text-blue-400 mt-2 font-medium">Tap to view →</p>
         )}
       </div>
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={(e) => { e.stopPropagation(); onDismiss(n.deliveryId); }}
         className="absolute right-4 top-4 opacity-0 group-hover:opacity-100 w-7 h-7 rounded-xl flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all"
       >
@@ -157,7 +157,7 @@ const NotificationsPage = () => {
           {unreadCount > 0 && (
             <button
               onClick={markAllAsRead}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 hover:bg-green-100 transition-all"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <CheckCheck size={13} />Mark all read
             </button>
@@ -165,7 +165,7 @@ const NotificationsPage = () => {
           {notifications.length > 0 && (
             <button
               onClick={clearAll}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-red-500 bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 hover:bg-red-100 transition-all"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <Trash2 size={13} />Clear all
             </button>
@@ -178,7 +178,7 @@ const NotificationsPage = () => {
         {FILTERS.map(({ value, label, Icon: FIcon }) => {
           const active = activeFilter === value;
           return (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={value}
               onClick={() => changeFilter(value)}
               className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold whitespace-nowrap border transition-all flex-shrink-0 ${active
@@ -218,7 +218,7 @@ const NotificationsPage = () => {
       {!loading && notifications.length === 0 && (
         <div className="py-20 flex flex-col items-center text-center">
           <div className="w-16 h-16 rounded-2xl bg-gray-100 dark:bg-gray-900 flex items-center justify-center mb-4">
-            <Bell size={24} className="text-gray-300 dark:text-gray-600" />
+            <Bell size={24} className="text-gray-300 dark:text-gray-600 dark:text-gray-400" />
           </div>
           <p className="font-bold text-gray-900 dark:text-white">No notifications yet</p>
           <p className="text-sm text-gray-400 mt-1">
@@ -268,10 +268,10 @@ const NotificationsPage = () => {
           <button
             onClick={loadMore}
             disabled={loadingMore}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl text-sm font-bold text-gray-500 dark:text-gray-400 border border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-900 disabled:opacity-40 transition-all"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {loadingMore
-              ? <span className="w-4 h-4 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+              ? <span className="w-4 h-4 border-2 border-gray-300 dark:border-gray-600 border-t-gray-600 rounded-full animate-spin" />
               : <><ChevronDown size={15} />Load more</>
             }
           </button>

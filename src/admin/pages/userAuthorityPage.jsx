@@ -39,14 +39,14 @@ const ROLE_COLORS = {
   admin: { bg: "bg-red-100 dark:bg-red-900/30", text: "text-red-700 dark:text-red-400", dot: "bg-red-500" },
   librarian: { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-700 dark:text-blue-400", dot: "bg-blue-500" },
   teacher: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-700 dark:text-amber-400", dot: "bg-amber-500" },
-  student: { bg: "bg-green-100 dark:bg-green-900/30", text: "text-green-700 dark:text-green-400", dot: "bg-green-500" },
+  student: { bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/30", text: "text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]", dot: "bg-[#2C2DE0] dark:bg-[#1E1FAA]" },
   guest: { bg: "bg-slate-100 dark:bg-slate-700", text: "text-slate-600 dark:text-slate-300", dot: "bg-slate-400" },
 };
 const FALLBACK_ROLE_COLOR = { bg: "bg-slate-100 dark:bg-slate-700", text: "text-slate-700 dark:text-slate-300", dot: "bg-slate-400" };
 const roleColor = (name) => ROLE_COLORS[name] || FALLBACK_ROLE_COLOR;
 
 const STATUS_CONFIG = {
-  active: { icon: CheckCircle2, color: "text-green-600 dark:text-green-400", bg: "bg-green-50 dark:bg-green-900/20", label: "Active" },
+  active: { icon: CheckCircle2, color: "text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20", label: "Active" },
   suspended: { icon: Clock, color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-900/20", label: "Suspended" },
   banned: { icon: XCircle, color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-900/20", label: "Banned" },
   pending: { icon: AlertCircle, color: "text-slate-500 dark:text-slate-400", bg: "bg-slate-50 dark:bg-slate-900/20", label: "Pending" },
@@ -82,7 +82,7 @@ const getErrorMessage = (err, fallback) =>
 const UserAvatar = ({ user, size = "md" }) => {
   const sizeMap = { sm: "w-7 h-7 text-xs", md: "w-9 h-9 text-sm", lg: "w-11 h-11 text-base" };
   const initials = (user.name || user.fullName || "?").split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
-  const colors = ["bg-green-500", "bg-blue-500", "bg-purple-500", "bg-amber-500", "bg-rose-500", "bg-cyan-500"];
+  const colors = ["bg-[#2C2DE0] dark:bg-[#1E1FAA]", "bg-blue-500", "bg-purple-500", "bg-amber-500", "bg-rose-500", "bg-cyan-500"];
   const color = colors[initials.charCodeAt(0) % colors.length];
 
   if (user.avatar || user.photo) {
@@ -131,7 +131,7 @@ const Modal = ({ open, onClose, title, children, width = "max-w-lg" }) => {
       <div className={`relative w-full ${width} bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700`}>
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-700">
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{title}</h3>
-          <button onClick={onClose} className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+          <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -188,13 +188,13 @@ const RoleChangeModal = ({ user, roles, onClose, onSave, t }) => {
               const cfg = roleColor(role.name);
               const isSelected = selectedRole === role.name;
               return (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   key={role._id}
                   onClick={() => setSelectedRole(role.name)}
                   className={`flex items-center gap-2 p-3 rounded-xl border-2 text-left transition-all ${
                     isSelected
-                      ? `border-green-500 ${cfg.bg}`
-                      : "border-slate-200 dark:border-slate-600 hover:border-green-300 dark:hover:border-green-700"
+                      ? `border-[#2C2DE0] dark:border-[#4F51FF] ${cfg.bg}`
+                      : "border-slate-200 dark:border-slate-600 hover:border-[#4F51FF] dark:border-blue-400 dark:hover:border-[#2C2DE0]"
                   }`}
                 >
                   <span className={`w-2 h-2 rounded-full ${cfg.dot}`} />
@@ -204,7 +204,7 @@ const RoleChangeModal = ({ user, roles, onClose, onSave, t }) => {
                     </p>
                     <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{role.permissions?.length} perms</p>
                   </div>
-                  {isSelected && <Check className="w-4 h-4 text-green-600 dark:text-green-400 ml-auto" />}
+                  {isSelected && <Check className="w-4 h-4 text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] ml-auto" />}
                 </button>
               );
             })}
@@ -214,14 +214,14 @@ const RoleChangeModal = ({ user, roles, onClose, onSave, t }) => {
         <div className="flex gap-3 pt-2">
           <button
             onClick={onClose}
-            className="flex-1 px-4 py-2.5 text-sm font-medium border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {ua.roleModal.cancel}
           </button>
           <button
             onClick={handleSave}
             disabled={saving || selectedRole === user.role}
-            className="flex-1 px-4 py-2.5 text-sm font-medium bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white rounded-xl transition-colors flex items-center justify-center gap-2"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {saving ? <><Loader2 className="w-4 h-4 animate-spin" />{ua.roleModal.saving}</> : ua.roleModal.confirm}
           </button>
@@ -275,12 +275,12 @@ const StatusChangeModal = ({ user, onClose, onSave, t }) => {
               const Icon = cfg.icon;
               const isSelected = selectedStatus === s;
               return (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   key={s}
                   onClick={() => setSelectedStatus(s)}
                   className={`flex items-center gap-2 p-3 rounded-xl border-2 text-left transition-all ${
                     isSelected
-                      ? `border-green-500 ${cfg.bg}`
+                      ? `border-[#2C2DE0] dark:border-[#4F51FF] ${cfg.bg}`
                       : "border-slate-200 dark:border-slate-600 hover:border-slate-300 dark:hover:border-slate-500"
                   }`}
                 >
@@ -288,7 +288,7 @@ const StatusChangeModal = ({ user, onClose, onSave, t }) => {
                   <span className={`text-sm font-medium ${isSelected ? cfg.color : "text-slate-700 dark:text-slate-300"}`}>
                     {ua.statuses[s]}
                   </span>
-                  {isSelected && <Check className="w-4 h-4 text-green-600 dark:text-green-400 ml-auto" />}
+                  {isSelected && <Check className="w-4 h-4 text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] ml-auto" />}
                 </button>
               );
             })}
@@ -302,18 +302,18 @@ const StatusChangeModal = ({ user, onClose, onSave, t }) => {
             onChange={(e) => setReason(e.target.value)}
             placeholder={ua.statusModal.reasonPlaceholder}
             rows={2}
-            className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
+            className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF] resize-none"
           />
         </div>
 
         <div className="flex gap-3 pt-1">
-          <button onClick={onClose} className="flex-1 px-4 py-2.5 text-sm font-medium border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+          <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             {ua.statusModal.cancel}
           </button>
           <button
             onClick={handleSave}
             disabled={saving}
-            className="flex-1 px-4 py-2.5 text-sm font-medium bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white rounded-xl transition-colors flex items-center justify-center gap-2"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {saving ? <><Loader2 className="w-4 h-4 animate-spin" />{ua.statusModal.saving}</> : ua.statusModal.confirm}
           </button>
@@ -329,7 +329,7 @@ const RoleEditModal = ({ role, allPermissions, onClose, onSave, t }) => {
   const [form, setForm] = useState({
     label: role?.label || "",
     description: role?.description || "",
-    color: role?.color || "#22c55e",
+    color: role?.color || "#2C2DE0",
     permissions: role?.permissions || [],
   });
   const [saving, setSaving] = useState(false);
@@ -380,7 +380,7 @@ const RoleEditModal = ({ role, allPermissions, onClose, onSave, t }) => {
             <input
               value={form.description}
               onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
-              className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
             />
           </div>
           <div>
@@ -396,7 +396,7 @@ const RoleEditModal = ({ role, allPermissions, onClose, onSave, t }) => {
         <div>
           <div className="flex items-center justify-between mb-3">
             <label className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">{ua.roleForm.permissions}</label>
-            <span className="text-xs text-green-600 dark:text-green-400 font-medium">{form.permissions.length} / {allPermissions.length} selected</span>
+            <span className="text-xs text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] font-medium">{form.permissions.length} / {allPermissions.length} selected</span>
           </div>
           <div className="space-y-3">
             {Object.entries(grouped).map(([cat, perms]) => {
@@ -404,18 +404,18 @@ const RoleEditModal = ({ role, allPermissions, onClose, onSave, t }) => {
               const someSelected = perms.some((p) => form.permissions.includes(p));
               return (
                 <div key={cat} className="border border-slate-200 dark:border-slate-600 rounded-xl overflow-hidden">
-                  <button
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     onClick={() => toggleCategory(cat, perms)}
-                    className={`w-full flex items-center justify-between px-4 py-2.5 text-left ${allSelected ? "bg-green-50 dark:bg-green-900/20" : someSelected ? "bg-slate-50 dark:bg-slate-700/50" : "bg-white dark:bg-slate-800"} transition-colors`}
+                    className={`w-full flex items-center justify-between px-4 py-2.5 text-left ${allSelected ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20" : someSelected ? "bg-slate-50 dark:bg-slate-700/50" : "bg-white dark:bg-slate-800"} transition-colors`}
                   >
                     <span className="text-sm font-medium text-slate-800 dark:text-slate-200">
                       {ua.permissions.categories[cat] || cat}
                     </span>
                     <div className="flex items-center gap-2">
                       <span className="text-xs text-slate-500 dark:text-slate-400">{perms.filter((p) => form.permissions.includes(p)).length}/{perms.length}</span>
-                      <div className={`w-4 h-4 rounded border-2 flex items-center justify-center ${allSelected ? "bg-green-500 border-green-500" : someSelected ? "border-green-400" : "border-slate-300 dark:border-slate-500"}`}>
+                      <div className={`w-4 h-4 rounded border-2 flex items-center justify-center ${allSelected ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] border-[#2C2DE0] dark:border-[#4F51FF]" : someSelected ? "border-[#4F51FF]" : "border-slate-300 dark:border-slate-500"}`}>
                         {allSelected && <Check className="w-2.5 h-2.5 text-white" />}
-                        {someSelected && !allSelected && <div className="w-2 h-0.5 bg-green-400" />}
+                        {someSelected && !allSelected && <div className="w-2 h-0.5 bg-[#4F51FF]" />}
                       </div>
                     </div>
                   </button>
@@ -423,12 +423,12 @@ const RoleEditModal = ({ role, allPermissions, onClose, onSave, t }) => {
                     {perms.map((perm) => {
                       const isOn = form.permissions.includes(perm);
                       return (
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           key={perm}
                           onClick={() => togglePerm(perm)}
-                          className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-left transition-colors ${isOn ? "bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400" : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700"}`}
+                          className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-left transition-colors ${isOn ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]" : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700"}`}
                         >
-                          <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center flex-shrink-0 ${isOn ? "bg-green-500 border-green-500" : "border-slate-300 dark:border-slate-500"}`}>
+                          <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center flex-shrink-0 ${isOn ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] border-[#2C2DE0] dark:border-[#4F51FF]" : "border-slate-300 dark:border-slate-500"}`}>
                             {isOn && <Check className="w-2 h-2 text-white" />}
                           </div>
                           <span className="text-xs font-mono">{perm}</span>
@@ -444,13 +444,13 @@ const RoleEditModal = ({ role, allPermissions, onClose, onSave, t }) => {
       </div>
 
       <div className="flex gap-3 pt-4 mt-4 border-t border-slate-200 dark:border-slate-700">
-        <button onClick={onClose} className="flex-1 px-4 py-2.5 text-sm font-medium border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+        <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
           {ua.roleForm.cancel}
         </button>
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex-1 px-4 py-2.5 text-sm font-medium bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white rounded-xl transition-colors flex items-center justify-center gap-2"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           {saving ? <><Loader2 className="w-4 h-4 animate-spin" />{ua.roleForm.saving}</> : ua.roleForm.save}
         </button>
@@ -462,7 +462,7 @@ const RoleEditModal = ({ role, allPermissions, onClose, onSave, t }) => {
 // ─── Role Create Modal (brand-new custom role, e.g. "guest") ────────────────
 const RoleCreateModal = ({ open, allPermissions, onClose, onSave, t }) => {
   const ua = t.userAuthority;
-  const emptyForm = { name: "", label: "", description: "", color: "#22c55e", permissions: [] };
+  const emptyForm = { name: "", label: "", description: "", color: "#2C2DE0", permissions: [] };
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
@@ -524,7 +524,7 @@ const RoleCreateModal = ({ open, allPermissions, onClose, onSave, t }) => {
               value={form.name}
               onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
               placeholder="e.g. guest"
-              className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
             />
           </div>
           <div>
@@ -533,7 +533,7 @@ const RoleCreateModal = ({ open, allPermissions, onClose, onSave, t }) => {
               value={form.label}
               onChange={(e) => setForm((f) => ({ ...f, label: e.target.value }))}
               placeholder="e.g. Guest"
-              className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
             />
           </div>
           <div>
@@ -549,14 +549,14 @@ const RoleCreateModal = ({ open, allPermissions, onClose, onSave, t }) => {
           <input
             value={form.description}
             onChange={(e) => setForm((f) => ({ ...f, description: e.target.value }))}
-            className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full text-sm px-3 py-2.5 bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
           />
         </div>
 
         <div>
           <div className="flex items-center justify-between mb-2">
             <label className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">{ua.roleForm.permissions}</label>
-            <span className="text-xs text-green-600 dark:text-green-400 font-medium">{form.permissions.length} / {allPermissions.length} selected</span>
+            <span className="text-xs text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] font-medium">{form.permissions.length} / {allPermissions.length} selected</span>
           </div>
           <div className="space-y-3">
             {Object.entries(grouped).map(([cat, perms]) => {
@@ -564,9 +564,9 @@ const RoleCreateModal = ({ open, allPermissions, onClose, onSave, t }) => {
               const someSelected = perms.some((p) => form.permissions.includes(p));
               return (
                 <div key={cat} className="border border-slate-200 dark:border-slate-600 rounded-xl overflow-hidden">
-                  <button
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     onClick={() => toggleCategory(cat, perms)}
-                    className={`w-full flex items-center justify-between px-4 py-2.5 text-left ${allSelected ? "bg-green-50 dark:bg-green-900/20" : someSelected ? "bg-slate-50 dark:bg-slate-700/50" : "bg-white dark:bg-slate-800"} transition-colors`}
+                    className={`w-full flex items-center justify-between px-4 py-2.5 text-left ${allSelected ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20" : someSelected ? "bg-slate-50 dark:bg-slate-700/50" : "bg-white dark:bg-slate-800"} transition-colors`}
                   >
                     <span className="text-sm font-medium text-slate-800 dark:text-slate-200">
                       {ua.permissions.categories[cat] || cat}
@@ -577,12 +577,12 @@ const RoleCreateModal = ({ open, allPermissions, onClose, onSave, t }) => {
                     {perms.map((perm) => {
                       const isOn = form.permissions.includes(perm);
                       return (
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           key={perm}
                           onClick={() => togglePerm(perm)}
-                          className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-left transition-colors ${isOn ? "bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400" : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700"}`}
+                          className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-left transition-colors ${isOn ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]" : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700"}`}
                         >
-                          <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center flex-shrink-0 ${isOn ? "bg-green-500 border-green-500" : "border-slate-300 dark:border-slate-500"}`}>
+                          <div className={`w-3.5 h-3.5 rounded border flex items-center justify-center flex-shrink-0 ${isOn ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] border-[#2C2DE0] dark:border-[#4F51FF]" : "border-slate-300 dark:border-slate-500"}`}>
                             {isOn && <Check className="w-2 h-2 text-white" />}
                           </div>
                           <span className="text-xs font-mono">{perm}</span>
@@ -598,13 +598,13 @@ const RoleCreateModal = ({ open, allPermissions, onClose, onSave, t }) => {
       </div>
 
       <div className="flex gap-3 pt-4 mt-4 border-t border-slate-200 dark:border-slate-700">
-        <button onClick={onClose} className="flex-1 px-4 py-2.5 text-sm font-medium border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+        <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
           {ua.roleForm.cancel}
         </button>
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex-1 px-4 py-2.5 text-sm font-medium bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white rounded-xl transition-colors flex items-center justify-center gap-2"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           {saving ? <><Loader2 className="w-4 h-4 animate-spin" />{ua.roleForm.saving}</> : ua.roles.createRole}
         </button>
@@ -665,14 +665,14 @@ const RoleDeleteModal = ({ role, onClose, onConfirm, t }) => {
         <div className="flex gap-3 pt-2">
           <button
             onClick={onClose}
-            className="flex-1 px-4 py-2.5 text-sm font-medium border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {ua.roleForm.cancel}
           </button>
           <button
             onClick={handleDelete}
             disabled={deleting}
-            className="flex-1 px-4 py-2.5 text-sm font-medium bg-red-600 hover:bg-red-700 disabled:opacity-50 text-white rounded-xl transition-colors flex items-center justify-center gap-2"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {deleting ? <><Loader2 className="w-4 h-4 animate-spin" />{ua.roles.deleting}</> : ua.roles.confirmDelete}
           </button>
@@ -711,7 +711,7 @@ const UsersTab = ({ t, users, roles, loading, onRoleChange, onStatusChange }) =>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {[
           { label: ua.users.totalUsers, value: stats.total, color: "text-slate-900 dark:text-white", icon: Users },
-          { label: ua.users.activeUsers, value: stats.active, color: "text-green-600 dark:text-green-400", icon: UserCheck },
+          { label: ua.users.activeUsers, value: stats.active, color: "text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]", icon: UserCheck },
           { label: ua.roleLabels.teacher, value: users.filter((u) => u.role === "teacher").length, color: "text-amber-600 dark:text-amber-400", icon: Shield },
           { label: ua.roleLabels.librarian, value: users.filter((u) => u.role === "librarian").length, color: "text-blue-600 dark:text-blue-400", icon: Key },
         ].map(({ label, value, color, icon: Icon }) => (
@@ -732,13 +732,13 @@ const UsersTab = ({ t, users, roles, loading, onRoleChange, onStatusChange }) =>
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={ua.users.searchPlaceholder}
-            className="w-full pl-9 pr-4 py-2.5 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full pl-9 pr-4 py-2.5 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
           />
         </div>
         <select
           value={roleFilter}
           onChange={(e) => setRoleFilter(e.target.value)}
-          className="px-3 py-2.5 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-3 py-2.5 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
         >
           <option value="all">{ua.users.allRoles}</option>
           {roles.map((r) => <option key={r._id} value={r.name}>{r.label}</option>)}
@@ -746,7 +746,7 @@ const UsersTab = ({ t, users, roles, loading, onRoleChange, onStatusChange }) =>
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2.5 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-3 py-2.5 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
         >
           <option value="all">{ua.users.allStatuses}</option>
           {["active", "suspended", "banned", "pending"].map((s) => (
@@ -791,7 +791,7 @@ const UsersTab = ({ t, users, roles, loading, onRoleChange, onStatusChange }) =>
                     <td className="px-4 py-3"><StatusBadge status={user.accountStatus || user.status || "active"} t={t} /></td>
                     <td className="px-4 py-3">
                       <div className="flex flex-col gap-1">
-                        <span className={`text-xs flex items-center gap-1 ${user.emailVerified || user.isVerified ? "text-green-600 dark:text-green-400" : "text-slate-400"}`}>
+                        <span className={`text-xs flex items-center gap-1 ${user.emailVerified || user.isVerified ? "text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" : "text-slate-400"}`}>
                           {user.emailVerified || user.isVerified ? <CheckCircle2 className="w-3 h-3" /> : <X className="w-3 h-3" />}
                           Email
                         </span>
@@ -804,14 +804,14 @@ const UsersTab = ({ t, users, roles, loading, onRoleChange, onStatusChange }) =>
                     <td className="px-4 py-3 text-xs text-slate-500 dark:text-slate-400">{formatRelativeTime(user.lastLogin)}</td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           onClick={() => setRoleModalUser(user)}
-                          className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-900/40 rounded-lg transition-colors"
+                          className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/40 rounded-lg transition-colors"
                         >
                           <Shield className="w-3 h-3" />
                           {ua.users.actions.editRole}
                         </button>
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           onClick={() => setStatusModalUser(user)}
                           className="flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors"
                         >
@@ -861,9 +861,9 @@ const RolesTab = ({ t, roles, allPermissions, loading, onUpdateRole, onCreateRol
             {roles.length} {roles.length === 1 ? "role" : "roles"}
           </p>
         </div>
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => setCreating(true)}
-          className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-green-600 hover:bg-green-700 text-white rounded-xl transition-colors"
+          className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium bg-[#1E1FAA] dark:bg-[#0F0F55] hover:bg-[#2C2DE0] text-white rounded-xl transition-colors"
         >
           <Plus className="w-4 h-4" />
           {ua.roles.createRole}
@@ -884,7 +884,7 @@ const RolesTab = ({ t, roles, allPermissions, loading, onUpdateRole, onCreateRol
           {roles.map((role) => {
             const cfg = roleColor(role.name);
             return (
-              <div key={role._id} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 hover:border-green-300 dark:hover:border-green-700 transition-colors group">
+              <div key={role._id} className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 hover:border-[#4F51FF] dark:border-blue-400 dark:hover:border-[#2C2DE0] transition-colors group">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className={`w-10 h-10 ${cfg.bg} ${cfg.text} rounded-xl flex items-center justify-center font-bold text-sm`}>
@@ -903,7 +903,7 @@ const RolesTab = ({ t, roles, allPermissions, loading, onUpdateRole, onCreateRol
                     </div>
                   </div>
                   <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => setEditingRole(role)}
                       className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
                       title={ua.roles.editRole}
@@ -911,7 +911,7 @@ const RolesTab = ({ t, roles, allPermissions, loading, onUpdateRole, onCreateRol
                       <Pencil className="w-3.5 h-3.5" />
                     </button>
                     {!role.isSystem && (
-                      <button
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         onClick={() => setDeletingRole(role)}
                         className="p-1.5 rounded-lg text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors"
                         title={ua.roles.deleteRole}
@@ -933,7 +933,7 @@ const RolesTab = ({ t, roles, allPermissions, loading, onUpdateRole, onCreateRol
                     <span className="text-sm font-semibold text-slate-900 dark:text-white">{role.permissions?.length ?? 0}</span>
                     <span className="text-xs text-slate-500 dark:text-slate-400">{ua.roles.permissions}</span>
                   </div>
-                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: role.color || "#22c55e" }} />
+                  <div className="w-2 h-2 rounded-full" style={{ backgroundColor: role.color || "#2C2DE0" }} />
                 </div>
               </div>
             );
@@ -1042,7 +1042,7 @@ const PermissionsTab = ({ t, roles, allPermissions, onSavePermissions }) => {
           <select
             value={selectedRoleId}
             onChange={(e) => setSelectedRoleId(e.target.value)}
-            className="px-3 py-2.5 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="px-3 py-2.5 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
           >
             {roles.map((r) => (
               <option key={r._id} value={r._id}>{r.label || r.name}</option>
@@ -1051,11 +1051,7 @@ const PermissionsTab = ({ t, roles, allPermissions, onSavePermissions }) => {
           <button
             onClick={handleSave}
             disabled={saving || !selectedRoleId}
-            className={`flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-xl transition-all ${
-              saved
-                ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
-                : "bg-green-600 hover:bg-green-700 text-white"
-            } disabled:opacity-50`}
+            className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
           >
             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : saved ? <Check className="w-4 h-4" /> : null}
             {saving ? ua.permissions.saving : saved ? ua.permissions.successMessage : ua.permissions.saveChanges}
@@ -1075,7 +1071,7 @@ const PermissionsTab = ({ t, roles, allPermissions, onSavePermissions }) => {
         </div>
         <div className="ml-auto">
           <div className="w-32 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-            <div className="h-full bg-green-500 rounded-full transition-all" style={{ width: `${allPermissions.length ? (permissions.length / allPermissions.length) * 100 : 0}%` }} />
+            <div className="h-full bg-[#2C2DE0] dark:bg-[#1E1FAA] rounded-full transition-all" style={{ width: `${allPermissions.length ? (permissions.length / allPermissions.length) * 100 : 0}%` }} />
           </div>
         </div>
       </div>
@@ -1091,13 +1087,13 @@ const PermissionsTab = ({ t, roles, allPermissions, onSavePermissions }) => {
                   <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">
                     {ua.permissions.categories[cat] || cat}
                   </span>
-                  <span className={`text-xs px-1.5 py-0.5 rounded-full font-medium ${activeCount > 0 ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400" : "bg-slate-100 dark:bg-slate-700 text-slate-500"}`}>
+                  <span className={`text-xs px-1.5 py-0.5 rounded-full font-medium ${activeCount > 0 ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/30 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]" : "bg-slate-100 dark:bg-slate-700 text-slate-500"}`}>
                     {activeCount}/{perms.length}
                   </span>
                 </div>
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => toggleCat(cat, perms)}
-                  className={`text-xs font-medium px-2.5 py-1 rounded-lg transition-colors ${allActive ? "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600" : "bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-900/40"}`}
+                  className={`text-xs font-medium px-2.5 py-1 rounded-lg transition-colors ${allActive ? "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600" : "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/40"}`}
                 >
                   {allActive ? ua.deselectAll : ua.selectAll}
                 </button>
@@ -1109,11 +1105,11 @@ const PermissionsTab = ({ t, roles, allPermissions, onSavePermissions }) => {
                   return (
                     <label
                       key={perm}
-                      className={`flex items-center gap-3 px-3 py-2 rounded-xl cursor-pointer transition-colors ${isOn ? "bg-green-50 dark:bg-green-900/20" : "hover:bg-slate-50 dark:hover:bg-slate-700/50"}`}
+                      className={`flex items-center gap-3 px-3 py-2 rounded-xl cursor-pointer transition-colors ${isOn ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20" : "hover:bg-slate-50 dark:hover:bg-slate-700/50"}`}
                     >
                       <div
                         onClick={() => togglePerm(perm)}
-                        className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 cursor-pointer transition-all ${isOn ? "bg-green-500 border-green-500" : "border-slate-300 dark:border-slate-500"}`}
+                        className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 cursor-pointer transition-all ${isOn ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] border-[#2C2DE0] dark:border-[#4F51FF]" : "border-slate-300 dark:border-slate-500"}`}
                       >
                         {isOn && <Check className="w-2.5 h-2.5 text-white" />}
                       </div>
@@ -1144,7 +1140,7 @@ const AuditLogTab = ({ t, logs, loading }) => {
   );
 
   const actionColors = {
-    role_created: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400",
+    role_created: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/30 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]",
     role_updated: "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400",
     role_deleted: "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400",
     role_permissions_updated: "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400",
@@ -1159,7 +1155,7 @@ const AuditLogTab = ({ t, logs, loading }) => {
         <select
           value={actionFilter}
           onChange={(e) => setActionFilter(e.target.value)}
-          className="px-3 py-2 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="px-3 py-2 text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]"
         >
           <option value="all">{ua.auditLog.allActions}</option>
           {Object.entries(ua.auditLog.actions).map(([k, v]) => (
@@ -1349,7 +1345,7 @@ export default function UserAuthorityPage() {
               <span className="text-slate-800 dark:text-slate-200 font-medium">{ua.breadcrumb || ua.title}</span>
             </div>
             <h1 className="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
-              <div className="w-9 h-9 bg-green-600 rounded-xl flex items-center justify-center">
+              <div className="w-9 h-9 bg-[#1E1FAA] dark:bg-[#0F0F55] rounded-xl flex items-center justify-center">
                 <Shield className="w-5 h-5 text-white" />
               </div>
               {ua.title}
@@ -1358,7 +1354,7 @@ export default function UserAuthorityPage() {
           </div>
           <button
             onClick={loadData}
-            className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             <RefreshCw className={`w-4 h-4 ${loadingUsers || loadingRoles ? "animate-spin" : ""}`} />
             {ua.retry}
@@ -1374,12 +1370,12 @@ export default function UserAuthorityPage() {
 
         <div className="flex gap-1 p-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl mb-6 overflow-x-auto">
           {tabs.map(({ id, label, icon: Icon, count }) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={id}
               onClick={() => setActiveTab(id)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all flex-1 justify-center ${
                 activeTab === id
-                  ? "bg-green-600 text-white shadow-sm"
+                  ? "bg-[#1E1FAA] dark:bg-[#0F0F55] text-white shadow-sm"
                   : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"
               }`}
             >
@@ -1387,7 +1383,7 @@ export default function UserAuthorityPage() {
               {label}
               {count !== undefined && (
                 <span className={`text-xs px-1.5 py-0.5 rounded-full font-semibold ${
-                  activeTab === id ? "bg-white/20 text-white" : "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
+                  activeTab === id ? "bg-white dark:bg-gray-900/20 text-white" : "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400"
                 }`}>
                   {count}
                 </span>

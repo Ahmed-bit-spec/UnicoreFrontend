@@ -3,6 +3,12 @@
 //  1. useDarkMode defaults to LIGHT (false) instead of system preference.
 //  2. isLight = !dark  — always matches the active theme so nav text
 //     is never white-on-white or black-on-black, before or after scroll.
+//  3. Removed duplicate/conflicting className props on buttons (React only
+//     keeps the last one — several buttons had a stray unused first className).
+//  4. Header height reduced (h-16 → h-14) with matching padding/shadow tweaks.
+//  5. All #58CC02 / #46A302 (green) swapped to #2C2DE0 / #1E1FAA (brand blue).
+//  6. Restored a missing <a ...> opening tag in the mobile drawer module list
+//     that was breaking the JSX fragment (the "Unreachable code" error).
 
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -22,14 +28,12 @@ const languages = [
   { code: "so", label: "Somali", native: "Soomaali" },
 ];
 
-// ── Dark-mode hook ────────────────────────────────────────────────
-// Default is NOW always LIGHT (false). Saved preference is still respected.
 const useDarkMode = () => {
   const [dark, setDark] = useState(() => {
     if (typeof window === "undefined") return false;
     const saved = localStorage.getItem("unicore_theme");
     if (saved) return saved === "dark";
-    return false; // ← default: light mode
+    return false;
   });
 
   useEffect(() => {
@@ -40,7 +44,6 @@ const useDarkMode = () => {
   return [dark, setDark];
 };
 
-// ── Mega-menu sections ────────────────────────────────────────────
 const getMegaMenuSections = (t) => [
   {
     title: t?.modules?.digitalLearning || "Digital Learning",
@@ -75,7 +78,6 @@ const getMegaMenuSections = (t) => [
   },
 ];
 
-// ── Mega menu ─────────────────────────────────────────────────────
 const MegaMenu = ({ t }) => (
   <motion.div
     initial={{ opacity: 0, y: 8 }}
@@ -118,7 +120,6 @@ const MegaMenu = ({ t }) => (
   </motion.div>
 );
 
-// ── Language switcher ─────────────────────────────────────────────
 const LanguageSwitcher = ({ lang, setLang, isLightPage }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -178,7 +179,6 @@ const LanguageSwitcher = ({ lang, setLang, isLightPage }) => {
   );
 };
 
-// ── Header ────────────────────────────────────────────────────────
 const LandingHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
@@ -201,42 +201,34 @@ const LandingHeader = () => {
     { label: t?.navbar?.contact || "Contact", to: "/contact" },
   ];
 
-  // ── THEME FIX ────────────────────────────────────────────────
-  // isLight now always mirrors the active color scheme.
-  // Before scroll: transparent header sits on the hero (white in light, black in dark).
-  // After scroll:  solid header (white in light, black in dark).
-  // In both cases text color must match, so we just use !dark.
   const isLight = !dark;
 
-  // Header background: transparent before scroll, solid after
   const headerBg = scrolled
     ? "bg-white dark:bg-black border-b border-black/10 dark:border-white/10 shadow-sm"
     : "bg-transparent";
 
-  // Nav link colors derived from isLight
   const textIdle = isLight
     ? "text-black/60 hover:text-black hover:bg-black/5"
     : "text-white/70 hover:text-white hover:bg-white/8";
-  const textActive = "text-white text-bold bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover: shadow - [0_2px_0_#46A302] active: translate - y - 1 active: shadow - none transition - all duration - 150";
+
+  const textActive =
+    "text-white font-bold bg-[#2C2DE0] text-sm shadow-[0_3px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_1px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150";
 
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
-        <div className="w-full max-w-350 mx-auto px-6 lg:px-10 h-16 flex items-center gap-6">
+        <div className="w-full max-w-350 mx-auto px-6 lg:px-10 h-14 flex items-center gap-6">
 
           <Link to="/" className="shrink-0">
-            {/* isLight prop lets Logo know which text color to use without relying on
-                Tailwind dark: variants, which can lag behind the scroll state. */}
             <UnicoreLogo size="md" isLight={isLight} />
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden lg:flex flex-1 items-center justify-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${pathname === link.to ? textActive : textIdle}`}
+                className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${pathname === link.to ? textActive : textIdle}`}
               >
                 {link.label}
               </Link>
@@ -249,35 +241,34 @@ const LandingHeader = () => {
             >
               <button
                 type="button"
-                className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${megaOpen ? textActive : textIdle}`}
+                className="flex items-center gap-1 px-4 py-1.5 rounded-lg bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_3px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_1px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150"
               >
                 {t?.navbar?.modules || "Modules"}
-                <ChevronDown size={14} className={`transition-transform ${megaOpen ? "rotate-180 text-[#2C2DE0]" : ""}`} />
+                <ChevronDown size={14} className={`transition-transform ${megaOpen ? "rotate-180" : ""}`} />
               </button>
               <AnimatePresence>{megaOpen && <MegaMenu t={t} />}</AnimatePresence>
             </div>
           </nav>
 
-          {/* Right side */}
           <div className="flex items-center gap-2 ml-auto shrink-0">
             <LanguageSwitcher lang={language || "en"} setLang={setLanguage || (() => { })} isLightPage={isLight} />
 
-            {/* Dark mode toggle */}
             <button
               type="button"
               onClick={() => setDark((d) => !d)}
               aria-label="Toggle dark mode"
-              className={`hidden lg:flex w-9 h-9 items-center justify-center rounded-lg border transition-colors ${isLight
-                ? "border-black/15 text-black/50 hover:text-black hover:border-black/30"
-                : "border-white/20 text-white/50 hover:text-white hover:border-white/40"
-                }`}
+              className={`hidden lg:flex w-8 h-8 items-center justify-center rounded-lg border transition-colors ${
+                isLight
+                  ? "border-black/15 text-black/50 hover:text-black hover:border-black/30"
+                  : "border-white/20 text-white/50 hover:text-white hover:border-white/40"
+              }`}
             >
-              {dark ? <Sun size={15} /> : <Moon size={15} />}
+              {dark ? <Sun size={14} /> : <Moon size={14} />}
             </button>
 
             <Link
               to="/login"
-              className={`hidden lg:flex items-center px-4 py-2 rounded-lg border text-sm font-semibold transition-colors ${isLight
+              className={`hidden lg:flex items-center px-4 py-1.5 rounded-lg border text-sm font-semibold transition-colors ${isLight
                 ? "border-black/20 text-black hover:bg-black/5"
                 : "border-white/20 text-white hover:bg-white/8"
                 }`}
@@ -287,23 +278,7 @@ const LandingHeader = () => {
 
             <Link
               to="/signup"
-              className="
-             hidden lg:flex
-              items-center
-              px-5 py-3
-              rounded-2xl
-              bg-[#58CC02]
-              text-white
-              text-sm
-              font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              transition-all
-              duration-150
-              "
+              className="hidden lg:flex items-center px-4 py-2 rounded-2xl bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_3px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_1px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150"
             >
               {t?.navbar?.signUp || "Sign Up"}
             </Link>
@@ -312,18 +287,17 @@ const LandingHeader = () => {
               type="button"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
-              className={`lg:hidden w-10 h-10 rounded-xl flex items-center justify-center border transition-colors ${isLight
+              className={`lg:hidden w-9 h-9 rounded-xl flex items-center justify-center border transition-colors ${isLight
                 ? "border-black/15 text-black/70 hover:bg-black/5"
                 : "border-white/15 text-white/80 hover:bg-white/10"
                 }`}
             >
-              <Menu size={20} />
+              <Menu size={19} />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile drawer */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -339,12 +313,13 @@ const LandingHeader = () => {
               transition={{ type: "tween", duration: 0.26, ease: [0.32, 0.72, 0, 1] }}
               className="fixed top-0 right-0 bottom-0 z-61 w-[min(85vw,22rem)] flex flex-col lg:hidden bg-white dark:bg-black border-l border-black/10 dark:border-white/10"
             >
-              <div className="flex items-center justify-between px-5 h-16 border-b border-black/10 dark:border-white/10">
+              <div className="flex items-center justify-between px-5 h-14 border-b border-black/10 dark:border-white/10">
                 <UnicoreLogo size="sm" />
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => setDark((d) => !d)}
+                    aria-label="Toggle dark mode"
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-black/50 dark:text-white/50 hover:bg-black/5 dark:hover:bg-white/5"
                   >
                     {dark ? <Sun size={16} /> : <Moon size={16} />}
@@ -352,6 +327,7 @@ const LandingHeader = () => {
                   <button
                     type="button"
                     onClick={() => setMenuOpen(false)}
+                    aria-label="Close menu"
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-black/50 dark:text-white/50 hover:bg-black/5 dark:hover:bg-white/5"
                   >
                     <X size={18} />
@@ -359,7 +335,6 @@ const LandingHeader = () => {
                 </div>
               </div>
 
-              {/* Language toggle */}
               <div className="flex items-center gap-2 px-4 pt-4">
                 {languages.map((l) => (
                   <button
@@ -420,14 +395,7 @@ const LandingHeader = () => {
                 <Link
                   to="/signup"
                   onClick={() => setMenuOpen(false)}
-                  className="w-full  rounded-xl text-white text-sm font-bold text-center hover:opacity-90 transition-opacity  px-5 py-3
-                  bg-[#58CC02]
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5
-              hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1
-              active:shadow-none
-              duration-150"
+                  className="w-full rounded-xl text-white text-sm font-bold text-center px-5 py-3 bg-[#2C2DE0] shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150"
                 >
                   {t?.navbar?.signUp || "Sign Up"}
                 </Link>

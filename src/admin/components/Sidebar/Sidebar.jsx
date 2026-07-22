@@ -27,14 +27,14 @@ const SidebarNavItem = ({
   if (hasChildren) {
     return (
       <div className={depth > 0 ? "ml-3" : ""}>
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           type="button"
           onClick={() => toggleMenu(item.id)}
           className={cn(
             "group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200",
             isActive
-              ? "text-green-500"
-              : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/5"
+              ? "text-[#2C2DE0] dark:text-[#4F51FF]"
+              : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white dark:bg-gray-900/5"
           )}
         >
           <Icon size={18} className="shrink-0" />
@@ -56,7 +56,7 @@ const SidebarNavItem = ({
               transition={{ duration: 0.2 }}
               className="overflow-hidden"
             >
-              <div className="mt-1 space-y-0.5 border-l border-green-500/20 ml-5 pl-2">
+              <div className="mt-1 space-y-0.5 border-l border-[#2C2DE0] dark:border-[#4F51FF]/20 ml-5 pl-2">
                 {item.children.map((child) => (
                   <SidebarNavItem
                     key={child.id}
@@ -84,8 +84,8 @@ const SidebarNavItem = ({
           "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200",
           depth > 0 && "py-2 text-xs",
           active
-            ? "bg-green-500/10 text-green-600 dark:text-green-400"
-            : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/5"
+            ? "bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]"
+            : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white dark:bg-gray-900/5"
         )
       }
     >
@@ -94,7 +94,7 @@ const SidebarNavItem = ({
           {active && (
             <motion.span
               layoutId="admin-sidebar-active"
-              className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-green-500"
+              className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-[#2C2DE0] dark:bg-[#1E1FAA]"
             />
           )}
           <Icon size={depth > 0 ? 16 : 18} className="shrink-0" />
@@ -138,7 +138,7 @@ const Sidebar = ({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile }) => 
             <p className="text-sm font-black text-gray-900 dark:text-white truncate">
               {ap.brand}
             </p>
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-green-500">
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-[#2C2DE0] dark:text-[#4F51FF]">
               {ap.roleLabel}
             </p>
           </div>
@@ -146,7 +146,7 @@ const Sidebar = ({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile }) => 
         <button
           type="button"
           onClick={onToggleCollapse}
-          className="hidden lg:flex rounded-lg p-2 text-gray-400 hover:bg-white/60 dark:hover:bg-white/10 hover:text-gray-900 dark:hover:text-white transition-colors"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           aria-label={collapsed ? ap.sidebar.expand : ap.sidebar.collapse}
         >
           {collapsed ? <PanelLeft size={18} /> : <PanelLeftClose size={18} />}
@@ -157,7 +157,7 @@ const Sidebar = ({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile }) => 
         {SIDEBAR_SECTIONS.map((section) => (
           <div key={section.id}>
             {!collapsed && (
-              <p className="mb-2 px-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+              <p className="mb-2 px-3 text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400">
                 {resolveSidebarLabel(sidebarT, section.sectionKey)}
               </p>
             )}

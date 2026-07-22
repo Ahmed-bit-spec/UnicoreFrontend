@@ -8,7 +8,7 @@ import PageHeader from "@/admin/components/PageHeader";
 import { KpiCard, Section, ChartTooltip, RankList } from "./Analyticscomponents";
 import { useAnalyticsStudents } from "@/hooks/useAnalytics";
 
-const VERIFY_COLORS = ["#22c55e", "#f97316", "#9ca3af"];
+const VERIFY_COLORS = ["#2C2DE0", "#f97316", "#9ca3af"];
 
 const StudentsPage = () => {
     const { data, isLoading } = useAnalyticsStudents();
@@ -20,7 +20,7 @@ const StudentsPage = () => {
 
             <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <KpiCard icon={Users} label="Total Students" value={v.total} color="bg-blue-500" />
-                <KpiCard icon={ShieldCheck} label="Verified" value={v.verified} color="bg-green-500" sub={`${v.verifiedPct ?? 0}% of total`} />
+                <KpiCard icon={ShieldCheck} label="Verified" value={v.verified} color="bg-[#2C2DE0] dark:bg-[#1E1FAA]" sub={`${v.verifiedPct ?? 0}% of total`} />
                 <KpiCard icon={Users} label="Unverified" value={v.unverified} color="bg-orange-500" />
                 <KpiCard icon={AlertTriangle} label="Pending Verification" value={v.pending} color="bg-yellow-500" />
             </div>
@@ -33,7 +33,7 @@ const StudentsPage = () => {
 
                 {/* Top by check-ins */}
                 <Section title="Most Active — Check-ins">
-                    <RankList items={data?.topByCheckIns ?? []} nameKey="fullName" valueKey="count" badgeColor="bg-green-500" />
+                    <RankList items={data?.topByCheckIns ?? []} nameKey="fullName" valueKey="count" badgeColor="bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
                 </Section>
 
                 {/* Top by borrowing */}
@@ -66,7 +66,7 @@ const StudentsPage = () => {
                         </ResponsiveContainer>
                         <div className="space-y-3">
                             {[
-                                { label: "Verified", value: v.verified, color: "#22c55e" },
+                                { label: "Verified", value: v.verified, color: "#2C2DE0" },
                                 { label: "Unverified", value: v.unverified, color: "#f97316" },
                                 { label: "Pending", value: v.pending, color: "#9ca3af" },
                             ].map(item => (

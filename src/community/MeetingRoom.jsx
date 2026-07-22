@@ -149,7 +149,7 @@ function SettingsModal({ open, onClose, meeting, isHost, onToggleLock, onToggleS
           <h2 className="text-white font-black text-sm flex items-center gap-2">
             <Settings size={15} className="text-[#58CC02]" /> Settings
           </h2>
-          <button onClick={onClose} className="p-1 rounded-lg hover:bg-white/10 text-white/50 hover:text-white transition-colors">
+          <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <X size={15} />
           </button>
         </div>
@@ -162,7 +162,7 @@ function SettingsModal({ open, onClose, meeting, isHost, onToggleLock, onToggleS
           ].map(({ label, items, placeholder }) => (
             <div key={label}>
               <label className="text-white/50 text-[10px] font-black uppercase tracking-widest mb-1.5 block">{label}</label>
-              <select className="w-full px-3 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white text-xs focus:outline-none focus:border-[#58CC02]">
+              <select className="w-full px-3 py-2.5 rounded-xl bg-white dark:bg-gray-900/5 border border-white/10 text-white text-xs focus:outline-none focus:border-[#58CC02]">
                 <option value="">{placeholder}</option>
                 {items.map((d) => (
                   <option key={d.deviceId} value={d.deviceId}>
@@ -183,11 +183,11 @@ function SettingsModal({ open, onClose, meeting, isHost, onToggleLock, onToggleS
                 <p className="text-white text-xs font-semibold">{label}</p>
                 <p className="text-white/40 text-[10px]">{sub}</p>
               </div>
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => set(!val)}
-                className={`relative w-10 h-5 rounded-full transition-all ${val ? "bg-[#58CC02]" : "bg-white/20"}`}
+                className={`relative w-10 h-5 rounded-full transition-all ${val ? "bg-[#58CC02]" : "bg-white dark:bg-gray-900/20"}`}
               >
-                <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white shadow transition-all ${val ? "left-5" : "left-0.5"}`} />
+                <span className={`absolute top-0.5 w-4 h-4 rounded-full bg-white dark:bg-gray-900 shadow transition-all ${val ? "left-5" : "left-0.5"}`} />
               </button>
             </div>
           ))}
@@ -196,9 +196,9 @@ function SettingsModal({ open, onClose, meeting, isHost, onToggleLock, onToggleS
           {isHost && (
             <div className="pt-3 border-t border-white/10 space-y-2">
               <p className="text-white/40 text-[10px] font-black uppercase tracking-widest">Host Controls</p>
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => { onToggleLock(); onClose(); }}
-                className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-semibold transition-colors"
+                className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl bg-white dark:bg-gray-900/5 hover:bg-white dark:bg-gray-900/10 border border-white/10 text-white text-xs font-semibold transition-colors"
               >
                 {meeting?.isLocked
                   ? <Unlock size={13} className="text-[#58CC02]" />
@@ -213,7 +213,7 @@ function SettingsModal({ open, onClose, meeting, isHost, onToggleLock, onToggleS
         <div className="p-5 border-t border-white/10">
           <button
             onClick={onClose}
-            className="w-full py-2.5 rounded-xl bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             Done
           </button>
@@ -238,7 +238,7 @@ function FilesModal({ open, onClose, isHost, userName, meetingCode, sharedFiles,
           <h2 className="text-white font-black text-sm flex items-center gap-2">
             <Paperclip size={15} className="text-[#58CC02]" /> Shared Files
           </h2>
-          <button onClick={onClose} className="p-1 rounded-lg hover:bg-white/10 text-white/50 hover:text-white transition-colors">
+          <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <X size={15} />
           </button>
         </div>
@@ -412,7 +412,7 @@ function SummaryScreen({ meeting, participants, duration, onReturn, attendanceLo
             <div className="flex justify-end pt-1">
               <button
                 onClick={exportMyAttendance}
-                className="px-3 py-1.5 rounded-xl border border-black/10 dark:border-white/10 text-xs font-bold hover:bg-black/5 dark:hover:bg-white/5 flex items-center gap-1.5 transition-colors"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 <Download size={11} /> Export My Attendance (.txt)
               </button>
@@ -442,10 +442,10 @@ function SummaryScreen({ meeting, participants, duration, onReturn, attendanceLo
                 <span className="text-xs font-normal text-black/40 dark:text-white/40">(sorted by University ID)</span>
               </h2>
               <div className="flex gap-2">
-                <button onClick={exportCSV} className="px-3 py-1.5 rounded-xl border border-black/10 dark:border-white/10 text-xs font-bold hover:bg-black/5 dark:hover:bg-white/5 flex items-center gap-1.5 transition-colors">
+                <button onClick={exportCSV} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                   <Download size={11} /> CSV
                 </button>
-                <button onClick={exportText} className="px-3 py-1.5 rounded-xl border border-black/10 dark:border-white/10 text-xs font-bold hover:bg-black/5 dark:hover:bg-white/5 flex items-center gap-1.5 transition-colors">
+                <button onClick={exportText} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                   <Download size={11} /> TXT
                 </button>
               </div>
@@ -472,7 +472,7 @@ function SummaryScreen({ meeting, participants, duration, onReturn, attendanceLo
                     </thead>
                     <tbody className="divide-y divide-black/5 dark:divide-white/5">
                       {sorted.map((p, i) => (
-                        <tr key={i} className="hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                        <tr key={i} className="hover:bg-black/5 dark:hover:bg-white dark:bg-gray-900/5 transition-colors">
                           <td className="px-4 py-3 font-mono font-bold text-[#58CC02]">{p.universityId || "—"}</td>
                           <td className="px-4 py-3 font-semibold">{p.name}</td>
                           <td className="px-4 py-3 capitalize text-black/50 dark:text-white/50">{p.role}</td>
@@ -500,7 +500,7 @@ function SummaryScreen({ meeting, participants, duration, onReturn, attendanceLo
                 {notes && (
                   <button
                     onClick={exportNotes}
-                    className="px-2.5 py-1 rounded-lg bg-[#58CC02]/10 text-[#58CC02] text-[10px] font-bold flex items-center gap-1 hover:bg-[#58CC02]/20 transition-all"
+                    className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   >
                     <Download size={10} /> Save .md
                   </button>
@@ -526,13 +526,13 @@ function SummaryScreen({ meeting, participants, duration, onReturn, attendanceLo
                   </div>
                 ) : (
                   files.map((f) => (
-                    <div key={f.id} className="flex items-center justify-between p-3 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 rounded-xl hover:bg-black/8 dark:hover:bg-white/8 transition-all group">
+                    <div key={f.id} className="flex items-center justify-between p-3 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 rounded-xl hover:bg-black/8 dark:hover:bg-white dark:bg-gray-900/8 transition-all group">
                       <div className="min-w-0 flex-1 pr-2">
                         <p className="text-xs font-bold truncate">{f.name}</p>
                         <p className="text-[9px] text-black/40 dark:text-white/40 mt-0.5">By {f.uploader}</p>
                       </div>
                       {f.blobUrl && (
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           onClick={() => {
                             const a = document.createElement("a");
                             a.href = f.blobUrl;
@@ -556,7 +556,7 @@ function SummaryScreen({ meeting, participants, duration, onReturn, attendanceLo
         <div className="max-w-xs mx-auto pt-2">
           <button
             onClick={onReturn}
-            className="w-full py-3 rounded-2xl bg-[#58CC02] text-white font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all text-sm"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {isHost ? "Back to Meetings" : "Return to Meetings"}
           </button>
@@ -997,7 +997,7 @@ export default function MeetingRoom() {
             </h1>
             <div className="flex items-center gap-2 mt-0.5">
               <span className="text-gray-500 dark:text-white/40 text-[10px] font-mono">{meeting?.meetingCode}</span>
-              <button onClick={copyLink} className="text-gray-400 dark:text-white/30 hover:text-[#58CC02] transition-colors" title="Copy Invite Link">
+              <button onClick={copyLink} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" title="Copy Invite Link">
                 <Copy size={10} />
               </button>
               {meeting?.course && (
@@ -1035,7 +1035,7 @@ export default function MeetingRoom() {
           {isHost && !meeting?.isActive && (
             <button
               onClick={handleStartMeeting}
-              className="px-3 py-1.5 rounded-xl bg-[#58CC02] text-white text-xs font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               Start Meeting
             </button>
@@ -1062,7 +1062,7 @@ export default function MeetingRoom() {
             <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-black/95 border border-[#58CC02]/30 px-4 py-2 rounded-2xl shadow-xl">
               <Monitor size={14} className="text-[#58CC02]" />
               <span className="text-white text-xs font-semibold">You are presenting to everyone</span>
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => setPinned("local_screen")}
                 className="text-xs text-[#58CC02] hover:text-[#64d404] font-bold px-2 py-0.5 rounded hover:bg-[#58CC02]/10 transition-colors"
               >
@@ -1070,7 +1070,7 @@ export default function MeetingRoom() {
               </button>
               <button
                 onClick={webrtc.toggleScreenShare}
-                className="text-xs text-red-400 hover:text-red-300 font-bold px-2 py-0.5 rounded hover:bg-red-500/10 transition-colors"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 Stop Sharing
               </button>
@@ -1081,7 +1081,7 @@ export default function MeetingRoom() {
             <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-black/95 border border-[#58CC02]/30 px-4 py-2 rounded-2xl shadow-xl">
               <Monitor size={14} className="text-[#58CC02]" />
               <span className="text-white text-xs font-semibold">Viewing your own presentation</span>
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => setPinned(null)}
                 className="text-xs text-[#58CC02] hover:text-[#64d404] font-bold px-2 py-0.5 rounded hover:bg-[#58CC02]/10 transition-colors"
               >
@@ -1089,7 +1089,7 @@ export default function MeetingRoom() {
               </button>
               <button
                 onClick={webrtc.toggleScreenShare}
-                className="text-xs text-red-400 hover:text-red-300 font-bold px-2 py-0.5 rounded hover:bg-red-500/10 transition-colors"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 Stop Sharing
               </button>
@@ -1106,13 +1106,13 @@ export default function MeetingRoom() {
               </span>
               <button
                 onClick={handleAcceptScreenShareRequest}
-                className="text-xs text-[#58CC02] hover:text-[#64d404] font-bold px-2.5 py-1 rounded-lg hover:bg-[#58CC02]/10 transition-colors shrink-0"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 {webrtc.isScreenSharing ? "Stop & Accept" : "Accept"}
               </button>
               <button
                 onClick={handleDenyScreenShareRequest}
-                className="text-xs text-red-400 hover:text-red-300 font-bold px-2.5 py-1 rounded-lg hover:bg-red-500/10 transition-colors shrink-0"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 Deny
               </button>
@@ -1126,7 +1126,7 @@ export default function MeetingRoom() {
               <span className="text-white text-xs font-semibold">Waiting for the host to approve your screen share…</span>
               <button
                 onClick={webrtc.cancelScreenShareRequest}
-                className="text-xs text-white/50 hover:text-white font-bold px-2.5 py-1 rounded-lg hover:bg-white/10 transition-colors shrink-0"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 Cancel
               </button>
@@ -1166,7 +1166,7 @@ export default function MeetingRoom() {
                 />
 
                 {/* "Who's here" badge — overlays the screen, top-right. Tap to open People tab. */}
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => {
                     setActiveTab("participants");
                     setSidebarOpen(true);
@@ -1204,7 +1204,7 @@ export default function MeetingRoom() {
               </div>
 
               {/* Divider so the strip reads as a distinct row, not an extension of the screen */}
-              <div className="h-px w-full bg-gray-200 dark:bg-white/10 shrink-0" />
+              <div className="h-px w-full bg-gray-200 dark:bg-white dark:bg-gray-900/10 shrink-0" />
 
               {/* Camera strip — every participant, always visible to everyone while a
         screen is being shared, independent of who is presenting */}
@@ -1312,7 +1312,7 @@ export default function MeetingRoom() {
               {/* Tab bar headers */}
               <div className="flex border-b border-gray-200 dark:border-white/10 shrink-0 overflow-x-auto">
                 {TABS.map(({ id, icon: Icon, label }) => (
-                  <button
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     key={id}
                     onClick={() => {
                       setActiveTab(id);
@@ -1326,7 +1326,7 @@ export default function MeetingRoom() {
                       transition-colors shrink-0 min-w-[44px]
                       ${activeTab === id
                         ? "text-[#58CC02] border-b-2 border-[#58CC02] bg-[#58CC02]/5"
-                        : "text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
+                        : "text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white dark:bg-gray-900/5"
                       }
                     `}
                   >
@@ -1372,7 +1372,7 @@ export default function MeetingRoom() {
       <footer className="shrink-0 flex items-center justify-between gap-3 px-5 py-3.5 bg-white dark:bg-black border-t border-gray-200 dark:border-white/10 z-30 flex-wrap">
         {/* Left: Sidebar toggle controls */}
         <div className="flex items-center gap-2.5">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => setSidebarOpen((o) => !o)}
             title={sidebarOpen ? "Hide panel" : "Show panel"}
             className="p-2.5 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-black dark:text-white border border-gray-200 dark:border-white/10 transition-colors"
@@ -1390,7 +1390,7 @@ export default function MeetingRoom() {
         {/* Center: Audio, Video, Screen Share, Hand, Chat, People, Files, Settings */}
         {/* Center: one merged control pill + end call kept separate */}
         <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
-          <div className="flex items-center gap-6 rounded-lg bg-black/5 dark:bg-white/5 px-5 py-3">
+          <div className="flex items-center gap-6 rounded-lg bg-black/5 dark:bg-white dark:bg-gray-900/5 px-5 py-3">
             <CtrlBtn
               id="btn-mic"
               onClick={webrtc.toggleMute}
@@ -1484,7 +1484,7 @@ export default function MeetingRoom() {
 
         {/* Right: AI + Whiteboard shortcuts */}
         <div className="flex items-center gap-2.5">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => { setActiveTab("ai"); setSidebarOpen(true); }}
             title="AI Co-pilot"
             className={`p-2 rounded-xl border transition-colors text-sm font-bold leading-none w-9 h-9 flex items-center justify-center
@@ -1495,7 +1495,7 @@ export default function MeetingRoom() {
           >
             AI
           </button>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => { setActiveTab("whiteboard"); setSidebarOpen(true); }}
             title="Whiteboard"
             className={`p-2 rounded-xl border transition-colors w-9 h-9 flex items-center justify-center

@@ -57,7 +57,7 @@ export function Toolbar() {
   };
 
   return (
-    <div className="flex items-center justify-between px-3 py-1.5 bg-white border-b border-zinc-200 shrink-0">
+    <div className="flex items-center justify-between px-3 py-1.5 bg-white dark:bg-gray-900 border-b border-zinc-200 shrink-0">
       {/* Left: Home + Design name + Canvas size */}
       <div className="flex items-center gap-3">
 
@@ -86,7 +86,7 @@ export function Toolbar() {
 
         <div className="relative">
           <button
-            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium text-zinc-400 bg-zinc-100 border border-zinc-300 cursor-pointer hover:text-zinc-900 hover:border-zinc-500 transition-all"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => setShowSizeDropdown(!showSizeDropdown)}
           >
             {sizeLabel}
@@ -95,15 +95,11 @@ export function Toolbar() {
           {showSizeDropdown && (
             <>
               <div className="fixed inset-0 z-10" onClick={() => setShowSizeDropdown(false)} />
-              <div className="absolute top-full left-0 mt-1 bg-white border border-zinc-300 rounded-lg shadow-xl z-20 min-w-[200px] py-1">
+              <div className="absolute top-full left-0 mt-1 bg-white dark:bg-gray-900 border border-zinc-300 rounded-lg shadow-xl z-20 min-w-[200px] py-1">
                 {CANVAS_SIZES.map((s) => (
                   <button
                     key={s.label}
-                    className={`w-full text-left px-3 py-1.5 text-xs cursor-pointer border-none transition-colors ${
-                      s.width === canvasWidth && s.height === canvasHeight
-                        ? "bg-accent/20 text-accent"
-                        : "text-zinc-600 bg-transparent hover:bg-zinc-100"
-                    }`}
+                    className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                     onClick={() => {
                       setCanvasSize(s.width, s.height);
                       setShowSizeDropdown(false);
@@ -124,7 +120,7 @@ export function Toolbar() {
       {/* Center: Undo / Redo */}
       <div className="flex items-center gap-1">
         <button
-          className="p-1.5 rounded-md text-zinc-400 bg-transparent border-none cursor-pointer transition-all hover:bg-zinc-100 hover:text-zinc-900 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={undo}
           disabled={!canUndo}
           title="Undo (Cmd+Z)"
@@ -132,7 +128,7 @@ export function Toolbar() {
           <Undo2 size={16} />
         </button>
         <button
-          className="p-1.5 rounded-md text-zinc-400 bg-transparent border-none cursor-pointer transition-all hover:bg-zinc-100 hover:text-zinc-900 disabled:opacity-30 disabled:cursor-not-allowed"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={redo}
           disabled={!canRedo}
           title="Redo (Cmd+Shift+Z)"
@@ -144,7 +140,7 @@ export function Toolbar() {
       {/* Right: Zoom + Export + Save */}
       <div className="flex items-center gap-1.5">
         <button
-          className="p-1.5 rounded-md text-zinc-400 bg-transparent border-none cursor-pointer transition-all hover:bg-zinc-100 hover:text-zinc-900"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={zoomOut}
           title="Zoom out"
         >
@@ -154,14 +150,14 @@ export function Toolbar() {
           {Math.round((zoom / (fitScale || 1)) * 100)}%
         </span>
         <button
-          className="p-1.5 rounded-md text-zinc-400 bg-transparent border-none cursor-pointer transition-all hover:bg-zinc-100 hover:text-zinc-900"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={zoomIn}
           title="Zoom in"
         >
           <ZoomIn size={15} />
         </button>
         <button
-          className="p-1.5 rounded-md text-zinc-400 bg-transparent border-none cursor-pointer transition-all hover:bg-zinc-100 hover:text-zinc-900"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={zoomToFit}
           title="Fit to screen"
         >
@@ -171,7 +167,7 @@ export function Toolbar() {
         <div className="w-px h-5 bg-zinc-300 mx-1" />
 
         <button
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border-none cursor-pointer bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={exportPNG}
           title="Export as PNG"
         >
@@ -179,7 +175,7 @@ export function Toolbar() {
           Export
         </button>
         <button
-          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border-none cursor-pointer bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150 disabled:opacity-50"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={saveDesign}
           disabled={saving || !activeDesign}
         >

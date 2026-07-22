@@ -13,11 +13,11 @@ const QUICK_ACTIONS = [
 
 function TypingDots() {
   return (
-    <div className="flex items-center gap-1 px-3 py-2 bg-white/15 rounded-2xl rounded-bl-sm w-fit">
+    <div className="flex items-center gap-1 px-3 py-2 bg-white dark:bg-gray-900/15 rounded-2xl rounded-bl-sm w-fit">
       {[0, 1, 2].map((i) => (
         <span
           key={i}
-          className="w-1.5 h-1.5 bg-white/80 rounded-full animate-bounce"
+          className="w-1.5 h-1.5 bg-white dark:bg-gray-900/80 rounded-full animate-bounce"
           style={{ animationDelay: `${i * 0.15}s` }}
         />
       ))}
@@ -114,7 +114,7 @@ Be concise, friendly, and academically accurate. Format responses with markdown 
             <p className="text-white text-xs font-bold">Unicore Ai</p>
           </div>
         </div>
-        <button onClick={clearChat} title="Clear chat" className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+        <button onClick={clearChat} title="Clear chat" className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
           <RefreshCw size={12} />
         </button>
       </div>
@@ -124,7 +124,7 @@ Be concise, friendly, and academically accurate. Format responses with markdown 
         <p className="text-[9px] font-black text-white/40 uppercase tracking-widest mb-1.5 px-1">Quick actions</p>
         <div className="grid grid-cols-1 gap-1">
           {QUICK_ACTIONS.map((a) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={a.id}
               onClick={() => sendMessage(a.prompt)}
               disabled={loading}
@@ -159,9 +159,9 @@ Be concise, friendly, and academically accurate. Format responses with markdown 
           onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && sendMessage()}
           placeholder="Ask anything about this class…"
           disabled={loading}
-          className="flex-1 px-3 py-2 rounded-xl bg-white/10 border border-white/20 text-white text-xs placeholder:text-white/40 focus:outline-none focus:ring-1 focus:ring-[#58CC02] disabled:opacity-50"
+          className="flex-1 px-3 py-2 rounded-xl bg-white dark:bg-gray-900/10 border border-white/20 text-white text-xs placeholder:text-white/40 focus:outline-none focus:ring-1 focus:ring-[#58CC02] disabled:opacity-50"
         />
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => sendMessage()}
           disabled={loading || !input.trim()}
           className="px-3 py-2 rounded-xl bg-[#58CC02] text-black font-bold disabled:opacity-40 hover:bg-[#64d404] transition-colors shadow-lg"

@@ -10,7 +10,7 @@ export default function PublishButton({ isPublished, isGraded, loading, onPublis
 
   if (isPublished) {
     return (
-      <span className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-green-700 dark:text-green-400 bg-green-100 dark:bg-green-500/10 rounded-lg">
+      <span className="flex items-center gap-2 px-3 py-1.5 text-xs font-bold text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] bg-[#2C2DE0] dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 rounded-lg">
         ✓ Published
       </span>
     );
@@ -18,11 +18,11 @@ export default function PublishButton({ isPublished, isGraded, loading, onPublis
 
   if (!confirming) {
     return (
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => setConfirming(true)}
         disabled={!isGraded || loading}
         title={!isGraded ? "Finalize grading first" : "Publish result to student"}
-        className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors disabled:opacity-40"
+        className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium bg-[#1E1FAA] dark:bg-[#0F0F55] hover:bg-[#2C2DE0] text-white rounded-lg transition-colors disabled:opacity-40"
       >
         <Send className="w-3.5 h-3.5" />
         Publish
@@ -33,16 +33,16 @@ export default function PublishButton({ isPublished, isGraded, loading, onPublis
   return (
     <div className="flex items-center gap-2">
       <span className="text-xs text-gray-600 dark:text-gray-400 hidden sm:block">Publish result?</span>
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => setConfirming(false)}
         className="px-2.5 py-1.5 text-xs font-medium text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-zinc-700 rounded-lg hover:bg-gray-50 dark:hover:bg-zinc-800"
       >
         Cancel
       </button>
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => { setConfirming(false); onPublish(); }}
         disabled={loading}
-        className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors disabled:opacity-50"
+        className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-[#1E1FAA] dark:bg-[#0F0F55] hover:bg-[#2C2DE0] text-white rounded-lg transition-colors disabled:opacity-50"
       >
         {loading ? <Loader2 className="w-3 h-3 animate-spin" /> : <Send className="w-3 h-3" />}
         Confirm

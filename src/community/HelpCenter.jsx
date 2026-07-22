@@ -197,7 +197,7 @@ const FaqRow = ({ q, a, open, onToggle }) => (
   <div className="border-b border-gray-100 dark:border-gray-800 last:border-0">
     <button
       onClick={onToggle}
-      className="w-full flex items-center justify-between gap-4 py-3.5 text-left"
+      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
     >
       <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">{q}</span>
       <ChevronDown
@@ -252,7 +252,7 @@ const HelpCenter = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search help articles…"
-            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-3 pl-10 pr-4"
+            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#4F51FF] dark:focus:border-[#2C2DE0] dark:border-[#4F51FF] transition-all py-3 pl-10 pr-4"
           />
         </div>
       </div>

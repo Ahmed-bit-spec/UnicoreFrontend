@@ -46,11 +46,11 @@ const NotFound = () => {
         <motion.div
           animate={{ y: [0, -12, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="w-24 h-24 rounded-3xl bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-900/30 flex items-center justify-center text-green-500 mx-auto shadow-sm"
+          className="w-24 h-24 rounded-3xl bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/30 flex items-center justify-center text-[#2C2DE0] dark:text-[#4F51FF] mx-auto shadow-sm"
         >
           <HelpCircle size={44} strokeWidth={1.5} />
         </motion.div>
-        <div className="absolute inset-0 bg-green-500/10 dark:bg-green-500/5 blur-xl -z-10 rounded-full" />
+        <div className="absolute inset-0 bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/5 blur-xl -z-10 rounded-full" />
       </motion.div>
 
       <motion.h1
@@ -66,7 +66,7 @@ const NotFound = () => {
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, delay: 0.3 }}
-        className="inline-block mt-3 px-4 py-1 bg-green-500/10 text-green-500 border border-green-500/20 rounded-full text-xs font-bold uppercase tracking-widest"
+        className="inline-block mt-3 px-4 py-1 bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#2C2DE0] dark:text-[#4F51FF] border border-[#2C2DE0] dark:border-[#4F51FF]/20 rounded-full text-xs font-bold uppercase tracking-widest"
       >
         {errorTitle}
       </motion.div>
@@ -88,16 +88,16 @@ const NotFound = () => {
       >
         <Link
           to={homePath}
-          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-sm shadow-green-200 dark:shadow-none text-sm"
+          className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55] text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-sm shadow-[#2C2DE0] dark:shadow-none text-sm"
         >
           <Home size={16} />
           {isLoggedIn ? backHomeBtn : backHomeGuest}
         </Link>
 
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           type="button"
           onClick={() => window.history.back()}
-          className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors px-6 py-3.5 
+          className="w-full sm:w-auto flex items-center justify-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] transition-colors px-6 py-3.5 
            bg-[#58CC02] text-white text-sm font-bold
                               shadow-[0_4px_0_#46A302]
                               hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]

@@ -58,7 +58,7 @@ const minsToTime = (mins) => {
 };
 
 // ── Seat icon ─────────────────────────────────────────────────────────────────
-const SeatIconSVG = ({ color = "#22c55e", size = 28 }) => (
+const SeatIconSVG = ({ color = "#2C2DE0", size = 28 }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect x="6" y="4" width="20" height="13" rx="4" fill={color} opacity="0.15" />
     <rect x="6" y="4" width="20" height="13" rx="4" stroke={color} strokeWidth="1.8" />
@@ -76,19 +76,19 @@ const Pagination = ({ page, totalPages, onChange }) => {
   if (totalPages <= 1) return null;
   return (
     <div className="flex items-center justify-center gap-1 mt-6">
-      <button onClick={() => onChange(page - 1)} disabled={page === 1}
-        className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all">
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => onChange(page - 1)} disabled={page === 1}
+        className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] dark:text-[#4F51FF] hover:bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all">
         <ChevronLeft size={15} />
       </button>
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-        <button key={p} onClick={() => onChange(p)}
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" key={p} onClick={() => onChange(p)}
           className={`w-8 h-8 rounded-xl text-xs font-bold transition-all ${p === page
-            ? "bg-green-500 text-white shadow-sm shadow-green-200 dark:shadow-none"
+            ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white shadow-sm shadow-[#2C2DE0] dark:shadow-none"
             : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900"
             }`}>{p}</button>
       ))}
-      <button onClick={() => onChange(page + 1)} disabled={page === totalPages}
-        className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all">
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => onChange(page + 1)} disabled={page === totalPages}
+        className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] dark:text-[#4F51FF] hover:bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all">
         <ChevronRight size={15} />
       </button>
     </div>
@@ -105,7 +105,7 @@ const SeatCard = ({ seat, isFullyBooked, lockedUnverified, lockedGirlsOnly, onSe
   const isReservedNow = Boolean(activeSlot) || seat.isReserved === true;
   const isTaken = isReservedNow || isFullyBooked;
   const disabled = isTaken || isFullyBooked || lockedUnverified || lockedGirlsOnly;
-  const accentColor = isTaken ? "#d1d5db" : isGirlsOnly ? "#ec4899" : "#22c55e";
+  const accentColor = isTaken ? "#d1d5db" : isGirlsOnly ? "#ec4899" : "#2C2DE0";
 
   // ──── DEBUG: Log seat status on first render and when now changes ────────
   React.useEffect(() => {
@@ -138,7 +138,7 @@ const SeatCard = ({ seat, isFullyBooked, lockedUnverified, lockedGirlsOnly, onSe
     ? "bg-red-400"
     : lockedUnverified || lockedGirlsOnly ? "bg-gray-300 dark:bg-gray-600"
       : isGirlsOnly ? "bg-pink-400"
-        : "bg-green-400";
+        : "bg-[#4F51FF]";
 
   const ctaLabel = disabled
     ? t.notAvailable
@@ -156,7 +156,7 @@ const SeatCard = ({ seat, isFullyBooked, lockedUnverified, lockedGirlsOnly, onSe
           ? "opacity-50 cursor-not-allowed bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800"
           : isGirlsOnly
             ? "cursor-pointer bg-white dark:bg-gray-950 border border-pink-100 dark:border-pink-900/40 hover:border-pink-300 dark:hover:border-pink-600 hover:-translate-y-1 hover:shadow-xl hover:shadow-pink-100/60 dark:hover:shadow-pink-900/20"
-            : "cursor-pointer bg-white dark:bg-gray-950 border border-green-100 dark:border-green-900/40 hover:border-green-300 dark:hover:border-green-700 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-100/60 dark:hover:shadow-green-900/20"
+            : "cursor-pointer bg-white dark:bg-gray-950 border border-[#2C2DE0] dark:border-[#2C2DE0]/40 hover:border-[#4F51FF] dark:border-blue-400 dark:hover:border-[#2C2DE0] hover:-translate-y-1 hover:shadow-xl hover:shadow-[#2C2DE0]/60 dark:hover:shadow-[#2C2DE0]/20"
         }
       `}
     >
@@ -174,7 +174,7 @@ const SeatCard = ({ seat, isFullyBooked, lockedUnverified, lockedGirlsOnly, onSe
           w-14 h-14 rounded-2xl flex items-center justify-center mb-3 transition-all duration-200
           ${disabled ? "bg-gray-100 dark:bg-gray-900"
             : isGirlsOnly ? "bg-pink-50 dark:bg-pink-500/10 group-hover:bg-pink-100 dark:group-hover:bg-pink-500/15"
-              : "bg-green-50 dark:bg-green-500/10 group-hover:bg-green-100 dark:group-hover:bg-green-500/15"}
+              : "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 group-hover:bg-[#2C2DE0] dark:group-hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/15"}
         `}>
           <SeatIconSVG color={accentColor} size={28} />
         </div>
@@ -187,22 +187,14 @@ const SeatCard = ({ seat, isFullyBooked, lockedUnverified, lockedGirlsOnly, onSe
           <span className={`text-[10px] font-bold uppercase tracking-wider ${isTaken ? "text-red-400"
             : lockedUnverified || lockedGirlsOnly ? "text-gray-400"
               : isGirlsOnly ? "text-pink-500"
-                : "text-green-500"
+                : "text-[#2C2DE0] dark:text-[#4F51FF]"
             }`}>{statusLabel}</span>
         </div>
 
         {/* ── Duolingo-style reserve button ── */}
         <button
           disabled={disabled}
-          className={`
-            mt-4 w-full py-2 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-150
-            ${disabled
-              ? "bg-gray-100 dark:bg-gray-800/60 text-gray-400 cursor-not-allowed"
-              : isGirlsOnly
-                ? "bg-pink-500 hover:bg-pink-600 active:scale-95 text-white shadow-sm shadow-pink-200 dark:shadow-none"
-                : "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
-            }
-          `}
+          className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
         >
           {ctaLabel}
         </button>
@@ -290,7 +282,7 @@ const ReservedTable = ({ reservations, isLoading, lang, t, common }) => {
                             {fmt(r.startTime, lang)} – {fmt(r.endTime, lang)}
                           </span>
                           <span className={`text-[9px] font-black uppercase tracking-wide px-1.5 py-0.5 rounded-full ${r.status === "active"
-                            ? "bg-green-50 dark:bg-green-500/10 text-green-500"
+                            ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#2C2DE0] dark:text-[#4F51FF]"
                             : "bg-amber-50 dark:bg-amber-500/10 text-amber-500"
                             }`}>{r.status}</span>
                         </div>
@@ -302,7 +294,7 @@ const ReservedTable = ({ reservations, isLoading, lang, t, common }) => {
                       ? <span className="text-[11px] font-black uppercase tracking-wide text-red-400">{t.fullyBooked}</span>
                       : <div className="flex flex-col gap-1">
                         {freeSlots.map((slot, i) => (
-                          <span key={i} className="text-[11px] font-bold text-green-600 dark:text-green-400 whitespace-nowrap">
+                          <span key={i} className="text-[11px] font-bold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] whitespace-nowrap">
                             {minsToTime(slot.from)} – {minsToTime(slot.to)}
                           </span>
                         ))}
@@ -324,7 +316,7 @@ const ReservedTable = ({ reservations, isLoading, lang, t, common }) => {
 const StatCard = ({ label, value, isLoading, variant }) => {
   const variants = {
     default: { number: "text-gray-900 dark:text-white", bg: "bg-white dark:bg-gray-950", border: "border-gray-100 dark:border-gray-800", dot: null },
-    available: { number: "text-green-500", bg: "bg-green-50/50 dark:bg-green-500/5", border: "border-green-100 dark:border-green-900/40", dot: "bg-green-400" },
+    available: { number: "text-[#2C2DE0] dark:text-[#4F51FF]", bg: "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10/50 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/5", border: "border-[#2C2DE0] dark:border-[#2C2DE0]/40", dot: "bg-[#4F51FF]" },
     reserved: { number: "text-red-400", bg: "bg-red-50/50 dark:bg-red-500/5", border: "border-red-100 dark:border-red-900/30", dot: "bg-red-400" },
   };
   const v = variants[variant] || variants.default;
@@ -447,7 +439,7 @@ const bookingOpen = somaliaHour >= OPEN && somaliaHour < CLOSE;
   if (!showContentSkeleton && !seatMap.length) {
     return (
       <div className="py-20 text-center">
-        <p className="text-gray-500 text-sm font-semibold">{t.noReservedToday}</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm font-semibold">{t.noReservedToday}</p>
       </div>
     );
   }
@@ -493,7 +485,7 @@ const bookingOpen = somaliaHour >= OPEN && somaliaHour < CLOSE;
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
         <div>
           <div className="flex items-center gap-2.5 mb-1">
-            <div className="w-7 h-7 rounded-lg bg-green-500 flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-[#2C2DE0] dark:bg-[#1E1FAA] flex items-center justify-center">
               <SeatIconSVG color="#ffffff" size={16} />
             </div>
             <h2 className="text-xl font-black text-gray-900 dark:text-white tracking-tight">{seatsText.seatMap}</h2>
@@ -505,7 +497,7 @@ const bookingOpen = somaliaHour >= OPEN && somaliaHour < CLOSE;
         <div className="flex items-center gap-2">
           <div className="flex items-center p-1 bg-gray-100 dark:bg-gray-900 rounded-xl gap-0.5">
             {filterOptions.map((f) => (
-              <button key={f.key} onClick={() => handleFilterChange(f.key)}
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" key={f.key} onClick={() => handleFilterChange(f.key)}
                 className={`px-4 py-1.5 rounded-lg text-[11px] font-black uppercase tracking-widest transition-all duration-150 ${filter === f.key
                   ? "bg-white dark:bg-black text-gray-900 dark:text-white shadow-sm"
                   : "text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
@@ -513,7 +505,7 @@ const bookingOpen = somaliaHour >= OPEN && somaliaHour < CLOSE;
             ))}
           </div>
           <button onClick={handleRefetch}
-            className="w-9 h-9 rounded-xl flex items-center justify-center text-gray-400 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 border border-gray-100 dark:border-gray-800 hover:border-green-200 dark:hover:border-green-900/40 transition-all">
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <RefreshCw size={13} className={isFetching ? "animate-spin" : ""} />
           </button>
         </div>

@@ -45,7 +45,7 @@ function MessageBubble({ msg, isOwn, onPin, isPinned }) {
 
         <div className="relative">
           {isCode ? (
-            <pre className="bg-gray-950 border border-white/10 rounded-xl p-3 text-[11px] font-mono text-green-400 max-w-full overflow-x-auto">
+            <pre className="bg-gray-950 border border-white/10 rounded-xl p-3 text-[11px] font-mono text-[#4F51FF] max-w-full overflow-x-auto">
               <code>{content}</code>
             </pre>
           ) : (
@@ -61,11 +61,11 @@ function MessageBubble({ msg, isOwn, onPin, isPinned }) {
           )}
 
           {/* Pin button on hover */}
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => onPin(msg)}
             className={`absolute -top-2 ${isOwn ? "left-0" : "right-0"} opacity-0 group-hover:opacity-100 transition-opacity
               w-5 h-5 rounded-full flex items-center justify-center text-white text-[9px]
-              ${isPinned ? "bg-amber-500" : "bg-gray-200 dark:bg-white/20 hover:bg-gray-300 dark:hover:bg-white/30"}`}
+              ${isPinned ? "bg-amber-500" : "bg-gray-200 dark:bg-white/20 hover:bg-gray-300 dark:hover:bg-white dark:bg-gray-900/30"}`}
             title={isPinned ? "Unpin" : "Pin message"}
           >
             {isPinned ? <PinOff size={9} /> : <Pin size={9} />}
@@ -178,7 +178,7 @@ export function ChatPanel({ meeting, currentUserId }) {
             <span className="text-[9px] font-black text-amber-500 dark:text-amber-400 uppercase tracking-widest block">Pinned</span>
             <p className="text-xs text-gray-700 dark:text-white/80 truncate">{pinned.message}</p>
           </div>
-          <button onClick={() => setPinned(null)} className="text-gray-400 dark:text-white/30 hover:text-gray-600 dark:hover:text-white/60">
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setPinned(null)} className="text-gray-400 dark:text-white/30 hover:text-gray-600 dark:hover:text-white/60">
             <X size={12} />
           </button>
         </div>
@@ -215,7 +215,7 @@ export function ChatPanel({ meeting, currentUserId }) {
         {showEmojis && (
           <div className="flex flex-wrap gap-1 p-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-white/10 shadow-lg animate-in fade-in slide-in-from-bottom-2 duration-150">
             {EMOJIS.map((e) => (
-              <button key={e} onClick={() => addEmoji(e)} className="text-lg hover:scale-125 transition-transform">
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" key={e} onClick={() => addEmoji(e)} className="text-lg hover:scale-125 transition-transform">
                 {e}
               </button>
             ))}
@@ -224,23 +224,23 @@ export function ChatPanel({ meeting, currentUserId }) {
 
         {/* Toolbar row */}
         <div className="flex items-center gap-1">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => setShowSearch(!showSearch)}
-            className={`p-1.5 rounded-lg transition-colors ${showSearch ? "bg-gray-200 dark:bg-white/20 text-gray-800 dark:text-white" : "text-gray-400 dark:text-white/40 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10"}`}
+            className={`p-1.5 rounded-lg transition-colors ${showSearch ? "bg-gray-200 dark:bg-white/20 text-gray-800 dark:text-white" : "text-gray-400 dark:text-white/40 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white dark:bg-gray-900/10"}`}
             title="Search messages"
           >
             <Search size={13} />
           </button>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => setShowEmojis(!showEmojis)}
-            className={`p-1.5 rounded-lg transition-colors ${showEmojis ? "bg-gray-200 dark:bg-white/20 text-gray-800 dark:text-white" : "text-gray-400 dark:text-white/40 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10"}`}
+            className={`p-1.5 rounded-lg transition-colors ${showEmojis ? "bg-gray-200 dark:bg-white/20 text-gray-800 dark:text-white" : "text-gray-400 dark:text-white/40 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white dark:bg-gray-900/10"}`}
             title="Emoji"
           >
             <Smile size={13} />
           </button>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => { setText((t) => (t.startsWith("```") ? t : "```\n" + t)); inputRef.current?.focus(); }}
-            className="p-1.5 rounded-lg text-gray-400 dark:text-white/40 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+            className="p-1.5 rounded-lg text-gray-400 dark:text-white/40 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white dark:bg-gray-900/10 transition-colors"
             title="Insert code block"
           >
             <Code2 size={13} />
@@ -261,7 +261,7 @@ export function ChatPanel({ meeting, currentUserId }) {
           <button
             onClick={handleSend}
             disabled={!text.trim() || sending}
-            className="self-center px-3 py-2 rounded-xl bg-[#58CC02] text-white font-bold disabled:opacity-40 hover:bg-[#46A302] transition-colors shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             <Send size={30} />
           </button>

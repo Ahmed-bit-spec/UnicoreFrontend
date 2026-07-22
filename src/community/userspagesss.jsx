@@ -115,7 +115,7 @@ const UserProfile = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader2 size={22} className="animate-spin text-green-500" />
+        <Loader2 size={22} className="animate-spin text-[#2C2DE0] dark:text-[#4F51FF]" />
       </div>
     );
   }
@@ -128,7 +128,7 @@ const UserProfile = () => {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6" style={{ fontFamily: "'Geist Variable','Inter',sans-serif" }}>
-      <button onClick={() => navigate(-1)} className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-600 mb-4">
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => navigate(-1)} className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-gray-600 dark:text-gray-400 mb-4">
         <ArrowLeft size={16} /> Back
       </button>
 
@@ -136,7 +136,7 @@ const UserProfile = () => {
         <div className="flex justify-center mb-4 relative">
           <Avatar name={profile.name} photo={displayPhoto} size={88} />
           {editing && (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => fileRef.current?.click()}
               className="absolute bottom-0 right-[calc(50%-50px)] w-8 h-8 rounded-xl bg-[#58CC02] text-white flex items-center justify-center shadow"
             >
@@ -201,11 +201,11 @@ const UserProfile = () => {
                 <button
                   onClick={handleSaveEdit}
                   disabled={saving}
-                  className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-[#58CC02] text-white text-sm font-bold"
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   {saving ? <Loader2 size={14} className="animate-spin" /> : <Check size={14} />} Save
                 </button>
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => {
                     setEditing(false);
                     setPhotoFile(null);
@@ -217,7 +217,7 @@ const UserProfile = () => {
                 </button>
               </>
             ) : (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => setEditing(true)}
                 className="px-5 py-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-sm font-bold text-gray-700 dark:text-gray-200"
               >
@@ -227,7 +227,7 @@ const UserProfile = () => {
           ) : (
             <button
               onClick={handleSendMessage}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#58CC02] text-white text-sm font-bold"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <MessageCircle size={16} /> Send message
             </button>
@@ -237,7 +237,7 @@ const UserProfile = () => {
 
       <div className="flex border-b border-gray-100 dark:border-gray-800 mt-6">
         {["posts", "about"].map((k) => (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             key={k}
             onClick={() => setTab(k)}
             className={`flex-1 py-3 text-sm font-bold border-b-2 capitalize ${
@@ -260,7 +260,7 @@ const UserProfile = () => {
           ) : (
             <div className="flex flex-col gap-3">
               {posts.map((p) => (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   key={p._id}
                   onClick={() => navigate(`/community/post/${p._id}`)}
                   className="text-left rounded-xl border border-gray-100 dark:border-gray-800 p-4 hover:bg-gray-50 dark:hover:bg-gray-900"

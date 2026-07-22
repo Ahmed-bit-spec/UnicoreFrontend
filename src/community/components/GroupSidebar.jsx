@@ -37,17 +37,17 @@ const sectionsForRole = (role) => {
 const GroupCard = ({ group }) => (
   <Link
     to={`/community/groups/${group._id}`}
-    className="block p-5 rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-black hover:border-green-500 transition-colors"
+    className="block p-5 rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-black hover:border-[#2C2DE0] dark:border-[#4F51FF] transition-colors"
   >
     <div className="flex items-start gap-4">
-      <div className="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center text-white font-black text-lg flex-shrink-0">
+      <div className="w-12 h-12 rounded-xl bg-[#1E1FAA] dark:bg-[#0F0F55] flex items-center justify-center text-white font-black text-lg flex-shrink-0">
         {group.name.slice(0, 2).toUpperCase()}
       </div>
       <div className="flex-1 min-w-0">
         <h2 className="font-black text-black dark:text-white">{group.name}</h2>
         <div className="flex flex-wrap gap-1.5 mt-1">
           {group.semester && (
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]">
               Semester {group.semester}
             </span>
           )}
@@ -125,7 +125,7 @@ const Groups = () => {
         </h1>
         <nav className="space-y-1">
           {SECTIONS.map(({ key, label, icon: Icon }) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={key}
               type="button"
               onClick={() => {
@@ -136,7 +136,7 @@ const Groups = () => {
               className={`w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-bold transition-colors ${
                 active === key
                   ? "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150"
-                  : "text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5"
+                  : "text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white dark:bg-gray-900/5"
               }`}
             >
               <Icon size={16} />
@@ -153,13 +153,13 @@ const Groups = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search groups..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-green-500"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-[#2C2DE0] dark:border-[#4F51FF]"
           />
         </div>
 
         {loading || searching ? (
           <div className="flex justify-center py-20">
-            <Spinner size={20} className="text-green-600" />
+            <Spinner size={20} className="text-[#1E1FAA] dark:text-[#4F51FF]" />
           </div>
         ) : activeGroups.length === 0 ? (
           <div className="text-center py-24">

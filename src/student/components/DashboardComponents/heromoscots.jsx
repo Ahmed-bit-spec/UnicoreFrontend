@@ -57,7 +57,7 @@ export const GraduateBot = ({
       aria-label={label}
       tabIndex={0}
       {...handlers}
-      className="bg-transparent border-0 p-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 rounded-xl"
+      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
     >
       <svg viewBox="0 0 100 120" width={size} height={size * 1.2} fill="none" style={{ transformOrigin: "50% 100%", ...reaction }}>
         <ellipse cx="50" cy="114" rx="26" ry="5" fill="#14171a" opacity="0.1" />
@@ -98,7 +98,7 @@ export const Sprout = ({ size = 70, event, label = "Sprout, your cheerful compan
       aria-label={label}
       tabIndex={0}
       {...handlers}
-      className="bg-transparent border-0 p-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 rounded-xl"
+      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
     >
       <svg viewBox="0 0 90 100" width={size} height={size * 1.1} fill="none" style={{ transformOrigin: "50% 100%", ...reaction }}>
         <ellipse cx="45" cy="94" rx="22" ry="4.5" fill="#14171a" opacity="0.1" />
@@ -137,7 +137,7 @@ export const SpiritBot = ({ size = 92, event, label = "SpiritBot, your AI study 
       aria-label={label}
       tabIndex={0}
       {...handlers}
-      className="bg-transparent border-0 p-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-white focus-visible:outline-offset-4 rounded-xl"
+      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
     >
       <svg viewBox="0 0 96 110" width={size} height={size * 1.15} fill="none" style={{ transformOrigin: "50% 100%", ...reaction }}>
         <ellipse cx="48" cy="104" rx="20" ry="4" fill="#14171a" opacity="0.08" />

@@ -13,7 +13,7 @@ const CLOSE_HOUR = 17;
 const TOTAL_MINS = (CLOSE_HOUR - OPEN_HOUR) * 60; // 600 mins
 
 const STATUS_COLOR = {
-  active:    { bar: "bg-green-500",  text: "text-green-700 dark:text-green-400",  badge: "green",  label: "active" },
+  active:    { bar: "bg-[#2C2DE0] dark:bg-[#1E1FAA]",  text: "text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]",  badge: "green",  label: "active" },
   pending:   { bar: "bg-blue-500",   text: "text-blue-700 dark:text-blue-400",    badge: "blue",   label: "pending" },
   completed: { bar: "bg-gray-400",   text: "text-gray-600 dark:text-gray-400",    badge: "gray",   label: "completed" },
   cancelled: { bar: "bg-red-300",    text: "text-red-500",                         badge: "red",    label: "cancelled" },
@@ -47,8 +47,8 @@ const SlotDetail = ({ slot, labels, onClose }) => {
   return (
     <div className="rounded-2xl border border-gray-200/70 bg-white/80 p-4 shadow-lg backdrop-blur-sm dark:border-white/10 dark:bg-gray-900/80">
       <div className="mb-3 flex items-center justify-between">
-        <span className="text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500">{labels.slotDetail}</span>
-        <button onClick={onClose} className="text-xs text-gray-400 hover:text-gray-600 dark:hover:text-gray-200">✕</button>
+        <span className="text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500 dark:text-gray-400">{labels.slotDetail}</span>
+        <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">✕</button>
       </div>
       <div className="space-y-3">
         <div className="flex items-center gap-2">
@@ -60,7 +60,7 @@ const SlotDetail = ({ slot, labels, onClose }) => {
           <div>
             <p className="text-[10px] text-gray-400">{labels.student}</p>
             <p className="text-sm font-bold text-gray-900 dark:text-white">{slot.user?.fullName || "—"}</p>
-            <p className="text-[10px] text-gray-500">{slot.user?.studentId || slot.user?.email || ""}</p>
+            <p className="text-[10px] text-gray-500 dark:text-gray-400">{slot.user?.studentId || slot.user?.email || ""}</p>
           </div>
         </div>
         <div className="flex items-start gap-2">
@@ -89,7 +89,7 @@ const TimelineBar = ({ reservations, onSlotClick, selectedId }) => {
   return (
     <div className="relative">
       {/* Hour grid lines */}
-      <div className="relative flex h-16 overflow-hidden rounded-2xl border border-gray-200/70 bg-gray-50 dark:border-white/10 dark:bg-white/[0.03]">
+      <div className="relative flex h-16 overflow-hidden rounded-2xl border border-gray-200/70 bg-gray-50 dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]">
         {/* Free background */}
         <div className="absolute inset-0 flex">
           {HOURS.slice(0, -1).map(({ h }) => (
@@ -110,7 +110,7 @@ const TimelineBar = ({ reservations, onSlotClick, selectedId }) => {
           const isSelected = selectedId === (r._id || r.id);
 
           return (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={r._id || r.id}
               onClick={() => onSlotClick(r)}
               style={{ left: `${left}%`, width: `${width}%` }}
@@ -134,7 +134,7 @@ const TimelineBar = ({ reservations, onSlotClick, selectedId }) => {
         {HOURS.map(({ h, label }) => (
           <div
             key={h}
-            className="flex-1 text-center text-[9px] font-semibold text-gray-400 dark:text-gray-500"
+            className="flex-1 text-center text-[9px] font-semibold text-gray-400 dark:text-gray-500 dark:text-gray-400"
             style={{ marginLeft: h === OPEN_HOUR ? 0 : undefined }}
           >
             {label}
@@ -237,14 +237,14 @@ const SeatTimelinePage = () => {
     <PageTransition>
       {/* Header */}
       <div className="mb-6 flex items-center gap-3">
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => navigate(-1)}
-          className="flex size-9 items-center justify-center rounded-xl border border-gray-200/70 bg-white/60 text-gray-600 hover:bg-gray-100 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-300 dark:hover:bg-white/10 transition-colors"
+          className="flex size-9 items-center justify-center rounded-xl border border-gray-200/70 bg-white/60 text-gray-600 hover:bg-gray-100 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-300 dark:hover:bg-white dark:bg-gray-900/10 transition-colors"
         >
           <ArrowLeft size={16} />
         </button>
         <div className="flex items-center gap-2">
-          <Armchair size={18} className="text-green-500" />
+          <Armchair size={18} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
           <div>
             <h1 className="text-lg font-black text-gray-900 dark:text-white">
               {seatData ? `${p.title} · ${seatData.seatNumber}` : p.title}
@@ -261,22 +261,22 @@ const SeatTimelinePage = () => {
       {/* Date navigator */}
       <div className="mb-6 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => goDay(-1)}
             className="flex size-8 items-center justify-center rounded-xl border border-gray-200/70 bg-white/60 text-gray-600 hover:bg-gray-100 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-300 transition-colors"
           >
             <ChevronLeft size={15} />
           </button>
-          <div className="flex items-center gap-2 rounded-xl border border-gray-200/70 bg-white/60 px-4 py-2 dark:border-white/10 dark:bg-white/[0.04]">
-            <CalendarDays size={14} className="text-green-500" />
+          <div className="flex items-center gap-2 rounded-xl border border-gray-200/70 bg-white/60 px-4 py-2 dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04]">
+            <CalendarDays size={14} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
             <span className="text-sm font-bold text-gray-900 dark:text-white">{fmtDate(selectedDate)}</span>
             {isToday && (
-              <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] font-black text-green-600 dark:text-green-400">
+              <span className="rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 px-2 py-0.5 text-[10px] font-black text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]">
                 {p.today}
               </span>
             )}
           </div>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => goDay(1)}
             className="flex size-8 items-center justify-center rounded-xl border border-gray-200/70 bg-white/60 text-gray-600 hover:bg-gray-100 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-300 transition-colors"
           >
@@ -284,9 +284,9 @@ const SeatTimelinePage = () => {
           </button>
         </div>
 
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => { setSelectedDate(new Date()); setSelectedSlot(null); }}
-          className="rounded-xl bg-green-500/10 px-3 py-2 text-xs font-bold text-green-700 hover:bg-green-500/20 dark:text-green-400 transition-colors"
+          className="rounded-xl bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 px-3 py-2 text-xs font-bold text-[#0F0F55] dark:text-blue-300 hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/20 dark:text-[#4F51FF] transition-colors"
         >
           {p.goToday}
         </button>
@@ -296,12 +296,12 @@ const SeatTimelinePage = () => {
         {/* Timeline + list */}
         <div className="space-y-6 lg:col-span-2">
           {/* Visual bar */}
-          <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04]">
-            <p className="mb-4 text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500">
+          <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04]">
+            <p className="mb-4 text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500 dark:text-gray-400">
               {p.timelineLabel}
             </p>
             {isLoading ? (
-              <div className="h-16 animate-pulse rounded-2xl bg-gray-100 dark:bg-white/5" />
+              <div className="h-16 animate-pulse rounded-2xl bg-gray-100 dark:bg-white dark:bg-gray-900/5" />
             ) : (
               <TimelineBar
                 reservations={reservations}
@@ -313,7 +313,7 @@ const SeatTimelinePage = () => {
             {/* Legend */}
             <div className="mt-4 flex flex-wrap gap-3">
               {[
-                { color: "bg-green-500",  label: p.statusActive },
+                { color: "bg-[#2C2DE0] dark:bg-[#1E1FAA]",  label: p.statusActive },
                 { color: "bg-blue-500",   label: p.statusPending },
                 { color: "bg-gray-400",   label: p.statusCompleted },
                 { color: "bg-orange-400", label: p.statusNoShow },
@@ -324,26 +324,26 @@ const SeatTimelinePage = () => {
                 </div>
               ))}
               <div className="flex items-center gap-1.5">
-                <span className="size-2.5 rounded-full bg-gray-200 dark:bg-white/20" />
+                <span className="size-2.5 rounded-full bg-gray-200 dark:bg-white dark:bg-gray-900/20" />
                 <span className="text-[10px] font-semibold text-gray-500 dark:text-gray-400">{p.free}</span>
               </div>
             </div>
           </div>
 
           {/* Reservation list */}
-          <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04]">
-            <p className="mb-4 text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500">
+          <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04]">
+            <p className="mb-4 text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500 dark:text-gray-400">
               {p.reservationsLabel} ({reservations.length})
             </p>
 
             {isLoading ? (
               <div className="space-y-2">
                 {[1, 2, 3].map((i) => (
-                  <div key={i} className="h-14 animate-pulse rounded-xl bg-gray-100 dark:bg-white/5" />
+                  <div key={i} className="h-14 animate-pulse rounded-xl bg-gray-100 dark:bg-white dark:bg-gray-900/5" />
                 ))}
               </div>
             ) : reservations.length === 0 ? (
-              <p className="py-6 text-center text-sm text-gray-400 dark:text-gray-500">{p.noReservations}</p>
+              <p className="py-6 text-center text-sm text-gray-400 dark:text-gray-500 dark:text-gray-400">{p.noReservations}</p>
             ) : (
               <div className="space-y-2">
                 {reservations
@@ -352,12 +352,12 @@ const SeatTimelinePage = () => {
                     const color = STATUS_COLOR[r.status] || STATUS_COLOR.completed;
                     const isSelected = selectedSlot?._id === r._id;
                     return (
-                      <button
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         key={r._id || r.id}
                         onClick={() => setSelectedSlot(isSelected ? null : r)}
                         className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
                           isSelected
-                            ? "border-green-500/30 bg-green-500/5 dark:border-green-500/20"
+                            ? "border-[#2C2DE0] dark:border-[#4F51FF]/30 bg-[#2C2DE0] dark:bg-[#1E1FAA]/5 dark:border-[#2C2DE0] dark:border-[#4F51FF]/20"
                             : "border-gray-200/70 bg-white/40 hover:border-gray-300 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/20"
                         }`}
                       >
@@ -394,15 +394,15 @@ const SeatTimelinePage = () => {
               onClose={() => setSelectedSlot(null)}
             />
           ) : (
-            <div className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-gray-200/70 bg-white/40 p-8 text-gray-400 dark:border-white/10 dark:bg-white/[0.02] dark:text-gray-500">
+            <div className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-gray-200/70 bg-white/40 p-8 text-gray-400 dark:border-white/10 dark:bg-white/[0.02] dark:text-gray-500 dark:text-gray-400">
               <Clock size={24} className="opacity-40" />
               <p className="text-xs font-semibold">{p.clickSlotHint}</p>
             </div>
           )}
 
           {/* Free slots */}
-          <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-4 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04]">
-            <p className="mb-3 text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500">
+          <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-4 backdrop-blur-sm dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04]">
+            <p className="mb-3 text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500 dark:text-gray-400">
               {p.freeSlots} ({freeSlots.length})
             </p>
             {freeSlots.length === 0 ? (
@@ -412,9 +412,9 @@ const SeatTimelinePage = () => {
                 {freeSlots.map((s, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-2 rounded-lg bg-gray-50 px-3 py-2 dark:bg-white/[0.03]"
+                    className="flex items-center gap-2 rounded-lg bg-gray-50 px-3 py-2 dark:bg-white dark:bg-gray-900/[0.03]"
                   >
-                    <span className="size-2 rounded-full bg-gray-300 dark:bg-white/20" />
+                    <span className="size-2 rounded-full bg-gray-300 dark:bg-white dark:bg-gray-900/20" />
                     <span className="text-xs font-semibold text-gray-600 dark:text-gray-400">{s.label}</span>
                   </div>
                 ))}
@@ -423,16 +423,16 @@ const SeatTimelinePage = () => {
           </div>
 
           {/* Day summary */}
-          <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-4 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04]">
-            <p className="mb-3 text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500">
+          <div className="rounded-2xl border border-gray-200/70 bg-white/60 p-4 backdrop-blur-sm dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04]">
+            <p className="mb-3 text-xs font-black uppercase tracking-wider text-gray-400 dark:text-gray-500 dark:text-gray-400">
               {p.daySummary}
             </p>
             <div className="space-y-2">
               {[
                 { label: p.totalReservations, value: reservations.length },
-                { label: p.statusActive,      value: reservations.filter((r) => r.status === "active").length,    color: "text-green-600 dark:text-green-400" },
+                { label: p.statusActive,      value: reservations.filter((r) => r.status === "active").length,    color: "text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" },
                 { label: p.statusPending,     value: reservations.filter((r) => r.status === "pending").length,   color: "text-blue-600 dark:text-blue-400" },
-                { label: p.statusCompleted,   value: reservations.filter((r) => r.status === "completed").length, color: "text-gray-500" },
+                { label: p.statusCompleted,   value: reservations.filter((r) => r.status === "completed").length, color: "text-gray-500 dark:text-gray-400" },
                 { label: p.freeSlots,         value: freeSlots.length,                                            color: "text-gray-400" },
               ].map(({ label, value, color }) => (
                 <div key={label} className="flex items-center justify-between">

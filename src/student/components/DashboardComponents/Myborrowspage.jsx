@@ -25,13 +25,13 @@ const daysUntil = (dueDate) =>
 
 // ─── Status config ────────────────────────────────────────────────────────────
 const STATUS_STYLE = {
-  active:   "bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 border-green-200 dark:border-green-500/20",
+  active:   "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/20",
   returned: "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700",
   overdue:  "bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-500/20",
   lost:     "bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-500/20",
 };
 const STATUS_DOT = {
-  active: "bg-green-500", returned: "bg-gray-400",
+  active: "bg-[#2C2DE0] dark:bg-[#1E1FAA]", returned: "bg-gray-400",
   overdue: "bg-red-500 animate-pulse", lost: "bg-orange-500",
 };
 
@@ -45,7 +45,7 @@ const BorrowCard = ({ borrow, t }) => {
   return (
     <div className={`rounded-2xl border bg-white dark:bg-gray-950 overflow-hidden ${over ? "border-red-200 dark:border-red-500/20" : "border-gray-100 dark:border-gray-800"}`}>
       {/* Colored top stripe */}
-      <div className={`h-1 w-full ${over ? "bg-gradient-to-r from-red-400 to-red-500" : borrow.status === "returned" ? "bg-gradient-to-r from-gray-300 to-gray-400" : "bg-gradient-to-r from-green-400 to-green-500"}`} />
+      <div className={`h-1 w-full ${over ? "bg-gradient-to-r from-red-400 to-red-500" : borrow.status === "returned" ? "bg-gradient-to-r from-gray-300 to-gray-400" : "bg-gradient-to-r from-[#2C2DE0] to-[#2C2DE0]"}`} />
 
       <div className="p-5">
         <div className="flex items-start gap-4">
@@ -82,7 +82,7 @@ const BorrowCard = ({ borrow, t }) => {
               </span>
               {borrow.returnedAt && (
                 <span className="flex items-center gap-1 text-xs text-gray-400">
-                  <CheckCircle2 size={11} className="text-green-500" />{p.returnedAt}: <strong className="text-gray-700 dark:text-gray-300">{fmtDate(borrow.returnedAt)}</strong>
+                  <CheckCircle2 size={11} className="text-[#2C2DE0] dark:text-[#4F51FF]" />{p.returnedAt}: <strong className="text-gray-700 dark:text-gray-300">{fmtDate(borrow.returnedAt)}</strong>
                 </span>
               )}
             </div>
@@ -167,11 +167,11 @@ const MyBorrowsPage = () => {
       {!isLoading && !error && data.length === 0 && (
         <div className="flex flex-col items-center py-20 text-center">
           <div className="size-14 rounded-2xl bg-gray-100 dark:bg-gray-900 flex items-center justify-center mb-4">
-            <Inbox size={22} className="text-gray-300 dark:text-gray-600" />
+            <Inbox size={22} className="text-gray-300 dark:text-gray-600 dark:text-gray-400" />
           </div>
           <p className="font-bold text-gray-900 dark:text-white text-sm">{p.noBorrows}</p>
           <p className="text-xs text-gray-400 mt-1">{p.noBorrowsSub}</p>
-          <Link to="/books" className="mt-6 bg-green-500 hover:bg-green-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all shadow-sm shadow-green-200 dark:shadow-none">
+          <Link to="/books" className="mt-6 bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55] text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all shadow-sm shadow-[#2C2DE0] dark:shadow-none">
             {p.browseBooks}
           </Link>
         </div>
@@ -202,7 +202,7 @@ const MyBorrowsPage = () => {
 
       {/* Back link */}
       <div className="mt-10 text-center">
-        <Link to="/dashboard" className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors">
+        <Link to="/dashboard" className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] transition-colors">
           {t.common?.backHome || p.backHome}
         </Link>
       </div>

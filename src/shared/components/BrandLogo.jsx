@@ -6,7 +6,7 @@ const BrandLogo = ({ to = "/" }) => {
 
   return (
     <Link to={to} className="flex items-center gap-2.5 group shrink-0">
-      <div className="w-8 h-8 rounded-lg bg-green-500 flex items-center justify-center shadow-sm shadow-green-500/20">
+      <div className="w-8 h-8 rounded-lg bg-[#2C2DE0] dark:bg-[#1E1FAA] flex items-center justify-center shadow-sm shadow-[#2C2DE0]/20">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
           <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
           <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
@@ -15,10 +15,10 @@ const BrandLogo = ({ to = "/" }) => {
         </svg>
       </div>
       <div className="leading-none min-w-0">
-        <span className="block text-[13px] font-black tracking-tight text-gray-900 dark:text-white group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors truncate">
+        <span className="block text-[13px] font-black tracking-tight text-gray-900 dark:text-white group-hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:group-hover:text-[#4F51FF] transition-colors truncate">
           {t.common.appName}
         </span>
-        <span className="block text-[9px] font-semibold tracking-[0.15em] uppercase text-green-500">
+        <span className="block text-[9px] font-semibold tracking-[0.15em] uppercase text-[#2C2DE0] dark:text-[#4F51FF]">
           {t.common.university}
         </span>
       </div>

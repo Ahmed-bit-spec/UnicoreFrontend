@@ -276,7 +276,7 @@ export default function TeacherExamsPage() {
         <div className="max-w-4xl mx-auto bg-white dark:bg-neutral-800 p-8 rounded-2xl shadow-sm">
           <div className="flex justify-between items-center mb-6">
             <h1 className="font-display text-2xl font-semibold">Create new exam</h1>
-            <button onClick={() => setIsBuilding(false)} className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-full">
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setIsBuilding(false)} className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-700 rounded-full">
               <X className="w-5 h-5" />
             </button>
           </div>
@@ -350,7 +350,7 @@ export default function TeacherExamsPage() {
                     type="checkbox"
                     checked={!!examForm.security[key]}
                     onChange={() => toggleSecurity(key)}
-                    className="w-4 h-4 accent-green-600"
+                    className="w-4 h-4 accent-[#2C2DE0]"
                   />
                   {label}
                 </label>
@@ -373,13 +373,13 @@ export default function TeacherExamsPage() {
             <div className="flex justify-between items-center mb-4 flex-wrap gap-2">
               <h2 className="font-display text-lg font-semibold">Questions</h2>
               <div className="flex gap-2 flex-wrap">
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => setShowAiGenerator(true)}
                   className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold bg-purple-100 text-purple-700 hover:bg-purple-200 dark:bg-purple-900/40 dark:text-purple-300"
                 >
                   <Sparkles className="w-4 h-4" /> AI Generate
                 </button>
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => setShowBankPicker(true)}
                   className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-semibold bg-blue-100 text-blue-700 hover:bg-blue-200 dark:bg-blue-900/40 dark:text-blue-300"
                 >
@@ -401,11 +401,11 @@ export default function TeacherExamsPage() {
 
             <div className="flex gap-2 mt-4 flex-wrap">
               {QUESTION_TYPES.map(({ type, label, variant }) => (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   key={type}
                   onClick={() => addQuestion(type)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${variant === "primary"
-                    ? "bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900 dark:text-green-300"
+                    ? "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 hover:bg-[#2C2DE0] dark:bg-[#2C2DE0] dark:text-[#2C2DE0]"
                     : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-900 dark:text-neutral-300"
                     }`}
                 >
@@ -416,10 +416,10 @@ export default function TeacherExamsPage() {
           </div>
 
           <div className="flex justify-end gap-4 border-t pt-6 dark:border-neutral-700">
-            <button onClick={() => saveExam("active")} className="text-sm font-medium text-neutral-500 hover:text-neutral-700 dark:text-neutral-400">
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => saveExam("active")} className="text-sm font-medium text-neutral-500 hover:text-neutral-700 dark:text-neutral-400">
               Save & publish
             </button>
-            <button onClick={() => saveExam("draft")} className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700">
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => saveExam("draft")} className="bg-[#1E1FAA] dark:bg-[#0F0F55] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#2C2DE0]">
               Save exam
             </button>
           </div>
@@ -452,7 +452,7 @@ export default function TeacherExamsPage() {
           </h1>
           <p className="text-neutral-500 text-sm">{t?.exam?.manageExams || "Create and manage your university exams."}</p>
         </div>
-        <button onClick={() => setIsBuilding(true)} className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2">
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setIsBuilding(true)} className="bg-[#1E1FAA] dark:bg-[#0F0F55] hover:bg-[#2C2DE0] text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2">
           <Plus className="w-4 h-4" /> {t?.exam?.newExam || "New exam"}
         </button>
       </div>
@@ -473,7 +473,7 @@ export default function TeacherExamsPage() {
             <div className="space-y-2 mb-6">
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-500">Token</span>
-                <span className="font-mono bg-neutral-100 dark:bg-neutral-700 px-2 rounded text-green-700 dark:text-green-400">{exam.token}</span>
+                <span className="font-mono bg-neutral-100 dark:bg-neutral-700 px-2 rounded text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]">{exam.token}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-500">Time limit</span>
@@ -481,7 +481,7 @@ export default function TeacherExamsPage() {
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-500">Status</span>
-                <span className={`px-2 rounded-full text-xs font-medium ${exam.status === "active" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"}`}>
+                <span className={`px-2 rounded-full text-xs font-medium ${exam.status === "active" ? "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300" : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"}`}>
                   {exam.status.toUpperCase()}
                 </span>
               </div>
@@ -492,12 +492,12 @@ export default function TeacherExamsPage() {
                 {t?.exam?.viewSubmissions || "View submissions"}
               </Link>
               {exam.status === "draft" && (
-                <button onClick={() => publishExam(exam._id)} className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-medium text-sm transition-colors">
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => publishExam(exam._id)} className="flex-1 bg-[#1E1FAA] dark:bg-[#0F0F55] hover:bg-[#2C2DE0] text-white py-2 rounded-lg font-medium text-sm transition-colors">
                   {t?.exam?.publish || "Publish"}
                 </button>
               )}
               {exam.security?.sebRequired && (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => downloadSebConfig(exam._id)}
                   className="flex-1 bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/40 dark:hover:bg-blue-900/60 text-blue-700 dark:text-blue-300 py-2 rounded-lg font-medium text-sm transition-colors flex items-center justify-center gap-1.5"
                 >

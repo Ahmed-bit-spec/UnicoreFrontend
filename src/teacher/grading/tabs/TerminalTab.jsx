@@ -22,12 +22,12 @@ export default function TerminalTab({ submission }) {
           <div className="flex items-center gap-2 px-4 py-2 bg-zinc-800">
             <span className="w-3 h-3 rounded-full bg-red-500 opacity-70" />
             <span className="w-3 h-3 rounded-full bg-yellow-500 opacity-70" />
-            <span className="w-3 h-3 rounded-full bg-green-500 opacity-70" />
+            <span className="w-3 h-3 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] opacity-70" />
             <span className="text-xs text-zinc-400 ml-2">
               Q{idx + 1}: {ans.questionText?.substring(0, 50) || "Terminal Output"}
             </span>
           </div>
-          <pre className="p-4 text-sm font-mono text-green-400 overflow-auto max-h-72 leading-relaxed">
+          <pre className="p-4 text-sm font-mono text-[#4F51FF] overflow-auto max-h-72 leading-relaxed">
             {ans.codeOutput}
           </pre>
         </div>

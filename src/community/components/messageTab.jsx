@@ -62,9 +62,9 @@ const AnnouncementComposer = ({ groupId, onSent }) => {
 
     if (!open) {
         return (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 onClick={() => setOpen(true)}
-                className="w-full text-left bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4 text-sm text-black/40 dark:text-white/40 hover:border-green-500 transition-colors"
+                className="w-full text-left bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4 text-sm text-black/40 dark:text-white/40 hover:border-[#2C2DE0] dark:border-[#4F51FF] transition-colors"
             >
                 Write an official announcement...
             </button>
@@ -93,13 +93,13 @@ const AnnouncementComposer = ({ groupId, onSent }) => {
                 ))}
             </div>
             <div className="flex justify-end gap-2">
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     onClick={() => setOpen(false)}
-                    className="px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5"
+                    className="px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white dark:bg-gray-900/5"
                 >
                     Cancel
                 </button>
-                <button onClick={handleSubmit} disabled={!canPublish || sending} className={`px-4 py-1.5 rounded-lg ${BTN_PRIMARY}`}>
+                <button onClick={handleSubmit} disabled={!canPublish || sending} className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}>
                     {sending ? "Publishing..." : "Publish announcement"}
                 </button>
             </div>
@@ -132,7 +132,7 @@ const EditMessageModal = ({ message, groupId, onClose, onSaved }) => {
             <div className="bg-white dark:bg-black rounded-2xl p-5 w-full max-w-md space-y-3">
                 <div className="flex items-center justify-between">
                     <h3 className="font-black text-black dark:text-white">Edit announcement</h3>
-                    <button onClick={onClose} disabled={saving} className="disabled:opacity-50 disabled:pointer-events-none"><X size={18} /></button>
+                    <button onClick={onClose} disabled={saving} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"><X size={18} /></button>
                 </div>
                 <textarea
                     value={text}
@@ -144,10 +144,10 @@ const EditMessageModal = ({ message, groupId, onClose, onSaved }) => {
                 />
                 <RichTextHints />
                 <div className="flex justify-end gap-2">
-                    <button onClick={onClose} disabled={saving} className="px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60 disabled:opacity-50 disabled:pointer-events-none">
+                    <button onClick={onClose} disabled={saving} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                         Cancel
                     </button>
-                    <button onClick={handleSave} disabled={!text.trim() || saving} className={`px-4 py-1.5 rounded-lg ${BTN_PRIMARY}`}>
+                    <button onClick={handleSave} disabled={!text.trim() || saving} className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}>
                         {saving ? "Saving..." : "Save changes"}
                     </button>
                 </div>
@@ -180,7 +180,7 @@ const MessageRequestModal = ({ groupId, onClose, onSubmitted }) => {
             <div className="bg-white dark:bg-black rounded-2xl p-5 w-full max-w-md space-y-3">
                 <div className="flex items-center justify-between">
                     <h3 className="font-black text-black dark:text-white">Request to send a message</h3>
-                    <button onClick={onClose} disabled={submitting} className="disabled:opacity-50 disabled:pointer-events-none"><X size={18} /></button>
+                    <button onClick={onClose} disabled={submitting} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"><X size={18} /></button>
                 </div>
                 <p className="text-xs text-black/50 dark:text-white/50">
                     An administrator will review your message before it's published as an announcement.
@@ -194,10 +194,10 @@ const MessageRequestModal = ({ groupId, onClose, onSubmitted }) => {
                     autoFocus
                 />
                 <div className="flex justify-end gap-2">
-                    <button onClick={onClose} disabled={submitting} className="px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60 disabled:opacity-50 disabled:pointer-events-none">
+                    <button onClick={onClose} disabled={submitting} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                         Cancel
                     </button>
-                    <button onClick={handleSubmit} disabled={!canSubmitRequest || submitting} className={`px-4 py-1.5 rounded-lg ${BTN_PRIMARY}`}>
+                    <button onClick={handleSubmit} disabled={!canSubmitRequest || submitting} className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}>
                         {submitting ? "Submitting..." : "Submit request"}
                     </button>
                 </div>
@@ -275,7 +275,7 @@ const AnnouncementCard = ({ message, groupId, canManage, canEditOwn, currentUser
         <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-5">
             <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                    <img src={message.authorId?.photo || ""} alt={message.authorId?.name} className="w-10 h-10 rounded-full bg-green-500" />
+                    <img src={message.authorId?.photo || ""} alt={message.authorId?.name} className="w-10 h-10 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
                     <div>
                         <p className="font-bold text-black dark:text-white">{message.authorId?.name}</p>
                         <p className="text-xs text-black/50 dark:text-white/50">
@@ -285,7 +285,7 @@ const AnnouncementCard = ({ message, groupId, canManage, canEditOwn, currentUser
                     </div>
                 </div>
                 {message.isPinned && (
-                    <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400">
+                    <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]">
                         <Pin size={10} /> Pinned
                     </span>
                 )}
@@ -305,7 +305,7 @@ const AnnouncementCard = ({ message, groupId, canManage, canEditOwn, currentUser
                             href={att.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-xs bg-black/5 dark:bg-white/10 px-2 py-1 rounded-lg flex items-center gap-1 hover:bg-black/10 dark:hover:bg-white/20"
+                            className="text-xs bg-black/5 dark:bg-white/10 px-2 py-1 rounded-lg flex items-center gap-1 hover:bg-black/10 dark:hover:bg-white dark:bg-gray-900/20"
                         >
                             <Paperclip size={12} /> {att.name}
                         </a>
@@ -335,8 +335,7 @@ const AnnouncementCard = ({ message, groupId, canManage, canEditOwn, currentUser
                     <button
                         onClick={handleLike}
                         disabled={liking}
-                        className={`flex items-center gap-1 disabled:opacity-50 disabled:pointer-events-none transition-colors ${liked ? "text-red-500 dark:text-red-400" : "hover:text-black dark:hover:text-white"
-                            }`}
+                        className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
                     >
                         <Heart size={12} fill={liked ? "currentColor" : "none"} /> {likeCount}
                     </button>
@@ -346,21 +345,21 @@ const AnnouncementCard = ({ message, groupId, canManage, canEditOwn, currentUser
                         <button
                             onClick={handlePin}
                             disabled={cardLoading}
-                            className="hover:text-black dark:hover:text-white flex items-center gap-1 disabled:opacity-50 disabled:pointer-events-none"
+                            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         >
                             <Pin size={12} /> {message.isPinned ? "Unpin" : "Pin"}
                         </button>
                         <button
                             onClick={handleEdit}
                             disabled={cardLoading}
-                            className="hover:text-black dark:hover:text-white flex items-center gap-1 disabled:opacity-50 disabled:pointer-events-none"
+                            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         >
                             <Pencil size={12} /> Edit
                         </button>
                         <button
                             onClick={handleDelete}
                             disabled={cardLoading}
-                            className="hover:text-red-600 flex items-center gap-1 disabled:opacity-50 disabled:pointer-events-none"
+                            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         >
                             <Trash2 size={12} /> Delete
                         </button>
@@ -412,9 +411,9 @@ const MessagesTab = ({ groupId, group, membership, currentUserId, isUniversityAd
             {canSend ? (
                 <AnnouncementComposer groupId={groupId} onSent={(msg) => setMessages((prev) => [msg, ...prev])} />
             ) : (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     onClick={() => setRequestOpen(true)}
-                    className="w-full text-left bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4 text-sm text-black/40 dark:text-white/40 hover:border-green-500 transition-colors"
+                    className="w-full text-left bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4 text-sm text-black/40 dark:text-white/40 hover:border-[#2C2DE0] dark:border-[#4F51FF] transition-colors"
                 >
                     Request to send a message...
                 </button>

@@ -74,14 +74,14 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
       className={cn(
         "sticky top-0 z-20 h-14 shrink-0",
         "border-b border-gray-200/60 dark:border-white/10",
-        "bg-white/70 dark:bg-black/70 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60"
+        "bg-white/70 dark:bg-black/70 backdrop-blur-xl supports-[backdrop-filter]:bg-white dark:bg-gray-900/60"
       )}
     >
       <div className="flex h-full items-center gap-3 px-4 lg:px-6">
         <button
           type="button"
           onClick={onMenuClick}
-          className="lg:hidden rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           aria-label={ap.sidebar.openMenu}
         >
           <Menu size={20} />
@@ -91,14 +91,14 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
           <h1 className="text-sm font-black text-gray-900 dark:text-white truncate">
             {resolvedTitle}
           </h1>
-          <nav className="flex items-center gap-1 text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">
+          <nav className="flex items-center gap-1 text-[10px] text-gray-400 dark:text-gray-500 dark:text-gray-400 mt-0.5">
             {crumbs.map((crumb, i) => (
               <span key={i} className="flex items-center gap-1">
                 {i > 0 && <ChevronRight size={10} />}
                 {crumb.path ? (
                   <Link
                     to={crumb.path}
-                    className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                    className="hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] transition-colors"
                   >
                     {crumb.label}
                   </Link>
@@ -124,7 +124,7 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
 
           <Link
             to="/community"
-            className="hidden sm:flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+            className="hidden sm:flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] transition-colors"
           >
             <Users size={15} />
             {t["navbar.community"] ?? "Community"}
@@ -134,19 +134,19 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
 
           <Link
             to="/admin/settings"
-            className="hidden sm:flex rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+            className="hidden sm:flex rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white dark:bg-gray-900/10 transition-colors"
             aria-label={ap.header.settings}
           >
             <Settings size={18} />
           </Link>
 
           <div ref={profileRef} className="relative">
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               type="button"
               onClick={() => setProfileOpen((v) => !v)}
-              className="flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-white/10 pl-1 pr-2 py-1 hover:border-green-500/30 transition-colors"
+              className="flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-white/10 pl-1 pr-2 py-1 hover:border-[#2C2DE0] dark:border-[#4F51FF]/30 transition-colors"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-green-400 to-green-600 text-xs font-bold text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#2C2DE0] to-[#2C2DE0] text-xs font-bold text-white">
                 {initials}
               </span>
               <span className="hidden md:block text-xs font-semibold text-gray-700 dark:text-gray-200 max-w-[100px] truncate">
@@ -165,16 +165,16 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
                     <p className="text-xs font-bold text-gray-900 dark:text-white truncate">
                       {user?.name}
                     </p>
-                    <p className="text-[10px] text-gray-500 truncate">{user?.email}</p>
+                    <p className="text-[10px] text-gray-500 dark:text-gray-400 truncate">{user?.email}</p>
                   </div>
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-green-500/10 hover:text-green-600 transition-colors"
+                    className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   >
                     <User size={14} />
                     {ap.header.viewProfile}
                   </button>
-                  <button
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     type="button"
                     onClick={() => logout()}
                     className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-red-600 hover:bg-red-500/10 transition-colors"

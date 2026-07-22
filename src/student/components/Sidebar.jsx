@@ -42,7 +42,7 @@ const NavItem = ({ item, active, collapsed }) => {
         ${collapsed ? "justify-center px-0 w-11 mx-auto" : ""}
         ${active
           ? "bg-[#58CC02] text-white shadow-[0_3px_0_#46A302]"
-          : "text-gray-500 dark:text-gray-400 hover:bg-green-50 dark:hover:bg-white/5 hover:text-[#3F9100] dark:hover:text-[#9DE83A]"}`}
+          : "text-gray-500 dark:text-gray-400 hover:bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:hover:bg-white/5 hover:text-[#3F9100] dark:hover:text-[#9DE83A]"}`}
     >
       <Icon size={18} className="flex-shrink-0" />
       {!collapsed && <span className="truncate">{item.label}</span>}
@@ -63,9 +63,7 @@ const SidebarToggleButton = ({ collapsed, onToggle, label }) => (
     onClick={onToggle}
     aria-label={label}
     title={label}
-    className="group relative flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center
-      text-gray-400 hover:text-gray-700 dark:hover:text-white
-      hover:bg-gray-100 dark:hover:bg-white/10 transition-colors duration-150"
+    className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
   >
     {collapsed ? <PanelLeftOpen size={17} /> : <PanelLeftClose size={17} />}
   </button>
@@ -123,7 +121,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
         {sections.map((section) => (
           <div key={section.label}>
             {!collapsed && (
-              <p className="px-3 mb-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-gray-300 dark:text-gray-600">
+              <p className="px-3 mb-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-gray-300 dark:text-gray-600 dark:text-gray-400">
                 {section.label}
               </p>
             )}
@@ -143,7 +141,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
 
       {/* Streak / quick stat teaser — only shown expanded, keeps the rail lightweight */}
       {!collapsed && (
-        <div className="mx-3 mb-3 rounded-xl bg-gradient-to-br from-[#EAF8DC] to-[#F6FCEF] dark:from-white/5 dark:to-white/[0.02] border border-green-100 dark:border-white/10 px-3.5 py-3 flex items-center gap-2.5">
+        <div className="mx-3 mb-3 rounded-xl bg-gradient-to-br from-[#EAF8DC] to-[#F6FCEF] dark:from-white/5 dark:to-white/[0.02] border border-[#2C2DE0] dark:border-white/10 px-3.5 py-3 flex items-center gap-2.5">
           <Zap size={16} className="text-[#F5A623] flex-shrink-0" />
           <p className="text-[11px] font-bold text-gray-600 dark:text-gray-300 leading-snug">
             {t?.nav?.sidebarTip || "Reserve early — seats fill up fast in exam weeks."}
@@ -196,7 +194,7 @@ export const MobileSidebarDrawer = ({ open, onClose }) => {
         <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-5">
           {sections.map((section) => (
             <div key={section.label}>
-              <p className="px-3 mb-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-gray-300 dark:text-gray-600">
+              <p className="px-3 mb-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-gray-300 dark:text-gray-600 dark:text-gray-400">
                 {section.label}
               </p>
               <div className="space-y-1">

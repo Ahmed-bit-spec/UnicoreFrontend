@@ -52,7 +52,7 @@ const HeroBanner = ({ onSearch, searchValue, onSearchChange, placeholder }) => {
   const quote = QUOTES[quoteIndex];
 
   return (
-    <div className="hero-root bg-white border border-stone-200">
+    <div className="hero-root bg-white dark:bg-gray-900 border border-stone-200">
       <HeroStyles />
 
       {/* drifting green motes — the one "signature" flourish, everything else stays quiet */}
@@ -92,7 +92,7 @@ const HeroBanner = ({ onSearch, searchValue, onSearchChange, placeholder }) => {
               className="hero-search-input"
             />
             <button
-              className={`hero-search-btn rounded-[13px] ${PRIMARY_BTN}`}
+              className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
               onClick={submit}
               aria-label="Search"
             >

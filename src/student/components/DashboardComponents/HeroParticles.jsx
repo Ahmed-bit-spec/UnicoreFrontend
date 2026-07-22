@@ -27,7 +27,7 @@ export const AmbientParticles = ({ count = 14, reducedMotion = false, paused = f
       {particles.map((p, i) => (
         <span
           key={`particle-${i}`}
-          className="absolute rounded-full bg-white/60"
+          className="absolute rounded-full bg-white dark:bg-gray-900/60"
           style={{
             left: p.left,
             bottom: p.bottom,

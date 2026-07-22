@@ -232,11 +232,11 @@ const PostCard = ({ post, onLikeToggled, onDeleted, onBookmarkToggled }) => {
     <article className={`${CARD_SURFACE} mb-4 overflow-hidden`}>
       {/* Header */}
       <div className="flex items-center gap-2.5 px-4 pt-4 pb-2">
-        <button onClick={() => navigate(`/community/user/${post.author._id}`)}>
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => navigate(`/community/user/${post.author._id}`)}>
           <Avatar photo={post.author?.photo || post.author?.avatar || null} />
         </button>
         <div className="flex-1 min-w-0">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             type="button"
             onClick={() => navigate(`/community/user/${post.author._id}`)}
             className="text-[14px] font-bold text-gray-900 dark:text-white hover:underline text-left block truncate"
@@ -246,7 +246,7 @@ const PostCard = ({ post, onLikeToggled, onDeleted, onBookmarkToggled }) => {
           <span className="text-[12px] text-gray-400">{timeAgo(post.createdAt, t)}</span>
         </div>
         <div className="relative" ref={menuRef}>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => setMenuOpen((s) => !s)}
             className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
           >
@@ -254,18 +254,18 @@ const PostCard = ({ post, onLikeToggled, onDeleted, onBookmarkToggled }) => {
           </button>
           {menuOpen && (
             <div className="absolute right-0 top-full mt-1 w-40 bg-white dark:bg-gray-950 rounded-xl shadow-xl border border-gray-100 dark:border-gray-800 py-1.5 z-30">
-              <button onClick={copyLink} className="flex items-center gap-2 w-full px-3 py-2 text-[13px] text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900">
+              <button onClick={copyLink} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                 <Share2 size={13} />
                 {t["feed.copyLink"] ?? "Copy link"}
               </button>
               {!isOwner && (
-                <button onClick={handleReport} disabled={reporting} className="flex items-center gap-2 w-full px-3 py-2 text-[13px] text-orange-500 hover:bg-gray-50 dark:hover:bg-gray-900">
+                <button onClick={handleReport} disabled={reporting} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                   <Flag size={13} />
                   {t["feed.report"] ?? "Report"}
                 </button>
               )}
               {isOwner && (
-                <button onClick={handleDelete} disabled={deleting} className="flex items-center gap-2 w-full px-3 py-2 text-[13px] text-red-500 hover:bg-gray-50 dark:hover:bg-gray-900">
+                <button onClick={handleDelete} disabled={deleting} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                   <Trash2 size={13} />
                   {t["feed.delete"] ?? "Delete"}
                 </button>
@@ -296,7 +296,7 @@ const PostCard = ({ post, onLikeToggled, onDeleted, onBookmarkToggled }) => {
           <button
             onClick={handleTranslate}
             disabled={translating}
-            className="inline-flex items-center gap-1.5 text-[12.5px] font-bold text-gray-400 hover:text-[#58CC02] transition-colors disabled:opacity-60"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             {translating ? <Loader2 size={12} className="animate-spin" /> : <Languages size={12} />}
             {translateLabel}
@@ -326,10 +326,7 @@ const PostCard = ({ post, onLikeToggled, onDeleted, onBookmarkToggled }) => {
         <button
           onClick={handleLike}
           disabled={liking}
-          className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 text-[13px] font-bold transition-colors rounded-lg mx-1 my-1 ${liked
-            ? "text-[#58CC02] bg-[#58CC02]/10 dark:bg-[#58CC02]/15"
-            : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900"
-            }`}
+          className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
         >
           <Heart size={16} className={liked ? "fill-current" : ""} />
           <span className="hidden sm:inline">{liked ? (t["feed.liked"] ?? "Liked") : (t["feed.like"] ?? "Like")}</span>
@@ -345,7 +342,7 @@ const PostCard = ({ post, onLikeToggled, onDeleted, onBookmarkToggled }) => {
 
         <button
           onClick={copyLink}
-          className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-[13px] font-bold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors rounded-lg mx-1 my-1"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           <Share2 size={16} />
           <span className="hidden sm:inline">{t["feed.share"] ?? "Share"}</span>
@@ -354,8 +351,7 @@ const PostCard = ({ post, onLikeToggled, onDeleted, onBookmarkToggled }) => {
         <button
           onClick={handleBookmark}
           disabled={bookmarking}
-          className={`flex items-center justify-center gap-1.5 py-2.5 px-3 text-[13px] font-bold transition-colors rounded-lg mx-1 my-1 ${bookmarked ? "text-[#58CC02]" : "text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900"
-            }`}
+          className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
           aria-label="Bookmark"
         >
           <Bookmark size={16} className={bookmarked ? "fill-current" : ""} />

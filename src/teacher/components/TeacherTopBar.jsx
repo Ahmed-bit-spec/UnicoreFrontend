@@ -70,7 +70,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
       className={cn(
         "sticky top-0 z-20 h-14 shrink-0 flex flex-col justify-center w-full",
         "border-b border-gray-200/60 dark:border-white/10",
-        "bg-white/70 dark:bg-black/70 backdrop-blur-xl supports-[backdrop-filter]:bg-white/60"
+        "bg-white/70 dark:bg-black/70 backdrop-blur-xl supports-[backdrop-filter]:bg-white dark:bg-gray-900/60"
       )}
     >
       <div className="flex h-full items-center justify-between gap-3 px-4 lg:px-6">
@@ -80,7 +80,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
           <button
             type="button"
             onClick={onMenuClick}
-            className="lg:hidden rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             aria-label="Open Menu"
           >
             <Menu size={18} />
@@ -90,14 +90,14 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
             <h1 className="text-sm font-black text-gray-900 dark:text-white truncate">
               {pageTitle}
             </h1>
-            <nav className="flex items-center gap-1 text-[10px] text-gray-400 dark:text-gray-500 mt-0.5">
+            <nav className="flex items-center gap-1 text-[10px] text-gray-400 dark:text-gray-500 dark:text-gray-400 mt-0.5">
               {crumbs.map((crumb, i) => (
                 <span key={i} className="flex items-center gap-1">
                   {i > 0 && <ChevronRight size={10} />}
                   {crumb.path && i < crumbs.length - 1 ? (
                     <Link
                       to={crumb.path}
-                      className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                      className="hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] transition-colors"
                     >
                       {crumb.label}
                     </Link>
@@ -122,7 +122,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-400 rounded-xl pl-8 pr-4 py-1.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-green-500/50 w-48 focus:w-60 transition-all"
+              className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-400 rounded-xl pl-8 pr-4 py-1.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/50 w-48 focus:w-60 transition-all"
               placeholder={c?.search || "Search…"}
             />
           </div>
@@ -132,7 +132,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
 
           <Link
             to="/community"
-            className="hidden sm:flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+            className="hidden sm:flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] transition-colors"
           >
             <Users size={15} />
             Community
@@ -144,7 +144,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
           {/* Quick link to Profile settings */}
           <Link
             to="/teacher/profile"
-            className="hidden sm:flex rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+            className="hidden sm:flex rounded-xl p-2 text-gray-500 hover:bg-gray-100 dark:hover:bg-white dark:bg-gray-900/10 transition-colors"
             aria-label="Settings"
           >
             <Settings size={18} />
@@ -152,12 +152,12 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
 
           {/* Functional Profile Dropdown Context */}
           <div ref={profileRef} className="relative pl-1 border-l border-gray-100 dark:border-white/10 ml-1">
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               type="button"
               onClick={() => setProfileOpen((v) => !v)}
-              className="flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-white/10 pl-1 pr-2 py-1 hover:border-green-500/30 transition-colors bg-white/50 dark:bg-zinc-900/30"
+              className="flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-white/10 pl-1 pr-2 py-1 hover:border-[#2C2DE0] dark:border-[#4F51FF]/30 transition-colors bg-white/50 dark:bg-zinc-900/30"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-green-600 text-[11px] font-black text-white shadow-sm shadow-green-500/10">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#2C2DE0] to-[#2C2DE0] text-[11px] font-black text-white shadow-sm shadow-[#2C2DE0]/10">
                 {initials}
               </span>
               <span className="hidden md:block text-xs font-semibold text-gray-700 dark:text-gray-200 max-w-[100px] truncate">
@@ -186,13 +186,13 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
                   <Link
                     to="/teacher/profile"
                     onClick={() => setProfileOpen(false)}
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-green-500/10 hover:text-green-600 transition-colors"
+                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 hover:text-[#1E1FAA] dark:text-[#4F51FF] transition-colors"
                   >
                     <User size={14} />
                     {p?.viewProfile || "My Profile"}
                   </Link>
 
-                  <button
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     type="button"
                     onClick={() => {
                       setProfileOpen(false);

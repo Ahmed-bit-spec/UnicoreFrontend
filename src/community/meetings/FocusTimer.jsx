@@ -189,7 +189,7 @@ export function CompactFocusTimer({ isHost, meetingCode }) {
           {!running ? (
             <button
               onClick={handleStart}
-              className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/15 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               title="Start timer"
             >
               <Play size={12} />
@@ -197,20 +197,20 @@ export function CompactFocusTimer({ isHost, meetingCode }) {
           ) : (
             <button
               onClick={handleStop}
-              className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/15 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               title="Pause timer"
             >
               <Square size={12} />
             </button>
           )}
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => {
               stop();
               setSecs(FOCUS_SECS);
               setPhase("focus");
               broadcast("reset");
             }}
-            className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/15 transition-colors"
+            className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white dark:bg-gray-900/15 transition-colors"
             title="Reset timer"
           >
             <RotateCcw size={11} />
@@ -342,7 +342,7 @@ export function FocusTimer({ isHost, meetingCode }) {
           {!running ? (
             <button
               onClick={handleStart}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-white font-bold text-xs transition-all shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               style={{ background: "#58CC02" }}
             >
               <Play size={12} /> {isBreak ? "Start Break" : "Start Focus"}
@@ -350,15 +350,15 @@ export function FocusTimer({ isHost, meetingCode }) {
           ) : (
             <button
               onClick={handleStop}
-              className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-red-600 text-white font-bold text-xs hover:bg-red-700 transition-colors shadow-[0_4px_0_#7f1d1d]"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <Square size={12} /> Pause
             </button>
           )}
-          <button onClick={handleReset} title="Reset" className="p-2.5 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors">
+          <button onClick={handleReset} title="Reset" className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <RotateCcw size={13} />
           </button>
-          <button onClick={toggleSound} title={soundOn ? "Mute bell" : "Enable bell"} className="p-2.5 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors">
+          <button onClick={toggleSound} title={soundOn ? "Mute bell" : "Enable bell"} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             {soundOn ? <Volume2 size={13} /> : <VolumeX size={13} />}
           </button>
         </div>
@@ -381,7 +381,7 @@ export function FocusTimer({ isHost, meetingCode }) {
               </span>
             </div>
           )}
-          <button onClick={toggleSound} title={soundOn ? "Mute bell" : "Enable bell"} className="p-2.5 rounded-xl bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white transition-colors">
+          <button onClick={toggleSound} title={soundOn ? "Mute bell" : "Enable bell"} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             {soundOn ? <Volume2 size={13} /> : <VolumeX size={13} />}
           </button>
         </div>

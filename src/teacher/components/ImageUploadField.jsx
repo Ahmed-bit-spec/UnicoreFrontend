@@ -48,7 +48,7 @@ export default function ImageUploadField({ value, onChange, label = "Image" }) {
       {value ? (
         <div className="relative border rounded-lg overflow-hidden dark:border-neutral-600 w-fit">
           <img src={value} alt={label} className="max-h-48 object-contain bg-neutral-50" />
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             type="button"
             onClick={() => onChange("")}
             className="absolute top-1 right-1 bg-white/90 dark:bg-neutral-800/90 rounded-full p-1 hover:bg-red-100"
@@ -57,7 +57,7 @@ export default function ImageUploadField({ value, onChange, label = "Image" }) {
           </button>
         </div>
       ) : (
-        <label className="flex items-center gap-2 border-2 border-dashed rounded-lg p-4 cursor-pointer text-sm text-neutral-500 hover:border-green-400 dark:border-neutral-600 w-fit">
+        <label className="flex items-center gap-2 border-2 border-dashed rounded-lg p-4 cursor-pointer text-sm text-neutral-500 hover:border-[#4F51FF] dark:border-neutral-600 w-fit">
           {uploading ? <Upload className="w-4 h-4 animate-pulse" /> : <ImageIcon className="w-4 h-4" />}
           {uploading ? "Uploading..." : "Click to upload an image"}
           <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" className="hidden" onChange={handleFile} disabled={uploading} />

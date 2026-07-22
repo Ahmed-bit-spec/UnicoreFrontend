@@ -8,10 +8,10 @@ const AVATAR_COLORS = [
   "bg-[#58CC02]",
   "bg-emerald-600",
   "bg-[#46A302]",
-  "bg-green-700",
+  "bg-[#2C2DE0]",
   "bg-teal-700",
   "bg-[#58CC02]/70",
-  "bg-green-800",
+  "bg-[#2C2DE0]",
 ];
 
 function avatarColor(name = "") {
@@ -38,7 +38,7 @@ function ParticipantRow({ p, isHostView, onAction }) {
   ];
 
   return (
-    <div className="flex items-center gap-2.5 py-2 px-2 rounded-xl hover:bg-white/5 transition-colors group">
+    <div className="flex items-center gap-2.5 py-2 px-2 rounded-xl hover:bg-white dark:bg-gray-900/5 transition-colors group">
       {/* Avatar */}
       <div className={`w-8 h-8 rounded-full ${avatarColor(p.name)} flex items-center justify-center text-white font-bold text-xs shrink-0`}>
         {getInitials(p.name)}
@@ -55,7 +55,7 @@ function ParticipantRow({ p, isHostView, onAction }) {
             <span className="text-[8px] font-black px-1.5 py-0.5 rounded bg-[#58CC02]/20 text-[#58CC02] uppercase shrink-0">Host</span>
           )}
           {(p.role === "presenter" || p.role === "Presenter") && (
-            <span className="text-[8px] font-black px-1.5 py-0.5 rounded bg-white/10 text-white/70 uppercase shrink-0">Presenter</span>
+            <span className="text-[8px] font-black px-1.5 py-0.5 rounded bg-white dark:bg-gray-900/10 text-white/70 uppercase shrink-0">Presenter</span>
           )}
         </div>
         <p className="text-white/30 text-[10px] mt-0.5 capitalize">{p.role}</p>
@@ -81,7 +81,7 @@ function ParticipantRow({ p, isHostView, onAction }) {
       {/* Host action dropdown */}
       {isHostView && p.role !== "host" && (
         <div className="relative" ref={menuRef}>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => setMenuOpen((v) => !v)}
             className="opacity-0 group-hover:opacity-100 p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 text-gray-400 dark:text-white/50 hover:text-gray-900 dark:hover:text-white transition-all"
           >
@@ -90,10 +90,10 @@ function ParticipantRow({ p, isHostView, onAction }) {
           {menuOpen && (
             <div className="absolute right-0 top-full mt-1 w-44 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden">
               {actions.map((a) => (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   key={a.label}
                   onClick={() => { a.fn(); setMenuOpen(false); }}
-                  className={`w-full flex items-center gap-2 px-3 py-2.5 text-xs transition-colors ${a.danger ? "text-red-400 hover:bg-red-500/10" : "text-white/80 hover:bg-white/10"
+                  className={`w-full flex items-center gap-2 px-3 py-2.5 text-xs transition-colors ${a.danger ? "text-red-400 hover:bg-red-500/10" : "text-white/80 hover:bg-white dark:bg-gray-900/10"
                     }`}
                 >
                   <a.icon size={12} />
@@ -131,7 +131,7 @@ export function ParticipantsPanel({ participants = [], isHost = false, onHostAct
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by name or ID…"
-            className="w-full pl-8 pr-3 py-2 rounded-xl bg-white/10 text-white text-xs placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-[#58CC02]/50 border border-white/5"
+            className="w-full pl-8 pr-3 py-2 rounded-xl bg-white dark:bg-gray-900/10 text-white text-xs placeholder:text-white/30 focus:outline-none focus:ring-1 focus:ring-[#58CC02]/50 border border-white/5"
           />
         </div>
       </div>
@@ -154,9 +154,9 @@ export function ParticipantsPanel({ participants = [], isHost = false, onHostAct
                   )}
                 </div>
                 {isHost && (
-                  <button
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     onClick={() => handleAction("dismiss-hand", p.socketId)}
-                    className="ml-auto text-[10px] text-white/50 hover:text-white px-2 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition-colors shrink-0"
+                    className="ml-auto text-[10px] text-white/50 hover:text-white px-2 py-1 rounded-lg bg-white dark:bg-gray-900/10 hover:bg-white dark:bg-gray-900/20 transition-colors shrink-0"
                   >
                     Dismiss
                   </button>
@@ -190,7 +190,7 @@ export function ParticipantsPanel({ participants = [], isHost = false, onHostAct
       {/* Host bulk actions */}
       {isHost && (
         <div className="p-3 border-t border-white/10 shrink-0 flex gap-2">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => handleAction("mute-all")}
             className="flex-1 py-2.5 rounded-xl bg-red-500/20 text-red-400 text-xs font-bold hover:bg-red-500/30 transition-colors border border-red-500/20 flex items-center justify-center gap-1.5"
           >

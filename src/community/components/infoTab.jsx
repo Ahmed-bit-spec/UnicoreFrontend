@@ -41,17 +41,17 @@ const InfoTab = ({ group, canManage, onSaved }) => {
                 <div className="flex justify-end">
                     {editing ? (
                         <div className="flex gap-2">
-                            <button onClick={() => setEditing(false)} className="px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60">
+                            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setEditing(false)} className="px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60">
                                 Cancel
                             </button>
-                            <button onClick={handleSave} disabled={saving} className={`px-3 py-1.5 rounded-lg ${BTN_PRIMARY}`}>
+                            <button onClick={handleSave} disabled={saving} className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}>
                                 {saving ? "Saving..." : "Save"}
                             </button>
                         </div>
                     ) : (
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                             onClick={() => setEditing(true)}
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white/5"
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-bold text-black/60 dark:text-white/60 hover:bg-black/5 dark:hover:bg-white dark:bg-gray-900/5"
                         >
                             <Pencil size={14} /> Edit
                         </button>
@@ -129,7 +129,7 @@ const InfoTab = ({ group, canManage, onSaved }) => {
                         groupAdmins.map((m) => (
                             <span
                                 key={m.user._id}
-                                className="text-xs font-bold px-2 py-1 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400"
+                                className="text-xs font-bold px-2 py-1 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]"
                             >
                                 {m.user.name}
                             </span>

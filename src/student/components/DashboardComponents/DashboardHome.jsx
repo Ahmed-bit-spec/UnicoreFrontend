@@ -244,7 +244,7 @@ export default function UniSoDashboard() {
         {/* Nav */}
         <nav style={{ display: "flex", gap: 28, alignItems: "center", flex: 1 }}>
           {navLinks.map(({ label }) => (
-            <button key={label} onClick={() => setActiveNav(label)}
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" key={label} onClick={() => setActiveNav(label)}
               style={{ background: "none", border: "none", cursor: "pointer", fontWeight: 700, fontSize: 14, color: activeNav === label ? "#58CC02" : "#888", paddingBottom: 4, borderBottom: activeNav === label ? "2.5px solid #58CC02" : "2.5px solid transparent", transition: "all .15s", display: "flex", alignItems: "center", gap: 5 }}>
               {label === "Dashboard" && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>}
               {label === "Library" && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>}
@@ -473,7 +473,7 @@ export default function UniSoDashboard() {
                     <div style={{ fontSize: 11, color: "#888" }}>{book.due}</div>
                     <div style={{ fontSize: 12, fontWeight: 900, color: book.daysColor }}>{book.days}</div>
                     {book.renew && (
-                      <button style={{ marginTop: 4, padding: "3px 10px", border: "1.5px solid #e0e0e0", borderRadius: 8, background: "white", fontSize: 11, fontWeight: 800, color: "#555", cursor: "pointer" }}>Renew</button>
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" style={{ marginTop: 4, padding: "3px 10px", border: "1.5px solid #e0e0e0", borderRadius: 8, background: "white", fontSize: 11, fontWeight: 800, color: "#555", cursor: "pointer" }}>Renew</button>
                     )}
                   </div>
                 </div>

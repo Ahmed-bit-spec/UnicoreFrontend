@@ -19,16 +19,7 @@ const ThemeToggle = ({ className = "", size = "md", showLabel = false }) => {
       onClick={toggleTheme}
       aria-label={label}
       title={label}
-      className={`
-        inline-flex items-center justify-center gap-2 rounded-xl
-        text-gray-500 dark:text-gray-400
-        hover:text-gray-900 dark:hover:text-white
-        hover:bg-gray-100 dark:hover:bg-gray-800
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50
-        transition-all duration-150
-        ${showLabel ? "px-3 py-2 text-sm font-semibold" : sizeClasses[size] || sizeClasses.md}
-        ${className}
-      `}
+      className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
     >
       {isDark ? <Sun size={16} /> : <Moon size={16} />}
       {showLabel && <span>{isDark ? t.settings.lightMode : t.settings.darkMode}</span>}

@@ -8,7 +8,7 @@ import PageHeader from "@/admin/components/PageHeader";
 import { KpiCard, Section, ChartTooltip, RankList, OverdueTable } from "./Analyticscomponents";
 import { useAnalyticsBooks } from "@/hooks/useAnalytics";
 
-const PIE_COLORS = ["#22c55e", "#3b82f6", "#f97316", "#a855f7", "#ec4899", "#9ca3af", "#14b8a6", "#f59e0b"];
+const PIE_COLORS = ["#2C2DE0", "#3b82f6", "#f97316", "#a855f7", "#ec4899", "#9ca3af", "#14b8a6", "#f59e0b"];
 
 const BooksPage = () => {
     const { data, isLoading } = useAnalyticsBooks();
@@ -22,7 +22,7 @@ const BooksPage = () => {
             <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <KpiCard icon={BookOpen} label="Borrowed Now" value={status.borrowed ?? 0} color="bg-orange-500" />
                 <KpiCard icon={AlertTriangle} label="Overdue" value={data?.overdueBooks?.length ?? 0} color="bg-red-500" />
-                <KpiCard icon={CheckCircle} label="Returned On Time" value={`${ret.onTimePct ?? 0}%`} color="bg-green-500" sub={`${ret.onTime ?? 0} books`} />
+                <KpiCard icon={CheckCircle} label="Returned On Time" value={`${ret.onTimePct ?? 0}%`} color="bg-[#2C2DE0] dark:bg-[#1E1FAA]" sub={`${ret.onTime ?? 0} books`} />
                 <KpiCard icon={BookOpen} label="Unused Books" value={data?.unusedBooks?.length ?? 0} color="bg-gray-500" sub="never borrowed" />
             </div>
 
@@ -81,18 +81,18 @@ const BooksPage = () => {
                 <Section title="Return Performance">
                     <div className="mb-4 flex gap-4">
                         {[
-                            { label: "On Time", value: ret.onTime ?? 0, color: "bg-green-500" },
+                            { label: "On Time", value: ret.onTime ?? 0, color: "bg-[#2C2DE0] dark:bg-[#1E1FAA]" },
                             { label: "Late", value: ret.late ?? 0, color: "bg-red-400" },
                         ].map(item => (
-                            <div key={item.label} className="flex-1 rounded-xl bg-gray-50 p-4 dark:bg-white/5">
-                                <p className="text-[10px] font-semibold text-gray-500">{item.label}</p>
+                            <div key={item.label} className="flex-1 rounded-xl bg-gray-50 p-4 dark:bg-white dark:bg-gray-900/5">
+                                <p className="text-[10px] font-semibold text-gray-500 dark:text-gray-400">{item.label}</p>
                                 <p className="text-2xl font-black text-gray-900 dark:text-white">{item.value}</p>
                             </div>
                         ))}
                     </div>
-                    <div className="h-3 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
+                    <div className="h-3 overflow-hidden rounded-full bg-gray-100 dark:bg-white dark:bg-gray-900/10">
                         <div
-                            className="h-full rounded-full bg-green-500 transition-all duration-700"
+                            className="h-full rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] transition-all duration-700"
                             style={{ width: `${ret.onTimePct ?? 0}%` }}
                         />
                     </div>
@@ -107,8 +107,8 @@ const BooksPage = () => {
                             const pct = total > 0 ? Math.round((count / total) * 100) : 0;
                             return (
                                 <div key={status} className="flex items-center gap-3">
-                                    <span className="w-20 text-[10px] font-semibold capitalize text-gray-500">{status.replace("_", " ")}</span>
-                                    <div className="flex-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
+                                    <span className="w-20 text-[10px] font-semibold capitalize text-gray-500 dark:text-gray-400">{status.replace("_", " ")}</span>
+                                    <div className="flex-1 overflow-hidden rounded-full bg-gray-100 dark:bg-white dark:bg-gray-900/10">
                                         <div className="h-2 rounded-full bg-blue-500 transition-all" style={{ width: `${pct}%` }} />
                                     </div>
                                     <span className="w-8 text-right text-[10px] font-black text-gray-700 dark:text-gray-300">{count}</span>
@@ -130,9 +130,9 @@ const BooksPage = () => {
                     <Section title="Never-Borrowed Books" className="lg:col-span-2">
                         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
                             {data.unusedBooks.map(b => (
-                                <div key={b._id} className="rounded-xl bg-gray-50 px-4 py-3 dark:bg-white/5">
+                                <div key={b._id} className="rounded-xl bg-gray-50 px-4 py-3 dark:bg-white dark:bg-gray-900/5">
                                     <p className="truncate text-xs font-bold text-gray-900 dark:text-white">{b.title}</p>
-                                    <p className="truncate text-[10px] text-gray-500">{b.author}</p>
+                                    <p className="truncate text-[10px] text-gray-500 dark:text-gray-400">{b.author}</p>
                                     {b.category && <span className="mt-1 inline-block rounded-full bg-gray-200 px-2 py-0.5 text-[9px] font-semibold text-gray-600 dark:bg-white/10 dark:text-gray-400">{b.category}</span>}
                                 </div>
                             ))}

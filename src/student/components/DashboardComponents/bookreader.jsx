@@ -277,7 +277,7 @@ const LeftSidebar = ({ T, bookmarks, onNavigate, onRemoveBookmark, currentPage, 
       }}>
         <div style={{ display: "flex", alignItems: "center", borderBottom: `1px solid ${T.border}`, flexShrink: 0 }}>
           {TABS.map(({ id, label, icon: Icon }) => (
-            <button key={id} onClick={() => setTab(id)} style={{
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" key={id} onClick={() => setTab(id)} style={{
               flex: 1, padding: "13px 4px", border: "none", cursor: "pointer",
               background: "transparent",
               color: tab === id ? T.accent : T.textFaint,
@@ -290,7 +290,7 @@ const LeftSidebar = ({ T, bookmarks, onNavigate, onRemoveBookmark, currentPage, 
               {label}
             </button>
           ))}
-          <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint, padding: "0 12px", alignSelf: "stretch" }}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint, padding: "0 12px", alignSelf: "stretch" }}>
             <X size={14} />
           </button>
         </div>
@@ -329,7 +329,7 @@ const LeftSidebar = ({ T, bookmarks, onNavigate, onRemoveBookmark, currentPage, 
                   Table of Contents
                 </p>
                 {filteredToc.length > 0 ? filteredToc.map((item, i) => (
-                  <button key={i}
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" key={i}
                     onClick={async () => {
                       if (!pdfRef || !item.dest) return;
                       try {
@@ -383,11 +383,11 @@ const LeftSidebar = ({ T, bookmarks, onNavigate, onRemoveBookmark, currentPage, 
                   onMouseEnter={e => e.currentTarget.style.background = T.hover}
                   onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                 >
-                  <button onClick={() => onNavigate(bm.page)} style={{ flex: 1, textAlign: "left", background: "none", border: "none", cursor: "pointer" }}>
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => onNavigate(bm.page)} style={{ flex: 1, textAlign: "left", background: "none", border: "none", cursor: "pointer" }}>
                     <span style={{ fontSize: "12.5px", fontWeight: 800, color: T.accent, fontVariantNumeric: "tabular-nums" }}>p.{bm.page}</span>
                     {bm.note && <span style={{ fontSize: "12px", color: T.textMuted, marginLeft: "8px" }}>{bm.note}</span>}
                   </button>
-                  <button onClick={() => onRemoveBookmark(bm._id)} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint, padding: "2px" }}>
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => onRemoveBookmark(bm._id)} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint, padding: "2px" }}>
                     <X size={11} />
                   </button>
                 </div>
@@ -411,8 +411,8 @@ const LeftSidebar = ({ T, bookmarks, onNavigate, onRemoveBookmark, currentPage, 
                       style={{ width: "100%", boxSizing: "border-box", background: T.surface, border: `1.5px solid ${T.accent}`, borderRadius: "10px", padding: "10px 12px", fontSize: "13px", color: T.text, lineHeight: 1.65, resize: "vertical", fontFamily: "inherit", outline: "none" }}
                     />
                     <div style={{ display: "flex", gap: "6px", marginTop: "8px" }}>
-                      <button onClick={() => { saveNote(currentPage, noteText.trim()); setEdit(false); }} style={{ flex: 1, padding: "8px", borderRadius: "10px", ...primaryBtnStyle(), fontSize: "12px", fontWeight: 700, cursor: "pointer" }}>Save</button>
-                      <button onClick={() => { setEdit(false); setNoteText(notes[currentPage] || ""); }} style={{ padding: "8px 14px", borderRadius: "8px", background: "transparent", border: `1px solid ${T.border}`, color: T.textMuted, fontSize: "12px", cursor: "pointer" }}>Cancel</button>
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => { saveNote(currentPage, noteText.trim()); setEdit(false); }} style={{ flex: 1, padding: "8px", borderRadius: "10px", ...primaryBtnStyle(), fontSize: "12px", fontWeight: 700, cursor: "pointer" }}>Save</button>
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => { setEdit(false); setNoteText(notes[currentPage] || ""); }} style={{ padding: "8px 14px", borderRadius: "8px", background: "transparent", border: `1px solid ${T.border}`, color: T.textMuted, fontSize: "12px", cursor: "pointer" }}>Cancel</button>
                     </div>
                   </div>
                 ) : (
@@ -425,8 +425,8 @@ const LeftSidebar = ({ T, bookmarks, onNavigate, onRemoveBookmark, currentPage, 
                     </div>
                     {notes[currentPage] && (
                       <div style={{ display: "flex", gap: "10px", marginTop: "6px" }}>
-                        <button onClick={() => setEdit(true)} style={{ fontSize: "11px", color: T.accent, background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>Edit</button>
-                        <button onClick={() => deleteNote(currentPage)} style={{ fontSize: "11px", color: "#ef4444", background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>Delete</button>
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setEdit(true)} style={{ fontSize: "11px", color: T.accent, background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>Edit</button>
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => deleteNote(currentPage)} style={{ fontSize: "11px", color: "#ef4444", background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>Delete</button>
                       </div>
                     )}
                   </>
@@ -442,8 +442,8 @@ const LeftSidebar = ({ T, bookmarks, onNavigate, onRemoveBookmark, currentPage, 
                 ) : Object.entries(notes).sort(([a], [b]) => Number(a) - Number(b)).map(([page, text]) => (
                   <div key={page} style={{ background: T.surface, border: `1px solid ${T.border}`, borderRadius: "10px", padding: "12px 14px", marginBottom: "8px" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "5px" }}>
-                      <button onClick={() => onNavigate(Number(page))} style={{ fontSize: "12px", fontWeight: 800, color: T.accent, background: "none", border: "none", cursor: "pointer", padding: 0 }}>Page {page}</button>
-                      <button onClick={() => deleteNote(page)} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint }}><X size={11} /></button>
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => onNavigate(Number(page))} style={{ fontSize: "12px", fontWeight: 800, color: T.accent, background: "none", border: "none", cursor: "pointer", padding: 0 }}>Page {page}</button>
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => deleteNote(page)} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint }}><X size={11} /></button>
                     </div>
                     <p style={{ fontSize: "12px", color: T.textMuted, lineHeight: 1.65, whiteSpace: "pre-wrap", margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{text}</p>
                   </div>
@@ -462,7 +462,7 @@ const SettingsPanel = ({ T, themeId, setThemeId, scale, setScale, onClose }) => 
   <div style={{ position: "absolute", top: "calc(100% + 10px)", right: 0, width: "280px", background: T.surface, border: `1px solid ${T.border}`, borderRadius: "16px", boxShadow: T.shadow, zIndex: 100, overflow: "hidden" }}>
     <div style={{ padding: "14px 18px", borderBottom: `1px solid ${T.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
       <span style={{ fontSize: "14px", fontWeight: 700, color: T.text }}>Display</span>
-      <button onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: T.textMuted }}><X size={14} /></button>
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={onClose} style={{ background: "none", border: "none", cursor: "pointer", color: T.textMuted }}><X size={14} /></button>
     </div>
     <div style={{ padding: "18px", display: "flex", flexDirection: "column", gap: "20px" }}>
       <div>
@@ -471,7 +471,7 @@ const SettingsPanel = ({ T, themeId, setThemeId, scale, setScale, onClose }) => 
           {Object.values(THEMES).map(({ id, label }) => {
             const bgMap = { light: "#f0ede8", sepia: "#f4ead4", dark: "#1e1e1e", night: "#000000" };
             return (
-              <button key={id} onClick={() => setThemeId(id)} style={{
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" key={id} onClick={() => setThemeId(id)} style={{
                 padding: "10px 12px", borderRadius: "10px", border: `2px solid ${themeId === id ? T.accent : T.border}`,
                 background: bgMap[id], cursor: "pointer", transition: "all 0.15s",
                 boxShadow: themeId === id ? `0 0 0 3px ${T.accentBg}` : "none",
@@ -487,11 +487,11 @@ const SettingsPanel = ({ T, themeId, setThemeId, scale, setScale, onClose }) => 
       <div>
         <p style={{ fontSize: "10.5px", fontWeight: 700, color: T.textFaint, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "10px" }}>Zoom</p>
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <button onClick={() => setScale(s => Math.max(0.6, +(s - 0.1).toFixed(2)))} style={{ width: "32px", height: "32px", borderRadius: "8px", border: `1px solid ${T.border}`, background: "transparent", color: T.text, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setScale(s => Math.max(0.6, +(s - 0.1).toFixed(2)))} style={{ width: "32px", height: "32px", borderRadius: "8px", border: `1px solid ${T.border}`, background: "transparent", color: T.text, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Minus size={13} />
           </button>
           <span style={{ flex: 1, textAlign: "center", fontSize: "15px", fontWeight: 700, color: T.text }}>{Math.round(scale * 100)}%</span>
-          <button onClick={() => setScale(s => Math.min(3.0, +(s + 0.1).toFixed(2)))} style={{ width: "32px", height: "32px", borderRadius: "8px", border: `1px solid ${T.border}`, background: "transparent", color: T.text, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setScale(s => Math.min(3.0, +(s + 0.1).toFixed(2)))} style={{ width: "32px", height: "32px", borderRadius: "8px", border: `1px solid ${T.border}`, background: "transparent", color: T.text, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <Plus size={13} />
           </button>
         </div>
@@ -799,7 +799,7 @@ const BookReader = () => {
       <div style={{ textAlign: "center" }}>
         <AlertCircle size={28} color="#ef4444" style={{ margin: "0 auto 12px", display: "block" }} />
         <p style={{ fontSize: "14px", fontWeight: 700, color: T.text, marginBottom: "8px" }}>Book not found</p>
-        <button onClick={() => navigate(-1)} style={{ color: T.accent, background: "none", border: "none", cursor: "pointer", fontSize: "13px" }}>← Go back</button>
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => navigate(-1)} style={{ color: T.accent, background: "none", border: "none", cursor: "pointer", fontSize: "13px" }}>← Go back</button>
       </div>
     </div>
   );
@@ -847,15 +847,15 @@ const BookReader = () => {
           background: T.toolbar, border: `1px solid ${T.toolbarBorder}`,
           borderRadius: "14px", padding: "6px", boxShadow: T.shadow,
         }}>
-          <button className="toolbar-btn" onClick={() => navigate(-1)} style={{ ...toolBtn(), width: "30px", height: "30px" }}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => navigate(-1)} style={{ ...toolBtn(), width: "30px", height: "30px" }}>
             <ArrowLeft size={14} />
           </button>
           <div style={{ width: "1px", height: "18px", background: T.toolbarBorder, margin: "0 2px" }} />
-          <button className="toolbar-btn" onClick={() => setShowSidebar(v => !v)} style={toolBtn(showSidebar)}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setShowSidebar(v => !v)} style={toolBtn(showSidebar)}>
             <List size={15} />
           </button>
           <button
-            className="toolbar-btn"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={toggleReadAloud}
             title={readingAloud ? "Stop reading" : "Listen to this page"}
             style={toolBtn(readingAloud)}
@@ -901,14 +901,14 @@ const BookReader = () => {
           position: "relative",
         }}>
           <div style={{ position: "relative" }}>
-            <button className="toolbar-btn" onClick={() => { setShowBmMenu(v => !v); setShowSettings(false); }} style={toolBtn(isBookmarked || showBmMenu)}>
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => { setShowBmMenu(v => !v); setShowSettings(false); }} style={toolBtn(isBookmarked || showBmMenu)}>
               {isBookmarked ? <BookmarkCheck size={15} /> : <Bookmark size={15} />}
             </button>
             {showBmMenu && (
               <div style={{ position: "absolute", top: "calc(100% + 10px)", right: 0, width: "232px", background: T.surface, border: `1px solid ${T.border}`, borderRadius: "14px", boxShadow: T.shadow, zIndex: 100, overflow: "hidden" }}>
                 <div style={{ padding: "12px 16px", borderBottom: `1px solid ${T.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <span style={{ fontSize: "13px", fontWeight: 700, color: T.text }}>Bookmarks</span>
-                  <button onClick={() => isBookmarked ? removeBookmark(bookmarks.find(b => b.page === pageNumber)?._id) : setAddingBm(true)} style={{ fontSize: "12px", fontWeight: 700, color: isBookmarked ? "#ef4444" : T.accent, background: "none", border: "none", cursor: "pointer" }}>
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => isBookmarked ? removeBookmark(bookmarks.find(b => b.page === pageNumber)?._id) : setAddingBm(true)} style={{ fontSize: "12px", fontWeight: 700, color: isBookmarked ? "#ef4444" : T.accent, background: "none", border: "none", cursor: "pointer" }}>
                     {isBookmarked ? "Remove" : "+ Add"}
                   </button>
                 </div>
@@ -916,7 +916,7 @@ const BookReader = () => {
                   <div style={{ padding: "10px 14px", borderBottom: `1px solid ${T.border}`, display: "flex", gap: "6px" }}>
                     <input value={bmNote} onChange={e => setBmNote(e.target.value)} placeholder="Note…" autoFocus onKeyDown={e => e.key === "Enter" && confirmBm()}
                       style={{ flex: 1, minWidth: 0, background: T.inputBg, border: `1px solid ${T.border}`, borderRadius: "8px", padding: "6px 10px", fontSize: "12px", color: T.text, outline: "none" }} />
-                    <button onClick={confirmBm} style={{ fontSize: "12px", fontWeight: 700, color: T.accent, background: "none", border: "none", cursor: "pointer" }}>Save</button>
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={confirmBm} style={{ fontSize: "12px", fontWeight: 700, color: T.accent, background: "none", border: "none", cursor: "pointer" }}>Save</button>
                   </div>
                 )}
                 <div style={{ maxHeight: "180px", overflowY: "auto", padding: "6px" }}>
@@ -928,11 +928,11 @@ const BookReader = () => {
                         onMouseEnter={e => e.currentTarget.style.background = T.hover}
                         onMouseLeave={e => e.currentTarget.style.background = "transparent"}
                       >
-                        <button onClick={() => { goTo(bm.page); setShowBmMenu(false); }} style={{ flex: 1, textAlign: "left", background: "none", border: "none", cursor: "pointer" }}>
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => { goTo(bm.page); setShowBmMenu(false); }} style={{ flex: 1, textAlign: "left", background: "none", border: "none", cursor: "pointer" }}>
                           <span style={{ fontSize: "12px", fontWeight: 700, color: T.accent }}>p.{bm.page}</span>
                           {bm.note && <span style={{ fontSize: "12px", color: T.textMuted, marginLeft: "8px" }}>{bm.note}</span>}
                         </button>
-                        <button onClick={() => removeBookmark(bm._id)} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint }}><X size={11} /></button>
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => removeBookmark(bm._id)} style={{ background: "none", border: "none", cursor: "pointer", color: T.textFaint }}><X size={11} /></button>
                       </div>
                     ))
                   }
@@ -942,7 +942,7 @@ const BookReader = () => {
           </div>
 
           <div style={{ position: "relative" }}>
-            <button className="toolbar-btn" onClick={() => { setShowSettings(v => !v); setShowBmMenu(false); }} style={toolBtn(showSettings)}>
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => { setShowSettings(v => !v); setShowBmMenu(false); }} style={toolBtn(showSettings)}>
               <Settings size={14} />
             </button>
             {showSettings && (
@@ -1064,17 +1064,17 @@ const BookReader = () => {
       }}>
         {/* Zoom */}
         <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
-          <button className="toolbar-btn" onClick={() => setScale(s => Math.max(0.6, +(s - 0.15).toFixed(2)))} style={toolBtn(false, true)}><ZoomOut size={13} /></button>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setScale(s => Math.max(0.6, +(s - 0.15).toFixed(2)))} style={toolBtn(false, true)}><ZoomOut size={13} /></button>
           <span style={{ fontSize: "11px", fontWeight: 700, color: T.textMuted, minWidth: "40px", textAlign: "center", fontVariantNumeric: "tabular-nums" }}>
             {Math.round(scale * 100)}%
           </span>
-          <button className="toolbar-btn" onClick={() => setScale(s => Math.min(3.0, +(s + 0.15).toFixed(2)))} style={toolBtn(false, true)}><ZoomIn size={13} /></button>
-          <button className="toolbar-btn" onClick={() => setScale(2.1)} style={{ ...toolBtn(false, true), marginLeft: "2px" }}><RotateCcw size={11} /></button>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setScale(s => Math.min(3.0, +(s + 0.15).toFixed(2)))} style={toolBtn(false, true)}><ZoomIn size={13} /></button>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => setScale(2.1)} style={{ ...toolBtn(false, true), marginLeft: "2px" }}><RotateCcw size={11} /></button>
         </div>
 
         {/* Page navigation */}
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <button className="toolbar-btn" onClick={() => goTo(pageNumber - 1)} disabled={pageNumber <= 1}
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => goTo(pageNumber - 1)} disabled={pageNumber <= 1}
             style={{ ...toolBtn(), opacity: pageNumber <= 1 ? 0.3 : 1, cursor: pageNumber <= 1 ? "not-allowed" : "pointer" }}>
             <ChevronLeft size={16} />
           </button>
@@ -1086,7 +1086,7 @@ const BookReader = () => {
             <span style={{ fontSize: "12px", color: T.textFaint }}>/</span>
             <span style={{ fontSize: "12.5px", fontWeight: 500, color: T.textMuted }}>{numPages ?? "—"}</span>
           </div>
-          <button className="toolbar-btn" onClick={() => goTo(pageNumber + 1)} disabled={!numPages || pageNumber >= numPages}
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => goTo(pageNumber + 1)} disabled={!numPages || pageNumber >= numPages}
             style={{ ...toolBtn(), opacity: (!numPages || pageNumber >= numPages) ? 0.3 : 1, cursor: (!numPages || pageNumber >= numPages) ? "not-allowed" : "pointer" }}>
             <ChevronRight size={16} />
           </button>

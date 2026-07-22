@@ -9,13 +9,13 @@ const PanelShell = ({ icon: Icon, title, viewAllHref, children }) => (
   <div className="bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden flex flex-col">
     <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-100 dark:border-gray-800">
       <div className="flex items-center gap-2">
-        <Icon size={15} className="text-green-500" strokeWidth={2.3} />
+        <Icon size={15} className="text-[#2C2DE0] dark:text-[#4F51FF]" strokeWidth={2.3} />
         <span className="text-[13px] font-black text-gray-900 dark:text-white">{title}</span>
       </div>
       {viewAllHref && (
         <Link
           to={viewAllHref}
-          className="text-[11px] font-bold text-green-500 hover:text-green-600 flex items-center gap-0.5"
+          className="text-[11px] font-bold text-[#2C2DE0] dark:text-[#4F51FF] hover:text-[#1E1FAA] dark:text-[#4F51FF] flex items-center gap-0.5"
         >
           View all <ChevronRight size={12} />
         </Link>
@@ -116,7 +116,7 @@ export const NotificationsPanel = ({ items = [] }) => (
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-[12px] text-gray-700 dark:text-gray-300 leading-snug">{n.text}</p>
-            <p className="text-[10px] text-gray-300 dark:text-gray-600 mt-1">{n.time}</p>
+            <p className="text-[10px] text-gray-300 dark:text-gray-600 dark:text-gray-400 mt-1">{n.time}</p>
           </div>
         </div>
       ))

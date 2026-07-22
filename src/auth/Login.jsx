@@ -9,13 +9,14 @@ import api from "@/api/client";
 import { buildGoogleAuthUrl } from "@/api/baseUrl";
 import GoogleOneTap from "@/components/GoogleOneTap";
 import TurnstileWidget from "@/components/TurnstileWidget";
+import { Helmet } from "react-helmet-async";
 
 // ─── Duolingo-style Google button ────────────────────────────────────────────
 function DuolingoGoogleButton({ onClick, label }) {
   const [pressed, setPressed] = useState(false);
 
   return (
-    <button
+    <button 
       type="button"
       onClick={onClick}
       onMouseDown={() => setPressed(true)}
@@ -150,6 +151,16 @@ const LoginPage = () => {
   return (
     <div className="w-full min-h-screen flex flex-col md:flex-row bg-white dark:bg-black">
 
+<Helmet>
+  <title>Login - UniCORE</title>
+
+  <meta
+    name="description"
+    content="Securely log in to your UniCORE account."
+  />
+
+  <link rel="canonical" href="https://unicores.site/login" />
+</Helmet>
       {/* ── Google One Tap (invisible, shows browser-native popup) ─────────── */}
       <GoogleOneTap />
 
@@ -167,11 +178,11 @@ const LoginPage = () => {
           {loading && (
             <div className="flex flex-col items-center text-center py-12 anim-fadeup">
               <div className="relative w-16 h-16 mb-6">
-                <div className="absolute inset-0 rounded-full border-4 border-green-100 dark:border-green-900" />
-                <div className="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#2C2DE0]" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#4F51FF] border-t-transparent animate-spin" />
                 {/* Key icon inside spinner */}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                  className="absolute inset-0 m-auto text-green-500">
+                  className="absolute inset-0 m-auto text-[#2C2DE0] dark:text-[#4F51FF]">
                   <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"
                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -184,7 +195,7 @@ const LoginPage = () => {
               <div className="flex gap-1 mt-5">
                 {[0, 1, 2].map((i) => (
                   <span key={i}
-                    className="w-2 h-2 rounded-full bg-green-500 animate-bounce"
+                    className="w-2 h-2 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] animate-bounce"
                     style={{ animationDelay: `${i * 150}ms` }}
                   />
                 ))}
@@ -233,7 +244,7 @@ const LoginPage = () => {
                     autoComplete="off"
                     autoCapitalize="none"
                     spellCheck={false}
-                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
+                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF] transition-all"
                   />
                 </div>
 
@@ -249,9 +260,9 @@ const LoginPage = () => {
                       onChange={handleChange}
                       placeholder={t("auth.passwordPlaceholder")}
                       autoComplete="new-password"
-                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pr-11 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
+                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pr-11 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF] transition-all"
                     />
-                    <button
+                    <button 
                       type="button"
                       onClick={() => setShowPassword((s) => !s)}
                       className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
@@ -264,7 +275,7 @@ const LoginPage = () => {
                 <div className="flex justify-end -mt-2">
                   <Link
                     to="/forgot-password"
-                    className="text-xs text-green-600 dark:text-green-400 font-semibold hover:underline"
+                    className="text-xs text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] font-semibold hover:underline"
                   >
                     {t("auth.forgotPassword")}
                   </Link>
@@ -278,24 +289,20 @@ const LoginPage = () => {
                 />
 
                 {/* ── Duolingo-style submit button ─────────────────────── */}
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2
-                    bg-[#58CC02] text-white text-sm font-bold
-                    shadow-[0_4px_0_#46A302]
-                    hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
-                    active:translate-y-1 active:shadow-none
-                    transition-all duration-150
-                    py-3 rounded-xl mt-4 group"
-                >
-                  {t("auth.signIn")}
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-                </button>
+                {/* ── Duolingo-style submit button ─────────────────────── */}
+<button
+  type="submit"
+  className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
+>
+  {t("auth.signIn")}
+  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+</button>
+
               </form>
 
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
                 {t("auth.noAccount")}{" "}
-                <Link to="/signup" className="text-green-600 dark:text-green-400 font-semibold hover:underline">
+                <Link to="/signup" className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] font-semibold hover:underline">
                   {t("auth.createOne")}
                 </Link>
               </p>
@@ -305,56 +312,49 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {/* ── RIGHT: Brand panel (50%) ──────────────────────────────────────────── */}
-      <div className="hidden md:flex w-1/2 bg-black dark:bg-gray-950 flex-col justify-center items-center px-14 text-center relative overflow-hidden">
+     {/* ── RIGHT: Brand panel (50%) ──────────────────────────────────────────── */}
+<div className="hidden md:flex w-1/2 bg-black dark:bg-gray-950 flex-col justify-center items-center px-14 text-center relative overflow-hidden">
+  <div
+    className="absolute inset-0 opacity-[0.07]"
+    style={{
+      backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)",
+      backgroundSize: "20px 20px",
+    }}
+  />
+  <div className="absolute top-0 left-0 right-0 h-1 bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
 
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: "radial-gradient(circle, #22c55e 1px, transparent 1px)",
-            backgroundSize: "20px 20px",
-          }}
-        />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-green-500" />
+  <div className="relative z-10 max-w-sm">
+    <div className="w-14 h-14 rounded-2xl bg-[#2C2DE0] flex items-center justify-center mx-auto mb-6">
+      <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
+        <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
+        <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
+        <rect x="9" y="8" width="5" height="6" rx="1" fill="white" opacity="0.9" />
+        <rect x="2" y="11" width="5" height="3" rx="1" fill="white" opacity="0.6" />
+      </svg>
+    </div>
 
-        <div className="relative z-10 max-w-sm">
-          <div className="w-14 h-14 rounded-2xl bg-[#58CC02]
-              text-white text-sm font-bold
-              shadow-[0_4px_0_#46A302]
-              hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302]
-              active:translate-y-1 active:shadow-none
-              transition-all duration-150
-              flex items-center justify-center mx-auto mb-6">
-            <svg width="28" height="28" viewBox="0 0 16 16" fill="none">
-              <rect x="2" y="2" width="5" height="7" rx="1" fill="white" opacity="0.9" />
-              <rect x="9" y="2" width="5" height="4" rx="1" fill="white" opacity="0.6" />
-              <rect x="9" y="8" width="5" height="6" rx="1" fill="white" opacity="0.9" />
-              <rect x="2" y="11" width="5" height="3" rx="1" fill="white" opacity="0.6" />
-            </svg>
-          </div>
+    <h2 className="text-2xl font-black text-white leading-tight">
+      {t("auth.sideTitle")}
+    </h2>
 
-          <h2 className="text-2xl font-black text-white leading-tight">
-            {t("auth.sideTitle")}
-          </h2>
+    <p className="text-gray-400 mt-4 text-sm leading-relaxed">
+      {t("auth.sideDescription")}
+    </p>
 
-          <p className="text-gray-400 mt-4 text-sm leading-relaxed">
-            {t("auth.sideDescription")}
-          </p>
+    <div className="flex flex-wrap justify-center gap-2 mt-6">
+      {(t("auth.sideFeatures") || []).map((f) => (
+        <span key={f} className="px-3 py-1.5 bg-white/10 border border-white/10 rounded-full text-[11px] font-semibold text-gray-300">
+          {f}
+        </span>
+      ))}
+    </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mt-6">
-            {(t("auth.sideFeatures") || []).map((f) => (
-              <span key={f} className="px-3 py-1.5 bg-white/10 border border-white/10 rounded-full text-[11px] font-semibold text-gray-300">
-                {f}
-              </span>
-            ))}
-          </div>
-
-          <p className="mt-10 text-gray-500 italic text-sm">
-            {t("auth.quote")}
-          </p>
-          <p className="mt-1 text-gray-600 text-xs">{t("auth.quoteAuthor")}</p>
-        </div>
-      </div>
+    <p className="mt-10 text-gray-500 dark:text-gray-400 italic text-sm">
+      {t("auth.quote")}
+    </p>
+    <p className="mt-1 text-gray-600 dark:text-gray-400 text-xs">{t("auth.quoteAuthor")}</p>
+  </div>
+</div>
 
       {/* Animations */}
       <style>{`

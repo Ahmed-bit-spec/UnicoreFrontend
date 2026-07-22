@@ -53,8 +53,8 @@ export default function SqlReviewTab({ submission }) {
                     </div>
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-green-500 mb-2">Expected Result</p>
-                    <div className="bg-green-50 dark:bg-green-500/5 rounded-lg p-3 text-xs font-mono text-gray-700 dark:text-gray-300 overflow-auto max-h-48">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#2C2DE0] dark:text-[#4F51FF] mb-2">Expected Result</p>
+                    <div className="bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/5 rounded-lg p-3 text-xs font-mono text-gray-700 dark:text-gray-300 overflow-auto max-h-48">
                       {ans.expectedOutput || "(not specified)"}
                     </div>
                   </div>

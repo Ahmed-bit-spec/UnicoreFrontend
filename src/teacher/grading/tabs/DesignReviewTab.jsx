@@ -24,12 +24,12 @@ export default function DesignReviewTab({ submission }) {
           { id: "tablet",  icon: Tablet,     label: "Tablet"  },
           { id: "mobile",  icon: Smartphone, label: "Mobile"  },
         ].map(({ id, icon: Icon, label }) => (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             key={id}
             onClick={() => setViewport(id)}
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
               ${viewport === id
-                ? "bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400"
+                ? "bg-[#2C2DE0] dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]"
                 : "text-gray-500 hover:bg-gray-100 dark:hover:bg-zinc-800"
               }`}
           >
@@ -57,7 +57,7 @@ export default function DesignReviewTab({ submission }) {
             {/* Preview */}
             <div className="p-4 bg-gray-50 dark:bg-zinc-950 flex justify-center">
               <div
-                className="bg-white rounded-lg shadow-lg overflow-auto transition-all duration-300"
+                className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-auto transition-all duration-300"
                 style={{ width: widths[viewport], maxWidth: "100%", height: "400px" }}
               >
                 {htmlContent ? (

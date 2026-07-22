@@ -231,7 +231,7 @@ const Feed = () => {
           <p className="text-sm text-red-500 mb-3">
             {t["feed.errorLoad"] ?? "Couldn't load the feed."}
           </p>
-          <button onClick={() => refetch()} className={BTN_SECONDARY}>
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => refetch()} className={BTN_SECONDARY}>
             {t["feed.tryAgain"] ?? "Try again"}
           </button>
         </div>
@@ -243,7 +243,7 @@ const Feed = () => {
           <p className="text-[15px] font-semibold text-gray-500 dark:text-gray-400 mb-2">
             {t["feed.empty"] ?? "No posts yet."}
           </p>
-          <p className="text-[13px] text-gray-400 dark:text-gray-600 mb-5">
+          <p className="text-[13px] text-gray-400 dark:text-gray-600 dark:text-gray-400 mb-5">
             {t["feed.emptyHint"] ?? "Be the first to share something with the community."}
           </p>
           <button onClick={onOpenWrite} className={BTN_PRIMARY}>

@@ -40,10 +40,10 @@ const CustomTooltip = ({ active, payload, label, isDark }) => {
         "rounded-lg border px-3 py-2 text-xs font-mono shadow-lg",
         isDark
           ? "bg-black border-white/15 text-white"
-          : "bg-white border-black/10 text-black"
+          : "bg-white dark:bg-gray-900 border-black/10 text-black"
       )}
     >
-      <p className="text-green-500 font-bold">{payload[0].value}</p>
+      <p className="text-[#2C2DE0] dark:text-[#4F51FF] font-bold">{payload[0].value}</p>
       <p className={isDark ? "text-white/40" : "text-black/40"}>{label}</p>
     </div>
   );
@@ -128,7 +128,7 @@ const ReservationAnalyticsWidget = ({
   const isBar   = tab === "peak" || tab === "zones" || tab === "30d";
   const axisClr = isDark ? "rgba(255,255,255,.2)" : "rgba(0,0,0,.2)";
   const gridClr = isDark ? "rgba(255,255,255,.04)" : "rgba(0,0,0,.04)";
-  const base    = isDark ? "bg-black border-white/10" : "bg-white border-black/8";
+  const base    = isDark ? "bg-black border-white/10" : "bg-white dark:bg-gray-900 border-black/8";
 
   const isEmpty = data.length === 0 || data.every((d) => (d.value ?? 0) === 0);
 
@@ -146,15 +146,15 @@ const ReservationAnalyticsWidget = ({
 
         <div className="flex gap-1">
           {TABS.map((t) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={t.key}
               onClick={() => setTab(t.key)}
               className={cn(
                 "text-[11px] font-semibold px-3 py-1 rounded-md transition-colors",
                 tab === t.key
-                  ? "bg-green-500 text-black"
+                  ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] text-black"
                   : isDark
-                  ? "text-white/40 hover:text-white hover:bg-white/6"
+                  ? "text-white/40 hover:text-white hover:bg-white dark:bg-gray-900/6"
                   : "text-black/40 hover:text-black hover:bg-black/5"
               )}
             >
@@ -212,7 +212,7 @@ const ReservationAnalyticsWidget = ({
                       key={i}
                       fill={
                         i === 0
-                          ? "#22c55e"
+                          ? "#2C2DE0"
                           : isDark
                           ? "rgba(255,255,255,.15)"
                           : "rgba(0,0,0,.1)"
@@ -228,8 +228,8 @@ const ReservationAnalyticsWidget = ({
               >
                 <defs>
                   <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%"   stopColor="#22c55e" stopOpacity={0.25} />
-                    <stop offset="100%" stopColor="#22c55e" stopOpacity={0}    />
+                    <stop offset="0%"   stopColor="#2C2DE0" stopOpacity={0.25} />
+                    <stop offset="100%" stopColor="#2C2DE0" stopOpacity={0}    />
                   </linearGradient>
                 </defs>
                 <CartesianGrid
@@ -252,13 +252,13 @@ const ReservationAnalyticsWidget = ({
                 <Area
                   type="monotone"
                   dataKey="value"
-                  stroke="#22c55e"
+                  stroke="#2C2DE0"
                   strokeWidth={2}
                   fill="url(#areaGrad)"
                   dot={false}
                   activeDot={{
                     r: 4,
-                    fill: "#22c55e",
+                    fill: "#2C2DE0",
                     stroke: isDark ? "#000" : "#fff",
                     strokeWidth: 2,
                   }}

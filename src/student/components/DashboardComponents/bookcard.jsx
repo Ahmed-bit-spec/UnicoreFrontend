@@ -17,13 +17,13 @@ export const PRIMARY_BTN =
 // ── Cover gradient fallback ────────────────────────────────────────────────────
 const GRADIENTS = [
   ["#000000", "#1a1a1a"],
-  ["#052e16", "#14532d"],
-  ["#0a0a0a", "#166534"],
+  ["#2C2DE0", "#2C2DE0"],
+  ["#0a0a0a", "#2C2DE0"],
   ["#111827", "#064e3b"],
-  ["#1c1917", "#14532d"],
-  ["#0c0a09", "#052e16"],
-  ["#18181b", "#166534"],
-  ["#0f172a", "#052e16"],
+  ["#1c1917", "#2C2DE0"],
+  ["#0c0a09", "#2C2DE0"],
+  ["#18181b", "#2C2DE0"],
+  ["#0f172a", "#2C2DE0"],
 ];
 
 const hashTitle = (title = "") =>
@@ -56,7 +56,7 @@ const CoverImage = ({ src, title, format }) => {
         >
           {initial}
         </span>
-        <span className="text-[9px] font-bold mt-2 uppercase tracking-[0.15em] text-green-500/80">
+        <span className="text-[9px] font-bold mt-2 uppercase tracking-[0.15em] text-[#2C2DE0] dark:text-[#4F51FF]/80">
           {formatLabel}
         </span>
       </div>
@@ -85,19 +85,19 @@ const FormatBadge = ({ format }) => {
   const cfg = {
     ebook: {
       label: t["book.digital"] ?? "Digital",
-      className: "border border-green-500 text-green-500 bg-white",
+      className: "border border-[#2C2DE0] dark:border-[#4F51FF] text-[#2C2DE0] dark:text-[#4F51FF] bg-white dark:bg-gray-900",
     },
     physical: {
       label: t["book.print"] ?? "Print",
-      className: "border border-black text-black bg-white",
+      className: "border border-black text-black bg-white dark:bg-gray-900",
     },
     both: {
       label: t["book.both"] ?? "Digital + Print",
-      className: "border border-green-500 text-green-500 bg-white",
+      className: "border border-[#2C2DE0] dark:border-[#4F51FF] text-[#2C2DE0] dark:text-[#4F51FF] bg-white dark:bg-gray-900",
     },
   }[format] ?? {
     label: t["book.print"] ?? "Print",
-    className: "border border-black text-black bg-white",
+    className: "border border-black text-black bg-white dark:bg-gray-900",
   };
 
   return (
@@ -114,7 +114,7 @@ const ReasonBadge = ({ reason, reasonLabel }) => {
   const configs = {
     new_arrival: {
       icon: Sparkles,
-      className: "bg-green-500 text-white",
+      className: "bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white",
     },
     same_author: {
       icon: UserCheck,
@@ -167,11 +167,11 @@ const BookCard = ({ book, isSaved, onToggleSave, size = "md" }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={`
-        relative flex flex-col rounded-xl overflow-hidden cursor-pointer bg-white
+        relative flex flex-col rounded-xl overflow-hidden cursor-pointer bg-white dark:bg-gray-900
         transition-all duration-200 ease-out
         ${hovered
-          ? "border-2 border-green-500 shadow-lg shadow-green-500/10 -translate-y-0.5"
-          : "border border-gray-200 shadow-sm"
+          ? "border-2 border-[#2C2DE0] dark:border-[#4F51FF] shadow-lg shadow-[#2C2DE0]/10 -translate-y-0.5"
+          : "border border-gray-200 dark:border-gray-700 shadow-sm"
         }
       `}
     >
@@ -186,7 +186,7 @@ const BookCard = ({ book, isSaved, onToggleSave, size = "md" }) => {
           }`}
         >
           {hovered && canRead && (
-            <div className="flex items-center gap-1.5 bg-white text-green-500 px-3 py-2 rounded-full text-xs font-bold shadow-lg scale-105 border border-green-500">
+            <div className="flex items-center gap-1.5 bg-white text-[#2C2DE0] dark:text-[#4F51FF] px-3 py-2 rounded-full text-xs font-bold shadow-lg scale-105 border border-[#2C2DE0] dark:border-[#4F51FF]">
               <Eye size={13} />
               {t["book.read"] ?? "Read Now"}
             </div>
@@ -209,16 +209,7 @@ const BookCard = ({ book, isSaved, onToggleSave, size = "md" }) => {
         {/* Floating save button */}
         <button
           onClick={handleFav}
-          className={`
-            absolute top-2.5 right-2.5 w-7 h-7 rounded-lg flex items-center justify-center z-10
-            border transition-all duration-200 outline-none
-            ${isSaved
-              ? "bg-green-500 border-green-500 text-white"
-              : "bg-white border-gray-200 text-gray-400"
-            }
-            ${favAnim ? "scale-125" : "scale-100"}
-            ${isSaved || hovered ? "opacity-100 visible" : "opacity-0 invisible"}
-          `}
+          className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
         >
           <Heart size={12} style={{ fill: isSaved ? "currentColor" : "none" }} />
         </button>
@@ -228,7 +219,7 @@ const BookCard = ({ book, isSaved, onToggleSave, size = "md" }) => {
       <div className="p-3 flex-1 flex flex-col gap-1">
         <p
           className={`text-[13px] font-bold leading-snug line-clamp-2 transition-colors duration-150 ${
-            hovered ? "text-green-500" : "text-black"
+            hovered ? "text-[#2C2DE0] dark:text-[#4F51FF]" : "text-black"
           }`}
           style={{ fontFamily: "'Georgia', serif", letterSpacing: "-0.01em" }}
         >
@@ -240,7 +231,7 @@ const BookCard = ({ book, isSaved, onToggleSave, size = "md" }) => {
 
         <div className="flex items-center justify-between mt-auto pt-2 border-t border-dashed border-gray-100">
           <div className="flex items-center gap-1">
-            <Star size={10} className="text-green-500 fill-green-500" />
+            <Star size={10} className="text-[#2C2DE0] dark:text-[#4F51FF] fill-[#2C2DE0]" />
             <span className="text-[11px] font-bold text-black">
               {book.rating?.toFixed(1) ?? "—"}
             </span>
@@ -263,9 +254,9 @@ const BookCard = ({ book, isSaved, onToggleSave, size = "md" }) => {
             text-xs font-bold outline-none
             ${canRead
               ? `${PRIMARY_BTN} cursor-pointer`
-              : "bg-gray-100 text-gray-400 cursor-not-allowed"
+              : "bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed"
             }
-          `}
+           bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 dark:bg-[#1E1FAA] dark:shadow-[0_4px_0_#0F0F55] dark:hover:shadow-[0_2px_0_#0F0F55] px-4 py-2 w-full md:w-auto rounded-xl`}
         >
           <BookOpen size={11} />
           {canRead
@@ -275,13 +266,7 @@ const BookCard = ({ book, isSaved, onToggleSave, size = "md" }) => {
 
         <button
           onClick={handleFav}
-          className={`
-            w-8 rounded-xl flex items-center justify-center transition-all duration-150 outline-none border
-            ${isSaved
-              ? "bg-green-500 border-green-500 text-white"
-              : "bg-white border-gray-200 text-gray-400 hover:border-green-500 hover:text-green-500"
-            }
-          `}
+          className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
         >
           <Heart size={12} style={{ fill: isSaved ? "currentColor" : "none" }} />
         </button>

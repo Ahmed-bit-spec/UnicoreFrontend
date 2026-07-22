@@ -16,7 +16,7 @@ export const PageLoader = ({ label}) => (
   <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-5 bg-[#FBFEF7] dark:bg-black">
     <div className="relative">
       {/* ambient glow pulsing with the lantern */}
-      <div className="absolute inset-0 -m-10 rounded-full bg-green-300/25 blur-3xl loader-glow" />
+      <div className="absolute inset-0 -m-10 rounded-full bg-[#2C2DE0]/25 blur-3xl loader-glow" />
       <div className="loader-float">
         <SpiritBot size={108} />
       </div>
@@ -25,9 +25,9 @@ export const PageLoader = ({ label}) => (
     <p className="text-sm font-bold text-gray-500 dark:text-gray-400">{label}</p>
 
     <div className="flex items-center gap-1.5">
-      <span className="w-2 h-2 rounded-full bg-green-500 loader-dot" style={{ animationDelay: "0s" }} />
-      <span className="w-2 h-2 rounded-full bg-green-500 loader-dot" style={{ animationDelay: "0.15s" }} />
-      <span className="w-2 h-2 rounded-full bg-green-500 loader-dot" style={{ animationDelay: "0.3s" }} />
+      <span className="w-2 h-2 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] loader-dot" style={{ animationDelay: "0s" }} />
+      <span className="w-2 h-2 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] loader-dot" style={{ animationDelay: "0.15s" }} />
+      <span className="w-2 h-2 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] loader-dot" style={{ animationDelay: "0.3s" }} />
     </div>
 
     <style>{`

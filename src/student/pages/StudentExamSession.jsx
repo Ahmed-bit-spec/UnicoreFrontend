@@ -304,7 +304,7 @@ export default function StudentExamSession() {
             {formatTime(timeLeft)}
           </div>
 
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => handleSubmit(false)}
             disabled={isSubmitting}
             className={`${PRIMARY_BTN} px-6 py-2 rounded-lg flex items-center gap-2 disabled:opacity-50`}
@@ -322,13 +322,13 @@ export default function StudentExamSession() {
         className={`h-9 flex items-center justify-center gap-6 text-xs font-medium shrink-0 border-b exam-no-select ${
           violationCount > 0
             ? "bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-900/20 dark:border-amber-800 dark:text-amber-300"
-            : "bg-green-50 border-green-100 text-green-800 dark:bg-green-950/10 dark:border-green-900 dark:text-green-300"
+            : "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 border-[#2C2DE0] text-[#0F0F55] dark:text-blue-200 dark:bg-[#2C2DE0]/10 dark:border-[#2C2DE0] dark:text-[#2C2DE0]"
         }`}
       >
         <span className="flex items-center gap-2">
           <span
             className={`integrity-dot ${
-              isFullscreen ? "text-green-500" : "text-red-500"
+              isFullscreen ? "text-[#2C2DE0] dark:text-[#4F51FF]" : "text-red-500"
             }`}
           />
           {isFullscreen
@@ -369,7 +369,7 @@ export default function StudentExamSession() {
                 ans?.answer !== undefined && ans?.answer !== "" && ans?.answer !== null;
               const isActive  = currentQ === idx;
               return (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   key={q._id}
                   onClick={() => setCurrentQ(idx)}
                   className={`aspect-square rounded-lg flex items-center justify-center font-medium text-sm border-2 ${
@@ -523,7 +523,7 @@ export default function StudentExamSession() {
 
           {/* Footer navigation */}
           <div className="h-20 bg-white dark:bg-neutral-800 border-t border-neutral-200 dark:border-neutral-700 flex items-center justify-between px-6 lg:px-10 shrink-0">
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setCurrentQ((prev) => Math.max(0, prev - 1))}
               disabled={currentQ === 0}
               className={`${PRIMARY_BTN} px-6 py-3 rounded-xl flex items-center gap-2 disabled:opacity-30 disabled:shadow-none disabled:translate-y-0`}
@@ -537,7 +537,7 @@ export default function StudentExamSession() {
               {t("exam.of") || "of"} {questions.length}
             </div>
 
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() =>
                 setCurrentQ((prev) =>
                   Math.min(questions.length - 1, prev + 1)

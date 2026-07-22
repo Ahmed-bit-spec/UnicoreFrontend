@@ -10,8 +10,8 @@ import { fetchAdminUser } from "@/api/admin";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const InfoRow = ({ label, value }) => (
-  <div className="rounded-xl border border-gray-200/70 bg-white/50 p-3 dark:border-white/10 dark:bg-white/[0.03]">
-    <p className="text-[10px] font-bold uppercase text-gray-400 dark:text-gray-500">{label}</p>
+  <div className="rounded-xl border border-gray-200/70 bg-white/50 p-3 dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]">
+    <p className="text-[10px] font-bold uppercase text-gray-400 dark:text-gray-500 dark:text-gray-400">{label}</p>
     <p className="mt-1 text-sm font-semibold text-gray-900 dark:text-white">{value}</p>
   </div>
 );
@@ -23,17 +23,17 @@ const DetailsSkeleton = ({ detail }) => (
       {[0, 1].map((item) => (
         <div
           key={item}
-          className="animate-pulse rounded-2xl border border-gray-200/70 bg-white/60 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.03]"
+          className="animate-pulse rounded-2xl border border-gray-200/70 bg-white/60 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]"
         >
-          <div className="h-4 w-32 rounded-full bg-gray-200 dark:bg-white/10" />
+          <div className="h-4 w-32 rounded-full bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
           <div className="mt-5 flex gap-5">
-            <div className="size-24 rounded-2xl bg-gray-200 dark:bg-white/10" />
+            <div className="size-24 rounded-2xl bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
             <div className="flex-1 space-y-3">
-              <div className="h-5 w-2/3 rounded-full bg-gray-200 dark:bg-white/10" />
-              <div className="h-4 w-1/2 rounded-full bg-gray-200 dark:bg-white/10" />
+              <div className="h-5 w-2/3 rounded-full bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
+              <div className="h-4 w-1/2 rounded-full bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
               <div className="flex gap-2">
-                <div className="h-6 w-20 rounded-full bg-gray-200 dark:bg-white/10" />
-                <div className="h-6 w-24 rounded-full bg-gray-200 dark:bg-white/10" />
+                <div className="h-6 w-20 rounded-full bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
+                <div className="h-6 w-24 rounded-full bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
               </div>
             </div>
           </div>
@@ -42,9 +42,9 @@ const DetailsSkeleton = ({ detail }) => (
     </div>
     <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
       {[0, 1, 2, 3].map((item) => (
-        <div key={item} className="animate-pulse rounded-2xl border border-gray-200/70 bg-white/60 p-5 dark:border-white/10 dark:bg-white/[0.03]">
-          <div className="h-4 w-28 rounded-full bg-gray-200 dark:bg-white/10" />
-          <div className="mt-3 h-8 w-16 rounded-full bg-gray-200 dark:bg-white/10" />
+        <div key={item} className="animate-pulse rounded-2xl border border-gray-200/70 bg-white/60 p-5 dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]">
+          <div className="h-4 w-28 rounded-full bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
+          <div className="mt-3 h-8 w-16 rounded-full bg-gray-200 dark:bg-white dark:bg-gray-900/10" />
         </div>
       ))}
     </div>
@@ -94,10 +94,10 @@ const UserDetailsPage = () => {
   return (
     <PageTransition>
       <div className="mb-5">
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           type="button"
           onClick={() => navigate("/admin/users")}
-          className="inline-flex items-center gap-2 rounded-xl border border-gray-200/80 bg-white/70 px-3 py-2 text-xs font-bold text-gray-700 transition-colors hover:border-green-500/30 dark:border-white/10 dark:bg-white/5 dark:text-gray-200"
+          className="inline-flex items-center gap-2 rounded-xl border border-gray-200/80 bg-white/70 px-3 py-2 text-xs font-bold text-gray-700 transition-colors hover:border-[#2C2DE0] dark:border-[#4F51FF]/30 dark:border-white/10 dark:bg-white/5 dark:text-gray-200"
         >
           <ArrowLeft size={15} />
           {detail.backToUsers}
@@ -109,11 +109,11 @@ const UserDetailsPage = () => {
         <motion.section
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/3"
+          className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white dark:bg-gray-900/3"
         >
           <h2 className="text-sm font-bold text-gray-900 dark:text-white">{detail.profile}</h2>
           <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-center">
-            <div className="flex size-24 items-center justify-center overflow-hidden rounded-2xl bg-green-500/10 text-2xl font-black text-green-700 ring-1 ring-green-500/20 dark:text-green-400">
+            <div className="flex size-24 items-center justify-center overflow-hidden rounded-2xl bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-2xl font-black text-[#0F0F55] dark:text-blue-300 ring-1 ring-[#2C2DE0] dark:ring-[#4F51FF]/20 dark:text-[#4F51FF]">
               {user.avatar ? <img src={user.avatar} alt={user.fullName} className="size-full object-cover" /> : <UserRound size={34} />}
             </div>
             <div className="min-w-0 flex-1">
@@ -138,7 +138,7 @@ const UserDetailsPage = () => {
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.04 }}
-          className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.03]"
+          className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]"
         >
           <h2 className="text-sm font-bold text-gray-900 dark:text-white">{detail.universityInfo}</h2>
           {registry ? (
@@ -170,7 +170,7 @@ const UserDetailsPage = () => {
           {user.devices?.length ? (
             <div className="grid gap-3 sm:grid-cols-2">
               {user.devices.map((d, i) => (
-                <div key={d.deviceId || i} className="rounded-xl border border-gray-200/70 bg-white/50 p-3 dark:border-white/10 dark:bg-white/[0.03]">
+                <div key={d.deviceId || i} className="rounded-xl border border-gray-200/70 bg-white/50 p-3 dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]">
                   <p className="text-xs font-bold text-gray-700 dark:text-gray-200 truncate">{d.userAgent || p.notAvailable}</p>
                   <p className="mt-1 text-[11px] text-gray-400">
                     {d.lastActive ? new Date(d.lastActive).toLocaleString() : p.notAvailable}
@@ -193,7 +193,7 @@ const UserDetailsPage = () => {
             [detail.cancelledReservations, analytics.cancelledReservations],
             [detail.noShows, analytics.noShows],
           ].map(([label, value]) => (
-            <div key={label} className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.03]">
+            <div key={label} className="rounded-2xl border border-gray-200/70 bg-white/60 p-5 shadow-sm backdrop-blur-xl dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.03]">
               <p className="text-xs font-bold text-gray-500 dark:text-gray-400">{label}</p>
               <p className="mt-2 text-2xl font-black text-gray-950 dark:text-white">{value ?? 0}</p>
             </div>

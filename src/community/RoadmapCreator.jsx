@@ -117,10 +117,10 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
         <div className="flex items-center justify-between px-5 py-3 border-b border-gray-100 dark:border-gray-800">
           <h2 className="text-base font-black text-gray-900 dark:text-white">Build a roadmap</h2>
           <div className="flex items-center gap-2">
-            <button onClick={handleSubmit} disabled={saving} className={`px-5 py-2 rounded-xl ${DUO_BUTTON}`}>
+            <button onClick={handleSubmit} disabled={saving} className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}>
               {saving ? "Publishing…" : "Publish roadmap"}
             </button>
-            <button onClick={onClose} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-900 text-gray-400">
+            <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               <X size={18} />
             </button>
           </div>
@@ -140,7 +140,7 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Roadmap title, e.g. Zero to Advanced IT"
-                className="flex-1 px-3 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500/40"
+                className="flex-1 px-3 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/40"
               />
             </div>
             <textarea
@@ -148,7 +148,7 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
               onChange={(e) => setDescription(e.target.value)}
               rows={2}
               placeholder="One or two lines on what this roadmap takes someone from and to."
-              className="sm:col-span-2 px-3 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500/40 resize-none"
+              className="sm:col-span-2 px-3 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/40 resize-none"
             />
             <input
               value={semesterTag}
@@ -193,10 +193,10 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
                   <div className="flex items-center gap-2 px-4 py-3 bg-gray-50/60 dark:bg-gray-900/40">
                     <GripVertical size={14} className="text-gray-300 flex-shrink-0" />
                     <div className="flex flex-col gap-0.5 flex-shrink-0">
-                      <button onClick={() => moveTopic(t.topicId, -1)} disabled={i === 0} className="text-gray-300 hover:text-gray-600 disabled:opacity-30">
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => moveTopic(t.topicId, -1)} disabled={i === 0} className="text-gray-300 hover:text-gray-600 dark:text-gray-400 disabled:opacity-30">
                         <ChevronUp size={12} />
                       </button>
-                      <button onClick={() => moveTopic(t.topicId, 1)} disabled={i === topics.length - 1} className="text-gray-300 hover:text-gray-600 disabled:opacity-30">
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => moveTopic(t.topicId, 1)} disabled={i === topics.length - 1} className="text-gray-300 hover:text-gray-600 dark:text-gray-400 disabled:opacity-30">
                         <ChevronDown size={12} />
                       </button>
                     </div>
@@ -207,13 +207,13 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
                       placeholder="Topic title"
                       className="flex-1 min-w-0 px-2.5 py-1.5 rounded-lg text-sm font-semibold bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800"
                     />
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => setExpandedId(isOpen ? null : t.topicId)}
                       className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 flex-shrink-0"
                     >
                       {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                     </button>
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => removeTopic(t.topicId)}
                       className="p-1.5 rounded-lg text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/40 flex-shrink-0"
                     >
@@ -233,10 +233,10 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
 
                       <div>
                         <div className="flex items-center justify-between mb-1.5">
-                          <label className="flex items-center gap-1.5 text-xs font-bold text-gray-500 uppercase tracking-wide">
+                          <label className="flex items-center gap-1.5 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                             <Link2 size={12} /> Resources
                           </label>
-                          <button onClick={() => addResource(t.topicId)} className="flex items-center gap-1 text-xs font-bold text-green-600 hover:text-green-700">
+                          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => addResource(t.topicId)} className="flex items-center gap-1 text-xs font-bold text-[#1E1FAA] dark:text-[#4F51FF] hover:text-[#0F0F55] dark:text-blue-300">
                             <Plus size={12} /> Add
                           </button>
                         </div>
@@ -262,7 +262,7 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
                                 placeholder="https://…"
                                 className="flex-1 px-2 py-1.5 rounded-lg text-xs bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800"
                               />
-                              <button onClick={() => removeResource(t.topicId, r.resourceId)} className="text-gray-300 hover:text-red-500 flex-shrink-0">
+                              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => removeResource(t.topicId, r.resourceId)} className="text-gray-300 hover:text-red-500 flex-shrink-0">
                                 <Trash2 size={12} />
                               </button>
                             </div>
@@ -278,7 +278,7 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
             <button
               type="button"
               onClick={addTopic}
-              className="w-full flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-800 text-sm font-bold text-gray-500 hover:border-green-300 hover:text-green-600 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <Plus size={16} /> Add topic
             </button>

@@ -26,7 +26,7 @@ export default function HistoryTab({ examId, subId }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-green-500" />
+        <Loader2 className="w-6 h-6 animate-spin text-[#2C2DE0] dark:text-[#4F51FF]" />
       </div>
     );
   }
@@ -51,13 +51,13 @@ export default function HistoryTab({ examId, subId }) {
           return (
             <div key={idx} className="relative">
               {/* Dot */}
-              <span className="absolute -left-[26px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-zinc-900 bg-green-500" />
+              <span className="absolute -left-[26px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-zinc-900 bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
 
               <div>
                 <p className="text-xs font-semibold text-gray-900 dark:text-white">
                   {log.action?.replace(/_/g, " ").toUpperCase()}
                 </p>
-                <p className="text-[11px] text-gray-500 mt-0.5">
+                <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5">
                   by {teacherName} · {dateStr}
                 </p>
                 {log.note && (

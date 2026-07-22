@@ -28,11 +28,11 @@ const fmtDate = (d) =>
 
 const getStatusColor = (status) => ({
   pending:   { bg: "bg-amber-500/10",  text: "text-amber-500",  border: "border-amber-500/30"  },
-  active:    { bg: "bg-green-500/10",  text: "text-green-500",  border: "border-green-500/30"  },
+  active:    { bg: "bg-[#2C2DE0] dark:bg-[#1E1FAA]/10",  text: "text-[#2C2DE0] dark:text-[#4F51FF]",  border: "border-[#2C2DE0] dark:border-[#4F51FF]/30"  },
   completed: { bg: "bg-gray-500/10",   text: "text-gray-400",   border: "border-gray-500/30"   },
   cancelled: { bg: "bg-red-500/10",    text: "text-red-500",    border: "border-red-500/30"    },
   no_show:   { bg: "bg-orange-500/10", text: "text-orange-500", border: "border-orange-500/30" },
-})[status] ?? { bg: "bg-gray-100", text: "text-gray-500", border: "border-gray-300" };
+})[status] ?? { bg: "bg-gray-100 dark:bg-gray-800", text: "text-gray-500 dark:text-gray-400", border: "border-gray-300 dark:border-gray-600" };
 
 // ─── API calls ────────────────────────────────────────────────────────────────────────────
 const lookupByQr  = (qrCode)        => apiClient.get(`/admin/reservations/lookup/qr/${qrCode}`);
@@ -70,7 +70,7 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl overflow-hidden"
+      className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl overflow-hidden"
     >
       {/* header strip — unchanged */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-white/10">
@@ -80,12 +80,12 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
             {reservation.status.replace("_", " ").toUpperCase()}
           </span>
           {reservation.checkedInAt && (
-            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
+            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] border border-[#2C2DE0] dark:border-[#4F51FF]/20">
               <CheckCircle2 size={11} /> CHECKED IN
             </span>
           )}
         </div>
-        <button onClick={onReset} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-white/5">
+        <button onClick={onReset} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
           <RefreshCw size={15} />
         </button>
       </div>
@@ -105,8 +105,8 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
       <div className="px-6 py-5 space-y-5">
         {/* student row — unchanged */}
         <div className="flex items-center gap-3">
-          <div className="h-11 w-11 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center shrink-0">
-            <User size={20} className="text-green-500" />
+          <div className="h-11 w-11 rounded-xl bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 border border-[#2C2DE0] dark:border-[#4F51FF]/20 flex items-center justify-center shrink-0">
+            <User size={20} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
           </div>
           <div>
             <p className="font-bold text-gray-900 dark:text-white text-sm">
@@ -118,14 +118,14 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
           </div>
         </div>
 
-        <div className="h-px bg-gray-100 dark:bg-white/10" />
+        <div className="h-px bg-gray-100 dark:bg-white dark:bg-gray-900/10" />
 
         {/* seat + time grid — unchanged */}
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1">
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Seat</p>
             <div className="flex items-center gap-1.5">
-              <MapPin size={13} className="text-green-500" />
+              <MapPin size={13} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
               <p className="font-bold text-gray-900 dark:text-white text-sm">#{reservation.seat?.seatNumber}</p>
             </div>
             <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">
@@ -135,7 +135,7 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
           <div className="space-y-1">
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Time</p>
             <div className="flex items-center gap-1.5">
-              <Clock size={13} className="text-green-500" />
+              <Clock size={13} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
               <p className="font-bold text-gray-900 dark:text-white text-sm">
                 {fmtTime(reservation.startTime)} – {fmtTime(reservation.endTime)}
               </p>
@@ -151,7 +151,7 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
           {reservation.checkedInAt && (
             <div className="space-y-1">
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400">Checked In</p>
-              <p className="font-bold text-green-600 dark:text-green-400 text-sm">
+              <p className="font-bold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] text-sm">
                 {fmtTime(reservation.checkedInAt)}
               </p>
             </div>
@@ -162,12 +162,12 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
         {canCheckin && (
           <div className={`rounded-xl px-4 py-3 text-xs font-medium border ${
             sessionOver
-              ? "bg-gray-50 dark:bg-gray-900/20 border-gray-200 dark:border-gray-700 text-gray-500"
+              ? "bg-gray-50 dark:bg-gray-900/20 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400"
               : tooEarly
               ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300"
               : tooLate
               ? "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-700 dark:text-red-300"
-              : "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-700 dark:text-green-300"
+              : "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20 border-[#2C2DE0] dark:border-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:text-[#2C2DE0]"
           }`}>
             {sessionOver
               ? "Session has ended — cannot check in."
@@ -182,7 +182,7 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
         {/* actions */}
         <div className="flex gap-3 pt-1">
           {canCheckin && !sessionOver && (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => onCheckin(reservation._id)}
               disabled={isActing || tooEarly}
               title={tooEarly ? `Check-in opens at ${fmtTime(new Date(start - 15 * 60000))}` : ""}
@@ -190,7 +190,7 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
                 tooEarly
                   ? "bg-gray-400 cursor-not-allowed"
                   : withinWindow
-                  ? "bg-green-500 hover:bg-green-600"
+                  ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55]"
                   : "bg-amber-500 hover:bg-amber-600"  // late override = amber
               }`}
             >
@@ -199,17 +199,17 @@ const ReservationCard = ({ data, onCheckin, onCheckout, onReset, isActing }) => 
             </button>
           )}
           {canCheckout && (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => onCheckout(reservation._id)}
               disabled={isActing}
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-gray-800 dark:bg-white/10 hover:bg-gray-900 dark:hover:bg-white/20 disabled:opacity-50 text-white py-3 text-sm font-bold transition-colors"
+              className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-gray-800 dark:bg-white/10 hover:bg-gray-900 dark:hover:bg-white dark:bg-gray-900/20 disabled:opacity-50 text-white py-3 text-sm font-bold transition-colors"
             >
               {isActing ? <Loader2 size={16} className="animate-spin" /> : <XCircle size={16} />}
               Check Out
             </button>
           )}
           {!canCheckin && !canCheckout && (
-            <div className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gray-100 dark:bg-white/5 text-gray-500 py-3 text-sm font-medium">
+            <div className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gray-100 dark:bg-white dark:bg-gray-900/5 text-gray-500 dark:text-gray-400 py-3 text-sm font-medium">
               <Shield size={15} /> No action available
             </div>
           )}
@@ -284,16 +284,16 @@ const CameraScanner = ({ onDetect, onClose }) => {
       initial={{ opacity: 0, scale: 0.97 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.97 }}
-      className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl overflow-hidden"
+      className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl overflow-hidden"
     >
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-white/10">
         <div className="flex items-center gap-2">
-          <Camera size={16} className="text-green-500" />
+          <Camera size={16} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
           <span className="font-bold text-sm text-gray-900 dark:text-white">Camera Scanner</span>
         </div>
         <button
           onClick={onClose}
-          className="text-xs font-medium text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 flex items-center gap-1 transition-colors"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           <CameraOff size={14} /> Close
         </button>
@@ -304,7 +304,7 @@ const CameraScanner = ({ onDetect, onClose }) => {
           <div className="flex flex-col items-center gap-3 py-8 text-center">
             <CameraOff size={32} className="text-gray-400" />
             <p className="text-sm text-red-500">{error}</p>
-            <button onClick={onClose} className="text-xs text-gray-500 hover:text-gray-700 underline">
+            <button onClick={onClose} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               Use manual entry instead
             </button>
           </div>
@@ -318,8 +318,8 @@ const CameraScanner = ({ onDetect, onClose }) => {
             />
             {scanning && (
               <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
-                <div className="w-52 h-52 border-2 border-green-500/70 rounded-2xl" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-0.5 bg-green-500/60 animate-ping" />
+                <div className="w-52 h-52 border-2 border-[#2C2DE0] dark:border-[#4F51FF]/70 rounded-2xl" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-0.5 bg-[#2C2DE0] dark:bg-[#1E1FAA]/60 animate-ping" />
               </div>
             )}
           </div>
@@ -441,7 +441,7 @@ const stats = statsRes ?? { checkInsToday: 0, lastScan: null };
               { key: "manual", label: "Manual Entry", icon: Hash },
               { key: "camera", label: "Camera Scan",  icon: Camera },
             ].map(({ key, label, icon: Icon }) => (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={key}
                 onClick={() => { setMode(key); handleReset(); }}
                 className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold transition-all ${
@@ -474,16 +474,16 @@ const stats = statsRes ?? { checkInsToday: 0, lastScan: null };
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-6 space-y-5"
+                className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl p-6 space-y-5"
               >
                 {/* pulse icon */}
                 <div className="flex flex-col items-center py-4">
                   <motion.div
                     animate={{ scale: [1, 1.06, 1] }}
                     transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="h-28 w-28 rounded-3xl border-2 border-dashed border-green-500/40 flex items-center justify-center bg-green-500/5"
+                    className="h-28 w-28 rounded-3xl border-2 border-dashed border-[#2C2DE0] dark:border-[#4F51FF]/40 flex items-center justify-center bg-[#2C2DE0] dark:bg-[#1E1FAA]/5"
                   >
-                    <QrCode size={52} className="text-green-500" strokeWidth={1.25} />
+                    <QrCode size={52} className="text-[#2C2DE0] dark:text-[#4F51FF]" strokeWidth={1.25} />
                   </motion.div>
                   <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 text-center max-w-xs">
                     Enter the student's QR code or Reservation ID to look up and confirm their booking
@@ -500,13 +500,13 @@ const stats = statsRes ?? { checkInsToday: 0, lastScan: null };
                       { key: "qr", label: "QR Code" },
                       { key: "id", label: "Reservation ID" },
                     ].map(({ key, label }) => (
-                      <button
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         key={key}
                         onClick={() => setInputType(key)}
                         className={`flex-1 rounded-xl py-2 text-xs font-bold uppercase transition-colors ${
                           inputType === key
-                            ? "bg-green-500 text-white"
-                            : "border border-gray-200/80 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5"
+                            ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white"
+                            : "border border-gray-200/80 dark:border-white/10 text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white dark:bg-gray-900/5"
                         }`}
                       >
                         {label}
@@ -526,16 +526,16 @@ const stats = statsRes ?? { checkInsToday: 0, lastScan: null };
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && inputValue.trim() && lookupMutation.mutate(inputValue)}
                     placeholder={inputType === "qr" ? "e.g. a83f9c12d91ab77e..." : "e.g. A1B2C3D4 or full ID..."}
-                    className="w-full rounded-xl border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-white/5 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/30 font-mono"
+                    className="w-full rounded-xl border border-gray-200/80 dark:border-white/10 bg-white/80 dark:bg-white/5 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30 font-mono"
                     autoFocus
                   />
                 </div>
 
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   type="button"
                   disabled={!inputValue.trim() || lookupMutation.isPending}
                   onClick={() => lookupMutation.mutate(inputValue)}
-                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-green-500 hover:bg-green-600 disabled:opacity-50 py-3 text-sm font-bold text-white transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55] disabled:opacity-50 py-3 text-sm font-bold text-white transition-colors"
                 >
                   {lookupMutation.isPending
                     ? <><Loader2 size={16} className="animate-spin" /> Looking up...</>
@@ -554,7 +554,7 @@ const stats = statsRes ?? { checkInsToday: 0, lastScan: null };
                     animate={{ opacity: 1, y: 0 }}
                     className={`flex items-center gap-2 px-4 py-3 rounded-xl border text-sm font-medium ${
                       actionResult.type === "success"
-                        ? "bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-700 dark:text-green-400"
+                        ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20 border-[#2C2DE0] dark:border-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]"
                         : "bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800 text-red-600 dark:text-red-400"
                     }`}
                   >
@@ -594,15 +594,15 @@ const stats = statsRes ?? { checkInsToday: 0, lastScan: null };
 
           {/* recent activity */}
           {stats.recentScans?.length > 0 && (
-            <div className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-5">
+            <div className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl p-5">
               <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">
                 Recent Activity
               </p>
               <div className="space-y-3">
                 {stats.recentScans.map((scan, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-lg bg-green-500/10 flex items-center justify-center shrink-0">
-                      <CheckCircle2 size={14} className="text-green-500" />
+                    <div className="h-8 w-8 rounded-lg bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center shrink-0">
+                      <CheckCircle2 size={14} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
                     </div>
                     <div className="min-w-0">
                       <p className="text-xs font-semibold text-gray-800 dark:text-gray-200 truncate">
@@ -619,13 +619,13 @@ const stats = statsRes ?? { checkInsToday: 0, lastScan: null };
           )}
 
           {/* guide */}
-          <div className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-5">
+          <div className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white dark:bg-gray-900/[0.04] backdrop-blur-xl p-5">
             <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 flex items-center gap-1.5">
-              <Shield size={12} className="text-green-500" /> Validation Rules
+              <Shield size={12} className="text-[#2C2DE0] dark:text-[#4F51FF]" /> Validation Rules
             </p>
             <ul className="space-y-2 text-xs text-gray-500 dark:text-gray-400">
               <li className="flex gap-2">
-                <Clock size={12} className="mt-0.5 text-green-500 shrink-0" />
+                <Clock size={12} className="mt-0.5 text-[#2C2DE0] dark:text-[#4F51FF] shrink-0" />
                 Check-in allowed 15 min before start
               </li>
               <li className="flex gap-2">
@@ -633,11 +633,11 @@ const stats = statsRes ?? { checkInsToday: 0, lastScan: null };
                 15+ min late = auto no-show risk
               </li>
               <li className="flex gap-2">
-                <CheckCircle2 size={12} className="mt-0.5 text-green-500 shrink-0" />
+                <CheckCircle2 size={12} className="mt-0.5 text-[#2C2DE0] dark:text-[#4F51FF] shrink-0" />
                 Reservation must be pending or active
               </li>
               <li className="flex gap-2">
-                <Calendar size={12} className="mt-0.5 text-green-500 shrink-0" />
+                <Calendar size={12} className="mt-0.5 text-[#2C2DE0] dark:text-[#4F51FF] shrink-0" />
                 Today's reservations only
               </li>
             </ul>

@@ -100,7 +100,7 @@ const TeacherDashboardPage = () => {
           style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.01), 0 4px 12px rgba(0,0,0,0.01)" }}>
           <div className="relative z-10 p-6 flex items-center justify-between gap-5">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-green-500 flex items-center justify-center text-white text-base font-black shrink-0 shadow-sm shadow-green-500/20">
+              <div className="w-12 h-12 rounded-xl bg-[#2C2DE0] dark:bg-[#1E1FAA] flex items-center justify-center text-white text-base font-black shrink-0 shadow-sm shadow-[#2C2DE0]/20">
                 {initials}
               </div>
               <div>
@@ -108,8 +108,8 @@ const TeacherDashboardPage = () => {
                   {getGreeting(t, firstName)}
                 </h2>
                 <div className="flex items-center gap-1.5 mt-0.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs text-gray-400 dark:text-gray-500">{c?.online || "Online and Synced"}</span>
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] animate-pulse" />
+                  <span className="text-xs text-gray-400 dark:text-gray-500 dark:text-gray-400">{c?.online || "Online and Synced"}</span>
                 </div>
               </div>
             </div>
@@ -123,13 +123,13 @@ const TeacherDashboardPage = () => {
                 </>
               ) : data ? (
                 [
-                  { label: "Classes",  value: data.stats.totalClasses,      color: "text-green-500" },
+                  { label: "Classes",  value: data.stats.totalClasses,      color: "text-[#2C2DE0] dark:text-[#4F51FF]" },
                   { label: "Students", value: data.stats.totalStudents,      color: "text-black dark:text-white"  },
                   { label: "Scheduled", value: data.stats.upcomingExamsCount, color: "text-gray-500 dark:text-gray-300"},
                 ].map((s) => (
                   <div key={s.label} className="text-center">
                     <p className={cn("text-xl font-black", s.color)}>{s.value}</p>
-                    <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">{s.label}</p>
+                    <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 dark:text-gray-400 uppercase tracking-wider">{s.label}</p>
                   </div>
                 ))
               ) : null}
@@ -142,7 +142,7 @@ const TeacherDashboardPage = () => {
       {error && (
         <motion.div {...fadeUp(0.05)} className="rounded-2xl border border-red-200 dark:border-red-900/40 bg-red-50 dark:bg-red-950/20 p-5 flex items-center justify-between gap-4">
           <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
-          <button onClick={fetchDashboard} className="flex items-center gap-1.5 text-xs font-semibold text-red-600 dark:text-red-400 hover:underline">
+          <button onClick={fetchDashboard} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <RefreshCw size={12} /> Retry
           </button>
         </motion.div>
@@ -150,7 +150,7 @@ const TeacherDashboardPage = () => {
 
       {/* ── Stat cards ── */}
       <div>
-        <motion.p {...fadeUp(0.05)} className="text-[10px] font-bold uppercase tracking-widest text-green-600 dark:text-green-400 mb-3">
+        <motion.p {...fadeUp(0.05)} className="text-[10px] font-bold uppercase tracking-widest text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] mb-3">
           Overview
         </motion.p>
         {loading ? (
@@ -173,7 +173,7 @@ const TeacherDashboardPage = () => {
         <motion.div {...fadeUp(0.28)} className="rounded-2xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-5 shadow-sm">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-sm font-bold text-gray-900 dark:text-white">My Classes</h3>
-            <Link to="/teacher/classes" className="text-xs text-green-600 dark:text-green-400 font-semibold hover:underline flex items-center gap-0.5">
+            <Link to="/teacher/classes" className="text-xs text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] font-semibold hover:underline flex items-center gap-0.5">
               View all <ChevronRight size={12} />
             </Link>
           </div>
@@ -185,7 +185,7 @@ const TeacherDashboardPage = () => {
           ) : data?.classStats?.length === 0 ? (
             <div className="py-10 flex flex-col items-center gap-2 text-center">
               <BookOpen size={28} className="text-gray-300 dark:text-zinc-600" />
-              <p className="text-sm text-gray-400 dark:text-gray-500">No classes assigned yet.</p>
+              <p className="text-sm text-gray-400 dark:text-gray-500 dark:text-gray-400">No classes assigned yet.</p>
             </div>
           ) : (
             <div className="space-y-2.5">
@@ -195,14 +195,14 @@ const TeacherDashboardPage = () => {
                   to="/teacher/classes"
                   className="flex items-center gap-3 p-3.5 rounded-xl border border-gray-100 dark:border-zinc-800/60 bg-gray-50/50 dark:bg-zinc-900/40 hover:bg-gray-50 dark:hover:bg-zinc-800/50 transition-colors"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center shrink-0">
-                    <BookOpen size={16} className="text-green-600 dark:text-green-400" />
+                  <div className="w-9 h-9 rounded-xl bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center shrink-0">
+                    <BookOpen size={16} className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-semibold text-gray-900 dark:text-white truncate">{cls.courseName}</p>
-                    <p className="text-[11px] text-gray-400 dark:text-gray-500">{cls.classCode} · {semesterLabel(cls.semester, cls.year)}</p>
+                    <p className="text-[11px] text-gray-400 dark:text-gray-500 dark:text-gray-400">{cls.classCode} · {semesterLabel(cls.semester, cls.year)}</p>
                   </div>
-                  <div className="flex items-center gap-1 text-green-600 dark:text-green-400 shrink-0">
+                  <div className="flex items-center gap-1 text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] shrink-0">
                     <Users size={12} />
                     <span className="text-[11px] font-bold">{cls.studentCount}</span>
                   </div>
@@ -231,13 +231,13 @@ const TeacherDashboardPage = () => {
           ) : data?.recentStudents?.length === 0 ? (
             <div className="py-6 flex flex-col items-center gap-2 text-center">
               <UserPlus size={22} className="text-gray-300 dark:text-zinc-600" />
-              <p className="text-xs text-gray-400 dark:text-gray-500">No new enrollments this week.</p>
+              <p className="text-xs text-gray-400 dark:text-gray-500 dark:text-gray-400">No new enrollments this week.</p>
             </div>
           ) : (
             <div className="space-y-4">
               {(data?.recentStudents ?? []).map((s) => (
                 <div key={s.id} className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full mt-1.5 shrink-0 bg-green-500" />
+                  <div className="w-2 h-2 rounded-full mt-1.5 shrink-0 bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
                   <div className="flex-1 min-w-0">
                     <p className="text-xs text-gray-700 dark:text-zinc-300 leading-snug">
                       <span className="font-semibold">{s.fullName}</span> enrolled · {s.department}
@@ -253,7 +253,7 @@ const TeacherDashboardPage = () => {
           <div className="mt-6 pt-5 border-t border-gray-200 dark:border-zinc-800">
             <div className="flex items-center gap-2 mb-3">
               <Clock size={12} className="text-gray-400" />
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 dark:text-gray-400">
                 Scheduled Classes
               </p>
             </div>
@@ -269,7 +269,7 @@ const TeacherDashboardPage = () => {
                       <p className="text-xs font-semibold text-gray-800 dark:text-zinc-200 truncate">{e.title}</p>
                       <p className="text-[11px] text-gray-400 dark:text-zinc-500">{e.classCode} · {e.schedule?.day} {e.schedule?.time}</p>
                     </div>
-                    <span className="text-[11px] font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10 px-2 py-0.5 rounded-full shrink-0 ml-2">
+                    <span className="text-[11px] font-bold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 px-2 py-0.5 rounded-full shrink-0 ml-2">
                       <Users size={10} className="inline mr-0.5" />{e.studentCount}
                     </span>
                   </div>

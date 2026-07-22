@@ -53,7 +53,7 @@ export function Home({
   return (
     <div className="min-h-full bg-[#F3F4F7]">
       {/* Header */}
-      <div className="bg-white border-b border-zinc-200">
+      <div className="bg-white dark:bg-gray-900 border-b border-zinc-200">
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
           <div>
             <h1 className="text-lg font-bold text-zinc-800 m-0">My Designs</h1>
@@ -62,7 +62,7 @@ export function Home({
             </p>
           </div>
           <button
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border-none cursor-pointer bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={handleCreate}
           >
             <Plus size={15} />
@@ -96,7 +96,7 @@ export function Home({
             <p className="text-sm text-zinc-500 mb-1">No designs yet</p>
             <p className="text-xs text-zinc-400 mb-4">Create your first design to get started</p>
             <button
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl border-none cursor-pointer bg-[#58CC02] text-white text-sm font-bold shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={handleCreate}
             >
               <Plus size={14} />
@@ -110,7 +110,7 @@ export function Home({
               {designs.map((d) => (
                 <div
                   key={d.id}
-                  className="bg-white rounded-xl border border-zinc-200 overflow-hidden cursor-pointer transition-all hover:border-[#6366f1] hover:shadow-md group"
+                  className="bg-white dark:bg-gray-900 rounded-xl border border-zinc-200 overflow-hidden cursor-pointer transition-all hover:border-[#6366f1] hover:shadow-md group"
                   onClick={() => navigate(`/design/${d.id}`)}
                 >
                   {/* Preview area */}
@@ -156,13 +156,13 @@ export function Home({
                         </div>
                         <div className="flex gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity ml-2 shrink-0">
                           <button
-                            className="p-1 rounded text-zinc-400 bg-transparent border-none cursor-pointer hover:text-zinc-700 transition-colors"
+                            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                             onClick={(e) => startRename(d.id, d.name, e as unknown as Event)}
                           >
                             <Edit3 size={12} />
                           </button>
                           <button
-                            className="p-1 rounded text-zinc-400 bg-transparent border-none cursor-pointer hover:text-red-400 transition-colors"
+                            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                             onClick={(e) => {
                               e.stopPropagation();
                               deleteDesign(d.id);

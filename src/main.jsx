@@ -92,6 +92,8 @@ import Guidelines from './community/Guidlines';
 import ReportProblem from './community/reportProblem';
 import ContactUs from './community/contactUs';
 import UserProfile from './community/userspagesss';
+import { HelmetProvider } from "react-helmet-async";
+
 // Axios Configuration
 axios.defaults.withCredentials = true;
 // When using a proxy in vite.config.js, baseURL should be empty or '/'
@@ -102,6 +104,8 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
     <QueryClientProvider client={queryClient}>
+          <HelmetProvider>
+
         <LanguageProvider>
             <ThemeProvider>
                 <ELibrarySearchProvider>
@@ -253,5 +257,7 @@ createRoot(document.getElementById('root')).render(
 
             </ThemeProvider>
         </LanguageProvider>
+          </HelmetProvider>
+
     </QueryClientProvider>
 );

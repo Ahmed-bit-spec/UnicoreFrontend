@@ -15,7 +15,7 @@ function TurnstileDevBypass({ onVerify, className }) {
   }, [onVerify]);
 
   return (
-    <div className={`text-[11px] text-gray-400 dark:text-gray-600 text-center py-1 w-full ${className}`}>
+    <div className={`text-[11px] text-gray-400 dark:text-gray-600 dark:text-gray-400 text-center py-1 w-full ${className}`}>
       Turnstile: dev mode (no SITE_KEY)
     </div>
   );
@@ -57,7 +57,7 @@ function TurnstileReal({ onVerify, onExpire, className }) {
             className="w-full"
           />
         ) : (
-          <div className="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 border-t-green-500 animate-spin" />
+          <div className="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 border-t-[#2C2DE0] animate-spin" />
         )}
       </div>
 

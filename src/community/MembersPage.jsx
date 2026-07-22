@@ -26,7 +26,7 @@ const FILTERS = [
 ];
 
 const StatusDot = ({ status }) => {
-  const color = status === "online" ? "bg-green-500" : status === "away" ? "bg-yellow-400" : "bg-gray-300";
+  const color = status === "online" ? "bg-[#2C2DE0] dark:bg-[#1E1FAA]" : status === "away" ? "bg-yellow-400" : "bg-gray-300";
   const text = status === "online" ? "Online" : status === "away" ? "Away" : "Offline";
   return (
     <span className="inline-flex items-center gap-1.5 text-xs text-gray-400 font-medium">
@@ -46,7 +46,7 @@ const MemberActions = ({ member, viewerRole, onMessage, onPromote, onRemove, onC
     return (
       <button
         onClick={onMessage}
-        className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#58CC02] text-white shadow-[0_3px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_1px_0_#46A302] active:translate-y-1 active:shadow-none transition-all"
+        className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
       >
         Message
       </button>
@@ -57,11 +57,11 @@ const MemberActions = ({ member, viewerRole, onMessage, onPromote, onRemove, onC
     <div className="relative flex items-center gap-2">
       <button
         onClick={onMessage}
-        className="px-3 py-1.5 rounded-lg text-xs font-bold bg-[#58CC02] text-white shadow-[0_3px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_1px_0_#46A302] active:translate-y-1 active:shadow-none transition-all"
+        className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
       >
         Message
       </button>
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => setMenuOpen((v) => !v)}
         className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900"
       >
@@ -73,21 +73,21 @@ const MemberActions = ({ member, viewerRole, onMessage, onPromote, onRemove, onC
           onMouseLeave={() => setMenuOpen(false)}
         >
           {member.role !== "representative" && (
-            <button onClick={onPromote} className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-900">
+            <button onClick={onPromote} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               <Star size={14} className="text-[#58CC02]" /> Promote to rep
             </button>
           )}
           {viewerRole === "admin" && (
-            <button onClick={onChangeRole} className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-900">
+            <button onClick={onChangeRole} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               <ShieldCheck size={14} className="text-[#58CC02]" /> Change role
             </button>
           )}
           {viewerRole === "admin" && (
-            <button onClick={onSuspend} className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-950/30">
+            <button onClick={onSuspend} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               <UserX size={14} /> Suspend
             </button>
           )}
-          <button onClick={onRemove} className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30">
+          <button onClick={onRemove} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <UserMinus size={14} /> Remove
           </button>
         </div>
@@ -98,7 +98,7 @@ const MemberActions = ({ member, viewerRole, onMessage, onPromote, onRemove, onC
 
 const MemberRow = ({ member, viewerRole, onOpenProfile, onMessage, onPromote, onRemove, onChangeRole, onSuspend }) => (
   <div className="flex items-center justify-between py-3 px-1 border-b border-gray-100 dark:border-gray-800 last:border-0">
-    <button
+    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
       onClick={() => onOpenProfile(member)}
       className="flex items-center gap-3 text-left flex-1 min-w-0"
     >
@@ -256,7 +256,7 @@ const MembersPage = ({ groupId: propGroupId, groupName, currentUser: propCurrent
           {viewerRole === "admin" && (
             <button
               onClick={handleExport}
-              className="p-2 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               title="Export member list"
             >
               <Download size={16} />
@@ -300,7 +300,7 @@ const MembersPage = ({ groupId: propGroupId, groupName, currentUser: propCurrent
         {/* Filters */}
         <div className="flex gap-2 mt-3 overflow-x-auto no-scrollbar pb-1">
           {FILTERS.map((f) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={f.key}
               onClick={() => setFilter(f.key)}
               className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-bold transition-colors ${filter === f.key
@@ -339,7 +339,7 @@ const MembersPage = ({ groupId: propGroupId, groupName, currentUser: propCurrent
         )}
 
         {hasMore && !loading && members.length > 0 && (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => load(page + 1)}
             className="w-full py-3 text-sm font-bold text-[#58CC02] hover:underline"
           >

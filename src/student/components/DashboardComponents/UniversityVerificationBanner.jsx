@@ -73,7 +73,7 @@ const UniversityVerificationBanner = () => {
             </Link>
             <button
               onClick={handleDismiss}
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-500/10 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               aria-label={t.common?.close ?? "Close"}
             >
               <X size={14} />
@@ -104,7 +104,7 @@ const UniversityVerificationBanner = () => {
           <span className="text-xs font-semibold text-gray-900 dark:text-white">
             {t.banner?.verifiedBadge ?? "Verified student"}
           </span>
-          <span className="text-xs text-gray-300 dark:text-gray-700">·</span>
+          <span className="text-xs text-gray-300 dark:text-gray-700 dark:text-gray-300">·</span>
           <span className="text-xs font-mono font-bold tracking-wider bg-[#58CC02] text-white px-3 py-1.5 rounded-lg shadow-[0_3px_0_#2D6A00]">
             {universityId}
           </span>

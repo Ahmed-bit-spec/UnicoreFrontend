@@ -24,14 +24,7 @@ import { DateTime } from "luxon";
 const PrimaryButton = ({ disabled, className = "", children, ...props }) => (
   <button
     disabled={disabled}
-    className={`
-      py-3.5 rounded-2xl font-bold text-sm transition-all duration-150
-      ${disabled
-        ? "bg-gray-100 dark:bg-gray-800/60 text-gray-400 cursor-not-allowed shadow-none"
-        : "bg-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
-      }
-      ${className}
-    `}
+    className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
     {...props}
   >
     {children}
@@ -101,12 +94,12 @@ const PolicySection = ({ t }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className="rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => setOpen(!open)}
         className="w-full flex justify-between items-center px-4 py-3 bg-gray-50 dark:bg-gray-900 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
       >
         <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 flex items-center gap-2">
-          <ShieldCheck size={13} className="text-green-500" />
+          <ShieldCheck size={13} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
           {t.policyTitle}
         </span>
         <ChevronDown
@@ -117,8 +110,8 @@ const PolicySection = ({ t }) => {
       {open && (
         <div className="px-4 py-3 space-y-2 bg-white dark:bg-gray-950">
           {t.policies.map((p, i) => (
-            <p key={i} className="text-xs text-gray-400 dark:text-gray-500 flex items-start gap-2">
-              <span className="text-green-500 mt-0.5 flex-shrink-0">✔</span>
+            <p key={i} className="text-xs text-gray-400 dark:text-gray-500 dark:text-gray-400 flex items-start gap-2">
+              <span className="text-[#2C2DE0] dark:text-[#4F51FF] mt-0.5 flex-shrink-0">✔</span>
               {p}
             </p>
           ))}
@@ -233,8 +226,8 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
         <div className="sticky top-0 z-10 bg-white dark:bg-gray-950 px-5 pt-5 pb-4 border-b border-gray-100 dark:border-gray-800">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center">
-                <Armchair size={17} className="text-green-600 dark:text-green-400" />
+              <div className="w-9 h-9 rounded-xl bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center">
+                <Armchair size={17} className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" />
               </div>
               <div>
                 <p className="font-black text-gray-900 dark:text-white text-sm leading-tight">
@@ -247,7 +240,7 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
             </div>
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <X size={16} />
             </button>
@@ -258,7 +251,7 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
 
           {step === "loading" && (
             <div className="py-20 flex flex-col items-center text-center">
-              <div className="w-12 h-12 border-[3px] border-gray-100 dark:border-gray-800 border-t-green-500 rounded-full animate-spin" />
+              <div className="w-12 h-12 border-[3px] border-gray-100 dark:border-gray-800 border-t-[#2C2DE0] rounded-full animate-spin" />
               <p className="mt-5 font-bold text-gray-800 dark:text-gray-100 text-sm">
                 {copy.confirming ?? "Confirming your reservation…"}
               </p>
@@ -268,8 +261,8 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
           {step === "success" && qrData && (
             <div className="pt-6">
               <div className="flex flex-col items-center text-center mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center mb-4 shadow-sm shadow-green-100 dark:shadow-none">
-                  <CheckCircle2 size={30} className="text-green-500" />
+                <div className="w-16 h-16 rounded-2xl bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center mb-4 shadow-sm shadow-[#2C2DE0] dark:shadow-none">
+                  <CheckCircle2 size={30} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
                 </div>
                 <p className="font-black text-xl text-gray-900 dark:text-white">
                   {copy.reservedSuccess ?? "Seat reserved!"}
@@ -285,17 +278,17 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
               {/* ── Beautified QR card ── gradient frame, corner ticks,
                   soft glow, and a "scan at entrance" badge instead of
                   the old flat white box. */}
-              <div className="relative bg-gradient-to-b from-green-50 via-white to-white dark:from-green-500/10 dark:via-gray-950 dark:to-gray-950 border border-green-100 dark:border-green-500/20 rounded-3xl p-6 flex flex-col items-center gap-4 overflow-hidden">
+              <div className="relative bg-gradient-to-b from-[#2C2DE0] via-white to-white dark:from-[#2C2DE0]/10 dark:via-gray-950 dark:to-gray-950 border border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/20 rounded-3xl p-6 flex flex-col items-center gap-4 overflow-hidden">
                 {/* ambient glow */}
-                <div className="pointer-events-none absolute -top-10 -right-10 w-32 h-32 bg-green-300/30 dark:bg-green-500/10 rounded-full blur-3xl" />
-                <div className="pointer-events-none absolute -bottom-10 -left-10 w-32 h-32 bg-green-300/20 dark:bg-green-500/10 rounded-full blur-3xl" />
+                <div className="pointer-events-none absolute -top-10 -right-10 w-32 h-32 bg-[#2C2DE0]/30 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 rounded-full blur-3xl" />
+                <div className="pointer-events-none absolute -bottom-10 -left-10 w-32 h-32 bg-[#2C2DE0]/20 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 rounded-full blur-3xl" />
 
-                <span className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500 text-white text-[10px] font-black uppercase tracking-widest shadow-sm shadow-green-200 dark:shadow-none">
+                <span className="relative z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white text-[10px] font-black uppercase tracking-widest shadow-sm shadow-[#2C2DE0] dark:shadow-none">
                   <ScanLine size={11} /> {copy.scanAtEntrance ?? "Scan at entrance"}
                 </span>
 
-                <div className="relative z-10 rounded-2xl p-[3px] bg-gradient-to-br from-green-400 via-green-500 to-green-600 shadow-lg shadow-green-200/70 dark:shadow-green-900/30">
-                  <div className="rounded-[14px] overflow-hidden bg-white p-2">
+                <div className="relative z-10 rounded-2xl p-[3px] bg-gradient-to-br from-[#2C2DE0] via-[#2C2DE0] to-[#2C2DE0] shadow-lg shadow-[#2C2DE0]/70 dark:shadow-[#2C2DE0]/30">
+                  <div className="rounded-[14px] overflow-hidden bg-white dark:bg-gray-900 p-2">
                     <img
                       src={`https://api.qrserver.com/v1/create-qr-code/?data=${qrData.qrCode}&size=172x172&ecc=M&color=111111&bgcolor=ffffff&margin=6`}
                       width={172}
@@ -321,16 +314,16 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
 
               <ul className="mt-5 space-y-3">
                 <li className="flex gap-2.5 items-start">
-                  <div className="w-6 h-6 rounded-lg bg-green-50 dark:bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <LayoutList size={12} className="text-green-600 dark:text-green-400" />
+                  <div className="w-6 h-6 rounded-lg bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <LayoutList size={12} className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" />
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                     {copy.manageInMyReservations ?? "Manage this booking any time from My Reservations."}
                   </p>
                 </li>
                 <li className="flex gap-2.5 items-start">
-                  <div className="w-6 h-6 rounded-lg bg-green-50 dark:bg-green-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Pencil size={12} className="text-green-600 dark:text-green-400" />
+                  <div className="w-6 h-6 rounded-lg bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Pencil size={12} className="text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" />
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                     {copy.cancelOrReschedule ?? "You can cancel or reschedule before check-in."}
@@ -377,12 +370,12 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
                 </p>
                 <div className="grid grid-cols-4 gap-2">
                   {DURATION_OPTIONS.map((opt) => (
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       key={opt.value}
                       onClick={() => { setDuration(opt.value); setSelectedSlot(null); }}
                       className={`py-2.5 rounded-xl text-xs font-bold border transition-all duration-150 ${duration === opt.value
                         ? "bg-[#58CC02] border-[#58CC02] text-white shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
-                        : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-green-300 hover:text-green-600"
+                        : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#4F51FF] dark:border-blue-400 hover:text-[#1E1FAA] dark:text-[#4F51FF]"
                         }`}
                     >
                       {opt.label}
@@ -398,7 +391,7 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
                   </p>
                   <div className="flex items-center gap-3 text-[9px] text-gray-400">
                     <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-sm bg-green-100 dark:bg-green-900/60 border border-green-300 dark:border-green-700" />
+                      <span className="w-2 h-2 rounded-sm bg-[#2C2DE0] dark:bg-[#2C2DE0]/60 border border-[#4F51FF] dark:border-blue-400 dark:border-[#2C2DE0]" />
                       {copy.free ?? "Free"}
                     </span>
                     <span className="flex items-center gap-1">
@@ -412,17 +405,17 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
                   {slotStates.map(({ slot, state }) => {
                     const isSelected = selectedSlot === slot;
                     return (
-                      <button
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         key={slot}
                         disabled={state !== "free"}
                         onClick={() => setSelectedSlot(slot)}
                         className={`py-2.5 rounded-xl text-xs font-semibold transition-all ${isSelected
-                          ? "bg-green-500 text-white ring-2 ring-green-300 dark:ring-green-700 shadow-sm"
+                          ? "bg-[#2C2DE0] dark:bg-[#1E1FAA] text-white ring-2 ring-[#2C2DE0] dark:ring-[#2C2DE0] shadow-sm"
                           : state === "free"
-                            ? "bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-400 hover:bg-green-100"
+                            ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0]/20 border border-[#2C2DE0] dark:border-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] hover:bg-[#2C2DE0]"
                             : state === "taken"
-                              ? "bg-gray-100 dark:bg-gray-800 text-gray-300 dark:text-gray-600 cursor-not-allowed line-through"
-                              : "bg-white dark:bg-gray-900 text-gray-200 dark:text-gray-700 cursor-not-allowed opacity-50"
+                              ? "bg-gray-100 dark:bg-gray-800 text-gray-300 dark:text-gray-600 dark:text-gray-400 cursor-not-allowed line-through"
+                              : "bg-white dark:bg-gray-900 text-gray-200 dark:text-gray-700 dark:text-gray-300 cursor-not-allowed opacity-50"
                           }`}
                       >
                         {formatSlot(slot)}
@@ -437,7 +430,7 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
               </div>
 
               {selectedSlot && endSlot && (
-                <div className="bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 rounded-2xl px-4 py-3 flex items-center justify-between">
+                <div className="bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 border border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/20 rounded-2xl px-4 py-3 flex items-center justify-between">
                   <div>
                     <p className="text-[10px] text-gray-400 mb-0.5">
                       {copy.yourSession ?? "Your session"}
@@ -452,7 +445,7 @@ const bookingOpen = somaliaHour >= OPEN_HOUR && somaliaHour < CLOSE_HOUR;
                     <p className="text-[10px] text-gray-400 mb-0.5">
                       {copy.seat ?? "Seat"}
                     </p>
-                    <p className="text-sm font-black text-green-600 dark:text-green-400">
+                    <p className="text-sm font-black text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]">
                       #{seat.seatNumber}
                     </p>
                   </div>

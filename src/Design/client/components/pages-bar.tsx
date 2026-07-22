@@ -89,10 +89,10 @@ export function PagesBar() {
   if (pages.length === 0) return null;
 
   return (
-    <div className="bg-white border-t border-zinc-200 shrink-0">
+    <div className="bg-white dark:bg-gray-900 border-t border-zinc-200 shrink-0">
       {/* Collapsed bar — always visible */}
       <button
-        className="w-full flex items-center justify-between px-4 py-1.5 bg-transparent border-none cursor-pointer hover:bg-zinc-50 transition-colors"
+        className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         onClick={() => setExpanded(!expanded)}
       >
         <span className="text-[11px] text-zinc-400 font-medium">
@@ -113,7 +113,7 @@ export function PagesBar() {
             return (
               <div key={page.id} className="relative flex-shrink-0 group">
                 <div
-                  className={`relative flex flex-col items-center gap-1 cursor-pointer border-2 rounded-lg p-1 transition-all bg-white ${
+                  className={`relative flex flex-col items-center gap-1 cursor-pointer border-2 rounded-lg p-1 transition-all bg-white dark:bg-gray-900 ${
                     isActive
                       ? "border-[#6366f1] shadow-sm"
                       : "border-zinc-200 hover:border-zinc-300"
@@ -125,7 +125,7 @@ export function PagesBar() {
                     <PageThumb page={page} width={canvasWidth} height={canvasHeight} />
                   </div>
                   <button
-                    className="absolute top-0.5 right-0.5 p-0.5 rounded bg-white/80 border-none cursor-pointer opacity-0 group-hover:opacity-100 transition-opacity hover:bg-zinc-100"
+                    className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                     onClick={(e) => {
                       e.stopPropagation();
                       setMenuPageId(menuPageId === page.id ? null : page.id);
@@ -161,17 +161,17 @@ export function PagesBar() {
                 {menuPageId === page.id && (
                   <div
                     ref={menuRef}
-                    className="absolute bottom-full left-0 mb-1 bg-white border border-zinc-200 rounded-lg shadow-lg z-30 min-w-[130px] py-1"
+                    className="absolute bottom-full left-0 mb-1 bg-white dark:bg-gray-900 border border-zinc-200 rounded-lg shadow-lg z-30 min-w-[130px] py-1"
                   >
                     <button
-                      className="w-full text-left px-3 py-1.5 text-xs text-zinc-600 bg-transparent border-none cursor-pointer hover:bg-zinc-100 flex items-center gap-2"
+                      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => startRename(page.id, page.title)}
                     >
                       <Pencil size={12} />
                       Rename
                     </button>
                     <button
-                      className="w-full text-left px-3 py-1.5 text-xs text-zinc-600 bg-transparent border-none cursor-pointer hover:bg-zinc-100 flex items-center gap-2"
+                      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                       onClick={() => {
                         setMenuPageId(null);
                         duplicatePage(page.id);
@@ -182,7 +182,7 @@ export function PagesBar() {
                     </button>
                     {pages.length > 1 && (
                       <button
-                        className="w-full text-left px-3 py-1.5 text-xs text-red-500 bg-transparent border-none cursor-pointer hover:bg-red-50 flex items-center gap-2"
+                        className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         onClick={() => {
                           setMenuPageId(null);
                           deletePage(page.id);
@@ -199,7 +199,7 @@ export function PagesBar() {
           })}
 
           <button
-            className="flex-shrink-0 flex items-center justify-center w-10 h-[62px] rounded-lg border-2 border-dashed border-zinc-300 bg-transparent cursor-pointer transition-all hover:border-[#6366f1] hover:bg-[#6366f1]/5"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => addPage()}
             title="Add page"
           >

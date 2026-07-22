@@ -108,10 +108,10 @@ const MediaViewer = ({ media = [], startIndex = 0, onClose, canDownload = true }
         </span>
         <div className="flex items-center gap-1.5">
           {current.type === "image" && (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setZoomed((z) => !z)}
               aria-label={zoomed ? "Zoom out" : "Zoom in"}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              className="w-9 h-9 rounded-full bg-white dark:bg-gray-900/10 hover:bg-white dark:bg-gray-900/20 flex items-center justify-center transition-colors"
             >
               {zoomed ? <ZoomOut size={16} /> : <ZoomIn size={16} />}
             </button>
@@ -120,7 +120,7 @@ const MediaViewer = ({ media = [], startIndex = 0, onClose, canDownload = true }
             <button
               onClick={togglePlay}
               aria-label={playing ? "Pause video" : "Play video"}
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               {playing ? <Pause size={16} /> : <Play size={16} />}
             </button>
@@ -131,7 +131,7 @@ const MediaViewer = ({ media = [], startIndex = 0, onClose, canDownload = true }
               download={current.name || true}
               onClick={(e) => e.stopPropagation()}
               aria-label="Download"
-              className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              className="w-9 h-9 rounded-full bg-white dark:bg-gray-900/10 hover:bg-white dark:bg-gray-900/20 flex items-center justify-center transition-colors"
             >
               <Download size={16} />
             </a>
@@ -139,7 +139,7 @@ const MediaViewer = ({ media = [], startIndex = 0, onClose, canDownload = true }
           <button
             onClick={onClose}
             aria-label="Close"
-            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             <X size={18} />
           </button>
@@ -149,10 +149,10 @@ const MediaViewer = ({ media = [], startIndex = 0, onClose, canDownload = true }
       {/* Main stage */}
       <div className="flex-1 flex items-center justify-center relative min-h-0 px-2 sm:px-4">
         {total > 1 && (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={(e) => { e.stopPropagation(); goPrev(); }}
             aria-label="Previous"
-            className="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white items-center justify-center transition-colors z-10"
+            className="hidden sm:flex absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-gray-900/10 hover:bg-white dark:bg-gray-900/20 text-white items-center justify-center transition-colors z-10"
           >
             <ChevronLeft size={20} />
           </button>
@@ -184,10 +184,10 @@ const MediaViewer = ({ media = [], startIndex = 0, onClose, canDownload = true }
         </div>
 
         {total > 1 && (
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={(e) => { e.stopPropagation(); goNext(); }}
             aria-label="Next"
-            className="hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white items-center justify-center transition-colors z-10"
+            className="hidden sm:flex absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-gray-900/10 hover:bg-white dark:bg-gray-900/20 text-white items-center justify-center transition-colors z-10"
           >
             <ChevronRight size={20} />
           </button>
@@ -197,10 +197,10 @@ const MediaViewer = ({ media = [], startIndex = 0, onClose, canDownload = true }
       {/* Mobile prev/next strip */}
       {total > 1 && (
         <div className="flex sm:hidden items-center justify-center gap-8 pb-4 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
-          <button onClick={goPrev} aria-label="Previous" className="w-11 h-11 rounded-full bg-white/10 text-white flex items-center justify-center">
+          <button onClick={goPrev} aria-label="Previous" className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <ChevronLeft size={20} />
           </button>
-          <button onClick={goNext} aria-label="Next" className="w-11 h-11 rounded-full bg-white/10 text-white flex items-center justify-center">
+          <button onClick={goNext} aria-label="Next" className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             <ChevronRight size={20} />
           </button>
         </div>
@@ -213,7 +213,7 @@ const MediaViewer = ({ media = [], startIndex = 0, onClose, canDownload = true }
           onClick={(e) => e.stopPropagation()}
         >
           {media.map((m, i) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={i}
               onClick={() => goTo(i)}
               className={`w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-colors ${

@@ -59,13 +59,13 @@ const LibraryUsagePage = () => {
                             <XAxis dataKey="label" tick={{ fontSize: 10 }} stroke="#9ca3af" />
                             <YAxis tick={{ fontSize: 10 }} stroke="#9ca3af" />
                             <Tooltip content={<ChartTooltip />} />
-                            <Bar dataKey="morning" fill="#22c55e" radius={[4, 4, 0, 0]} name="Morning (7–12)" stackId="a" />
+                            <Bar dataKey="morning" fill="#2C2DE0" radius={[4, 4, 0, 0]} name="Morning (7–12)" stackId="a" />
                             <Bar dataKey="afternoon" fill="#3b82f6" radius={[0, 0, 0, 0]} name="Afternoon (12–18)" stackId="a" />
                         </BarChart>
                     </ResponsiveContainer>
                     <div className="mt-2 flex gap-4">
-                        <div className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-green-500" /><span className="text-[10px] text-gray-500">Morning (7–12)</span></div>
-                        <div className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-blue-500" /><span className="text-[10px] text-gray-500">Afternoon (12–18)</span></div>
+                        <div className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]" /><span className="text-[10px] text-gray-500 dark:text-gray-400">Morning (7–12)</span></div>
+                        <div className="flex items-center gap-1.5"><span className="size-2.5 rounded-full bg-blue-500" /><span className="text-[10px] text-gray-500 dark:text-gray-400">Afternoon (12–18)</span></div>
                     </div>
                 </Section>
 

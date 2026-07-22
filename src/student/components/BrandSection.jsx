@@ -12,8 +12,8 @@ const SLIDES = (t) => [
     desc: t.dashboard.slides[0].desc,
     cta: t.dashboard.slides[0].cta,
     href: "/seats",
-    accent: "#22c55e",
-    bg: "from-green-50 to-white dark:from-green-950/30 dark:to-black",
+    accent: "#2C2DE0",
+    bg: "from-[#2C2DE0] to-white dark:from-[#2C2DE0]/30 dark:to-black",
     animation: "reservation",
   },
   {
@@ -22,7 +22,7 @@ const SLIDES = (t) => [
     desc: t.dashboard.slides[1].desc,
     cta: t.dashboard.slides[1].cta,
     href: "/library",
-    accent: "#16a34a",
+    accent: "#2C2DE0",
     bg: "from-gray-50 to-white dark:from-gray-900 dark:to-black",
     animation: "library",
   },
@@ -32,8 +32,8 @@ const SLIDES = (t) => [
     desc: t.dashboard.slides[2].desc,
     cta: t.dashboard.slides[2].cta,
     href: "/profile",
-    accent: "#15803d",
-    bg: "from-green-50 to-white dark:from-green-950/20 dark:to-black",
+    accent: "#2C2DE0",
+    bg: "from-[#2C2DE0] to-white dark:from-[#2C2DE0]/20 dark:to-black",
     animation: "profile",
   },
 ];
@@ -78,8 +78,8 @@ const ReservationAnimation = () => (
               key={index}
               className={`absolute w-10 h-10 rounded-lg flex items-center justify-center font-bold text-xs transition-all cursor-pointer ${
                 isReserved
-                  ? "bg-gradient-to-br from-green-500 to-green-600 text-white shadow-lg shadow-green-500/50"
-                  : "bg-white dark:bg-gray-800 border-2 border-green-400 dark:border-green-500 text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg hover:border-green-500"
+                  ? "bg-gradient-to-br from-[#2C2DE0] to-[#2C2DE0] text-white shadow-lg shadow-[#2C2DE0]/50"
+                  : "bg-white dark:bg-gray-800 border-2 border-[#4F51FF] dark:border-[#2C2DE0] dark:border-[#4F51FF] text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg hover:border-[#2C2DE0] dark:border-[#4F51FF]"
               }`}
               style={{
                 left: `${col * 48 + 10}px`,
@@ -102,7 +102,7 @@ const ReservationAnimation = () => (
 
       {/* Floating label "Select a seat" */}
       <div
-        className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-xs font-semibold text-green-600 dark:text-green-400 whitespace-nowrap opacity-60"
+        className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-xs font-semibold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] whitespace-nowrap opacity-60"
         style={{
           animation: "fadeInOut 3s ease-in-out infinite",
         }}
@@ -131,7 +131,7 @@ const LibraryAnimation = () => (
     <div className="relative w-32 h-40">
       {/* Back book stack */}
       <div
-        className="absolute bottom-0 left-2 w-6 bg-gradient-to-r from-green-600 to-green-500 rounded-sm shadow-lg"
+        className="absolute bottom-0 left-2 w-6 bg-gradient-to-r from-[#2C2DE0] to-[#2C2DE0] rounded-sm shadow-lg"
         style={{
           height: "120px",
           transform: "perspective(1000px) rotateY(15deg)",
@@ -141,7 +141,7 @@ const LibraryAnimation = () => (
 
       {/* Middle book stack */}
       <div
-        className="absolute bottom-0 left-6 w-6 bg-gradient-to-r from-green-500 to-green-400 rounded-sm shadow-lg"
+        className="absolute bottom-0 left-6 w-6 bg-gradient-to-r from-[#2C2DE0] to-[#2C2DE0] rounded-sm shadow-lg"
         style={{
           height: "100px",
           transform: "perspective(1000px) rotateY(10deg)",
@@ -151,7 +151,7 @@ const LibraryAnimation = () => (
 
       {/* Front book stack */}
       <div
-        className="absolute bottom-0 left-10 w-6 bg-gradient-to-r from-green-400 to-green-300 rounded-sm shadow-lg"
+        className="absolute bottom-0 left-10 w-6 bg-gradient-to-r from-[#2C2DE0] to-[#2C2DE0] rounded-sm shadow-lg"
         style={{
           height: "90px",
           transform: "perspective(1000px) rotateY(5deg)",
@@ -161,7 +161,7 @@ const LibraryAnimation = () => (
 
       {/* Right books */}
       <div
-        className="absolute bottom-0 right-10 w-6 bg-gradient-to-r from-green-500 to-green-400 rounded-sm shadow-lg"
+        className="absolute bottom-0 right-10 w-6 bg-gradient-to-r from-[#2C2DE0] to-[#2C2DE0] rounded-sm shadow-lg"
         style={{
           height: "95px",
           animation: "bookSway 2.5s ease-in-out infinite 0.3s",
@@ -169,7 +169,7 @@ const LibraryAnimation = () => (
       />
 
       <div
-        className="absolute bottom-0 right-6 w-6 bg-gradient-to-r from-green-400 to-green-300 rounded-sm shadow-lg"
+        className="absolute bottom-0 right-6 w-6 bg-gradient-to-r from-[#2C2DE0] to-[#2C2DE0] rounded-sm shadow-lg"
         style={{
           height: "110px",
           animation: "bookSway 2.5s ease-in-out infinite 0.1s",
@@ -177,7 +177,7 @@ const LibraryAnimation = () => (
       />
 
       <div
-        className="absolute bottom-0 right-2 w-6 bg-gradient-to-r from-green-600 to-green-500 rounded-sm shadow-lg"
+        className="absolute bottom-0 right-2 w-6 bg-gradient-to-r from-[#2C2DE0] to-[#2C2DE0] rounded-sm shadow-lg"
         style={{
           height: "100px",
           animation: "bookSway 2.5s ease-in-out infinite 0.5s",
@@ -185,11 +185,11 @@ const LibraryAnimation = () => (
       />
 
       {/* Base shelf */}
-      <div className="absolute bottom-0 w-full h-1 bg-gradient-to-r from-transparent via-green-600 to-transparent rounded-full shadow-lg" />
+      <div className="absolute bottom-0 w-full h-1 bg-gradient-to-r from-transparent via-[#2C2DE0] to-transparent rounded-full shadow-lg" />
 
       {/* Floating label */}
       <div
-        className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-semibold text-green-600 dark:text-green-400 whitespace-nowrap"
+        className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-semibold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] whitespace-nowrap"
         style={{
           animation: "fadeInOut 3s ease-in-out infinite",
         }}
@@ -218,14 +218,14 @@ const ProfileAnimation = () => (
     <div className="relative w-32 h-32">
       {/* Outer glow ring */}
       <div
-        className="absolute inset-0 rounded-full bg-gradient-to-r from-green-500/30 to-green-400/30 blur-xl"
+        className="absolute inset-0 rounded-full bg-gradient-to-r from-[#2C2DE0]/30 to-[#2C2DE0]/30 blur-xl"
         style={{
           animation: "pulse 3s ease-in-out infinite",
         }}
       />
 
       {/* Main avatar circle */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-green-400 via-green-500 to-green-600 shadow-2xl shadow-green-500/40 flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#2C2DE0] via-[#2C2DE0] to-[#2C2DE0] shadow-2xl shadow-[#2C2DE0]/40 flex items-center justify-center overflow-hidden">
         {/* Rotating border effect */}
         <div
           className="absolute inset-0 rounded-full border-2 border-transparent border-t-white border-r-white opacity-40"
@@ -252,7 +252,7 @@ const ProfileAnimation = () => (
 
       {/* Top right badge - verified */}
       <div
-        className="absolute -top-2 -right-2 w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center border-2 border-green-500 shadow-xl font-bold text-green-500"
+        className="absolute -top-2 -right-2 w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center border-2 border-[#2C2DE0] dark:border-[#4F51FF] shadow-xl font-bold text-[#2C2DE0] dark:text-[#4F51FF]"
         style={{
           animation: "badgeFloat 2.5s ease-in-out infinite",
         }}
@@ -264,7 +264,7 @@ const ProfileAnimation = () => (
 
       {/* Bottom left badge - settings */}
       <div
-        className="absolute -bottom-2 -left-2 w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center border-2 border-green-500 shadow-xl font-bold text-green-500"
+        className="absolute -bottom-2 -left-2 w-10 h-10 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center border-2 border-[#2C2DE0] dark:border-[#4F51FF] shadow-xl font-bold text-[#2C2DE0] dark:text-[#4F51FF]"
         style={{
           animation: "badgeFloat 2.5s ease-in-out infinite 0.6s",
         }}
@@ -277,7 +277,7 @@ const ProfileAnimation = () => (
 
       {/* Bottom right badge - online status */}
       <div
-        className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-lg"
+        className="absolute -bottom-1 -right-1 w-4 h-4 bg-[#2C2DE0] dark:bg-[#1E1FAA] rounded-full border-2 border-white dark:border-gray-800 shadow-lg"
         style={{
           animation: "pulse 2s ease-in-out infinite",
         }}
@@ -361,15 +361,15 @@ const BrandSection = () => {
       {/* Greeting bar */}
       <div className="flex items-center justify-between mb-4">
         <div>
-          <p className="text-xs font-semibold text-green-500 uppercase tracking-widest">
+          <p className="text-xs font-semibold text-[#2C2DE0] dark:text-[#4F51FF] uppercase tracking-widest">
             {getGreeting(t)}
           </p>
           <p className="text-xs text-gray-400 mt-0.5">{today}</p>
         </div>
 
         {libraryOpen && (
-          <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 rounded-full text-xs font-semibold border border-green-100 dark:border-green-500/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+          <span className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] rounded-full text-xs font-semibold border border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/20">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] animate-pulse" />
             {t.dashboard.libraryOpen}
           </span>
         )}
@@ -392,7 +392,7 @@ const BrandSection = () => {
         <div
           className="absolute top-0 right-0 w-64 h-64 opacity-[0.04] dark:opacity-[0.07]"
           style={{
-            backgroundImage: "radial-gradient(circle, #22c55e 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)",
             backgroundSize: "16px 16px",
           }}
         />
@@ -400,7 +400,7 @@ const BrandSection = () => {
         <div className="relative flex flex-col md:flex-row items-center justify-between px-8 py-8 gap-6">
           {/* LEFT */}
           <div className="flex-1 min-w-0">
-            <span className="inline-block text-[10px] uppercase tracking-widest font-bold text-green-500 bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 px-2.5 py-1 rounded-full mb-3">
+            <span className="inline-block text-[10px] uppercase tracking-widest font-bold text-[#2C2DE0] dark:text-[#4F51FF] bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 border border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/20 px-2.5 py-1 rounded-full mb-3">
               {slide.tag}
             </span>
 
@@ -412,9 +412,9 @@ const BrandSection = () => {
               {slide.desc}
             </p>
 
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => navigate(slide.href)}
-              className="mt-6 inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 active:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150 shadow-sm shadow-green-200 dark:shadow-none group"
+              className="mt-6 inline-flex items-center gap-2 bg-[#2C2DE0] dark:bg-[#1E1FAA] hover:bg-[#1E1FAA] dark:bg-[#0F0F55] active:bg-[#2C2DE0] text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-150 shadow-sm shadow-[#2C2DE0] dark:shadow-none group"
             >
               {slide.cta}
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -430,13 +430,13 @@ const BrandSection = () => {
         {/* Bottom dots nav */}
         <div className="flex items-center gap-1.5 px-8 pb-5">
           {slides.map((_, i) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={i}
               onClick={() => goTo(i)}
               className={`rounded-full transition-all duration-300 ${
                 i === current
-                  ? "w-6 h-2 bg-green-500"
-                  : "w-2 h-2 bg-gray-200 dark:bg-gray-700 hover:bg-green-300"
+                  ? "w-6 h-2 bg-[#2C2DE0] dark:bg-[#1E1FAA]"
+                  : "w-2 h-2 bg-gray-200 dark:bg-gray-700 hover:bg-[#2C2DE0]"
               }`}
             />
           ))}

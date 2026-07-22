@@ -39,7 +39,7 @@ const Banner = ({ type, message }) => {
   const ok = type === "success";
   return (
     <div className={`flex items-start gap-2 rounded-xl px-3.5 py-3 border text-xs leading-relaxed ${ok
-      ? "bg-green-50 dark:bg-green-500/10 border-green-100 dark:border-green-500/20 text-green-700 dark:text-green-400"
+      ? "bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 border-[#2C2DE0] dark:border-[#2C2DE0] dark:border-[#4F51FF]/20 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]"
       : "bg-red-50 dark:bg-red-500/10 border-red-100 dark:border-red-500/20 text-red-600 dark:text-red-400"
       }`}>
       {ok ? <CheckCircle2 size={13} className="shrink-0 mt-0.5" /> : <AlertCircle size={13} className="shrink-0 mt-0.5" />}
@@ -60,7 +60,7 @@ const Card = ({ title, icon: Icon, children }) => (
 
 const ReadOnlyField = ({ label, value }) => (
   <div className="flex flex-col gap-1.5">
-    <label className="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">{label}</label>
+    <label className="text-[11px] font-bold text-gray-400 dark:text-gray-500 dark:text-gray-400 uppercase tracking-widest">{label}</label>
     <div className="w-full bg-gray-50 dark:bg-gray-900/60 border border-gray-100 dark:border-gray-800 rounded-xl px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
       {value || "—"}
     </div>
@@ -73,14 +73,14 @@ const ToggleRow = ({ label, description, checked, onChange }) => (
       <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">{label}</p>
       {description && <p className="text-[11px] text-gray-400 mt-0.5">{description}</p>}
     </div>
-    <button
+    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
       type="button"
       role="switch"
       aria-checked={checked}
       onClick={() => onChange(!checked)}
       className={`relative h-6 w-11 flex-shrink-0 rounded-full transition-colors ${checked ? "bg-[#58CC02]" : "bg-gray-200 dark:bg-gray-700"}`}
     >
-      <span className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${checked ? "translate-x-5" : ""}`} />
+      <span className={`absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white dark:bg-gray-900 shadow transition-transform ${checked ? "translate-x-5" : ""}`} />
     </button>
   </div>
 );
@@ -89,15 +89,12 @@ const RadioCard = ({ active, onClick, icon: Icon, title, subtitle }) => (
   <button
     type="button"
     onClick={onClick}
-    className={`flex items-center justify-between px-4 py-3.5 rounded-xl border text-left transition-all duration-150 w-full ${active
-      ? "bg-green-50 dark:bg-green-500/10 border-green-300 dark:border-green-700"
-      : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800"
-      }`}
+    className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
   >
     <div className="flex items-center gap-3">
-      {Icon && <Icon size={16} className={active ? "text-green-600 dark:text-green-400" : "text-gray-400"} />}
+      {Icon && <Icon size={16} className={active ? "text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]" : "text-gray-400"} />}
       <div>
-        <p className={`text-sm font-bold leading-tight ${active ? "text-green-700 dark:text-green-400" : "text-gray-700 dark:text-gray-200"}`}>{title}</p>
+        <p className={`text-sm font-bold leading-tight ${active ? "text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]" : "text-gray-700 dark:text-gray-200"}`}>{title}</p>
         {subtitle && <p className="text-[10px] text-gray-400 mt-0.5">{subtitle}</p>}
       </div>
     </div>
@@ -112,7 +109,7 @@ const SaveButton = ({ saving, onClick, isSo, disabled }) => (
   <button
     onClick={onClick}
     disabled={saving || disabled}
-    className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#58CC02] text-white text-sm font-bold px-6 py-3 rounded-xl shadow-[0_4px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-[0_4px_0_#46A302] disabled:cursor-not-allowed transition-all duration-150"
+    className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
   >
     {saving && <Loader2 size={14} className="animate-spin" />}
     {saving ? SAVING_LABEL[isSo ? "so" : "en"] : SAVE_LABEL[isSo ? "so" : "en"]}
@@ -177,7 +174,7 @@ const ProfileSection = ({ user, setUser, isSo }) => {
                 getInitials(user?.name)
               )}
             </div>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => fileRef.current?.click()}
               className="absolute -bottom-2 -right-2 w-7 h-7 rounded-xl bg-[#58CC02] text-white flex items-center justify-center shadow-[0_3px_0_#46A302] hover:translate-y-0.5 hover:shadow-[0_1px_0_#46A302] active:translate-y-1 active:shadow-none transition-all duration-150"
             >
@@ -186,7 +183,7 @@ const ProfileSection = ({ user, setUser, isSo }) => {
             <input ref={fileRef} type="file" accept="image/png, image/jpeg" className="hidden" onChange={handlePhotoChange} />
           </div>
           <div className="flex flex-col gap-1">
-            <button onClick={() => fileRef.current?.click()} className="text-sm font-bold text-[#58CC02] hover:text-[#46A302] text-left transition-colors">
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => fileRef.current?.click()} className="text-sm font-bold text-[#58CC02] hover:text-[#46A302] text-left transition-colors">
               {isSo ? "Bedel Sawirka" : "Change Photo"}
             </button>
             <p className="text-[11px] text-gray-400 leading-relaxed">{isSo ? "JPG ama PNG, ugu badnaan 2 MB." : "JPG or PNG, max 2 MB."}</p>
@@ -221,7 +218,7 @@ const ProfileSection = ({ user, setUser, isSo }) => {
             onChange={(e) => setDisplayName(e.target.value)}
             maxLength={60}
             placeholder={isSo ? "Sida ay kuula muuqan doonto bulshada" : "How your name appears to the community"}
-            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-3 px-3.5"
+            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#4F51FF] dark:focus:border-[#2C2DE0] dark:border-[#4F51FF] transition-all py-3 px-3.5"
           />
           <p className="text-[10px] text-gray-400">
             {isSo ? "Waxay ka duwan tahay magacaad ee jaamacadda ee la xaqiijiyay." : "Separate from your verified university name shown above."}
@@ -238,7 +235,7 @@ const ProfileSection = ({ user, setUser, isSo }) => {
             maxLength={280}
             rows={3}
             placeholder={isSo ? "Wax yar naga sheeg..." : "Tell your classmates a little about yourself…"}
-            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all p-3.5 resize-none"
+            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#4F51FF] dark:focus:border-[#2C2DE0] dark:border-[#4F51FF] transition-all p-3.5 resize-none"
           />
           <p className="text-[10px] text-gray-400 text-right">{bio.length}/280</p>
         </div>
@@ -253,12 +250,12 @@ const ProfileSection = ({ user, setUser, isSo }) => {
               onChange={(e) => setSkillInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addSkill())}
               placeholder={isSo ? "Geli xirfad kuxiga Enter" : "Add a skill, press Enter"}
-              className="flex-1 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-2.5 px-3.5"
+              className="flex-1 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#4F51FF] dark:focus:border-[#2C2DE0] dark:border-[#4F51FF] transition-all py-2.5 px-3.5"
             />
             <button
               type="button"
               onClick={addSkill}
-              className="w-10 h-10 flex-shrink-0 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-green-100 dark:hover:bg-green-500/20 text-gray-500 hover:text-green-600 flex items-center justify-center transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <Plus size={16} />
             </button>
@@ -266,9 +263,9 @@ const ProfileSection = ({ user, setUser, isSo }) => {
           {skills.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-1">
               {skills.map((s) => (
-                <span key={s} className="inline-flex items-center gap-1.5 bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-xs font-semibold px-3 py-1.5 rounded-full">
+                <span key={s} className="inline-flex items-center gap-1.5 bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] text-xs font-semibold px-3 py-1.5 rounded-full">
                   {s}
-                  <button onClick={() => removeSkill(s)} className="hover:text-green-900 dark:hover:text-green-200">
+                  <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => removeSkill(s)} className="hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0]">
                     <X size={11} />
                   </button>
                 </span>
@@ -568,9 +565,9 @@ const SecuritySection = ({ isGoogleUser, isSo }) => {
                   type={f.show ? "text" : "password"}
                   value={f.value}
                   onChange={(e) => f.set(e.target.value)}
-                  className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-3 pl-10 pr-11"
+                  className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#4F51FF] dark:focus:border-[#2C2DE0] dark:border-[#4F51FF] transition-all py-3 pl-10 pr-11"
                 />
-                <button type="button" onClick={f.toggle} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                <button type="button" onClick={f.toggle} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                   {f.show ? <EyeOff size={15} /> : <Eye size={15} />}
                 </button>
               </div>
@@ -600,7 +597,7 @@ const SecuritySection = ({ isGoogleUser, isSo }) => {
                   <p className="text-[11px] text-gray-400">{s.location || ""} {s.lastActive ? `· ${s.lastActive}` : ""}</p>
                 </div>
                 {s.current && (
-                  <span className="text-[10px] font-bold text-green-600 dark:text-green-400 uppercase">{isSo ? "Hadda" : "This device"}</span>
+                  <span className="text-[10px] font-bold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] uppercase">{isSo ? "Hadda" : "This device"}</span>
                 )}
               </div>
             ))}
@@ -610,7 +607,7 @@ const SecuritySection = ({ isGoogleUser, isSo }) => {
         <button
           onClick={handleLogoutOthers}
           disabled={loggingOutOthers}
-          className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 hover:bg-red-100 dark:hover:bg-red-500/20 disabled:opacity-50 transition-colors"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           {loggingOutOthers ? <Loader2 size={14} className="animate-spin" /> : <LogOut size={14} />}
           {isSo ? "Ka bax qalabka kale" : "Logout from other devices"}
@@ -632,13 +629,13 @@ const HelpSection = ({ isSo }) => (
       <a
         key={item.label}
         href={item.href}
-        className="flex items-center justify-between px-4 py-3.5 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-green-200 dark:hover:border-green-800 hover:bg-green-50/50 dark:hover:bg-green-500/5 transition-colors"
+        className="flex items-center justify-between px-4 py-3.5 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] hover:bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10/50 dark:hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/5 transition-colors"
       >
         <span className="flex items-center gap-3 text-sm font-semibold text-gray-700 dark:text-gray-200">
           <item.icon size={16} className="text-gray-400" />
           {item.label}
         </span>
-        <span className="text-gray-300 dark:text-gray-600">→</span>
+        <span className="text-gray-300 dark:text-gray-600 dark:text-gray-400">→</span>
       </a>
     ))}
   </Card>
@@ -687,7 +684,7 @@ const CommunitySettings = () => {
           {NAV_ITEMS.map((item) => {
             const isActive = active === item.key;
             return (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={item.key}
                 onClick={() => setActive(item.key)}
                 className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-colors ${isActive

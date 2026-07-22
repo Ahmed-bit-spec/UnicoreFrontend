@@ -22,7 +22,7 @@ const SectionHeader = ({ title, href, seeAll }) => (
     {href && (
       <Link
         to={href}
-        className="flex items-center gap-1 text-[11px] font-bold text-green-600 dark:text-green-400 hover:gap-1.5 transition-all"
+        className="flex items-center gap-1 text-[11px] font-bold text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] hover:gap-1.5 transition-all"
       >
         {seeAll} <ArrowRight size={12} />
       </Link>
@@ -40,7 +40,7 @@ const BookCard = ({ book }) => (
         <img src={book.cover} alt={book.title} className="w-full h-full object-cover" />
       ) : (
         <div className="w-full h-full flex items-center justify-center">
-          <BookOpen size={22} className="text-gray-300 dark:text-gray-700" />
+          <BookOpen size={22} className="text-gray-300 dark:text-gray-700 dark:text-gray-300" />
         </div>
       )}
     </div>
@@ -51,8 +51,8 @@ const BookCard = ({ book }) => (
 
 const ActivityRow = ({ item }) => (
   <div className="flex items-center gap-3 py-2.5 border-b border-gray-50 dark:border-white/5 last:border-0">
-    <div className="w-8 h-8 rounded-lg bg-green-50 dark:bg-green-500/10 flex items-center justify-center flex-shrink-0">
-      <Clock3 size={14} className="text-green-500" />
+    <div className="w-8 h-8 rounded-lg bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 flex items-center justify-center flex-shrink-0">
+      <Clock3 size={14} className="text-[#2C2DE0] dark:text-[#4F51FF]" />
     </div>
     <div className="min-w-0 flex-1">
       <p className="text-xs font-semibold text-gray-800 dark:text-gray-200 truncate">{item.label}</p>
@@ -140,7 +140,7 @@ const MainContentArea = () => {
               </div>
             ) : activity.length === 0 ? (
               <div className="py-8 text-center">
-                <History size={20} className="mx-auto text-gray-300 dark:text-gray-700 mb-2" />
+                <History size={20} className="mx-auto text-gray-300 dark:text-gray-700 dark:text-gray-300 mb-2" />
                 <p className="text-xs text-gray-400">{mc.emptyActivity ?? "No recent activity yet."}</p>
               </div>
             ) : (

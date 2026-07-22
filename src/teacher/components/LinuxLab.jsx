@@ -23,7 +23,7 @@ function TaskPanel({ tasks, results }) {
               key={i}
               className={`rounded-lg p-3 text-xs transition-colors ${
                 status === "pass"
-                  ? "bg-green-900/40 border border-green-700"
+                  ? "bg-[#2C2DE0]/40 border border-[#2C2DE0]"
                   : status === "fail"
                   ? "bg-red-900/30 border border-red-800"
                   : "bg-neutral-800 border border-neutral-700"
@@ -309,8 +309,8 @@ export default function LinuxLab({ question, examId: examIdProp, onScoreUpdate, 
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-red-500" />
           <span className="w-3 h-3 rounded-full bg-yellow-400" />
-          <span className="w-3 h-3 rounded-full bg-green-500" />
-          <span className="ml-3 text-[11px] text-green-500 font-mono">
+          <span className="w-3 h-3 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
+          <span className="ml-3 text-[11px] text-[#2C2DE0] dark:text-[#4F51FF] font-mono">
             student@exam-sandbox:~
           </span>
         </div>
@@ -319,7 +319,7 @@ export default function LinuxLab({ question, examId: examIdProp, onScoreUpdate, 
             <button
               onClick={runValidation}
               disabled={validating || status !== "ready"}
-              className="text-[10px] px-2.5 py-1 rounded bg-emerald-700 hover:bg-emerald-600 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               {validating ? "Checking…" : "Check Tasks"}
             </button>
@@ -327,7 +327,7 @@ export default function LinuxLab({ question, examId: examIdProp, onScoreUpdate, 
           <span
             className={`text-[10px] font-mono ${
               status === "ready"
-                ? "text-green-500"
+                ? "text-[#2C2DE0] dark:text-[#4F51FF]"
                 : status === "error"
                 ? "text-red-400"
                 : "text-yellow-400"

@@ -90,14 +90,14 @@ export const SpiritBot = ({ size = 84 }) => (
 // holds for ~3s, then fades as the trio starts patrolling.
 export const WelcomeNote = ({ eyebrow, name }) => (
   <div className="mascot-note absolute left-1/2 -translate-x-1/2 -top-3 sm:-top-4 z-10 pointer-events-none">
-    <div className="relative bg-white dark:bg-[#14171a] rounded-2xl px-4 py-2.5 shadow-lg shadow-black/10 border border-green-100 dark:border-white/10 whitespace-nowrap">
+    <div className="relative bg-white dark:bg-[#14171a] rounded-2xl px-4 py-2.5 shadow-lg shadow-black/10 border border-[#2C2DE0] dark:border-white/10 whitespace-nowrap">
       <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-[#58CC02] leading-none mb-1">
         {eyebrow}
       </p>
       <p className="text-sm font-black text-gray-900 dark:text-white leading-none">
         {name}
       </p>
-      <div className="absolute left-1/2 -translate-x-1/2 -bottom-[6px] w-3 h-3 bg-white dark:bg-[#14171a] border-b border-r border-green-100 dark:border-white/10 rotate-45" />
+      <div className="absolute left-1/2 -translate-x-1/2 -bottom-[6px] w-3 h-3 bg-white dark:bg-[#14171a] border-b border-r border-[#2C2DE0] dark:border-white/10 rotate-45" />
     </div>
   </div>
 );

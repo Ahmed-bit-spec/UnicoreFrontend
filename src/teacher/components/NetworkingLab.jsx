@@ -3,10 +3,10 @@ import { Router, Network, Monitor, Wifi, Cable, CheckCircle, XCircle } from "luc
 import { useLanguage } from "@/hooks/useLanguage";
 
 const DEVICE_TYPES = [
-  { type: "router", label: "Router", icon: Router, color: "#22c55e" },
-  { type: "switch", label: "Switch", icon: Network, color: "#16a34a" },
-  { type: "pc", label: "PC", icon: Monitor, color: "#86efac" },
-  { type: "wireless", label: "Wireless AP", icon: Wifi, color: "#15803d" },
+  { type: "router", label: "Router", icon: Router, color: "#2C2DE0" },
+  { type: "switch", label: "Switch", icon: Network, color: "#2C2DE0" },
+  { type: "pc", label: "PC", icon: Monitor, color: "#2C2DE0" },
+  { type: "wireless", label: "Wireless AP", icon: Wifi, color: "#2C2DE0" },
 ];
 
 let idCounter = 1;
@@ -95,14 +95,14 @@ export default function NetworkingLab({ question, value, onChange }) {
   return (
     <div className="-mx-6 -my-6 h-[600px] flex flex-col bg-[#0f172a]">
       <div className="h-11 bg-slate-900 flex items-center justify-between px-4 border-b border-slate-700">
-        <span className="text-sm font-medium text-green-500 flex items-center gap-2">
+        <span className="text-sm font-medium text-[#2C2DE0] dark:text-[#4F51FF] flex items-center gap-2">
           <Cable className="w-4 h-4" />
           {t("exam.networkLab") || "Cisco Network Lab"}
         </span>
         <button
           type="button"
           onClick={simulate}
-          className="text-xs bg-green-600 hover:bg-green-500 text-white px-3 py-1.5 rounded-md font-medium"
+          className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         >
           {t("exam.simulatePackets") || "Simulate packets"}
         </button>
@@ -122,7 +122,7 @@ export default function NetworkingLab({ question, value, onChange }) {
                 onDragStart={() => setDragType(d.type)}
                 className="bg-slate-800 hover:bg-slate-700 p-2.5 rounded-lg flex items-center gap-2 text-slate-200 text-sm cursor-grab active:cursor-grabbing"
               >
-                <Icon className="w-4 h-4 text-green-500" />
+                <Icon className="w-4 h-4 text-[#2C2DE0] dark:text-[#4F51FF]" />
                 {deviceLabels[d.type]}
               </div>
             );
@@ -147,7 +147,7 @@ export default function NetworkingLab({ question, value, onChange }) {
             {connections.map((c, i) => {
               const a = getPos(c.from);
               const b = getPos(c.to);
-              const color = c.status === "success" ? "#22c55e" : c.status === "failure" ? "#f87171" : "#64748b";
+              const color = c.status === "success" ? "#2C2DE0" : c.status === "failure" ? "#f87171" : "#64748b";
               return (
                 <line key={i} x1={a.x} y1={a.y} x2={b.x} y2={b.y} stroke={color} strokeWidth={2} strokeDasharray="6 4" />
               );
@@ -159,16 +159,16 @@ export default function NetworkingLab({ question, value, onChange }) {
             const Icon = meta.icon;
             const selected = linkFrom === d.id;
             return (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={d.id}
                 type="button"
                 onClick={() => toggleLink(d.id)}
                 style={{ left: d.x, top: d.y }}
                 className={`absolute w-12 h-12 rounded-xl flex flex-col items-center justify-center border-2 transition-all ${
-                  selected ? "border-green-500 bg-green-950/40" : "border-slate-600 bg-slate-800 hover:border-green-600"
+                  selected ? "border-[#2C2DE0] dark:border-[#4F51FF] bg-[#2C2DE0]/40" : "border-slate-600 bg-slate-800 hover:border-[#2C2DE0]"
                 }`}
               >
-                <Icon className="w-5 h-5 text-green-500" />
+                <Icon className="w-5 h-5 text-[#2C2DE0] dark:text-[#4F51FF]" />
                 <span className="text-[8px] text-slate-400 mt-0.5">{d.label}</span>
               </button>
             );
@@ -187,7 +187,7 @@ export default function NetworkingLab({ question, value, onChange }) {
       {simResult && (
         <div
           className={`h-10 flex items-center gap-2 px-4 text-sm border-t ${
-            simResult.ok ? "bg-green-950/50 border-green-800 text-green-300" : "bg-red-950/50 border-red-800 text-red-300"
+            simResult.ok ? "bg-[#2C2DE0]/50 border-[#2C2DE0] text-[#2C2DE0]" : "bg-red-950/50 border-red-800 text-red-300"
           }`}
         >
           {simResult.ok ? <CheckCircle className="w-4 h-4" /> : <XCircle className="w-4 h-4" />}

@@ -8,7 +8,7 @@ import PageHeader from "@/admin/components/PageHeader";
 import { KpiCard, Section, ChartTooltip } from "./Analyticscomponents";
 import { useAnalyticsOverview } from "@/hooks/useAnalytics";
 
-const COLORS = { reservations: "#22c55e", checkIns: "#3b82f6", borrowing: "#f97316" };
+const COLORS = { reservations: "#2C2DE0", checkIns: "#3b82f6", borrowing: "#f97316" };
 
 const OverviewPage = () => {
     const { data, isLoading } = useAnalyticsOverview();
@@ -21,7 +21,7 @@ const OverviewPage = () => {
                 <PageHeader title="Overview" subtitle="Library performance at a glance" />
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     {[...Array(8)].map((_, i) => (
-                        <div key={i} className="h-24 animate-pulse rounded-2xl bg-gray-100 dark:bg-white/5" />
+                        <div key={i} className="h-24 animate-pulse rounded-2xl bg-gray-100 dark:bg-white dark:bg-gray-900/5" />
                     ))}
                 </div>
             </PageTransition>
@@ -36,7 +36,7 @@ const OverviewPage = () => {
             <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <KpiCard icon={Users} label="Total Users" value={kpis.totalUsers} color="bg-blue-500" />
                 <KpiCard icon={Users} label="Verified Students" value={kpis.verifiedStudents} color="bg-indigo-500" />
-                <KpiCard icon={CalendarCheck} label="Reservations This Month" value={kpis.reservationsThisMonth} color="bg-green-500" trend={kpis.reservationGrowth >= 0 ? "up" : "down"} trendValue={kpis.reservationGrowth} />
+                <KpiCard icon={CalendarCheck} label="Reservations This Month" value={kpis.reservationsThisMonth} color="bg-[#2C2DE0] dark:bg-[#1E1FAA]" trend={kpis.reservationGrowth >= 0 ? "up" : "down"} trendValue={kpis.reservationGrowth} />
                 <KpiCard icon={Activity} label="Check-ins This Month" value={kpis.checkInsThisMonth} color="bg-teal-500" trend={kpis.checkInGrowth >= 0 ? "up" : "down"} trendValue={kpis.checkInGrowth} />
                 <KpiCard icon={BookOpen} label="Books Borrowed" value={kpis.booksBorrowed} color="bg-orange-500" />
                 <KpiCard icon={TrendingUp} label="No-Show Rate" value={`${kpis.noShowRate ?? 0}%`} color="bg-red-500" sub="lower is better" />

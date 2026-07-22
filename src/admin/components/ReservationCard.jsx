@@ -21,7 +21,7 @@ const ReservationCard = ({
         const colors = {
             pending: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-300",
             active: "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300",
-            approved: "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-300",
+            approved: "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-200 dark:bg-[#2C2DE0]/20 dark:text-[#2C2DE0]",
             borrowed: "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-300",
             returned: "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-300",
             cancelled: "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-300",
@@ -99,15 +99,15 @@ const ReservationCard = ({
     };
 
     return (
-        <div className={`rounded-lg border ${isDark ? "bg-gray-800 border-gray-700" : "bg-white border-gray-200"} overflow-hidden shadow-sm hover:shadow-md transition`}>
+        <div className={`rounded-lg border ${isDark ? "bg-gray-800 border-gray-700" : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700"} overflow-hidden shadow-sm hover:shadow-md transition`}>
             {/* Header with Status */}
-            <div className={`px-6 py-4 border-b flex justify-between items-start ${isDark ? "bg-gray-700/50 border-gray-600" : "bg-gray-50 border-gray-200"}`}>
+            <div className={`px-6 py-4 border-b flex justify-between items-start ${isDark ? "bg-gray-700/50 border-gray-600" : "bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700"}`}>
                 <div className="flex-1">
-                    <h3 className={`font-semibold text-lg ${isDark ? "text-white" : "text-gray-900"}`}>
+                    <h3 className={`font-semibold text-lg ${isDark ? "text-white" : "text-gray-900 dark:text-gray-100"}`}>
                         {reservation.book}
                     </h3>
                     {reservation.author && (
-                        <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                        <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"}`}>
                             {t("by")} {reservation.author}
                         </p>
                     )}
@@ -119,18 +119,18 @@ const ReservationCard = ({
             </div>
 
             {/* Student Information */}
-            <div className={`px-6 py-4 border-b ${isDark ? "border-gray-700" : "border-gray-200"}`}>
+            <div className={`px-6 py-4 border-b ${isDark ? "border-gray-700" : "border-gray-200 dark:border-gray-700"}`}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex items-start gap-3">
-                        <User className={`w-5 h-5 flex-shrink-0 mt-0.5 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
+                        <User className={`w-5 h-5 flex-shrink-0 mt-0.5 ${isDark ? "text-gray-400" : "text-gray-500 dark:text-gray-400"}`} />
                         <div>
-                            <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600"} tracking-wide`}>
+                            <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"} tracking-wide`}>
                                 {t("Student")}
                             </p>
-                            <p className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
+                            <p className={`font-medium ${isDark ? "text-white" : "text-gray-900 dark:text-gray-100"}`}>
                                 {reservation.studentFullName || reservation.student}
                             </p>
-                            <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                            <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"}`}>
                                 ID: {reservation.studentId}
                             </p>
                         </div>
@@ -138,14 +138,14 @@ const ReservationCard = ({
 
                     {reservation.department && (
                         <div>
-                            <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600"} tracking-wide`}>
+                            <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"} tracking-wide`}>
                                 {t("Department")}
                             </p>
-                            <p className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
+                            <p className={`font-medium ${isDark ? "text-white" : "text-gray-900 dark:text-gray-100"}`}>
                                 {reservation.department}
                             </p>
                             {reservation.semester && (
-                                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"}`}>
                                     {t("Semester")} {reservation.semester}
                                 </p>
                             )}
@@ -155,15 +155,15 @@ const ReservationCard = ({
             </div>
 
             {/* Reservation Details */}
-            <div className={`px-6 py-4 border-b ${isDark ? "border-gray-700" : "border-gray-200"}`}>
+            <div className={`px-6 py-4 border-b ${isDark ? "border-gray-700" : "border-gray-200 dark:border-gray-700"}`}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div className="flex items-center gap-2">
-                        <Calendar className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
+                        <Calendar className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500 dark:text-gray-400"}`} />
                         <div>
-                            <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                            <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"}`}>
                                 {t("Reserved")}
                             </p>
-                            <p className={`text-sm font-medium ${isDark ? "text-gray-200" : "text-gray-900"}`}>
+                            <p className={`text-sm font-medium ${isDark ? "text-gray-200" : "text-gray-900 dark:text-gray-100"}`}>
                                 {formatDate(reservation.reservedAt)}
                             </p>
                         </div>
@@ -171,12 +171,12 @@ const ReservationCard = ({
 
                     {reservation.dueDate && (
                         <div className="flex items-center gap-2">
-                            <Clock className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
+                            <Clock className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500 dark:text-gray-400"}`} />
                             <div>
-                                <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                                <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"}`}>
                                     {t("Due Date")}
                                 </p>
-                                <p className={`text-sm font-medium ${isDark ? "text-gray-200" : "text-gray-900"}`}>
+                                <p className={`text-sm font-medium ${isDark ? "text-gray-200" : "text-gray-900 dark:text-gray-100"}`}>
                                     {formatDate(reservation.dueDate)}
                                 </p>
                             </div>
@@ -185,12 +185,12 @@ const ReservationCard = ({
 
                     {reservation.qrCode && (
                         <div className="flex items-center gap-2">
-                            <Tag className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500"}`} />
+                            <Tag className={`w-4 h-4 ${isDark ? "text-gray-400" : "text-gray-500 dark:text-gray-400"}`} />
                             <div>
-                                <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                                <p className={`text-xs uppercase font-semibold ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"}`}>
                                     {t("QR Code")}
                                 </p>
-                                <p className={`text-xs font-mono ${isDark ? "text-gray-300" : "text-gray-900"}`}>
+                                <p className={`text-xs font-mono ${isDark ? "text-gray-300" : "text-gray-900 dark:text-gray-100"}`}>
                                     {reservation.qrCode.substring(0, 8)}...
                                 </p>
                             </div>
@@ -201,22 +201,22 @@ const ReservationCard = ({
 
             {/* Admin Actions */}
             {isAdmin && (
-                <div className={`px-6 py-4 ${isDark ? "bg-gray-700/30" : "bg-gray-50"}`}>
-                    <p className={`text-xs uppercase font-semibold mb-3 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                <div className={`px-6 py-4 ${isDark ? "bg-gray-700/30" : "bg-gray-50 dark:bg-gray-800"}`}>
+                    <p className={`text-xs uppercase font-semibold mb-3 ${isDark ? "text-gray-400" : "text-gray-600 dark:text-gray-400"}`}>
                         {t("Actions")}
                     </p>
                     <div className="flex flex-wrap gap-2">
                         {reservation.status === "pending" && (
                             <>
-                                <button
+                                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                                     onClick={() => handleAction("approve")}
                                     disabled={actionLoading.approve}
-                                    className="flex items-center gap-2 px-3 py-2 rounded bg-green-600 text-white text-sm font-medium hover:bg-green-700 disabled:opacity-50 transition"
+                                    className="flex items-center gap-2 px-3 py-2 rounded bg-[#1E1FAA] dark:bg-[#0F0F55] text-white text-sm font-medium hover:bg-[#2C2DE0] disabled:opacity-50 transition"
                                 >
                                     {actionLoading.approve && <Loader className="w-4 h-4 animate-spin" />}
                                     {t("Approve")}
                                 </button>
-                                <button
+                                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                                     onClick={() => handleAction("reject")}
                                     disabled={actionLoading.reject}
                                     className="flex items-center gap-2 px-3 py-2 rounded bg-red-600 text-white text-sm font-medium hover:bg-red-700 disabled:opacity-50 transition"
@@ -229,7 +229,7 @@ const ReservationCard = ({
 
                         {reservation.status === "active" && (
                             <>
-                                <button
+                                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                                     onClick={() => handleAction("mark-borrowed")}
                                     disabled={actionLoading["mark-borrowed"]}
                                     className="flex items-center gap-2 px-3 py-2 rounded bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-50 transition"
@@ -242,7 +242,7 @@ const ReservationCard = ({
 
                         {reservation.status === "borrowed" && (
                             <>
-                                <button
+                                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                                     onClick={() => handleAction("mark-returned")}
                                     disabled={actionLoading["mark-returned"]}
                                     className="flex items-center gap-2 px-3 py-2 rounded bg-purple-600 text-white text-sm font-medium hover:bg-purple-700 disabled:opacity-50 transition"
@@ -254,7 +254,7 @@ const ReservationCard = ({
                         )}
 
                         {["pending", "active"].includes(reservation.status) && (
-                            <button
+                            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                                 onClick={() => handleAction("cancel")}
                                 disabled={actionLoading.cancel}
                                 className="flex items-center gap-2 px-3 py-2 rounded bg-orange-600 text-white text-sm font-medium hover:bg-orange-700 disabled:opacity-50 transition"
@@ -269,8 +269,8 @@ const ReservationCard = ({
 
             {/* User View Actions */}
             {!isAdmin && ["pending", "active"].includes(reservation.status) && (
-                <div className={`px-6 py-4 ${isDark ? "bg-gray-700/30" : "bg-gray-50"}`}>
-                    <button
+                <div className={`px-6 py-4 ${isDark ? "bg-gray-700/30" : "bg-gray-50 dark:bg-gray-800"}`}>
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         onClick={() => handleAction("cancel")}
                         disabled={actionLoading.cancel}
                         className="w-full flex items-center justify-center gap-2 px-3 py-2 rounded bg-red-600 text-white text-sm font-medium hover:bg-red-700 disabled:opacity-50 transition"

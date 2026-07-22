@@ -18,7 +18,7 @@ const BorrowingPage = () => {
                 <KpiCard icon={BookOpen} label="Active Borrows" value={data?.activeBorrows} color="bg-blue-500" />
                 <KpiCard icon={AlertTriangle} label="Overdue" value={data?.overdueCount} color="bg-red-500" sub="past due date" />
                 <KpiCard icon={Clock} label="Avg Borrow Duration" value={data?.avgBorrowDuration ? `${data.avgBorrowDuration}d` : "—"} color="bg-purple-500" />
-                <KpiCard icon={TrendingUp} label="Returns This Period" value={data?.returnTrend?.reduce((s, r) => s + r.returned, 0)} color="bg-green-500" />
+                <KpiCard icon={TrendingUp} label="Returns This Period" value={data?.returnTrend?.reduce((s, r) => s + r.returned, 0)} color="bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
             </div>
 
             <div className="grid gap-5 lg:grid-cols-2">
@@ -30,7 +30,7 @@ const BorrowingPage = () => {
                             <XAxis dataKey="label" tick={{ fontSize: 10 }} stroke="#9ca3af" />
                             <YAxis tick={{ fontSize: 10 }} stroke="#9ca3af" />
                             <Tooltip content={<ChartTooltip />} />
-                            <Bar dataKey="returned" fill="#22c55e" radius={[6, 6, 0, 0]} name="Returned" />
+                            <Bar dataKey="returned" fill="#2C2DE0" radius={[6, 6, 0, 0]} name="Returned" />
                         </BarChart>
                     </ResponsiveContainer>
                 </Section>
@@ -47,7 +47,7 @@ const BorrowingPage = () => {
                                     <span className="font-semibold text-gray-700 dark:text-gray-300">{item.label}</span>
                                     <span className="font-black text-gray-900 dark:text-white">{item.value}</span>
                                 </div>
-                                <div className="h-2.5 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
+                                <div className="h-2.5 overflow-hidden rounded-full bg-gray-100 dark:bg-white dark:bg-gray-900/10">
                                     <div className={`h-full rounded-full ${item.color} transition-all duration-700`} style={{ width: `${item.pct}%` }} />
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ const BorrowingPage = () => {
                             <p className="text-6xl font-black text-gray-900 dark:text-white">
                                 {data?.avgBorrowDuration ?? "—"}
                             </p>
-                            <p className="mt-1 text-sm font-semibold text-gray-500">days average</p>
+                            <p className="mt-1 text-sm font-semibold text-gray-500 dark:text-gray-400">days average</p>
                             <p className="mt-4 text-xs text-gray-400">Based on all returned books</p>
                         </div>
                     </div>

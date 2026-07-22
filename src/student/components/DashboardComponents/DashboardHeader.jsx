@@ -55,9 +55,9 @@ const LanguageToggle = () => {
   const { lang, setLang } = useLanguage();
   const isSo = lang === "so";
   return (
-    <button
+    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
       onClick={() => setLang?.(isSo ? "en" : "so")}
-      className="flex items-center gap-1.5 px-2.5 h-[34px] rounded-lg border border-gray-200 dark:border-gray-800 text-xs font-extrabold text-gray-600 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-white/5 hover:border-[#58CC02]/40 hover:text-[#3F9100] dark:hover:text-[#9DE83A] transition-colors"
+      className="flex items-center gap-1.5 px-2.5 h-[34px] rounded-lg border border-gray-200 dark:border-gray-800 text-xs font-extrabold text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0]/5 dark:bg-[#4F51FF]/10 dark:hover:bg-white/5 hover:border-[#58CC02]/40 hover:text-[#3F9100] dark:hover:text-[#9DE83A] transition-colors"
       aria-label="Change language"
       title={isSo ? "Switch to English" : "U bedel Af-Soomaali"}
     >
@@ -96,7 +96,7 @@ const DashboardHeader = () => {
         className="w-full h-[60px] bg-white dark:bg-black border-b border-gray-100 dark:border-gray-800 px-3 sm:px-6 flex items-center gap-3 sm:gap-4 sticky top-0 z-40"
       >
         {/* Mobile menu trigger — opens the same nav the sidebar has */}
-        <button
+        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           onClick={() => setMobileNavOpen((p) => !p)}
           className="lg:hidden w-9 h-9 rounded-lg flex items-center justify-center text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-900 transition-all flex-shrink-0"
           aria-label="Toggle navigation"
@@ -124,7 +124,7 @@ const DashboardHeader = () => {
 
           {/* Profile dropdown */}
           <div className="relative" ref={profileRef}>
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => setOpenProfile((p) => !p)}
               aria-haspopup="true"
               aria-expanded={openProfile}
@@ -192,7 +192,7 @@ const DashboardHeader = () => {
                   </Link>
                 ))}
 
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => { setOpenProfile(false); setOpenSettings(true); }}
                   className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white transition-all"
                 >
@@ -204,7 +204,7 @@ const DashboardHeader = () => {
               <div className="p-2 pt-0 border-t border-gray-100 dark:border-gray-800 mt-1">
                 <button
                   onClick={handleLogout}
-                  className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-all"
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   <LogOut size={15} />
                   {t?.nav?.signOut || "Sign out"}

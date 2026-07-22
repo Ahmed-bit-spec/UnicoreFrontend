@@ -78,7 +78,7 @@ const CreatePostComposer = ({ onCreated, onOpenFullEditor }) => {
               <button
                 type="button"
                 onClick={clearImage}
-                className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 aria-label="Remove image"
               >
                 <X size={12} />
@@ -90,7 +90,7 @@ const CreatePostComposer = ({ onCreated, onOpenFullEditor }) => {
 
           <div className="flex flex-wrap items-center justify-between gap-2 mt-3 pt-3 border-t border-gray-100 dark:border-gray-800">
             <div className="flex items-center gap-1">
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 type="button"
                 onClick={() => fileRef.current?.click()}
                 className="p-2 rounded-lg text-gray-400 hover:text-[#58CC02] hover:bg-[#58CC02]/10 dark:hover:bg-[#58CC02]/15 transition-colors"
@@ -101,7 +101,7 @@ const CreatePostComposer = ({ onCreated, onOpenFullEditor }) => {
               <button
                 type="button"
                 onClick={onOpenFullEditor}
-                className="p-2 rounded-lg text-gray-400 hover:text-[#58CC02] hover:bg-[#58CC02]/10 dark:hover:bg-[#58CC02]/15 transition-colors"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 title={t["feed.addPdf"] ?? "Add PDF"}
               >
                 <FileText size={18} />
@@ -109,7 +109,7 @@ const CreatePostComposer = ({ onCreated, onOpenFullEditor }) => {
               <button
                 type="button"
                 onClick={onOpenFullEditor}
-                className="p-2 rounded-lg text-gray-400 hover:text-[#58CC02] hover:bg-[#58CC02]/10 dark:hover:bg-[#58CC02]/15 transition-colors"
+                className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 title={t["feed.addVideo"] ?? "Add video"}
               >
                 <Video size={18} />

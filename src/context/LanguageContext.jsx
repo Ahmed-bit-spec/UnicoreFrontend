@@ -126,13 +126,13 @@ export const LanguageProvider = ({ children }) => {
       {showSomaliPrompt && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 px-4 backdrop-blur-sm">
           <div className="w-full max-w-sm overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl dark:border-gray-800 dark:bg-gray-950">
-            <div className="h-1 bg-green-500" />
+            <div className="h-1 bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
             <div className="p-6 text-center">
               <p className="text-base font-black text-gray-900 dark:text-white">
                 {so.language.browserSomaliQuestion}
               </p>
               <div className="mt-5 grid grid-cols-2 gap-3">
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   type="button"
                   onClick={() => setLanguage("so")}
                   className="rounded-xl bg-[#58CC02] px-4 py-2.5 text-sm font-bold text-white shadow-[0_4px_0_#46A302] transition-all duration-150 hover:translate-y-0.5 hover:shadow-[0_2px_0_#46A302] active:translate-y-1 active:shadow-none"
@@ -142,7 +142,7 @@ export const LanguageProvider = ({ children }) => {
                 <button
                   type="button"
                   onClick={dismissSomaliPrompt}
-                  className="rounded-xl bg-gray-100 px-4 py-2.5 text-sm font-bold text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+                  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   {so.language.noSomali}
                 </button>

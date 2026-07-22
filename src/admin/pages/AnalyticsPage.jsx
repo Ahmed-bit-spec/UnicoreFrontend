@@ -28,7 +28,7 @@ import { useLanguage }         from "@/hooks/useLanguage";
 import { fetchAdminAnalytics } from "@/api/admin";
 
 // ─── Palette ──────────────────────────────────────────────────────────────────
-const GREEN       = "#22c55e";
+const GREEN       = "#2C2DE0";
 const BLUE        = "#3b82f6";
 const ORANGE      = "#f97316";
 const VIOLET      = "#a855f7";
@@ -37,22 +37,22 @@ const PIE_COLORS  = [GREEN, BLUE, ORANGE, GRAY, VIOLET, "#ec4899"];
 
 // ─── KPI card ─────────────────────────────────────────────────────────────────
 const KpiCard = ({ icon: Icon, label, value, sub, color }) => (
-  <div className="flex items-center gap-4 rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04]">
+  <div className="flex items-center gap-4 rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04]">
     <div className={`flex size-11 shrink-0 items-center justify-center rounded-2xl ${color}`}>
       <Icon size={20} className="text-white" />
     </div>
     <div>
       <p className="text-[11px] font-semibold text-gray-500 dark:text-gray-400">{label}</p>
       <p className="text-2xl font-black text-gray-900 dark:text-white">{value ?? "—"}</p>
-      {sub && <p className="text-[10px] text-gray-400 dark:text-gray-500">{sub}</p>}
+      {sub && <p className="text-[10px] text-gray-400 dark:text-gray-500 dark:text-gray-400">{sub}</p>}
     </div>
   </div>
 );
 
 // ─── Section card ─────────────────────────────────────────────────────────────
 const Section = ({ title, children, className = "" }) => (
-  <div className={`rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.04] ${className}`}>
-    <p className="mb-4 text-[11px] font-black uppercase tracking-wider text-gray-400 dark:text-gray-500">
+  <div className={`rounded-2xl border border-gray-200/70 bg-white/60 p-5 backdrop-blur-sm dark:border-white/10 dark:bg-white dark:bg-gray-900/[0.04] ${className}`}>
+    <p className="mb-4 text-[11px] font-black uppercase tracking-wider text-gray-400 dark:text-gray-500 dark:text-gray-400">
       {title}
     </p>
     {children}
@@ -65,7 +65,7 @@ const ChartTooltip = ({ active, payload, label }) => {
   return (
     <div className="rounded-xl border border-gray-200/70 bg-white px-3 py-2 shadow-lg dark:border-white/10 dark:bg-gray-900">
       {label && (
-        <p className="mb-1 text-[10px] font-bold text-gray-400 dark:text-gray-500">{label}</p>
+        <p className="mb-1 text-[10px] font-bold text-gray-400 dark:text-gray-500 dark:text-gray-400">{label}</p>
       )}
       {payload.map((p) => (
         <p key={p.dataKey} className="text-xs font-black" style={{ color: p.color }}>
@@ -80,10 +80,10 @@ const ChartTooltip = ({ active, payload, label }) => {
 const HeatmapCell = ({ value, max }) => {
   const intensity = max > 0 ? value / max : 0;
   const bg =
-    intensity === 0   ? "bg-gray-100 dark:bg-white/5"
-    : intensity < 0.33 ? "bg-green-200 dark:bg-green-900/40"
-    : intensity < 0.66 ? "bg-green-400 dark:bg-green-600/60"
-    :                    "bg-green-600 dark:bg-green-500";
+    intensity === 0   ? "bg-gray-100 dark:bg-white dark:bg-gray-900/5"
+    : intensity < 0.33 ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/40"
+    : intensity < 0.66 ? "bg-[#4F51FF] dark:bg-[#1E1FAA] dark:bg-[#0F0F55]/60"
+    :                    "bg-[#1E1FAA] dark:bg-[#0F0F55] dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]";
 
   return (
     <div
@@ -98,7 +98,7 @@ const HeatmapCell = ({ value, max }) => {
 
 // ─── Skeleton loader ──────────────────────────────────────────────────────────
 const Skeleton = ({ className = "" }) => (
-  <div className={`animate-pulse rounded-2xl bg-gray-100 dark:bg-white/5 ${className}`} />
+  <div className={`animate-pulse rounded-2xl bg-gray-100 dark:bg-white dark:bg-gray-900/5 ${className}`} />
 );
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -178,7 +178,7 @@ const AnalyticsPage = () => {
           icon={Users}
           label={p.kpiTotalUsers}
           value={d.totalUsers}
-          color="bg-green-500"
+          color="bg-[#2C2DE0] dark:bg-[#1E1FAA]"
         />
         <KpiCard
           icon={CalendarCheck}
@@ -315,7 +315,7 @@ const AnalyticsPage = () => {
                 return (
                   <div key={s._id ?? i} className="flex items-center gap-3">
                     <span className="flex size-6 shrink-0 items-center justify-center rounded-full
-                      bg-green-500/10 text-[10px] font-black text-green-700 dark:text-green-400">
+                      bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 text-[10px] font-black text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]">
                       {i + 1}
                     </span>
                     <div className="min-w-0 flex-1">
@@ -328,13 +328,13 @@ const AnalyticsPage = () => {
                     </div>
                     <div className="w-20 shrink-0">
                       <div className="mb-1 flex justify-end">
-                        <span className="text-[10px] font-black text-green-600 dark:text-green-400">
+                        <span className="text-[10px] font-black text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]">
                           {s.count}
                         </span>
                       </div>
-                      <div className="h-1.5 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
+                      <div className="h-1.5 overflow-hidden rounded-full bg-gray-100 dark:bg-white dark:bg-gray-900/10">
                         <div
-                          className="h-full rounded-full bg-green-500 transition-all"
+                          className="h-full rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA] transition-all"
                           style={{ width: `${Math.min(100, (s.count / topCount) * 100)}%` }}
                         />
                       </div>
@@ -388,10 +388,10 @@ const AnalyticsPage = () => {
             <span className="text-[10px] text-gray-400">{p.low}</span>
             <div className="flex gap-1">
               {[
-                "bg-gray-100 dark:bg-white/5",
-                "bg-green-200",
-                "bg-green-400",
-                "bg-green-600",
+                "bg-gray-100 dark:bg-white dark:bg-gray-900/5",
+                "bg-[#2C2DE0]",
+                "bg-[#4F51FF]",
+                "bg-[#1E1FAA] dark:bg-[#0F0F55]",
               ].map((c, i) => (
                 <div key={i} className={`h-3 w-7 rounded ${c}`} />
               ))}
@@ -428,7 +428,7 @@ const AnalyticsPage = () => {
               </ResponsiveContainer>
               <div className="mt-3 flex gap-5">
                 <div className="flex items-center gap-1.5">
-                  <span className="size-2.5 rounded-full bg-green-500" />
+                  <span className="size-2.5 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
                   <span className="text-[10px] text-gray-500 dark:text-gray-400">{p.morning}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -448,7 +448,7 @@ const AnalyticsPage = () => {
 // ─── Empty state for charts with no data yet ──────────────────────────────────
 const EmptyChart = () => (
   <div className="flex h-40 items-center justify-center">
-    <p className="text-xs text-gray-400 dark:text-gray-600">No data yet</p>
+    <p className="text-xs text-gray-400 dark:text-gray-600 dark:text-gray-400">No data yet</p>
   </div>
 );
 

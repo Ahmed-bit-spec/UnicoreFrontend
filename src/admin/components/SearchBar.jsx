@@ -18,7 +18,7 @@ const SearchBar = ({
   >
     <Search
       size={16}
-      className="absolute left-3.5 text-gray-400 dark:text-gray-500 pointer-events-none"
+      className="absolute left-3.5 text-gray-400 dark:text-gray-500 dark:text-gray-400 pointer-events-none"
     />
     <input
       type="search"
@@ -27,15 +27,15 @@ const SearchBar = ({
       placeholder={placeholder}
       className={cn(
         "w-full rounded-xl border border-gray-200/80 dark:border-white/10",
-        "bg-white/70 dark:bg-white/5 backdrop-blur-md",
+        "bg-white/70 dark:bg-white dark:bg-gray-900/5 backdrop-blur-md",
         "py-2.5 pl-10 pr-10 text-sm text-gray-900 dark:text-white",
-        "placeholder:text-gray-400 dark:placeholder:text-gray-500",
-        "focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-500/40",
+        "placeholder:text-gray-400 dark:placeholder:text-gray-500 dark:text-gray-400",
+        "focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30 focus:border-[#2C2DE0] dark:border-[#4F51FF]/40",
         "transition-all duration-200"
       )}
     />
     {value && (
-      <button
+      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
         type="button"
         onClick={() => {
           onChange?.("");

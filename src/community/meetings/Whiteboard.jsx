@@ -541,7 +541,7 @@ export function Whiteboard({ canDraw = true, meetingCode }) {
         {/* Tool selector */}
         <div className="flex items-center gap-0.5 bg-black/40 rounded-xl p-0.5 flex-wrap">
           {TOOLS.map((t) => (
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               key={t.id}
               onClick={() => setTool(t.id)}
               disabled={!canDraw && t.id !== "laser"}
@@ -556,7 +556,7 @@ export function Whiteboard({ canDraw = true, meetingCode }) {
                     : t.id === "highlighter"
                     ? "bg-yellow-300/80 text-black shadow"
                     : "bg-[#58CC02] text-white shadow"
-                  : "text-white/60 hover:text-white hover:bg-white/10 disabled:opacity-40",
+                  : "text-white/60 hover:text-white hover:bg-white dark:bg-gray-900/10 disabled:opacity-40",
               ].join(" ")}
             >
               {t.icon}
@@ -568,7 +568,7 @@ export function Whiteboard({ canDraw = true, meetingCode }) {
         {!["laser", "sticky"].includes(tool) && (
           <div className="flex items-center gap-1">
             {COLORS.map((c) => (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={c}
                 onClick={() => setColor(c)}
                 disabled={!canDraw}
@@ -586,16 +586,16 @@ export function Whiteboard({ canDraw = true, meetingCode }) {
         {!["laser", "sticky"].includes(tool) && (
           <div className="flex items-center gap-1 bg-black/40 rounded-xl p-1">
             {WIDTHS.map((w) => (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={w}
                 onClick={() => setWidth(w)}
                 disabled={!canDraw}
                 title={`${w}px`}
                 className={`flex items-center justify-center w-6 h-6 rounded-lg transition-all disabled:opacity-40 ${
-                  width === w ? "bg-[#58CC02]" : "hover:bg-white/10"
+                  width === w ? "bg-[#58CC02]" : "hover:bg-white dark:bg-gray-900/10"
                 }`}
               >
-                <div className="rounded-full bg-white" style={{ width: Math.min(w, 10), height: Math.min(w, 10) }} />
+                <div className="rounded-full bg-white dark:bg-gray-900" style={{ width: Math.min(w, 10), height: Math.min(w, 10) }} />
               </button>
             ))}
           </div>
@@ -603,11 +603,11 @@ export function Whiteboard({ canDraw = true, meetingCode }) {
 
         {/* Actions */}
         <div className="flex items-center gap-1 ml-auto">
-          <button onClick={undo}         disabled={!canDraw} title="Undo (Ctrl+Z)"  className="p-1.5 rounded-lg hover:bg-white/10 text-white/60 hover:text-white disabled:opacity-40"><Undo2    size={14} /></button>
-          <button onClick={redo}         disabled={!canDraw} title="Redo (Ctrl+Y)"  className="p-1.5 rounded-lg hover:bg-white/10 text-white/60 hover:text-white disabled:opacity-40"><Redo2    size={14} /></button>
-          <button onClick={clearCanvas}  disabled={!canDraw} title="Clear all"      className="p-1.5 rounded-lg hover:bg-red-500/20 text-white/60 hover:text-red-400 disabled:opacity-40"><Trash2  size={14} /></button>
-          <button onClick={downloadBoard}                    title="Download"       className="p-1.5 rounded-lg hover:bg-white/10 text-white/60 hover:text-white"><Download              size={14} /></button>
-          <button onClick={toggleFullscreen}                 title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"} className="p-1.5 rounded-lg hover:bg-white/10 text-white/60 hover:text-white">
+          <button onClick={undo}         disabled={!canDraw} title="Undo (Ctrl+Z)"  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"><Undo2    size={14} /></button>
+          <button onClick={redo}         disabled={!canDraw} title="Redo (Ctrl+Y)"  className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"><Redo2    size={14} /></button>
+          <button onClick={clearCanvas}  disabled={!canDraw} title="Clear all"      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"><Trash2  size={14} /></button>
+          <button onClick={downloadBoard}                    title="Download"       className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"><Download              size={14} /></button>
+          <button onClick={toggleFullscreen}                 title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"} className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
             {isFullscreen ? <Minimize2 size={14} /> : <Maximize2 size={14} />}
           </button>
         </div>
@@ -676,7 +676,7 @@ export function Whiteboard({ canDraw = true, meetingCode }) {
             >
               <span className="text-[9px] font-black text-black uppercase tracking-widest">📌 Note</span>
               {canDraw && (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => removeSticky(sticky.id)}
                   className="text-black/60 hover:text-black text-xs leading-none"
                 >✕</button>

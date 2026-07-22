@@ -19,7 +19,7 @@ const StatCard = ({
 
   const trendEl =
     trend === "up" ? (
-      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-green-500">
+      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-[#2C2DE0] dark:text-[#4F51FF]">
         <TrendingUp size={10} />
         {live ? "live" : "up"}
       </span>
@@ -45,14 +45,14 @@ const StatCard = ({
         "relative overflow-hidden rounded-xl border p-4 transition-colors",
         isDark
           ? "bg-black border-white/10 hover:border-white/20"
-          : "bg-white border-black/8 hover:border-black/16"
+          : "bg-white dark:bg-gray-900 border-black/8 hover:border-black/16"
       )}
     >
       {/* top accent line */}
       <div
         className={cn(
           "absolute top-0 left-0 right-0 h-[2px]",
-          isGreen ? "bg-green-500" : isDark ? "bg-white/20" : "bg-black/20"
+          isGreen ? "bg-[#2C2DE0] dark:bg-[#1E1FAA]" : isDark ? "bg-white dark:bg-gray-900/20" : "bg-black/20"
         )}
       />
 
@@ -61,16 +61,16 @@ const StatCard = ({
           className={cn(
             "w-8 h-8 rounded-lg flex items-center justify-center",
             isGreen
-              ? "bg-green-500/10"
+              ? "bg-[#2C2DE0] dark:bg-[#1E1FAA]/10"
               : isDark
-              ? "bg-white/6"
+              ? "bg-white dark:bg-gray-900/6"
               : "bg-black/5"
           )}
         >
           {Icon && (
             <Icon
               size={15}
-              className={isGreen ? "text-green-500" : isDark ? "text-white/60" : "text-black/60"}
+              className={isGreen ? "text-[#2C2DE0] dark:text-[#4F51FF]" : isDark ? "text-white/60" : "text-black/60"}
             />
           )}
         </div>
@@ -84,7 +84,7 @@ const StatCard = ({
         )}
       >
         {loading ? (
-          <span className={cn("inline-block w-12 h-7 rounded animate-pulse", isDark ? "bg-white/10" : "bg-black/8")} />
+          <span className={cn("inline-block w-12 h-7 rounded animate-pulse", isDark ? "bg-white dark:bg-gray-900/10" : "bg-black/8")} />
         ) : (
           value
         )}

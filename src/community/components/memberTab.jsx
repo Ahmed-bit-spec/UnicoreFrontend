@@ -34,11 +34,11 @@ const MemberRow = ({ member, canManage, onAction, isActionLoading }) => {
 
     return (
         <div className="flex items-center gap-3 bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-3 relative">
-            <img src={u?.photo || ""} alt={u?.name} className="w-10 h-10 rounded-full bg-green-500" />
+            <img src={u?.photo || ""} alt={u?.name} className="w-10 h-10 rounded-full bg-[#2C2DE0] dark:bg-[#1E1FAA]" />
             <div className="flex-1 min-w-0">
                 <p className="font-bold text-black dark:text-white text-sm flex items-center gap-1.5">
                     {u?.name}
-                    {level === "group_admin" && <ShieldCheck size={13} className="text-green-600" />}
+                    {level === "group_admin" && <ShieldCheck size={13} className="text-[#1E1FAA] dark:text-[#4F51FF]" />}
                     {level === "announcement_admin" && <ShieldCheck size={13} className="text-black/30 dark:text-white/30" />}
                 </p>
                 <p className="text-[11px] text-black/40 dark:text-white/40">
@@ -46,7 +46,7 @@ const MemberRow = ({ member, canManage, onAction, isActionLoading }) => {
                 </p>
                 <div className="flex gap-1 mt-1">
                     {level && (
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF]">
                             {level === "group_admin" ? "Group Administrator" : "Announcement Admin"}
                         </span>
                     )}
@@ -60,10 +60,10 @@ const MemberRow = ({ member, canManage, onAction, isActionLoading }) => {
 
             {canManage && (
                 <div className="relative">
-                    <button
+                    <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         onClick={() => setMenuOpen((v) => !v)}
                         disabled={isActionLoading}
-                        className="p-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 disabled:opacity-50 disabled:pointer-events-none"
+                        className="p-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white dark:bg-gray-900/5 disabled:opacity-50 disabled:pointer-events-none"
                     >
                         <MoreVertical size={16} />
                     </button>
@@ -107,7 +107,7 @@ const MenuItem = ({ children, onClick, danger, disabled }) => (
     <button
         onClick={onClick}
         disabled={disabled}
-        className={`w-full text-left px-3 py-2 hover:bg-black/5 dark:hover:bg-white/5 disabled:opacity-50 disabled:pointer-events-none ${danger ? "text-red-600" : ""}`}
+        className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
     >
         {children}
     </button>
@@ -178,7 +178,7 @@ const MembersTab = ({ groupId, canManage, onRefreshNeeded }) => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search members..."
-                    className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-green-500"
+                    className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-[#2C2DE0] dark:border-[#4F51FF]"
                 />
             </div>
 

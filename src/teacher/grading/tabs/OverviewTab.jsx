@@ -49,13 +49,13 @@ export default function OverviewTab({ submission, exam }) {
 
           {/* Score bar */}
           <div className="mt-4">
-            <div className="flex justify-between text-xs text-gray-500 mb-1">
+            <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-1">
               <span>Score progress</span>
               <span>{currentScore} / {totalMax} pts</span>
             </div>
             <div className="h-3 bg-gray-100 dark:bg-zinc-800 rounded-full overflow-hidden">
               <div
-                className={`h-full rounded-full transition-all duration-700 ${pct >= 60 ? "bg-green-500" : "bg-red-500"}`}
+                className={`h-full rounded-full transition-all duration-700 ${pct >= 60 ? "bg-[#2C2DE0] dark:bg-[#1E1FAA]" : "bg-red-500"}`}
                 style={{ width: `${pct}%` }}
               />
             </div>
@@ -90,10 +90,10 @@ export default function OverviewTab({ submission, exam }) {
                     <td className="py-2 text-right font-mono text-xs text-blue-600 dark:text-blue-400">
                       {ans.autoScore ?? 0}
                     </td>
-                    <td className="py-2 text-right font-mono text-xs text-green-600 dark:text-green-400">
+                    <td className="py-2 text-right font-mono text-xs text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]">
                       {ans.manualScore ?? <span className="text-gray-400">—</span>}
                     </td>
-                    <td className="py-2 text-right text-xs text-gray-500">{ans.maxMarks}</td>
+                    <td className="py-2 text-right text-xs text-gray-500 dark:text-gray-400">{ans.maxMarks}</td>
                   </tr>
                 ))}
               </tbody>
@@ -130,16 +130,16 @@ export default function OverviewTab({ submission, exam }) {
         {/* Cheating log */}
         <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 p-4">
           <div className="flex items-center gap-2 mb-3">
-            <Shield className={`w-4 h-4 ${cheatingLogs.length > 0 ? "text-red-500" : "text-green-500"}`} />
+            <Shield className={`w-4 h-4 ${cheatingLogs.length > 0 ? "text-red-500" : "text-[#2C2DE0] dark:text-[#4F51FF]"}`} />
             <h3 className="text-sm font-bold text-gray-900 dark:text-white">Security Log</h3>
             {cheatingLogs.length === 0 && (
-              <span className="ml-auto text-xs text-green-600 dark:text-green-400 flex items-center gap-1">
+              <span className="ml-auto text-xs text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF] flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" /> Clean
               </span>
             )}
           </div>
           {cheatingLogs.length === 0 ? (
-            <p className="text-xs text-gray-500">No violations detected.</p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">No violations detected.</p>
           ) : (
             <div className="space-y-2 max-h-64 overflow-y-auto">
               {cheatingLogs.map((log, i) => (
@@ -162,8 +162,8 @@ export default function OverviewTab({ submission, exam }) {
           <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Exam</h3>
           <div className="space-y-1.5 text-sm">
             <p className="font-semibold text-gray-900 dark:text-white">{exam?.title}</p>
-            <p className="text-gray-500">Duration: {exam?.duration} min</p>
-            <p className="text-gray-500">Max marks: {exam?.totalMaxMarks ?? totalMax}</p>
+            <p className="text-gray-500 dark:text-gray-400">Duration: {exam?.duration} min</p>
+            <p className="text-gray-500 dark:text-gray-400">Max marks: {exam?.totalMaxMarks ?? totalMax}</p>
           </div>
         </div>
       </div>
@@ -184,7 +184,7 @@ function InfoRow({ icon: Icon, label, value }) {
 
 function ScoreCard({ label, value, max, color, suffix = "" }) {
   const colors = {
-    green: "text-green-600 dark:text-green-400",
+    green: "text-[#1E1FAA] dark:text-[#4F51FF] dark:text-[#4F51FF]",
     blue:  "text-blue-600 dark:text-blue-400",
     red:   "text-red-600 dark:text-red-400",
   };
@@ -193,7 +193,7 @@ function ScoreCard({ label, value, max, color, suffix = "" }) {
       <p className={`text-2xl font-black ${colors[color] || "text-gray-900 dark:text-white"}`}>
         {value}{suffix}
       </p>
-      <p className="text-xs text-gray-500 mt-1">{label}</p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">{label}</p>
     </div>
   );
 }
@@ -204,7 +204,7 @@ function TypeBadge({ type }) {
     essay: "bg-purple-100 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400",
     lab: "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400",
     truefalse: "bg-teal-100 text-teal-700 dark:bg-teal-500/10 dark:text-teal-400",
-    os_linux: "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400",
+    os_linux: "bg-[#2C2DE0] text-[#0F0F55] dark:text-blue-300 dark:bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 dark:text-[#4F51FF]",
     design_lab: "bg-pink-100 text-pink-700 dark:bg-pink-500/10 dark:text-pink-400",
   };
   return (

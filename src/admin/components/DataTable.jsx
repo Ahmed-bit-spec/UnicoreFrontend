@@ -116,7 +116,7 @@ const DataTable = ({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] backdrop-blur-xl overflow-hidden shadow-sm"
+      className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/60 dark:bg-white dark:bg-gray-900/[0.03] backdrop-blur-xl overflow-hidden shadow-sm"
     >
       <div className="flex flex-col gap-3 border-b border-gray-100 dark:border-white/10 p-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-1 flex-col gap-3 sm:flex-row sm:items-center">
@@ -139,17 +139,17 @@ const DataTable = ({
           {selected.size > 0 && (
             <>
               {bulkActions.map((action) => (
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   key={action.key}
                   type="button"
                   onClick={() => action.onClick?.([...selected])}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-green-500/30 bg-green-500/10 px-3 py-2 text-xs font-bold text-green-700 hover:bg-green-500/20 dark:text-green-400 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#2C2DE0] dark:border-[#4F51FF]/30 bg-[#2C2DE0] dark:bg-[#1E1FAA]/10 px-3 py-2 text-xs font-bold text-[#0F0F55] dark:text-blue-300 hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/20 dark:text-[#4F51FF] transition-colors"
                 >
                   {action.icon}
                   {action.label} ({selected.size})
                 </button>
               ))}
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 type="button"
                 onClick={() => onBulkDelete?.([...selected])}
                 className="inline-flex items-center gap-1.5 rounded-xl border border-red-500/30 bg-red-500/10 px-3 py-2 text-xs font-bold text-red-600 dark:text-red-400 hover:bg-red-500/20 transition-colors"
@@ -164,7 +164,7 @@ const DataTable = ({
             <button
               type="button"
               onClick={onExport}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-gray-200/80 dark:border-white/10 px-3 py-2 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:border-green-500/30 transition-colors"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <Download size={14} />
               {ap.common.export}
@@ -174,7 +174,7 @@ const DataTable = ({
             <button
               type="button"
               onClick={onAdd}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-green-500 px-3 py-2 text-xs font-bold text-white hover:bg-green-600 transition-colors shadow-sm shadow-green-500/20"
+              className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <Plus size={14} />
               {ap.common.addNew}
@@ -193,13 +193,13 @@ const DataTable = ({
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-gray-100 dark:border-white/10 bg-gray-50/80 dark:bg-white/[0.02]">
+              <tr className="border-b border-gray-100 dark:border-white/10 bg-gray-50/80 dark:bg-white dark:bg-gray-900/[0.02]">
                 <th className="w-10 px-4 py-3">
                   <input
                     type="checkbox"
                     checked={selected.size === pageData.length && pageData.length > 0}
                     onChange={toggleAll}
-                    className="rounded border-gray-300 text-green-500 focus:ring-green-500/30"
+                    className="rounded border-gray-300 text-[#2C2DE0] dark:text-[#4F51FF] focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30"
                     aria-label={ap.common.selectAll}
                   />
                 </th>
@@ -209,10 +209,10 @@ const DataTable = ({
                     className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400"
                   >
                     {col.sortable ? (
-                      <button
+                      <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                         type="button"
                         onClick={() => toggleSort(col.key)}
-                        className="inline-flex items-center gap-1 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                        className="inline-flex items-center gap-1 hover:text-[#1E1FAA] dark:text-[#4F51FF] dark:hover:text-[#4F51FF] transition-colors"
                       >
                         {col.label}
                         <ArrowUpDown size={12} />
@@ -222,7 +222,7 @@ const DataTable = ({
                     )}
                   </th>
                 ))}
-                <th className="w-12 px-4 py-3 text-right text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                <th className="w-12 px-4 py-3 text-right text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                   {ap.common.actions}
                 </th>
               </tr>
@@ -240,8 +240,8 @@ const DataTable = ({
                   onClick={() => onRowClick?.(row)}
                   className={cn(
                     "border-b border-gray-50 dark:border-white/5",
-                    "hover:bg-green-500/[0.03] transition-colors",
-                    selected.has(rowKey) && "bg-green-500/5",
+                    "hover:bg-[#2C2DE0] dark:bg-[#1E1FAA]/[0.03] transition-colors",
+                    selected.has(rowKey) && "bg-[#2C2DE0] dark:bg-[#1E1FAA]/5",
                     onRowClick && "cursor-pointer"
                   )}
                 >
@@ -251,7 +251,7 @@ const DataTable = ({
                       checked={selected.has(rowKey)}
                       onClick={(e) => e.stopPropagation()}
                       onChange={() => toggleRow(rowKey)}
-                      className="rounded border-gray-300 text-green-500 focus:ring-green-500/30"
+                      className="rounded border-gray-300 text-[#2C2DE0] dark:text-[#4F51FF] focus:ring-[#2C2DE0] dark:ring-[#4F51FF]/30"
                     />
                   </td>
                   {columns.map((col) => (
@@ -267,7 +267,7 @@ const DataTable = ({
                       {renderRowActions ? (
                         renderRowActions(row)
                       ) : (
-                        <button
+                        <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                           type="button"
                           onClick={() => rowActions?.(row)}
                           className="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-white/10 dark:hover:text-white transition-colors"

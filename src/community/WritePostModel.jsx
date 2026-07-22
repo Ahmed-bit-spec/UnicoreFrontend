@@ -207,14 +207,14 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
           <button
             onClick={handleSubmit}
             disabled={(!content.trim() && attachments.length === 0) || posting}
-            className={`flex items-center gap-1.5 px-5 py-2 rounded-xl text-sm font-bold ${BTN_PRIMARY}`}
+            className={`bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
           >
             {posting ? <Loader2 size={13} className="animate-spin" /> : <Send size={13} />}
             {posting ? t["write.publishing"] ?? "Publishing…" : t["write.publish"] ?? "Publish"}
           </button>
           <button
             onClick={onClose}
-            className="p-2 rounded-full text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             aria-label="Close"
           >
             <X size={18} />
@@ -240,7 +240,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
 
         {/* Formatting toolbar */}
         <div className="flex items-center gap-1 mb-2 -ml-1.5">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             type="button"
             onClick={() => wrapSelection("**")}
             className="p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -249,7 +249,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
           >
             <Bold size={15} />
           </button>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             type="button"
             onClick={() => wrapSelection("*")}
             className="p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white transition-colors"
@@ -261,7 +261,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
           <button
             type="button"
             onClick={insertLink}
-            className="p-1.5 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             aria-label="Link"
             title="Link"
           >
@@ -302,7 +302,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
                 playsInline
               />
             )}
-            <button
+            <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               onClick={() => removeAttachment(mediaAttachments[0].id)}
               className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors opacity-0 group-hover:opacity-100"
               aria-label="Remove"
@@ -322,7 +322,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
                 ) : (
                   <video src={att.url} className="w-full h-full object-cover" controls playsInline />
                 )}
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => removeAttachment(att.id)}
                   className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors opacity-0 group-hover:opacity-100"
                   aria-label="Remove"
@@ -349,7 +349,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
                   <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-200 truncate">{att.name}</p>
                   <p className="text-[11px] text-gray-400">{formatSize(att.size)}</p>
                 </div>
-                <button
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   onClick={() => removeAttachment(att.id)}
                   className="p-1.5 rounded-lg text-gray-400 hover:text-red-500 hover:bg-gray-100 dark:hover:bg-gray-900 transition-colors flex-shrink-0"
                   aria-label="Remove"
@@ -363,21 +363,21 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
 
         {/* Attach actions */}
         <div className="flex items-center gap-2 mt-5 pt-5 border-t border-gray-100 dark:border-gray-800">
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => imageInputRef.current?.click()}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-green-500 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-[#2C2DE0] dark:text-[#4F51FF] transition-colors"
           >
             <Image size={16} />
             {t["write.photo"] ?? "Photo"}
           </button>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => videoInputRef.current?.click()}
             className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-blue-500 transition-colors"
           >
             <Video size={16} />
             {t["write.video"] ?? "Video"}
           </button>
-          <button
+          <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             onClick={() => pdfInputRef.current?.click()}
             className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-red-500 transition-colors"
           >
@@ -421,7 +421,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
 
           <div className="flex flex-wrap gap-1.5 mb-3">
             {SEMESTER_TAGS.map((sem) => (
-              <button
+              <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 key={sem}
                 onClick={() => {
                   if (tags.includes(sem)) removeTag(sem);
@@ -442,10 +442,10 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-100 dark:bg-green-950/40 text-green-700 dark:text-green-400 text-[12px] font-semibold"
+                className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0]/40 text-[#0F0F55] dark:text-blue-300 dark:text-[#4F51FF] text-[12px] font-semibold"
               >
                 #{tag}
-                <button onClick={() => removeTag(tag)} className="hover:text-red-500 transition-colors">
+                <button className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" onClick={() => removeTag(tag)} className="hover:text-red-500 transition-colors">
                   <X size={10} />
                 </button>
               </span>
