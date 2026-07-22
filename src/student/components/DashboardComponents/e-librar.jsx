@@ -68,7 +68,7 @@ const BooksReadBanner = ({ count, inProgress, t }) => {
  return (
    <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-black border border-black">
      <div className="flex items-center gap-2">
-       <BookMarked size={15} className="text-green-500" />
+       <BookMarked size={15} className="text-[#2C2DE0]" />
        <span className="text-[13px] font-black text-white">
          {count}{" "}
          <span className="font-medium text-white/70">
@@ -80,7 +80,7 @@ const BooksReadBanner = ({ count, inProgress, t }) => {
        <>
          <div className="h-4 w-px bg-white/20" />
          <div className="flex items-center gap-2">
-           <TrendingUp size={14} className="text-green-500" />
+           <TrendingUp size={14} className="text-[#2C2DE0]" />
            <span className="text-[13px] font-black text-white">
              {inProgress}{" "}
              <span className="font-medium text-white/70">
@@ -117,7 +117,7 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
        border transition-all duration-150
        ${disabled
          ? "border-gray-200 text-gray-300 cursor-not-allowed opacity-40"
-         : "border-gray-200 text-gray-400 cursor-pointer hover:border-green-500 hover:text-green-500"
+         : "border-gray-200 text-gray-400 cursor-pointer hover:border-[#2C2DE0] hover:text-[#2C2DE0]"
        }
      `}
    >
@@ -146,7 +146,7 @@ const Pagination = ({ page, totalPages, onPageChange }) => {
              w-8 h-8 rounded-lg text-[13px] font-bold transition-all duration-150 cursor-pointer
              ${p === page
                ? PRIMARY_BTN
-               : "border border-gray-200 text-gray-500 hover:border-green-500 hover:text-green-500 bg-white"
+               : "border border-gray-200 text-gray-500 hover:border-[#2C2DE0] hover:text-[#2C2DE0] bg-white"
              }
            `}
          >
@@ -220,7 +220,7 @@ const LibraryHome = () => {
        {isSearching && (
          <div className="flex items-center gap-1.5 text-[13px] text-gray-400">
            {isFetching ? (
-             <span className="flex items-center gap-1.5 text-green-500">
+             <span className="flex items-center gap-1.5 text-[#2C2DE0]">
                <RefreshCw size={12} className="animate-spin" />
                {t["common.loading"] ?? "Searching…"}
              </span>
@@ -228,7 +228,7 @@ const LibraryHome = () => {
              <>
                <span className="font-bold text-black">{pagination?.total || 0}</span>{" "}
                {t["search.results"] ?? "results for"}{" "}
-               <span className="text-green-500 font-semibold">"{debouncedSearch}"</span>
+               <span className="text-[#2C2DE0] font-semibold">"{debouncedSearch}"</span>
              </>
            )}
          </div>
@@ -320,7 +320,7 @@ const LibraryHome = () => {
 
          {/* Soft refetch indicator */}
          {!isLoading && isFetching && (
-           <div className="flex items-center gap-2 text-[12px] text-green-500 mb-3">
+           <div className="flex items-center gap-2 text-[12px] text-[#2C2DE0] mb-3">
              <RefreshCw size={12} className="animate-spin" />
              <span>{t["common.loading"] ?? "Updating…"}</span>
            </div>

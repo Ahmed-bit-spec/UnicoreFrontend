@@ -209,7 +209,7 @@ const AdminDashboardPage = () => {
       {/* ── User statistics ── */}
       <motion.p
         {...fadeUp(0)}
-        className="text-[11px] font-bold uppercase tracking-widest text-green-500 mb-3"
+        className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0] mb-3"
       >
         {p.sectionUsers}
       </motion.p>
@@ -222,7 +222,7 @@ const AdminDashboardPage = () => {
       {/* ── Seat + Book statistics ── */}
       <motion.p
         {...fadeUp(0.1)}
-        className="text-[11px] font-bold uppercase tracking-widest text-green-500 mb-3"
+        className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0] mb-3"
       >
         {p.sectionSeatsBooks}
       </motion.p>
@@ -298,7 +298,7 @@ const AdminDashboardPage = () => {
                   </div>
                   <Link
                     to="/admin/reservations"
-                    className="shrink-0 text-[11px] px-2.5 py-1 rounded-md bg-green-500 text-black font-semibold hover:bg-green-400 transition-colors"
+                    className="shrink-0 text-[11px] px-2.5 py-1 rounded-md bg-[#2C2DE0] text-black font-semibold hover:bg-[#2C2DE0] transition-colors"
                   >
                     {ap.common.view}
                   </Link>
@@ -324,7 +324,7 @@ const AdminDashboardPage = () => {
                     }`}
                 >
                   <div className="flex items-center gap-2">
-                    <Icon className="w-3.5 h-3.5 text-green-500" />
+                    <Icon className="w-3.5 h-3.5 text-[#2C2DE0]" />
                     <span>{link.label}</span>
                   </div>
                   <ArrowRight className="w-3 h-3 opacity-30" />

@@ -115,7 +115,7 @@ const UserProfile = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader2 size={22} className="animate-spin text-green-500" />
+        <Loader2 size={22} className="animate-spin text-[#2C2DE0]" />
       </div>
     );
   }

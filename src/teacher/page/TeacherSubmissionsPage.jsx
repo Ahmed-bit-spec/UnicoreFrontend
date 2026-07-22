@@ -107,7 +107,7 @@ export default function TeacherSubmissionsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
-            <CheckSquare className="w-7 h-7 text-green-500" />
+            <CheckSquare className="w-7 h-7 text-[#2C2DE0]" />
             Grading Workspace
           </h1>
           <p className="text-gray-500 text-sm">
@@ -120,7 +120,7 @@ export default function TeacherSubmissionsPage() {
           <select
             value={selectedExamId}
             onChange={(e) => setSelectedExamId(e.target.value)}
-            className="px-4 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl text-sm font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="px-4 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl text-sm font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]"
           >
             <option value="">-- Choose Exam --</option>
             {exams.map((ex) => (
@@ -135,7 +135,7 @@ export default function TeacherSubmissionsPage() {
             disabled={loading}
             className="p-2 border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-gray-500 rounded-xl hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors disabled:opacity-50"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-green-500" : ""}`} />
+            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-[#2C2DE0]" : ""}`} />
           </button>
         </div>
       </div>
@@ -200,7 +200,7 @@ export default function TeacherSubmissionsPage() {
           <button
             onClick={handleBulkPublish}
             disabled={publishing || submissions.filter(s => ["graded", "auto-graded"].includes(s.status)).length === 0}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors disabled:opacity-40"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white rounded-lg transition-colors disabled:opacity-40"
           >
             {publishing ? <Loader2 className="w-3 h-3 animate-spin" /> : <Send className="w-3 h-3" />}
             Publish Results
@@ -211,11 +211,11 @@ export default function TeacherSubmissionsPage() {
       {/* Submissions Grid / List */}
       {loading ? (
         <div className="flex items-center justify-center py-24">
-          <Loader2 className="w-8 h-8 animate-spin text-green-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#2C2DE0]" />
         </div>
       ) : filtered.length === 0 ? (
         <div className="text-center py-20 bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 text-gray-500">
-          <CheckCircle2 className="w-12 h-12 text-green-400 mx-auto mb-3" />
+          <CheckCircle2 className="w-12 h-12 text-[#2C2DE0] mx-auto mb-3" />
           <p className="font-semibold text-gray-700 dark:text-gray-300">No submissions found</p>
           <p className="text-xs text-gray-400 mt-1">Try relaxing filters or check back later.</p>
         </div>
@@ -277,7 +277,7 @@ export default function TeacherSubmissionsPage() {
                       <td className="px-6 py-4 text-right">
                         <button
                           onClick={() => navigate(`/teacher/submissions/${sub._id}?exam=${selectedExamId}`)}
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 rounded-lg hover:bg-green-100 dark:hover:bg-green-500/20 transition-all"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0] rounded-lg hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/20 transition-all"
                         >
                           <Eye className="w-3.5 h-3.5" /> Grade
                         </button>
@@ -296,7 +296,7 @@ export default function TeacherSubmissionsPage() {
 
 function StatCard({ label, value, color }) {
   const colors = {
-    green:  "text-green-600 dark:text-green-400",
+    green:  "text-[#2C2DE0] dark:text-[#2C2DE0]",
     orange: "text-orange-500 dark:text-orange-400",
     blue:   "text-blue-500 dark:text-blue-400",
   };
@@ -316,8 +316,8 @@ function StatusBadge({ status }) {
     "submitted":     { label: "Submitted",     cls: "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400" },
     "auto-graded":   { label: "Auto-Graded",   cls: "bg-purple-100 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400" },
     "manual-review": { label: "Needs Review",  cls: "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400" },
-    "graded":        { label: "Graded",        cls: "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400" },
-    "published":     { label: "Published",     cls: "bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-300" },
+    "graded":        { label: "Graded",        cls: "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/10 dark:text-[#2C2DE0]" },
+    "published":     { label: "Published",     cls: "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/20 dark:text-[#2C2DE0]" },
   };
   const c = config[status] || { label: status, cls: "bg-gray-100 text-gray-600" };
   return (

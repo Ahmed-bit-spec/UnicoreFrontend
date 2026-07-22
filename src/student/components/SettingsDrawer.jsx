@@ -33,7 +33,7 @@ const Field = ({ label, icon: Icon, type = "text", value, onChange, placeholder,
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-3 pl-10 ${rightSlot ? "pr-11" : "pr-4"}`}
+        className={`w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#2C2DE0] dark:focus:border-[#2C2DE0] transition-all py-3 pl-10 ${rightSlot ? "pr-11" : "pr-4"}`}
       />
       {rightSlot && (
         <div className="absolute right-3.5 top-1/2 -translate-y-1/2">{rightSlot}</div>
@@ -48,7 +48,7 @@ const Banner = ({ type, message }) => {
   const ok = type === "success";
   return (
     <div className={`flex items-start gap-2 rounded-xl px-3.5 py-3 border text-xs leading-relaxed ${ok
-      ? "bg-green-50 dark:bg-green-500/10 border-green-100 dark:border-green-500/20 text-green-700 dark:text-green-400"
+      ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]/20 text-[#2C2DE0] dark:text-[#2C2DE0]"
       : "bg-red-50 dark:bg-red-500/10 border-red-100 dark:border-red-500/20 text-red-600 dark:text-red-400"
       }`}>
       {ok ? <CheckCircle2 size={13} className="flex-shrink-0 mt-0.5" /> : <AlertCircle size={13} className="flex-shrink-0 mt-0.5" />}
@@ -61,7 +61,7 @@ const Banner = ({ type, message }) => {
 const Section = ({ title, icon: Icon, children }) => (
   <div className="rounded-2xl border border-gray-100 dark:border-gray-800 overflow-hidden">
     <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
-      <Icon size={13} className="text-green-500 flex-shrink-0" />
+      <Icon size={13} className="text-[#2C2DE0] flex-shrink-0" />
       <p className="text-[11px] font-bold text-gray-600 dark:text-gray-400 uppercase tracking-widest">
         {title}
       </p>
@@ -257,7 +257,7 @@ const SettingsDrawer = ({ open, onClose }) => {
                     2. user.photo from auth context (saved photo from server)
                     3. Initials fallback
                   */}
-                  <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-black text-2xl shadow">
+                  <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden bg-gradient-to-br from-[#2C2DE0] to-[#2C2DE0] flex items-center justify-center text-white font-black text-2xl shadow">
                     {displayPhoto ? (
                       <img
                         src={displayPhoto}
@@ -272,7 +272,7 @@ const SettingsDrawer = ({ open, onClose }) => {
                   </div>
                   <button
                     onClick={() => fileRef.current?.click()}
-                    className="absolute -bottom-2 -right-2 w-7 h-7 rounded-xl bg-green-500 hover:bg-green-600 text-white flex items-center justify-center shadow-md transition-colors"
+                    className="absolute -bottom-2 -right-2 w-7 h-7 rounded-xl bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white flex items-center justify-center shadow-md transition-colors"
                   >
                     <Camera size={13} />
                   </button>
@@ -288,7 +288,7 @@ const SettingsDrawer = ({ open, onClose }) => {
                 <div className="flex flex-col gap-1">
                   <button
                     onClick={() => fileRef.current?.click()}
-                    className="text-sm font-bold text-green-500 hover:text-green-600 text-left transition-colors"
+                    className="text-sm font-bold text-[#2C2DE0] hover:text-[#2C2DE0] text-left transition-colors"
                   >
                     {isSo ? "Bedel Sawirka" : "Change Photo"}
                   </button>
@@ -326,7 +326,7 @@ const SettingsDrawer = ({ open, onClose }) => {
               <button
                 onClick={handleSaveProfile}
                 disabled={savingProfile}
-                className="w-full py-3 rounded-xl text-sm font-bold text-white bg-green-500 hover:bg-green-600 active:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-sm shadow-green-200 dark:shadow-none"
+                className="w-full py-3 rounded-xl text-sm font-bold text-white bg-[#2C2DE0] hover:bg-[#2C2DE0] active:bg-[#2C2DE0] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-sm shadow-[#2C2DE0] dark:shadow-none text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 {savingProfile && <Loader2 size={14} className="animate-spin" />}
                 {savingProfile
@@ -390,7 +390,7 @@ const SettingsDrawer = ({ open, onClose }) => {
                 <button
                   onClick={handleSavePassword}
                   disabled={savingPw || !currentPw || !newPw || !confirmPw}
-                  className="w-full py-3 rounded-xl text-sm font-bold text-white bg-green-500 hover:bg-green-600 active:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-sm shadow-green-200 dark:shadow-none"
+                  className="w-full py-3 rounded-xl text-sm font-bold text-white bg-[#2C2DE0] hover:bg-[#2C2DE0] active:bg-[#2C2DE0] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-sm shadow-[#2C2DE0] dark:shadow-none text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   {savingPw && <Loader2 size={14} className="animate-spin" />}
                   {savingPw
@@ -421,20 +421,20 @@ const SettingsDrawer = ({ open, onClose }) => {
                       key={opt.value}
                       onClick={() => handleLangChange(opt.value)}
                       className={`flex items-center justify-between px-4 py-3.5 rounded-xl border text-left transition-all duration-150 ${isActive
-                        ? "bg-green-50 dark:bg-green-500/10 border-green-300 dark:border-green-700"
-                        : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800"
+                        ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]"
+                        : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]"
                         }`}
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-xl leading-none">{opt.flag}</span>
                         <div>
-                          <p className={`text-sm font-bold leading-tight ${isActive ? "text-green-700 dark:text-green-400" : "text-gray-700 dark:text-gray-200"}`}>
+                          <p className={`text-sm font-bold leading-tight ${isActive ? "text-[#2C2DE0] dark:text-[#2C2DE0]" : "text-gray-700 dark:text-gray-200"}`}>
                             {opt.name}
                           </p>
                           <p className="text-[10px] text-gray-400 mt-0.5">{opt.sub}</p>
                         </div>
                       </div>
-                      {isActive && <CheckCircle2 size={17} className="text-green-500 flex-shrink-0" />}
+                      {isActive && <CheckCircle2 size={17} className="text-[#2C2DE0] flex-shrink-0" />}
                     </button>
                   );
                 })}

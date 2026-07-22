@@ -17,8 +17,8 @@ const UniversityStudentActionDropdown = ({ labels, student, onView, onEdit, onDe
 
     const itemClass = cn(
         "flex w-full items-center gap-2 px-3.5 py-2 text-left text-xs font-semibold",
-        "text-gray-700 hover:bg-green-500/10 hover:text-green-700",
-        "dark:text-gray-200 dark:hover:text-green-400 transition-colors"
+        "text-gray-700 hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0]",
+        "dark:text-gray-200 dark:hover:text-[#2C2DE0] transition-colors"
     );
 
     const run = (callback) => {

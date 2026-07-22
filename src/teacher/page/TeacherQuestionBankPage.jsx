@@ -166,7 +166,7 @@ export default function TeacherQuestionBankPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
-            <BookOpen className="w-7 h-7 text-green-500" />
+            <BookOpen className="w-7 h-7 text-[#2C2DE0]" />
             Question Bank
           </h1>
           <p className="text-gray-500 text-sm">
@@ -177,7 +177,7 @@ export default function TeacherQuestionBankPage() {
         <div className="flex items-center gap-2 flex-wrap">
           <button
             onClick={startCreate}
-            className="flex items-center gap-1.5 px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-bold text-sm rounded-xl shadow-md transition-colors"
+            className="flex items-center gap-1.5 px-4 py-2 bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white font-bold text-sm rounded-xl shadow-md transition-colors text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             <Plus className="w-4 h-4" /> Create Question
           </button>
@@ -197,8 +197,8 @@ export default function TeacherQuestionBankPage() {
       {/* Stats strip */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 p-4 flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center">
-            <Layers className="w-4.5 h-4.5 text-green-600" />
+          <div className="w-9 h-9 rounded-xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 flex items-center justify-center">
+            <Layers className="w-4.5 h-4.5 text-[#2C2DE0]" />
           </div>
           <div>
             <p className="text-xs text-gray-400 font-semibold uppercase tracking-wide">Total (this page)</p>
@@ -237,7 +237,7 @@ export default function TeacherQuestionBankPage() {
           <div className="bg-white dark:bg-zinc-900 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-zinc-800">
             <div className="flex items-center justify-between p-5 border-b border-gray-100 dark:border-zinc-800">
               <h3 className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-green-500" />
+                <Sparkles className="w-4 h-4 text-[#2C2DE0]" />
                 {editingQ.isNew ? "Create Question" : "Edit Question"}
               </h3>
               <button onClick={() => setEditingQ(null)} className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg text-gray-400">
@@ -252,7 +252,7 @@ export default function TeacherQuestionBankPage() {
                 <select
                   value={formType}
                   onChange={(e) => setFormType(e.target.value)}
-                  className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                  className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                 >
                   <option value="mcq">Multiple Choice (MCQ)</option>
                   <option value="truefalse">True / False</option>
@@ -273,7 +273,7 @@ export default function TeacherQuestionBankPage() {
                   value={formData.question}
                   onChange={(e) => setFormData({ ...formData, question: e.target.value })}
                   placeholder="Enter the assessment details or prompt..."
-                  className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none resize-y"
+                  className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none resize-y"
                 />
               </div>
 
@@ -288,7 +288,7 @@ export default function TeacherQuestionBankPage() {
                     required
                     value={formData.marks}
                     onChange={(e) => setFormData({ ...formData, marks: Number(e.target.value) })}
-                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -296,7 +296,7 @@ export default function TeacherQuestionBankPage() {
                   <select
                     value={formData.difficulty}
                     onChange={(e) => setFormData({ ...formData, difficulty: e.target.value })}
-                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                   >
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
@@ -314,7 +314,7 @@ export default function TeacherQuestionBankPage() {
                     value={formData.topic}
                     onChange={(e) => setFormData({ ...formData, topic: e.target.value })}
                     placeholder="e.g. Algorithms"
-                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                   />
                 </div>
                 <div>
@@ -324,7 +324,7 @@ export default function TeacherQuestionBankPage() {
                     value={formData.tags}
                     onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
                     placeholder="e.g. array, loops"
-                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                   />
                 </div>
               </div>
@@ -337,7 +337,7 @@ export default function TeacherQuestionBankPage() {
                   value={formData.explanation}
                   onChange={(e) => setFormData({ ...formData, explanation: e.target.value })}
                   placeholder="Shown to students after exam results are published..."
-                  className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none resize-y"
+                  className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none resize-y"
                 />
               </div>
 
@@ -352,7 +352,7 @@ export default function TeacherQuestionBankPage() {
                         name="correctMCQ"
                         checked={formData.answer === opt && opt !== ""}
                         onChange={() => setFormData({ ...formData, answer: opt })}
-                        className="text-green-600 focus:ring-green-500 h-4 w-4"
+                        className="text-[#2C2DE0] focus:ring-[#2C2DE0] h-4 w-4"
                       />
                       <input
                         type="text"
@@ -363,7 +363,7 @@ export default function TeacherQuestionBankPage() {
                           list[oi] = e.target.value;
                           setFormData({ ...formData, options: list });
                         }}
-                        className="flex-1 px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                        className="flex-1 px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]"
                       />
                     </div>
                   ))}
@@ -382,7 +382,7 @@ export default function TeacherQuestionBankPage() {
                           value={val}
                           checked={String(formData.answer) === val}
                           onChange={() => setFormData({ ...formData, answer: val })}
-                          className="text-green-600 focus:ring-green-500"
+                          className="text-[#2C2DE0] focus:ring-[#2C2DE0]"
                         />
                         {val.toUpperCase()}
                       </label>
@@ -401,7 +401,7 @@ export default function TeacherQuestionBankPage() {
                 </button>
                 <button
                   type="submit"
-                  className="px-5 py-2 bg-green-600 hover:bg-green-700 text-white font-bold text-sm rounded-xl shadow-md"
+                  className="px-5 py-2 bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white font-bold text-sm rounded-xl shadow-md text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   Save Question
                 </button>
@@ -461,7 +461,7 @@ export default function TeacherQuestionBankPage() {
               type="checkbox"
               checked={favOnly}
               onChange={(e) => setFavOnly(e.target.checked)}
-              className="rounded border-gray-300 text-green-600 focus:ring-green-500 h-3.5 w-3.5"
+              className="rounded border-gray-300 text-[#2C2DE0] focus:ring-[#2C2DE0] h-3.5 w-3.5"
             />
             Favorites
           </label>
@@ -471,7 +471,7 @@ export default function TeacherQuestionBankPage() {
       {/* Questions list */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 className="w-8 h-8 animate-spin text-green-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#2C2DE0]" />
         </div>
       ) : questions.length === 0 ? (
         <div className="text-center py-20 bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 text-gray-400">
@@ -482,14 +482,14 @@ export default function TeacherQuestionBankPage() {
       ) : (
         <div className="space-y-3">
           {questions.map((q) => (
-            <div key={q._id} className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 hover:border-green-300 dark:hover:border-green-500/30 transition-all flex flex-col md:flex-row gap-4 items-start justify-between">
+            <div key={q._id} className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]/30 transition-all flex flex-col md:flex-row gap-4 items-start justify-between">
               <div className="flex-1 space-y-2 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-gray-100 dark:bg-zinc-800 text-gray-500">
                     {q.type}
                   </span>
                   <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase
-                    ${q.difficulty === "easy" ? "bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-400" :
+                    ${q.difficulty === "easy" ? "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/10 dark:text-[#2C2DE0]" :
                       q.difficulty === "hard" ? "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400" :
                                                 "bg-yellow-50 text-yellow-700 dark:bg-yellow-500/10 dark:text-yellow-400"
                     }`}
@@ -542,7 +542,7 @@ export default function TeacherQuestionBankPage() {
                 <button
                   onClick={() => startEdit(q)}
                   title="Edit"
-                  className="p-2 border border-gray-100 dark:border-zinc-800 text-gray-400 rounded-lg hover:text-green-600 hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
+                  className="p-2 border border-gray-100 dark:border-zinc-800 text-gray-400 rounded-lg hover:text-[#2C2DE0] hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
                 >
                   <Edit className="w-4 h-4" />
                 </button>

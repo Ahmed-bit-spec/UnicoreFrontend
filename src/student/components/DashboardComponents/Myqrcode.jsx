@@ -31,9 +31,9 @@ const STATUS_CONFIG = {
     iconSo:  "Sugaysa galitaanka",
   },
   active: {
-    color:   "text-green-600 dark:text-green-400",
-    bg:      "bg-green-50 dark:bg-green-500/10 border-green-100 dark:border-green-500/20",
-    dot:     "bg-green-500 animate-pulse",
+    color:   "text-[#2C2DE0] dark:text-[#2C2DE0]",
+    bg:      "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]/20",
+    dot:     "bg-[#2C2DE0] animate-pulse",
     iconEn:  "You are checked in",
     iconSo:  "Waxaad gashay",
   },
@@ -106,7 +106,7 @@ const MyQrCode = () => {
         </p>
         <Link
           to="/seats"
-          className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all shadow-sm shadow-green-200 dark:shadow-none"
+          className="inline-flex items-center gap-2 bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-all shadow-sm shadow-[#2C2DE0] dark:shadow-none"
         >
           {isSo ? "Qabso Kursi" : "Reserve a Seat"}
         </Link>
@@ -145,7 +145,7 @@ const MyQrCode = () => {
         </div>
         <button
           onClick={() => refetch()}
-          className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 transition-all"
+          className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 transition-all"
         >
           <RefreshCw size={14} className={isFetching ? "animate-spin" : ""} />
         </button>
@@ -166,7 +166,7 @@ const MyQrCode = () => {
         <div className="flex flex-col items-center px-6 py-8 gap-4">
           {isActive ? (
             // Active — green border glow
-            <div className="rounded-2xl p-1 bg-gradient-to-br from-green-400 to-green-600 shadow-lg shadow-green-200 dark:shadow-green-900/30">
+            <div className="rounded-2xl p-1 bg-gradient-to-br from-[#2C2DE0] to-[#2C2DE0] shadow-lg shadow-[#2C2DE0] dark:shadow-[#2C2DE0]/30">
               <QrImage token={qrCode} size={200} />
             </div>
           ) : (
@@ -210,11 +210,11 @@ const MyQrCode = () => {
 
         {/* Active — session info */}
         {isActive && (
-          <div className="mx-5 mb-5 bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 rounded-2xl px-4 py-3.5 text-center">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-green-600 dark:text-green-400 mb-0.5">
+          <div className="mx-5 mb-5 bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 rounded-2xl px-4 py-3.5 text-center">
+            <p className="text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0] dark:text-[#2C2DE0] mb-0.5">
               {isSo ? "Xilligaagu wuu socdaa" : "Session active"}
             </p>
-            <p className="text-sm font-bold text-green-700 dark:text-green-400">
+            <p className="text-sm font-bold text-[#2C2DE0] dark:text-[#2C2DE0]">
               {isSo ? "Ka bax marka aad dhameyso" : "Leave when you're done"}
             </p>
           </div>
@@ -241,7 +241,7 @@ const MyQrCode = () => {
                 : "Do not stay longer than your reserved time.",
             ].map((rule, i) => (
               <p key={i} className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed flex items-start gap-1.5">
-                <span className="text-green-500 font-black flex-shrink-0 mt-0.5">·</span>
+                <span className="text-[#2C2DE0] font-black flex-shrink-0 mt-0.5">·</span>
                 {rule}
               </p>
             ))}
@@ -256,11 +256,11 @@ const MyQrCode = () => {
 const InfoRow = ({ icon: Icon, label, value, green }) => (
   <div className="flex items-center gap-3">
     <div className="w-7 h-7 rounded-lg bg-gray-100 dark:bg-gray-900 flex items-center justify-center flex-shrink-0">
-      <Icon size={13} className={green ? "text-green-500" : "text-gray-400"} strokeWidth={1.5} />
+      <Icon size={13} className={green ? "text-[#2C2DE0]" : "text-gray-400"} strokeWidth={1.5} />
     </div>
     <div className="flex-1 flex items-center justify-between gap-2">
       <span className="text-xs text-gray-500 dark:text-gray-400">{label}</span>
-      <span className={`text-xs font-bold tabular-nums ${green ? "text-green-600 dark:text-green-400" : "text-gray-900 dark:text-white"}`}>
+      <span className={`text-xs font-bold tabular-nums ${green ? "text-[#2C2DE0] dark:text-[#2C2DE0]" : "text-gray-900 dark:text-white"}`}>
         {value}
       </span>
     </div>

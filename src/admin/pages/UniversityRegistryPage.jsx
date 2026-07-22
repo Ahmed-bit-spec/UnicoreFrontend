@@ -36,7 +36,7 @@ const emptyForm = {
 // ─── Stat card ────────────────────────────────────────────────────────────────
 const StatCard = ({ icon: Icon, label, value, tone = "green" }) => {
   const toneMap = {
-    green: "bg-green-500/10 text-green-600 dark:text-green-400",
+    green: "bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0]",
     gray: "bg-gray-500/10  text-gray-600  dark:text-gray-400",
     amber: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
     blue: "bg-blue-500/10  text-blue-600  dark:text-blue-400",
@@ -58,9 +58,9 @@ const StatCard = ({ icon: Icon, label, value, tone = "green" }) => {
 // Shows createdAt / updatedAt / isClaimed timeline inside the edit modal
 const AuditTimeline = ({ row, t }) => {
   const events = [
-    { label: t.created, date: row?.createdAt, icon: CheckCircle2, tone: "text-green-500" },
+    { label: t.created, date: row?.createdAt, icon: CheckCircle2, tone: "text-[#2C2DE0]" },
     { label: t.updated, date: row?.updatedAt, icon: CheckCircle2, tone: "text-blue-500" },
-    { label: t.claimed, date: row?.isClaimed ? row?.updatedAt : null, icon: row?.isClaimed ? Link2 : Link2Off, tone: row?.isClaimed ? "text-green-500" : "text-gray-400" },
+    { label: t.claimed, date: row?.isClaimed ? row?.updatedAt : null, icon: row?.isClaimed ? Link2 : Link2Off, tone: row?.isClaimed ? "text-[#2C2DE0]" : "text-gray-400" },
   ];
   return (
     <div className="mt-4 rounded-xl border border-gray-200/70 dark:border-white/10 bg-white/50 dark:bg-white/[0.03] p-4">
@@ -346,7 +346,7 @@ const UniversityStudentsPage = () => {
       key: "avatar",
       label: "",
       render: (row) => (
-        <div className="flex size-9 items-center justify-center overflow-hidden rounded-full bg-green-500/10 text-xs font-bold text-green-700 ring-1 ring-green-500/20 dark:text-green-400">
+        <div className="flex size-9 items-center justify-center overflow-hidden rounded-full bg-[#2C2DE0]/10 text-xs font-bold text-[#2C2DE0] ring-1 ring-[#2C2DE0]/20 dark:text-[#2C2DE0]">
           {(row.fullName || "").slice(0, 2).toUpperCase()}
         </div>
       ),
@@ -383,7 +383,7 @@ const UniversityStudentsPage = () => {
       label: p.isClaimed,
       render: (row) => (
         <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${row.isClaimed
-          ? "bg-green-500/10 text-green-700 dark:text-green-400"
+          ? "bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0]"
           : "bg-gray-500/10  text-gray-500  dark:text-gray-400"
           }`}>
           {row.isClaimed ? <Link2 size={11} /> : <Link2Off size={11} />}
@@ -545,7 +545,7 @@ const UniversityStudentsPage = () => {
               type="button"
               disabled={updateMutation.isPending || createMutation.isPending}
               onClick={submitForm}
-              className="rounded-xl bg-green-500 px-4 py-2 text-xs font-bold text-white shadow-sm shadow-green-500/20 transition-colors hover:bg-green-600 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-xl bg-[#2C2DE0] px-4 py-2 text-xs font-bold text-white shadow-sm shadow-[#2C2DE0]/20 transition-colors hover:bg-[#2C2DE0] disabled:cursor-not-allowed disabled:opacity-60 text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               {updateMutation.isPending || createMutation.isPending ? p.saving : c.save}
             </button>
@@ -558,7 +558,7 @@ const UniversityStudentsPage = () => {
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.universityId}
             <input
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white font-mono uppercase"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white font-mono uppercase"
               value={form.universityId}
               onChange={(e) => setForm((f) => ({ ...f, universityId: e.target.value.toUpperCase() }))}
               placeholder="e.g. UNISO-2024-001"
@@ -570,7 +570,7 @@ const UniversityStudentsPage = () => {
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.fullName}
             <input
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
               value={form.fullName}
               onChange={(e) => setForm((f) => ({ ...f, fullName: e.target.value }))}
             />
@@ -581,7 +581,7 @@ const UniversityStudentsPage = () => {
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.gender}
             <select
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-gray-950 dark:text-white"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-gray-950 dark:text-white"
               value={form.gender}
               onChange={(e) => setForm((f) => ({ ...f, gender: e.target.value }))}
             >
@@ -596,7 +596,7 @@ const UniversityStudentsPage = () => {
             {p.semester}
             <input
               type="number" min={1} max={12}
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
               value={form.semester}
               onChange={(e) => setForm((f) => ({ ...f, semester: Number(e.target.value) }))}
             />
@@ -607,7 +607,7 @@ const UniversityStudentsPage = () => {
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.department}
             <input
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
               value={form.department}
               onChange={(e) => setForm((f) => ({ ...f, department: e.target.value }))}
               placeholder="e.g. Computer Science"
@@ -619,7 +619,7 @@ const UniversityStudentsPage = () => {
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.role}
             <select
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-gray-950 dark:text-white"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-gray-950 dark:text-white"
               value={form.role}
               onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))}
             >
@@ -632,7 +632,7 @@ const UniversityStudentsPage = () => {
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.email}
             <input
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
               value={form.email || ""}
               onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
               placeholder="e.g. student@example.com"
@@ -658,7 +658,7 @@ const UniversityStudentsPage = () => {
             <button
               type="button"
               onClick={() => { setDetailRow(null); openEdit(detailRow); }}
-              className="rounded-xl bg-green-500 px-4 py-2 text-xs font-bold text-white shadow-sm shadow-green-500/20 hover:bg-green-600 transition-colors"
+              className="rounded-xl bg-[#2C2DE0] px-4 py-2 text-xs font-bold text-white shadow-sm shadow-[#2C2DE0]/20 hover:bg-[#2C2DE0] transition-colors"
             >
               {c.edit}
             </button>
@@ -683,7 +683,7 @@ const UniversityStudentsPage = () => {
               { label: p.role, value: detailRow.role ? (detailRow.role === "student" ? p.roleStudent || "Student" : detailRow.role === "teacher" ? p.roleTeacher || "Teacher" : detailRow.role) : "—" },
               {
                 label: p.isClaimed, value: (
-                  <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${detailRow.isClaimed ? "bg-green-500/10 text-green-700 dark:text-green-400" : "bg-gray-500/10 text-gray-500 dark:text-gray-400"}`}>
+                  <span className={`inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[11px] font-semibold ${detailRow.isClaimed ? "bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0]" : "bg-gray-500/10 text-gray-500 dark:text-gray-400"}`}>
                     {detailRow.isClaimed ? <Link2 size={11} /> : <Link2Off size={11} />}
                     {detailRow.isClaimed ? p.claimed : p.unclaimed}
                   </span>

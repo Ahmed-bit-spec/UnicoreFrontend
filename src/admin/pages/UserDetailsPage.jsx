@@ -97,7 +97,7 @@ const UserDetailsPage = () => {
         <button
           type="button"
           onClick={() => navigate("/admin/users")}
-          className="inline-flex items-center gap-2 rounded-xl border border-gray-200/80 bg-white/70 px-3 py-2 text-xs font-bold text-gray-700 transition-colors hover:border-green-500/30 dark:border-white/10 dark:bg-white/5 dark:text-gray-200"
+          className="inline-flex items-center gap-2 rounded-xl border border-gray-200/80 bg-white/70 px-3 py-2 text-xs font-bold text-gray-700 transition-colors hover:border-[#2C2DE0]/30 dark:border-white/10 dark:bg-white/5 dark:text-gray-200"
         >
           <ArrowLeft size={15} />
           {detail.backToUsers}
@@ -113,7 +113,7 @@ const UserDetailsPage = () => {
         >
           <h2 className="text-sm font-bold text-gray-900 dark:text-white">{detail.profile}</h2>
           <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-center">
-            <div className="flex size-24 items-center justify-center overflow-hidden rounded-2xl bg-green-500/10 text-2xl font-black text-green-700 ring-1 ring-green-500/20 dark:text-green-400">
+            <div className="flex size-24 items-center justify-center overflow-hidden rounded-2xl bg-[#2C2DE0]/10 text-2xl font-black text-[#2C2DE0] ring-1 ring-[#2C2DE0]/20 dark:text-[#2C2DE0]">
               {user.avatar ? <img src={user.avatar} alt={user.fullName} className="size-full object-cover" /> : <UserRound size={34} />}
             </div>
             <div className="min-w-0 flex-1">

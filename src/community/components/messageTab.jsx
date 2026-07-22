@@ -64,7 +64,7 @@ const AnnouncementComposer = ({ groupId, onSent }) => {
         return (
             <button
                 onClick={() => setOpen(true)}
-                className="w-full text-left bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4 text-sm text-black/40 dark:text-white/40 hover:border-green-500 transition-colors"
+                className="w-full text-left bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4 text-sm text-black/40 dark:text-white/40 hover:border-[#2C2DE0] transition-colors"
             >
                 Write an official announcement...
             </button>
@@ -275,7 +275,7 @@ const AnnouncementCard = ({ message, groupId, canManage, canEditOwn, currentUser
         <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-5">
             <div className="flex items-start justify-between mb-3">
                 <div className="flex items-center gap-3">
-                    <img src={message.authorId?.photo || ""} alt={message.authorId?.name} className="w-10 h-10 rounded-full bg-green-500" />
+                    <img src={message.authorId?.photo || ""} alt={message.authorId?.name} className="w-10 h-10 rounded-full bg-[#2C2DE0]" />
                     <div>
                         <p className="font-bold text-black dark:text-white">{message.authorId?.name}</p>
                         <p className="text-xs text-black/50 dark:text-white/50">
@@ -285,7 +285,7 @@ const AnnouncementCard = ({ message, groupId, canManage, canEditOwn, currentUser
                     </div>
                 </div>
                 {message.isPinned && (
-                    <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400">
+                    <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#2C2DE0] dark:text-[#2C2DE0]">
                         <Pin size={10} /> Pinned
                     </span>
                 )}
@@ -414,7 +414,7 @@ const MessagesTab = ({ groupId, group, membership, currentUserId, isUniversityAd
             ) : (
                 <button
                     onClick={() => setRequestOpen(true)}
-                    className="w-full text-left bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4 text-sm text-black/40 dark:text-white/40 hover:border-green-500 transition-colors"
+                    className="w-full text-left bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4 text-sm text-black/40 dark:text-white/40 hover:border-[#2C2DE0] transition-colors"
                 >
                     Request to send a message...
                 </button>

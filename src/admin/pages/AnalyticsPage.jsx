@@ -28,7 +28,7 @@ import { useLanguage }         from "@/hooks/useLanguage";
 import { fetchAdminAnalytics } from "@/api/admin";
 
 // ─── Palette ──────────────────────────────────────────────────────────────────
-const GREEN       = "#22c55e";
+const GREEN       = "#2C2DE0";
 const BLUE        = "#3b82f6";
 const ORANGE      = "#f97316";
 const VIOLET      = "#a855f7";
@@ -81,9 +81,9 @@ const HeatmapCell = ({ value, max }) => {
   const intensity = max > 0 ? value / max : 0;
   const bg =
     intensity === 0   ? "bg-gray-100 dark:bg-white/5"
-    : intensity < 0.33 ? "bg-green-200 dark:bg-green-900/40"
-    : intensity < 0.66 ? "bg-green-400 dark:bg-green-600/60"
-    :                    "bg-green-600 dark:bg-green-500";
+    : intensity < 0.33 ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/40"
+    : intensity < 0.66 ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/60"
+    :                    "bg-[#2C2DE0] dark:bg-[#2C2DE0]";
 
   return (
     <div
@@ -178,7 +178,7 @@ const AnalyticsPage = () => {
           icon={Users}
           label={p.kpiTotalUsers}
           value={d.totalUsers}
-          color="bg-green-500"
+          color="bg-[#2C2DE0]"
         />
         <KpiCard
           icon={CalendarCheck}
@@ -315,7 +315,7 @@ const AnalyticsPage = () => {
                 return (
                   <div key={s._id ?? i} className="flex items-center gap-3">
                     <span className="flex size-6 shrink-0 items-center justify-center rounded-full
-                      bg-green-500/10 text-[10px] font-black text-green-700 dark:text-green-400">
+                      bg-[#2C2DE0]/10 text-[10px] font-black text-[#2C2DE0] dark:text-[#2C2DE0]">
                       {i + 1}
                     </span>
                     <div className="min-w-0 flex-1">
@@ -328,13 +328,13 @@ const AnalyticsPage = () => {
                     </div>
                     <div className="w-20 shrink-0">
                       <div className="mb-1 flex justify-end">
-                        <span className="text-[10px] font-black text-green-600 dark:text-green-400">
+                        <span className="text-[10px] font-black text-[#2C2DE0] dark:text-[#2C2DE0]">
                           {s.count}
                         </span>
                       </div>
                       <div className="h-1.5 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
                         <div
-                          className="h-full rounded-full bg-green-500 transition-all"
+                          className="h-full rounded-full bg-[#2C2DE0] transition-all"
                           style={{ width: `${Math.min(100, (s.count / topCount) * 100)}%` }}
                         />
                       </div>
@@ -389,9 +389,9 @@ const AnalyticsPage = () => {
             <div className="flex gap-1">
               {[
                 "bg-gray-100 dark:bg-white/5",
-                "bg-green-200",
-                "bg-green-400",
-                "bg-green-600",
+                "bg-[#2C2DE0]",
+                "bg-[#2C2DE0]",
+                "bg-[#2C2DE0]",
               ].map((c, i) => (
                 <div key={i} className={`h-3 w-7 rounded ${c}`} />
               ))}
@@ -428,7 +428,7 @@ const AnalyticsPage = () => {
               </ResponsiveContainer>
               <div className="mt-3 flex gap-5">
                 <div className="flex items-center gap-1.5">
-                  <span className="size-2.5 rounded-full bg-green-500" />
+                  <span className="size-2.5 rounded-full bg-[#2C2DE0]" />
                   <span className="text-[10px] text-gray-500 dark:text-gray-400">{p.morning}</span>
                 </div>
                 <div className="flex items-center gap-1.5">

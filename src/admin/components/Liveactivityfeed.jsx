@@ -6,12 +6,12 @@ import { cn } from "@/lib/utils";
 // ── dot colour based on action text ──────────────────────────────────────────
 const typeColor = (action = "") => {
   const a = action.toLowerCase();
-  if (a.includes("reserved") || a.includes("reservation")) return "bg-green-500";
-  if (a.includes("checked in") || a.includes("check-in"))  return "bg-green-400";
+  if (a.includes("reserved") || a.includes("reservation")) return "bg-[#2C2DE0]";
+  if (a.includes("checked in") || a.includes("check-in"))  return "bg-[#2C2DE0]";
   if (a.includes("borrowed"))  return "bg-white";
   if (a.includes("returned"))  return "bg-white/60";
   if (a.includes("cancelled")) return "bg-white/30";
-  if (a.includes("admin"))     return "bg-green-600";
+  if (a.includes("admin"))     return "bg-[#2C2DE0]";
   return "bg-white/40";
 };
 
@@ -47,7 +47,7 @@ const LiveActivityFeed = ({ activities = [] }) => {
           Live Activity
         </h3>
         <div className="flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#2C2DE0] animate-pulse" />
           <span
             className={cn(
               "text-[10px] font-semibold uppercase tracking-widest",

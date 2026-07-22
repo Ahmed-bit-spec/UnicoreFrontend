@@ -48,7 +48,7 @@ const BarChartCard = ({ title, data, dataKey = "value", className }) => (
             }}
             cursor={{ fill: "rgba(34,197,94,0.08)" }}
           />
-          <Bar dataKey={dataKey} fill="#22c55e" radius={[6, 6, 0, 0]} maxBarSize={40} />
+          <Bar dataKey={dataKey} fill="#2C2DE0" radius={[6, 6, 0, 0]} maxBarSize={40} />
         </BarChart>
       </ResponsiveContainer>
     </div>

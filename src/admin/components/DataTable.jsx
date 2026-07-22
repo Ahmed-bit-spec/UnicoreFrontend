@@ -143,7 +143,7 @@ const DataTable = ({
                   key={action.key}
                   type="button"
                   onClick={() => action.onClick?.([...selected])}
-                  className="inline-flex items-center gap-1.5 rounded-xl border border-green-500/30 bg-green-500/10 px-3 py-2 text-xs font-bold text-green-700 hover:bg-green-500/20 dark:text-green-400 transition-colors"
+                  className="inline-flex items-center gap-1.5 rounded-xl border border-[#2C2DE0]/30 bg-[#2C2DE0]/10 px-3 py-2 text-xs font-bold text-[#2C2DE0] hover:bg-[#2C2DE0]/20 dark:text-[#2C2DE0] transition-colors"
                 >
                   {action.icon}
                   {action.label} ({selected.size})
@@ -164,7 +164,7 @@ const DataTable = ({
             <button
               type="button"
               onClick={onExport}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-gray-200/80 dark:border-white/10 px-3 py-2 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:border-green-500/30 transition-colors"
+              className="inline-flex items-center gap-1.5 rounded-xl border border-gray-200/80 dark:border-white/10 px-3 py-2 text-xs font-semibold text-gray-700 dark:text-gray-200 hover:border-[#2C2DE0]/30 transition-colors"
             >
               <Download size={14} />
               {ap.common.export}
@@ -174,7 +174,7 @@ const DataTable = ({
             <button
               type="button"
               onClick={onAdd}
-              className="inline-flex items-center gap-1.5 rounded-xl bg-green-500 px-3 py-2 text-xs font-bold text-white hover:bg-green-600 transition-colors shadow-sm shadow-green-500/20"
+              className="inline-flex items-center gap-1.5 rounded-xl bg-[#2C2DE0] px-3 py-2 text-xs font-bold text-white hover:bg-[#2C2DE0] transition-colors shadow-sm shadow-[#2C2DE0]/20 text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <Plus size={14} />
               {ap.common.addNew}
@@ -199,7 +199,7 @@ const DataTable = ({
                     type="checkbox"
                     checked={selected.size === pageData.length && pageData.length > 0}
                     onChange={toggleAll}
-                    className="rounded border-gray-300 text-green-500 focus:ring-green-500/30"
+                    className="rounded border-gray-300 text-[#2C2DE0] focus:ring-[#2C2DE0]/30"
                     aria-label={ap.common.selectAll}
                   />
                 </th>
@@ -212,7 +212,7 @@ const DataTable = ({
                       <button
                         type="button"
                         onClick={() => toggleSort(col.key)}
-                        className="inline-flex items-center gap-1 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                        className="inline-flex items-center gap-1 hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] transition-colors"
                       >
                         {col.label}
                         <ArrowUpDown size={12} />
@@ -240,8 +240,8 @@ const DataTable = ({
                   onClick={() => onRowClick?.(row)}
                   className={cn(
                     "border-b border-gray-50 dark:border-white/5",
-                    "hover:bg-green-500/[0.03] transition-colors",
-                    selected.has(rowKey) && "bg-green-500/5",
+                    "hover:bg-[#2C2DE0]/[0.03] transition-colors",
+                    selected.has(rowKey) && "bg-[#2C2DE0]/5",
                     onRowClick && "cursor-pointer"
                   )}
                 >
@@ -251,7 +251,7 @@ const DataTable = ({
                       checked={selected.has(rowKey)}
                       onClick={(e) => e.stopPropagation()}
                       onChange={() => toggleRow(rowKey)}
-                      className="rounded border-gray-300 text-green-500 focus:ring-green-500/30"
+                      className="rounded border-gray-300 text-[#2C2DE0] focus:ring-[#2C2DE0]/30"
                     />
                   </td>
                   {columns.map((col) => (

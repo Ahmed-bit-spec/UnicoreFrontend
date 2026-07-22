@@ -37,17 +37,17 @@ const sectionsForRole = (role) => {
 const GroupCard = ({ group }) => (
   <Link
     to={`/community/groups/${group._id}`}
-    className="block p-5 rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-black hover:border-green-500 transition-colors"
+    className="block p-5 rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-black hover:border-[#2C2DE0] transition-colors"
   >
     <div className="flex items-start gap-4">
-      <div className="w-12 h-12 rounded-xl bg-green-600 flex items-center justify-center text-white font-black text-lg flex-shrink-0">
+      <div className="w-12 h-12 rounded-xl bg-[#2C2DE0] flex items-center justify-center text-white font-black text-lg flex-shrink-0">
         {group.name.slice(0, 2).toUpperCase()}
       </div>
       <div className="flex-1 min-w-0">
         <h2 className="font-black text-black dark:text-white">{group.name}</h2>
         <div className="flex flex-wrap gap-1.5 mt-1">
           {group.semester && (
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#2C2DE0] dark:text-[#2C2DE0]">
               Semester {group.semester}
             </span>
           )}
@@ -153,13 +153,13 @@ const Groups = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search groups..."
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-green-500"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-[#2C2DE0]"
           />
         </div>
 
         {loading || searching ? (
           <div className="flex justify-center py-20">
-            <Spinner size={20} className="text-green-600" />
+            <Spinner size={20} className="text-[#2C2DE0]" />
           </div>
         ) : activeGroups.length === 0 ? (
           <div className="text-center py-24">

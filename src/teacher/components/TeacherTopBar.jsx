@@ -97,7 +97,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
                   {crumb.path && i < crumbs.length - 1 ? (
                     <Link
                       to={crumb.path}
-                      className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                      className="hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] transition-colors"
                     >
                       {crumb.label}
                     </Link>
@@ -122,7 +122,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-400 rounded-xl pl-8 pr-4 py-1.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-green-500/50 w-48 focus:w-60 transition-all"
+              className="bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white placeholder-gray-400 rounded-xl pl-8 pr-4 py-1.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/50 w-48 focus:w-60 transition-all"
               placeholder={c?.search || "Search…"}
             />
           </div>
@@ -132,7 +132,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
 
           <Link
             to="/community"
-            className="hidden sm:flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+            className="hidden sm:flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] transition-colors"
           >
             <Users size={15} />
             Community
@@ -155,9 +155,9 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
             <button
               type="button"
               onClick={() => setProfileOpen((v) => !v)}
-              className="flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-white/10 pl-1 pr-2 py-1 hover:border-green-500/30 transition-colors bg-white/50 dark:bg-zinc-900/30"
+              className="flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-white/10 pl-1 pr-2 py-1 hover:border-[#2C2DE0]/30 transition-colors bg-white/50 dark:bg-zinc-900/30"
             >
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-green-500 to-green-600 text-[11px] font-black text-white shadow-sm shadow-green-500/10">
+              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-[#2C2DE0] to-[#2C2DE0] text-[11px] font-black text-white shadow-sm shadow-[#2C2DE0]/10">
                 {initials}
               </span>
               <span className="hidden md:block text-xs font-semibold text-gray-700 dark:text-gray-200 max-w-[100px] truncate">
@@ -186,7 +186,7 @@ const TeacherTopBar = ({ pageTitle, pageSubtitle, onMenuClick, breadcrumbs = [] 
                   <Link
                     to="/teacher/profile"
                     onClick={() => setProfileOpen(false)}
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-green-500/10 hover:text-green-600 transition-colors"
+                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] transition-colors"
                   >
                     <User size={14} />
                     {p?.viewProfile || "My Profile"}

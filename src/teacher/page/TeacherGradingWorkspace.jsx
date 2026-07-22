@@ -166,7 +166,7 @@ export default function TeacherGradingWorkspace() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-96">
-        <Loader2 className="w-8 h-8 animate-spin text-green-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#2C2DE0]" />
       </div>
     );
   }
@@ -176,7 +176,7 @@ export default function TeacherGradingWorkspace() {
       <div className="flex flex-col items-center justify-center h-96 gap-4 text-gray-500">
         <AlertCircle className="w-12 h-12" />
         <p>Submission not found.</p>
-        <button onClick={() => navigate(-1)} className="text-green-600 hover:underline">
+        <button onClick={() => navigate(-1)} className="text-[#2C2DE0] hover:underline">
           Go back
         </button>
       </div>
@@ -202,7 +202,7 @@ export default function TeacherGradingWorkspace() {
 
           {/* Student info */}
           <div className="flex items-center gap-3 flex-1 min-w-0">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#2C2DE0] to-emerald-600 flex items-center justify-center text-white font-bold text-sm shrink-0">
               {(student.fullName || "?")[0].toUpperCase()}
             </div>
             <div className="min-w-0">
@@ -228,11 +228,11 @@ export default function TeacherGradingWorkspace() {
 
           {/* Score pill */}
           <div className="hidden md:flex items-center gap-2 px-4 py-1.5 bg-gray-100 dark:bg-zinc-800 rounded-xl">
-            <Award className="w-4 h-4 text-green-500" />
+            <Award className="w-4 h-4 text-[#2C2DE0]" />
             <span className="text-sm font-bold text-gray-900 dark:text-white">
               {computedTotal} / {maxMarksTotal}
             </span>
-            <span className={`text-xs font-semibold ${pct >= 60 ? "text-green-600" : "text-red-500"}`}>
+            <span className={`text-xs font-semibold ${pct >= 60 ? "text-[#2C2DE0]" : "text-red-500"}`}>
               ({pct}%)
             </span>
           </div>
@@ -275,7 +275,7 @@ export default function TeacherGradingWorkspace() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium whitespace-nowrap border-b-2 transition-all
                   ${isActive
-                    ? "border-green-500 text-green-600 dark:text-green-400"
+                    ? "border-[#2C2DE0] text-[#2C2DE0] dark:text-[#2C2DE0]"
                     : "border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white"
                   }`}
               >
@@ -335,8 +335,8 @@ function StatusBadge({ status }) {
     "submitted":    { label: "Submitted",     cls: "bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400" },
     "auto-graded":  { label: "Auto-Graded",   cls: "bg-purple-100 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400" },
     "manual-review":{ label: "Needs Review",  cls: "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400" },
-    "graded":       { label: "Graded",        cls: "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400" },
-    "published":    { label: "Published",     cls: "bg-green-100 text-green-800 dark:bg-green-500/20 dark:text-green-300" },
+    "graded":       { label: "Graded",        cls: "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/10 dark:text-[#2C2DE0]" },
+    "published":    { label: "Published",     cls: "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/20 dark:text-[#2C2DE0]" },
   };
   const c = config[status] || { label: status, cls: "bg-gray-100 text-gray-600" };
   return (

@@ -45,7 +45,7 @@ function MessageBubble({ msg, isOwn, onPin, isPinned }) {
 
         <div className="relative">
           {isCode ? (
-            <pre className="bg-gray-950 border border-white/10 rounded-xl p-3 text-[11px] font-mono text-green-400 max-w-full overflow-x-auto">
+            <pre className="bg-gray-950 border border-white/10 rounded-xl p-3 text-[11px] font-mono text-[#2C2DE0] max-w-full overflow-x-auto">
               <code>{content}</code>
             </pre>
           ) : (

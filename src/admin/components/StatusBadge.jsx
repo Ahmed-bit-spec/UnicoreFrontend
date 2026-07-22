@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 const variants = {
-  green: "bg-green-500/10 text-green-700 ring-green-500/20 dark:text-green-400",
+  green: "bg-[#2C2DE0]/10 text-[#2C2DE0] ring-[#2C2DE0]/20 dark:text-[#2C2DE0]",
   yellow: "bg-yellow-500/10 text-yellow-700 ring-yellow-500/20 dark:text-yellow-300",
   orange: "bg-orange-500/10 text-orange-700 ring-orange-500/20 dark:text-orange-300",
   red: "bg-red-500/10 text-red-700 ring-red-500/20 dark:text-red-400",

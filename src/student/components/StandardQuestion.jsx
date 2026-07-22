@@ -9,8 +9,8 @@ export default function StandardQuestion({ question, value, onChange }) {
             key={i}
             className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all
               ${value === opt
-                ? "border-green-500 bg-green-50 dark:border-green-500 dark:bg-green-900/20"
-                : "border-neutral-200 hover:border-green-200 dark:border-neutral-700 dark:hover:border-neutral-600"}
+                ? "border-[#2C2DE0] bg-[#2C2DE0] dark:border-[#2C2DE0] dark:bg-[#2C2DE0]/20"
+                : "border-neutral-200 hover:border-[#2C2DE0] dark:border-neutral-700 dark:hover:border-neutral-600"}
             `}
           >
             <input
@@ -19,7 +19,7 @@ export default function StandardQuestion({ question, value, onChange }) {
               value={opt}
               checked={value === opt}
               onChange={e => onChange(e.target.value)}
-              className="w-5 h-5 text-green-600 border-neutral-300 focus:ring-green-500"
+              className="w-5 h-5 text-[#2C2DE0] border-neutral-300 focus:ring-[#2C2DE0]"
             />
             <span className="text-lg">{opt}</span>
           </label>
@@ -36,8 +36,8 @@ export default function StandardQuestion({ question, value, onChange }) {
             key={opt}
             className={`flex flex-col items-center gap-2 p-6 rounded-xl border-2 cursor-pointer transition-all text-center
               ${value === (opt === "True")
-                ? "border-green-500 bg-green-50 dark:border-green-500 dark:bg-green-900/20"
-                : "border-neutral-200 hover:border-green-200 dark:border-neutral-700 dark:hover:border-neutral-600"}
+                ? "border-[#2C2DE0] bg-[#2C2DE0] dark:border-[#2C2DE0] dark:bg-[#2C2DE0]/20"
+                : "border-neutral-200 hover:border-[#2C2DE0] dark:border-neutral-700 dark:hover:border-neutral-600"}
             `}
           >
             <input
@@ -58,7 +58,7 @@ export default function StandardQuestion({ question, value, onChange }) {
     return (
       <div className="space-y-2">
         <textarea
-          className="w-full h-64 border-neutral-300 dark:border-neutral-600 dark:bg-neutral-700 rounded-xl p-4 focus:ring-green-500 focus:border-green-500 resize-none"
+          className="w-full h-64 border-neutral-300 dark:border-neutral-600 dark:bg-neutral-700 rounded-xl p-4 focus:ring-[#2C2DE0] focus:border-[#2C2DE0] resize-none"
           placeholder="Type your answer here…"
           value={value || ""}
           onChange={e => onChange(e.target.value)}

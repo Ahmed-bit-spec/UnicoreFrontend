@@ -30,11 +30,11 @@ export default function TeacherExamAnalyticsPage() {
   const { summary, submissions, securityEvents } = data || {};
 
   const stats = [
-    { label: "Total exams", value: summary?.totalExams ?? 0, icon: FilePen, color: "text-green-500" },
-    { label: "Active exams", value: summary?.activeExams ?? 0, icon: Activity, color: "text-green-400" },
-    { label: "Submissions", value: summary?.totalSubmissions ?? 0, icon: Users, color: "text-green-600" },
+    { label: "Total exams", value: summary?.totalExams ?? 0, icon: FilePen, color: "text-[#2C2DE0]" },
+    { label: "Active exams", value: summary?.activeExams ?? 0, icon: Activity, color: "text-[#2C2DE0]" },
+    { label: "Submissions", value: summary?.totalSubmissions ?? 0, icon: Users, color: "text-[#2C2DE0]" },
     { label: "Security events", value: summary?.violationCount ?? 0, icon: ShieldAlert, color: "text-amber-500" },
-    { label: "Avg score", value: summary?.avgScore ?? 0, icon: BarChart2, color: "text-green-400" },
+    { label: "Avg score", value: summary?.avgScore ?? 0, icon: BarChart2, color: "text-[#2C2DE0]" },
   ];
 
   return (
@@ -74,7 +74,7 @@ export default function TeacherExamAnalyticsPage() {
                   <p className="text-xs text-gray-500">{s.examId?.title || "Exam"}</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold text-green-600">{s.totalScore ?? 0} pts</p>
+                  <p className="font-semibold text-[#2C2DE0]">{s.totalScore ?? 0} pts</p>
                   <p className="text-[10px] uppercase text-gray-400">{s.status}</p>
                 </div>
               </div>

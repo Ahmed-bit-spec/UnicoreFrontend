@@ -13,7 +13,7 @@ const CLOSE_HOUR = 17;
 const TOTAL_MINS = (CLOSE_HOUR - OPEN_HOUR) * 60; // 600 mins
 
 const STATUS_COLOR = {
-  active:    { bar: "bg-green-500",  text: "text-green-700 dark:text-green-400",  badge: "green",  label: "active" },
+  active:    { bar: "bg-[#2C2DE0]",  text: "text-[#2C2DE0] dark:text-[#2C2DE0]",  badge: "green",  label: "active" },
   pending:   { bar: "bg-blue-500",   text: "text-blue-700 dark:text-blue-400",    badge: "blue",   label: "pending" },
   completed: { bar: "bg-gray-400",   text: "text-gray-600 dark:text-gray-400",    badge: "gray",   label: "completed" },
   cancelled: { bar: "bg-red-300",    text: "text-red-500",                         badge: "red",    label: "cancelled" },
@@ -244,7 +244,7 @@ const SeatTimelinePage = () => {
           <ArrowLeft size={16} />
         </button>
         <div className="flex items-center gap-2">
-          <Armchair size={18} className="text-green-500" />
+          <Armchair size={18} className="text-[#2C2DE0]" />
           <div>
             <h1 className="text-lg font-black text-gray-900 dark:text-white">
               {seatData ? `${p.title} · ${seatData.seatNumber}` : p.title}
@@ -268,10 +268,10 @@ const SeatTimelinePage = () => {
             <ChevronLeft size={15} />
           </button>
           <div className="flex items-center gap-2 rounded-xl border border-gray-200/70 bg-white/60 px-4 py-2 dark:border-white/10 dark:bg-white/[0.04]">
-            <CalendarDays size={14} className="text-green-500" />
+            <CalendarDays size={14} className="text-[#2C2DE0]" />
             <span className="text-sm font-bold text-gray-900 dark:text-white">{fmtDate(selectedDate)}</span>
             {isToday && (
-              <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] font-black text-green-600 dark:text-green-400">
+              <span className="rounded-full bg-[#2C2DE0]/10 px-2 py-0.5 text-[10px] font-black text-[#2C2DE0] dark:text-[#2C2DE0]">
                 {p.today}
               </span>
             )}
@@ -286,7 +286,7 @@ const SeatTimelinePage = () => {
 
         <button
           onClick={() => { setSelectedDate(new Date()); setSelectedSlot(null); }}
-          className="rounded-xl bg-green-500/10 px-3 py-2 text-xs font-bold text-green-700 hover:bg-green-500/20 dark:text-green-400 transition-colors"
+          className="rounded-xl bg-[#2C2DE0]/10 px-3 py-2 text-xs font-bold text-[#2C2DE0] hover:bg-[#2C2DE0]/20 dark:text-[#2C2DE0] transition-colors"
         >
           {p.goToday}
         </button>
@@ -313,7 +313,7 @@ const SeatTimelinePage = () => {
             {/* Legend */}
             <div className="mt-4 flex flex-wrap gap-3">
               {[
-                { color: "bg-green-500",  label: p.statusActive },
+                { color: "bg-[#2C2DE0]",  label: p.statusActive },
                 { color: "bg-blue-500",   label: p.statusPending },
                 { color: "bg-gray-400",   label: p.statusCompleted },
                 { color: "bg-orange-400", label: p.statusNoShow },
@@ -357,7 +357,7 @@ const SeatTimelinePage = () => {
                         onClick={() => setSelectedSlot(isSelected ? null : r)}
                         className={`flex w-full items-center gap-3 rounded-xl border px-4 py-3 text-left transition-all ${
                           isSelected
-                            ? "border-green-500/30 bg-green-500/5 dark:border-green-500/20"
+                            ? "border-[#2C2DE0]/30 bg-[#2C2DE0]/5 dark:border-[#2C2DE0]/20"
                             : "border-gray-200/70 bg-white/40 hover:border-gray-300 dark:border-white/10 dark:bg-white/[0.02] dark:hover:border-white/20"
                         }`}
                       >
@@ -430,7 +430,7 @@ const SeatTimelinePage = () => {
             <div className="space-y-2">
               {[
                 { label: p.totalReservations, value: reservations.length },
-                { label: p.statusActive,      value: reservations.filter((r) => r.status === "active").length,    color: "text-green-600 dark:text-green-400" },
+                { label: p.statusActive,      value: reservations.filter((r) => r.status === "active").length,    color: "text-[#2C2DE0] dark:text-[#2C2DE0]" },
                 { label: p.statusPending,     value: reservations.filter((r) => r.status === "pending").length,   color: "text-blue-600 dark:text-blue-400" },
                 { label: p.statusCompleted,   value: reservations.filter((r) => r.status === "completed").length, color: "text-gray-500" },
                 { label: p.freeSlots,         value: freeSlots.length,                                            color: "text-gray-400" },

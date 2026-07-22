@@ -80,7 +80,7 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
             key={qid}
             className={`bg-white dark:bg-zinc-900 rounded-2xl border transition-all
               ${isExpanded
-                ? "border-green-500 dark:border-green-500/40 shadow-md shadow-green-500/5"
+                ? "border-[#2C2DE0] dark:border-[#2C2DE0]/40 shadow-md shadow-[#2C2DE0]/5"
                 : "border-gray-200 dark:border-zinc-800"
               }`}
           >
@@ -96,9 +96,9 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
                   <TypeBadge type={ans.questionType || ans.type} />
                   {/* Score status icon */}
                   {!scoreSet   ? <AlertCircle className="w-3.5 h-3.5 text-zinc-400" title="Not graded" /> :
-                   isFullMark  ? <CheckCircle2 className="w-3.5 h-3.5 text-green-500"  title="Full marks" /> :
+                   isFullMark  ? <CheckCircle2 className="w-3.5 h-3.5 text-[#2C2DE0]"  title="Full marks" /> :
                    isZero      ? <XCircle      className="w-3.5 h-3.5 text-zinc-500"    title="Zero" /> :
-                                 <Award        className="w-3.5 h-3.5 text-green-600 dark:text-green-400"   title="Partial" />
+                                 <Award        className="w-3.5 h-3.5 text-[#2C2DE0] dark:text-[#2C2DE0]"   title="Partial" />
                   }
                 </div>
                 <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">
@@ -112,7 +112,7 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
                     <span className="text-gray-400 font-normal"> / {ans.maxMarks}</span>
                   </p>
                   {ans.autoScore !== undefined && (
-                    <p className="text-[10px] text-green-600 dark:text-green-400 font-mono">auto: {ans.autoScore}</p>
+                    <p className="text-[10px] text-[#2C2DE0] dark:text-[#2C2DE0] font-mono">auto: {ans.autoScore}</p>
                   )}
                 </div>
                 {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
@@ -138,8 +138,8 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
                 {/* Correct answer (for objective types) */}
                 {ans.correctAnswer !== undefined && ans.correctAnswer !== null && (
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-green-600 dark:text-green-400 mb-2">Correct Answer</p>
-                    <div className="p-3 bg-green-500/5 rounded-xl border border-green-500/20 text-sm text-green-800 dark:text-green-300 font-mono">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#2C2DE0] dark:text-[#2C2DE0] mb-2">Correct Answer</p>
+                    <div className="p-3 bg-[#2C2DE0]/5 rounded-xl border border-[#2C2DE0]/20 text-sm text-[#2C2DE0] dark:text-[#2C2DE0] font-mono">
                       {Array.isArray(ans.correctAnswer)
                         ? ans.correctAnswer.join(", ")
                         : String(ans.correctAnswer)}
@@ -151,7 +151,7 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
                 {ans.codeOutput && (
                   <div>
                     <p className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Code Output</p>
-                    <pre className="p-3 bg-zinc-950 text-green-400 border border-zinc-800 rounded-xl text-xs overflow-auto max-h-36 font-mono">
+                    <pre className="p-3 bg-zinc-950 text-[#2C2DE0] border border-zinc-800 rounded-xl text-xs overflow-auto max-h-36 font-mono">
                       {ans.codeOutput}
                     </pre>
                   </div>
@@ -169,7 +169,7 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
                           <div
                             key={i}
                             className={`px-3 py-2 rounded-lg text-sm border font-medium
-                              ${isCorrect ? "bg-green-500/10 border-green-500/30 text-green-600 dark:text-green-400" :
+                              ${isCorrect ? "bg-[#2C2DE0]/10 border-[#2C2DE0]/30 text-[#2C2DE0] dark:text-[#2C2DE0]" :
                                 isChosen  ? "bg-zinc-100 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-gray-800 dark:text-gray-200" :
                                             "border-gray-200 dark:border-zinc-700 text-gray-600 dark:text-gray-400"}`}
                           >
@@ -198,7 +198,7 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
                       value={g.manualScore ?? ""}
                       onChange={(e) => onUpdateGrade(qid, "manualScore", e.target.value)}
                       placeholder={`Auto: ${ans.autoScore ?? 0}`}
-                      className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg text-sm focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none font-bold"
+                      className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg text-sm focus:border-[#2C2DE0] focus:ring-1 focus:ring-[#2C2DE0] outline-none font-bold"
                     />
                   </div>
 
@@ -212,7 +212,7 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
                       value={g.teacherFeedback ?? ""}
                       onChange={(e) => onUpdateGrade(qid, "teacherFeedback", e.target.value)}
                       placeholder="Add constructive feedback..."
-                      className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg text-sm focus:border-green-500 focus:ring-1 focus:ring-green-500 outline-none resize-y"
+                      className="w-full px-3 py-2 bg-white dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg text-sm focus:border-[#2C2DE0] focus:ring-1 focus:ring-[#2C2DE0] outline-none resize-y"
                     />
                   </div>
                 </div>
@@ -223,7 +223,7 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
                     type="button"
                     onClick={() => requestAi(qid)}
                     disabled={aiLoading === qid}
-                    className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 rounded-lg hover:bg-green-500/20 transition-colors disabled:opacity-50"
+                    className="flex items-center gap-2 px-3 py-1.5 text-xs font-semibold bg-[#2C2DE0]/10 border border-[#2C2DE0]/20 text-[#2C2DE0] dark:text-[#2C2DE0] rounded-lg hover:bg-[#2C2DE0]/20 transition-colors disabled:opacity-50"
                   >
                     {aiLoading === qid
                       ? <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -260,7 +260,7 @@ export default function QuestionsTab({ submission, grades, onUpdateGrade, examId
 
 function TypeBadge({ type }) {
   return (
-    <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-green-500/10 text-green-700 dark:text-green-400 border border-green-500/20">
+    <span className="px-1.5 py-0.5 rounded text-[10px] font-bold uppercase bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0] border border-[#2C2DE0]/20">
       {type?.replace(/_/g, " ") || "—"}
     </span>
   );

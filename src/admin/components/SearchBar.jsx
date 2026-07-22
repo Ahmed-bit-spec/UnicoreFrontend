@@ -30,7 +30,7 @@ const SearchBar = ({
         "bg-white/70 dark:bg-white/5 backdrop-blur-md",
         "py-2.5 pl-10 pr-10 text-sm text-gray-900 dark:text-white",
         "placeholder:text-gray-400 dark:placeholder:text-gray-500",
-        "focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-500/40",
+        "focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0]/40",
         "transition-all duration-200"
       )}
     />

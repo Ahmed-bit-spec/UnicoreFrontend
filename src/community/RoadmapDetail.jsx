@@ -71,7 +71,7 @@ const RoadmapDetail = () => {
     }
   };
 
-  if (loading) return <div className="flex justify-center py-32"><Spinner size={24} className="text-green-500" /></div>;
+  if (loading) return <div className="flex justify-center py-32"><Spinner size={24} className="text-[#2C2DE0]" /></div>;
   if (!roadmap) return <p className="text-center py-32 text-gray-500">Not found</p>;
 
   const selectedTopic = topics.find((t) => t.topicId === selectedId) || null;
@@ -96,7 +96,7 @@ const RoadmapDetail = () => {
         <AuthorName user={roadmap.author} className="font-semibold" />
         <span className="text-gray-400">{timeAgo(roadmap.createdAt)}</span>
         {roadmap.semesterTag && (
-          <span className="text-xs font-bold text-green-600 bg-green-50 dark:bg-green-950/40 px-2 py-1 rounded-full">
+          <span className="text-xs font-bold text-[#2C2DE0] bg-[#2C2DE0] dark:bg-[#2C2DE0]/40 px-2 py-1 rounded-full">
             {roadmap.semesterTag}
           </span>
         )}
@@ -112,17 +112,17 @@ const RoadmapDetail = () => {
       <div className="mb-4 p-4 rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50/60 dark:bg-gray-900/40">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-bold text-gray-600 dark:text-gray-400">Your progress</span>
-          <span className="text-xs font-bold text-green-600">{progressPercent}% · {completedTopicIds.length}/{topics.length}</span>
+          <span className="text-xs font-bold text-[#2C2DE0]">{progressPercent}% · {completedTopicIds.length}/{topics.length}</span>
         </div>
         <div className="h-2 rounded-full bg-gray-200 dark:bg-gray-800 overflow-hidden">
-          <div className="h-full bg-green-500 transition-all duration-300" style={{ width: `${progressPercent}%` }} />
+          <div className="h-full bg-[#2C2DE0] transition-all duration-300" style={{ width: `${progressPercent}%` }} />
         </div>
       </div>
 
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={handleLike}
-          className={`flex items-center gap-1.5 text-sm font-semibold ${liked ? "text-green-600" : "text-gray-400"}`}
+          className={`flex items-center gap-1.5 text-sm font-semibold ${liked ? "text-[#2C2DE0]" : "text-gray-400"}`}
         >
           <Heart size={16} className={liked ? "fill-current" : ""} />
           {roadmap.likesCount ?? 0}
@@ -147,14 +147,14 @@ const RoadmapDetail = () => {
               <li key={t.topicId} className="ml-5">
                 <span
                   className={`absolute -left-[11px] flex items-center justify-center w-5 h-5 rounded-full border-2 ${
-                    done ? "bg-green-500 border-green-500" : "bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-700"
+                    done ? "bg-[#2C2DE0] border-[#2C2DE0]" : "bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-700"
                   }`}
                 >
                   {done && <CheckCircle2 size={12} className="text-white" />}
                 </span>
                 <button
                   onClick={() => setSelectedId(t.topicId)}
-                  className="w-full text-left p-4 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-green-200 dark:hover:border-green-900 hover:shadow-sm transition-all"
+                  className="w-full text-left p-4 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] hover:shadow-sm transition-all"
                 >
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Topic {i + 1}</span>
                   <p className={`text-sm font-bold mt-1 ${done ? "text-gray-400 line-through" : "text-gray-900 dark:text-white"}`}>
@@ -181,7 +181,7 @@ const RoadmapDetail = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-start justify-between mb-3">
-              <span className="text-xs font-bold uppercase tracking-wide px-2 py-1 rounded-full bg-green-50 dark:bg-green-950/40 text-green-600">
+              <span className="text-xs font-bold uppercase tracking-wide px-2 py-1 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0]/40 text-[#2C2DE0]">
                 Topic
               </span>
               <button onClick={() => setSelectedId(null)} className="p-1.5 rounded-lg text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900">
@@ -206,7 +206,7 @@ const RoadmapDetail = () => {
                       href={r.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-1.5 text-sm text-green-600 hover:underline"
+                      className="flex items-center gap-1.5 text-sm text-[#2C2DE0] hover:underline"
                     >
                       <ExternalLink size={12} /> {r.title || r.url}
                     </a>
@@ -221,7 +221,7 @@ const RoadmapDetail = () => {
               className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold ${
                 selectedDone
                   ? "bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-400"
-                  : "bg-green-500 text-white hover:bg-green-600"
+                  : "bg-[#2C2DE0] text-white hover:bg-[#2C2DE0]"
               }`}
             >
               {selectedDone ? (

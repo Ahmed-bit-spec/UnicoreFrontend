@@ -23,7 +23,7 @@ const SectionLabel = ({ reason }) => {
 
   return (
     <div className="flex items-center gap-2 mb-3 mt-1">
-      <div className="w-5 h-5 rounded-md bg-green-500 flex items-center justify-center shrink-0">
+      <div className="w-5 h-5 rounded-md bg-[#2C2DE0] flex items-center justify-center shrink-0">
         <Icon size={11} className="text-white" />
       </div>
       <span className="text-[11px] font-bold uppercase tracking-widest text-black">

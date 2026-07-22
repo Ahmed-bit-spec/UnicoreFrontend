@@ -22,7 +22,7 @@ const Pagination = ({
         <select
           value={rowsPerPage}
           onChange={(e) => onRowsPerPageChange?.(Number(e.target.value))}
-          className="rounded-lg border border-gray-200/80 dark:border-white/10 bg-white/70 dark:bg-white/5 px-2 py-1 text-xs font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500/30"
+          className="rounded-lg border border-gray-200/80 dark:border-white/10 bg-white/70 dark:bg-white/5 px-2 py-1 text-xs font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30"
         >
           {rowOptions.map((n) => (
             <option key={n} value={n}>
@@ -45,7 +45,7 @@ const Pagination = ({
           onClick={() => onPageChange?.(page - 1)}
           className={cn(
             "flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200/80 dark:border-white/10",
-            "text-gray-600 dark:text-gray-300 hover:bg-green-500/10 hover:text-green-600 disabled:opacity-40 disabled:pointer-events-none transition-all"
+            "text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] disabled:opacity-40 disabled:pointer-events-none transition-all"
           )}
           aria-label={ap.common.previous}
         >
@@ -57,7 +57,7 @@ const Pagination = ({
           onClick={() => onPageChange?.(page + 1)}
           className={cn(
             "flex h-8 w-8 items-center justify-center rounded-lg border border-gray-200/80 dark:border-white/10",
-            "text-gray-600 dark:text-gray-300 hover:bg-green-500/10 hover:text-green-600 disabled:opacity-40 disabled:pointer-events-none transition-all"
+            "text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] disabled:opacity-40 disabled:pointer-events-none transition-all"
           )}
           aria-label={ap.common.next}
         >

@@ -97,13 +97,13 @@ const UniversityVerificationBanner = () => {
   if (isUniversityVerified && universityId) {
     return (
       <div className="max-w-6xl mx-auto px-4 sm:px-6 mt-5 banner-enter">
-        <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 w-fit shadow-sm">
-          <ShieldCheck size={15} className="text-green-500 flex-shrink-0" />
-          <span className="text-xs font-semibold text-green-700 dark:text-green-400">
+        <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 w-fit shadow-sm">
+          <ShieldCheck size={15} className="text-[#2C2DE0] flex-shrink-0" />
+          <span className="text-xs font-semibold text-[#2C2DE0] dark:text-[#2C2DE0]">
             Verified Student
           </span>
-          <span className="text-xs text-green-500/60 dark:text-green-500/40">·</span>
-          <span className="text-xs font-mono font-bold tracking-wider text-green-600 dark:text-green-400">
+          <span className="text-xs text-[#2C2DE0]/60 dark:text-[#2C2DE0]/40">·</span>
+          <span className="text-xs font-mono font-bold tracking-wider text-[#2C2DE0] dark:text-[#2C2DE0]">
             {universityId}
           </span>
         </div>

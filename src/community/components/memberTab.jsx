@@ -34,11 +34,11 @@ const MemberRow = ({ member, canManage, onAction, isActionLoading }) => {
 
     return (
         <div className="flex items-center gap-3 bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-3 relative">
-            <img src={u?.photo || ""} alt={u?.name} className="w-10 h-10 rounded-full bg-green-500" />
+            <img src={u?.photo || ""} alt={u?.name} className="w-10 h-10 rounded-full bg-[#2C2DE0]" />
             <div className="flex-1 min-w-0">
                 <p className="font-bold text-black dark:text-white text-sm flex items-center gap-1.5">
                     {u?.name}
-                    {level === "group_admin" && <ShieldCheck size={13} className="text-green-600" />}
+                    {level === "group_admin" && <ShieldCheck size={13} className="text-[#2C2DE0]" />}
                     {level === "announcement_admin" && <ShieldCheck size={13} className="text-black/30 dark:text-white/30" />}
                 </p>
                 <p className="text-[11px] text-black/40 dark:text-white/40">
@@ -46,7 +46,7 @@ const MemberRow = ({ member, canManage, onAction, isActionLoading }) => {
                 </p>
                 <div className="flex gap-1 mt-1">
                     {level && (
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#2C2DE0] dark:text-[#2C2DE0]">
                             {level === "group_admin" ? "Group Administrator" : "Announcement Admin"}
                         </span>
                     )}
@@ -178,7 +178,7 @@ const MembersTab = ({ groupId, canManage, onRefreshNeeded }) => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search members..."
-                    className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-green-500"
+                    className="w-full pl-9 pr-4 py-2.5 rounded-xl text-sm bg-white dark:bg-black border border-black/10 dark:border-white/10 text-black dark:text-white focus:outline-none focus:border-[#2C2DE0]"
                 />
             </div>
 

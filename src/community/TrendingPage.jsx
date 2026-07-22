@@ -25,7 +25,7 @@ const TrendingPage = () => {
   return (
     <div className="w-full max-w-2xl mx-auto" style={{ fontFamily: "'Geist Variable', 'Inter', sans-serif" }}>
       <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-100 dark:border-gray-800">
-        <TrendingUp size={18} className="text-green-500" />
+        <TrendingUp size={18} className="text-[#2C2DE0]" />
         <h1 className="text-lg font-black text-gray-900 dark:text-white">
           {t["trending.title"] ?? "Trending"}
         </h1>
@@ -33,7 +33,7 @@ const TrendingPage = () => {
 
       {loading ? (
         <div className="flex justify-center py-20">
-          <Spinner size={18} className="text-green-500" />
+          <Spinner size={18} className="text-[#2C2DE0]" />
         </div>
       ) : (
         <>
@@ -48,7 +48,7 @@ const TrendingPage = () => {
                   <Link
                     key={item.tag}
                     to={`/community?tag=${encodeURIComponent(item.tag)}`}
-                    className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:border-green-200 dark:hover:border-green-900 transition-colors"
+                    className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] transition-colors"
                   >
                     <span className="text-[10px] font-black text-gray-400 w-4">{idx + 1}</span>
                     <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">#{item.tag}</span>

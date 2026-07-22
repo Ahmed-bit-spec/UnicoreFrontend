@@ -20,7 +20,7 @@ const NavItem = ({ item, collapsed, sidebarT }) => {
         cn(
           "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200",
           isActive
-            ? "bg-green-500/10 text-green-600 dark:text-green-400"
+            ? "bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0]"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/5"
         )
       }
@@ -30,7 +30,7 @@ const NavItem = ({ item, collapsed, sidebarT }) => {
           {isActive && (
             <motion.span
               layoutId="teacher-sidebar-active"
-              className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-green-500"
+              className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-[#2C2DE0]"
             />
           )}
           <Icon size={18} className="shrink-0" />
@@ -66,21 +66,21 @@ const TeacherSidebar = ({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
       >
         {!collapsed && (
           <div className="flex items-center gap-2.5 min-w-0">
-            <div className="w-7 h-7 bg-green-500 rounded-lg flex items-center justify-center shrink-0">
+            <div className="w-7 h-7 bg-[#2C2DE0] rounded-lg flex items-center justify-center shrink-0">
               <GraduationCap size={14} className="text-white" />
             </div>
             <div className="min-w-0">
               <p className="text-sm font-black text-gray-900 dark:text-white truncate">
                 {t.brand}
               </p>
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-green-500">
+              <p className="text-[10px] font-semibold uppercase tracking-widest text-[#2C2DE0]">
                 {t.roleLabel}
               </p>
             </div>
           </div>
         )}
         {collapsed && (
-          <div className="w-7 h-7 bg-green-500 rounded-lg flex items-center justify-center">
+          <div className="w-7 h-7 bg-[#2C2DE0] rounded-lg flex items-center justify-center">
             <GraduationCap size={14} className="text-white" />
           </div>
         )}
@@ -127,7 +127,7 @@ const TeacherSidebar = ({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
           collapsed && "justify-center"
         )}
       >
-        <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">
+        <div className="w-8 h-8 bg-[#2C2DE0] rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">
           {firstName.charAt(0).toUpperCase()}
         </div>
         {!collapsed && (
@@ -136,8 +136,8 @@ const TeacherSidebar = ({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile
               {user?.fullName ?? user?.name ?? "Teacher"}
             </p>
             <div className="flex items-center gap-1 mt-0.5">
-              <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
-              <p className="text-[11px] text-green-600">{t.common.online}</p>
+              <div className="w-1.5 h-1.5 bg-[#2C2DE0] rounded-full" />
+              <p className="text-[11px] text-[#2C2DE0]">{t.common.online}</p>
             </div>
           </div>
         )}

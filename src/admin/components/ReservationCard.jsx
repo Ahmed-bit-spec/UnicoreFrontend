@@ -21,7 +21,7 @@ const ReservationCard = ({
         const colors = {
             pending: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-300",
             active: "bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300",
-            approved: "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-300",
+            approved: "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/20 dark:text-[#2C2DE0]",
             borrowed: "bg-purple-100 text-purple-800 dark:bg-purple-900/20 dark:text-purple-300",
             returned: "bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-300",
             cancelled: "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-300",
@@ -211,7 +211,7 @@ const ReservationCard = ({
                                 <button
                                     onClick={() => handleAction("approve")}
                                     disabled={actionLoading.approve}
-                                    className="flex items-center gap-2 px-3 py-2 rounded bg-green-600 text-white text-sm font-medium hover:bg-green-700 disabled:opacity-50 transition"
+                                    className="flex items-center gap-2 px-3 py-2 rounded bg-[#2C2DE0] text-white text-sm font-medium hover:bg-[#2C2DE0] disabled:opacity-50 transition"
                                 >
                                     {actionLoading.approve && <Loader className="w-4 h-4 animate-spin" />}
                                     {t("Approve")}

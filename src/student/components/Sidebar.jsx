@@ -42,7 +42,7 @@ const NavItem = ({ item, active, collapsed }) => {
         ${collapsed ? "justify-center px-0 w-11 mx-auto" : ""}
         ${active
           ? "bg-[#58CC02] text-white shadow-[0_3px_0_#46A302]"
-          : "text-gray-500 dark:text-gray-400 hover:bg-green-50 dark:hover:bg-white/5 hover:text-[#3F9100] dark:hover:text-[#9DE83A]"}`}
+          : "text-gray-500 dark:text-gray-400 hover:bg-[#2C2DE0] dark:hover:bg-white/5 hover:text-[#3F9100] dark:hover:text-[#9DE83A]"}`}
     >
       <Icon size={18} className="flex-shrink-0" />
       {!collapsed && <span className="truncate">{item.label}</span>}
@@ -143,7 +143,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
 
       {/* Streak / quick stat teaser — only shown expanded, keeps the rail lightweight */}
       {!collapsed && (
-        <div className="mx-3 mb-3 rounded-xl bg-gradient-to-br from-[#EAF8DC] to-[#F6FCEF] dark:from-white/5 dark:to-white/[0.02] border border-green-100 dark:border-white/10 px-3.5 py-3 flex items-center gap-2.5">
+        <div className="mx-3 mb-3 rounded-xl bg-gradient-to-br from-[#EAF8DC] to-[#F6FCEF] dark:from-white/5 dark:to-white/[0.02] border border-[#2C2DE0] dark:border-white/10 px-3.5 py-3 flex items-center gap-2.5">
           <Zap size={16} className="text-[#F5A623] flex-shrink-0" />
           <p className="text-[11px] font-bold text-gray-600 dark:text-gray-300 leading-snug">
             {t?.nav?.sidebarTip || "Reserve early — seats fill up fast in exam weeks."}

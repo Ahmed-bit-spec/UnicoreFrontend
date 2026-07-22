@@ -26,7 +26,7 @@ const FILTERS = [
 ];
 
 const StatusDot = ({ status }) => {
-  const color = status === "online" ? "bg-green-500" : status === "away" ? "bg-yellow-400" : "bg-gray-300";
+  const color = status === "online" ? "bg-[#2C2DE0]" : status === "away" ? "bg-yellow-400" : "bg-gray-300";
   const text = status === "online" ? "Online" : status === "away" ? "Away" : "Offline";
   return (
     <span className="inline-flex items-center gap-1.5 text-xs text-gray-400 font-medium">

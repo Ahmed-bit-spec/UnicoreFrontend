@@ -6,7 +6,7 @@ import { useTheme } from "@/hooks/useTheme";
 
 const trendIcon = { up: TrendingUp, down: TrendingDown, stable: Minus };
 const trendColor = {
-  up:     "text-green-500",
+  up:     "text-[#2C2DE0]",
   down:   "text-red-400",
   stable: "text-gray-400",
 };
@@ -26,7 +26,7 @@ const TeacherStatCard = ({
 
   const accentMap = {
     green: {
-      icon: isDark ? "bg-green-500/15 text-green-400" : "bg-green-50 text-green-600",
+      icon: isDark ? "bg-[#2C2DE0]/15 text-[#2C2DE0]" : "bg-[#2C2DE0] text-[#2C2DE0]",
     },
     black: {
       icon: isDark ? "bg-white/10 text-gray-300" : "bg-gray-100 text-gray-600",
@@ -72,7 +72,7 @@ const TeacherStatCard = ({
             {label}
           </p>
           {subLabel && (
-            <p className="text-[11px] text-green-500 mt-0.5 font-semibold">{subLabel}</p>
+            <p className="text-[11px] text-[#2C2DE0] mt-0.5 font-semibold">{subLabel}</p>
           )}
         </div>
       )}

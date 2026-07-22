@@ -26,16 +26,16 @@ const DashboardCard = ({
       className={cn(
         "group relative overflow-hidden rounded-2xl border border-gray-200/60 dark:border-white/10",
         "bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-5 shadow-sm",
-        "hover:border-green-500/25 hover:shadow-lg hover:shadow-green-500/5 dark:hover:shadow-green-500/10",
+        "hover:border-[#2C2DE0]/25 hover:shadow-lg hover:shadow-[#2C2DE0]/5 dark:hover:shadow-[#2C2DE0]/10",
         "transition-shadow duration-300",
         className
       )}
     >
-      <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-green-500/5 blur-2xl group-hover:bg-green-500/10 transition-colors" />
+      <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-[#2C2DE0]/5 blur-2xl group-hover:bg-[#2C2DE0]/10 transition-colors" />
 
       <div className="flex items-start justify-between gap-3">
         {Icon && (
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-500/10 text-green-500 ring-1 ring-green-500/20">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2C2DE0]/10 text-[#2C2DE0] ring-1 ring-[#2C2DE0]/20">
             <Icon size={20} strokeWidth={1.75} />
           </div>
         )}
@@ -44,7 +44,7 @@ const DashboardCard = ({
             className={cn(
               "inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold",
               isUp
-                ? "bg-green-500/10 text-green-600 dark:text-green-400"
+                ? "bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0]"
                 : "bg-red-500/10 text-red-500 dark:text-red-400"
             )}
           >

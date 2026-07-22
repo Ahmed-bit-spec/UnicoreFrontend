@@ -98,8 +98,8 @@ const QuickAnalyticsCards = ({ stats, loading }) => {
                   : "bg-black/[0.02] border-black/6"
               )}
             >
-              <div className="w-7 h-7 rounded-md flex items-center justify-center mb-2.5 bg-green-500/10">
-                <Icon size={13} className="text-green-500" />
+              <div className="w-7 h-7 rounded-md flex items-center justify-center mb-2.5 bg-[#2C2DE0]/10">
+                <Icon size={13} className="text-[#2C2DE0]" />
               </div>
 
               {loading ? (

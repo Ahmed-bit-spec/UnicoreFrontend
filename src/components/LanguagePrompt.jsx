@@ -82,13 +82,13 @@ const LanguagePrompt = () => {
 
           {/* Icon + title — centered */}
           <div className="flex flex-col items-center text-center mb-6">
-            <div className="w-14 h-14 rounded-2xl bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 flex items-center justify-center mb-4">
-              <Languages size={24} className="text-green-500" />
+            <div className="w-14 h-14 rounded-2xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 flex items-center justify-center mb-4">
+              <Languages size={24} className="text-[#2C2DE0]" />
             </div>
             <h2 className="text-lg font-black text-gray-900 dark:text-white leading-tight">
               {t.language.chooseLanguage}
             </h2>
-            <p className="text-sm text-green-600 dark:text-green-400 font-semibold mt-0.5">
+            <p className="text-sm text-[#2C2DE0] dark:text-[#2C2DE0] font-semibold mt-0.5">
               {t.language.chooseLanguageSub}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 leading-relaxed max-w-xs">
@@ -104,19 +104,19 @@ const LanguagePrompt = () => {
             <button
               onClick={() => choose("en")}
               className={`flex items-center gap-4 px-4 py-3.5 rounded-2xl border-2 transition-all duration-150 ${language === "en"
-                  ? "bg-green-50 dark:bg-green-500/10 border-green-400 dark:border-green-600"
-                  : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-green-800"
+                  ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]"
+                  : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]"
                 }`}
             >
               <span className="text-2xl leading-none">🇬🇧</span>
               <div className="text-left flex-1">
-                <p className={`text-sm font-black leading-tight ${language === "en" ? "text-green-700 dark:text-green-400" : "text-gray-800 dark:text-gray-100"}`}>
+                <p className={`text-sm font-black leading-tight ${language === "en" ? "text-[#2C2DE0] dark:text-[#2C2DE0]" : "text-gray-800 dark:text-gray-100"}`}>
                   {t.common.english}
                 </p>
                 <p className="text-[11px] text-gray-400 mt-0.5">{t.language.continueEnglish}</p>
               </div>
               {language === "en" && (
-                <span className="text-[10px] font-bold text-green-600 bg-green-100 dark:bg-green-500/20 px-2.5 py-1 rounded-full flex-shrink-0">
+                <span className="text-[10px] font-bold text-[#2C2DE0] bg-[#2C2DE0] dark:bg-[#2C2DE0]/20 px-2.5 py-1 rounded-full flex-shrink-0">
                   {t.common.active}
                 </span>
               )}
@@ -125,19 +125,19 @@ const LanguagePrompt = () => {
             <button
               onClick={() => choose("so")}
               className={`flex items-center gap-4 px-4 py-3.5 rounded-2xl border-2 transition-all duration-150 ${language === "so"
-                  ? "bg-green-50 dark:bg-green-500/10 border-green-400 dark:border-green-600"
-                  : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-green-800"
+                  ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]"
+                  : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]"
                 }`}
             >
               <span className="text-2xl leading-none">🇸🇴</span>
               <div className="text-left flex-1">
-                <p className={`text-sm font-black leading-tight ${language === "so" ? "text-green-700 dark:text-green-400" : "text-gray-800 dark:text-gray-100"}`}>
+                <p className={`text-sm font-black leading-tight ${language === "so" ? "text-[#2C2DE0] dark:text-[#2C2DE0]" : "text-gray-800 dark:text-gray-100"}`}>
                   {t.common.somali}
                 </p>
                 <p className="text-[11px] text-gray-400 mt-0.5">{t.language.continueSomali}</p>
               </div>
               {language === "so" && (
-                <span className="text-[10px] font-bold text-green-600 bg-green-100 dark:bg-green-500/20 px-2.5 py-1 rounded-full flex-shrink-0">
+                <span className="text-[10px] font-bold text-[#2C2DE0] bg-[#2C2DE0] dark:bg-[#2C2DE0]/20 px-2.5 py-1 rounded-full flex-shrink-0">
                   {t.common.active}
                 </span>
               )}

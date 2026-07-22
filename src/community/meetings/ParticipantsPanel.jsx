@@ -8,10 +8,10 @@ const AVATAR_COLORS = [
   "bg-[#58CC02]",
   "bg-emerald-600",
   "bg-[#46A302]",
-  "bg-green-700",
+  "bg-[#2C2DE0]",
   "bg-teal-700",
   "bg-[#58CC02]/70",
-  "bg-green-800",
+  "bg-[#2C2DE0]",
 ];
 
 function avatarColor(name = "") {

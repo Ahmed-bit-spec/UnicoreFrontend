@@ -28,7 +28,7 @@ export default function AiAssistPanel({ suggestions, maxMarks, onApplyScore, onA
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         {strengths.length > 0 && (
           <div>
-            <p className="text-xs font-bold text-green-600 dark:text-green-400 flex items-center gap-1 mb-1">
+            <p className="text-xs font-bold text-[#2C2DE0] dark:text-[#2C2DE0] flex items-center gap-1 mb-1">
               <ThumbsUp className="w-3 h-3" /> Strengths
             </p>
             <ul className="text-xs space-y-0.5 text-gray-600 dark:text-gray-400">

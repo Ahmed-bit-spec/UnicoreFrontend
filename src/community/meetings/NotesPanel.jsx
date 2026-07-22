@@ -33,7 +33,7 @@ function renderMarkdown(text = "") {
     .replace(/\*\*(.+?)\*\*/g, '<strong class="font-bold text-white">$1</strong>')
     .replace(/_(.+?)_/g, '<em class="italic text-white/90">$1</em>')
     .replace(/<u>(.+?)<\/u>/g, '<u class="underline text-white/90">$1</u>')
-    .replace(/`([^`]+)`/g, '<code class="bg-black/30 text-green-400 px-1.5 py-0.5 rounded text-xs font-mono">$1</code>')
+    .replace(/`([^`]+)`/g, '<code class="bg-black/30 text-[#2C2DE0] px-1.5 py-0.5 rounded text-xs font-mono">$1</code>')
     .replace(/^- (.+)$/gm, '<li class="text-white/80 text-sm list-disc list-inside ml-2">$1</li>')
     .replace(/\|(.+)\|/g, (line) => {
       const cells = line.split("|").filter(Boolean).map((c) => c.trim());

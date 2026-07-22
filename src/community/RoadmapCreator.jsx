@@ -140,7 +140,7 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="Roadmap title, e.g. Zero to Advanced IT"
-                className="flex-1 px-3 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500/40"
+                className="flex-1 px-3 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40"
               />
             </div>
             <textarea
@@ -148,7 +148,7 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
               onChange={(e) => setDescription(e.target.value)}
               rows={2}
               placeholder="One or two lines on what this roadmap takes someone from and to."
-              className="sm:col-span-2 px-3 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500/40 resize-none"
+              className="sm:col-span-2 px-3 py-2.5 rounded-xl text-sm bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 resize-none"
             />
             <input
               value={semesterTag}
@@ -236,7 +236,7 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
                           <label className="flex items-center gap-1.5 text-xs font-bold text-gray-500 uppercase tracking-wide">
                             <Link2 size={12} /> Resources
                           </label>
-                          <button onClick={() => addResource(t.topicId)} className="flex items-center gap-1 text-xs font-bold text-green-600 hover:text-green-700">
+                          <button onClick={() => addResource(t.topicId)} className="flex items-center gap-1 text-xs font-bold text-[#2C2DE0] hover:text-[#2C2DE0]">
                             <Plus size={12} /> Add
                           </button>
                         </div>
@@ -278,7 +278,7 @@ const RoadmapCreator = ({ open, onClose, onCreated, user }) => {
             <button
               type="button"
               onClick={addTopic}
-              className="w-full flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-800 text-sm font-bold text-gray-500 hover:border-green-300 hover:text-green-600 transition-colors"
+              className="w-full flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border-2 border-dashed border-gray-200 dark:border-gray-800 text-sm font-bold text-gray-500 hover:border-[#2C2DE0] hover:text-[#2C2DE0] transition-colors"
             >
               <Plus size={16} /> Add topic
             </button>

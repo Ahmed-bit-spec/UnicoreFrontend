@@ -106,22 +106,22 @@ const CountdownDisplay = ({ startTime, endTime, t }) => {
   return (
     <div className={`rounded-2xl border px-4 py-3 flex items-center gap-4 ${critical ? "bg-red-50 dark:bg-red-500/10 border-red-200 dark:border-red-500/20"
       : urgent ? "bg-orange-50 dark:bg-orange-500/10 border-orange-200 dark:border-orange-500/20"
-        : "bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/20"
+        : "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]/20"
       }`}>
       <div className="relative flex-shrink-0 w-12 h-12">
         <svg width="48" height="48" viewBox="0 0 48 48" className="-rotate-90">
           <circle cx="24" cy="24" r={R} fill="none" strokeWidth="3.5"
-            className={critical ? "stroke-red-200 dark:stroke-red-800" : urgent ? "stroke-orange-200 dark:stroke-orange-800" : "stroke-green-200 dark:stroke-green-800"} />
+            className={critical ? "stroke-red-200 dark:stroke-red-800" : urgent ? "stroke-orange-200 dark:stroke-orange-800" : "stroke-[#2C2DE0] dark:stroke-[#2C2DE0]"} />
           <circle cx="24" cy="24" r={R} fill="none" strokeWidth="3.5" strokeLinecap="round"
             strokeDasharray={`${dash} ${circ}`}
-            className={`transition-all duration-1000 ${critical ? "stroke-red-500" : urgent ? "stroke-orange-500" : "stroke-green-500"}`} />
+            className={`transition-all duration-1000 ${critical ? "stroke-red-500" : urgent ? "stroke-orange-500" : "stroke-[#2C2DE0]"}`} />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <Timer size={14} className={critical ? "text-red-500 animate-pulse" : urgent ? "text-orange-500" : "text-green-600 dark:text-green-400"} />
+          <Timer size={14} className={critical ? "text-red-500 animate-pulse" : urgent ? "text-orange-500" : "text-[#2C2DE0] dark:text-[#2C2DE0]"} />
         </div>
       </div>
       <div className="flex-1 min-w-0">
-        <p className={`text-[10px] font-bold uppercase tracking-widest mb-0.5 ${critical ? "text-red-500" : urgent ? "text-orange-500" : "text-green-600 dark:text-green-400"}`}>
+        <p className={`text-[10px] font-bold uppercase tracking-widest mb-0.5 ${critical ? "text-red-500" : urgent ? "text-orange-500" : "text-[#2C2DE0] dark:text-[#2C2DE0]"}`}>
           {critical ? (t.myReservations?.endingSoon ?? "Ending soon!") : urgent ? (t.myReservations?.lessThan15 ?? "Less than 15 min left") : (t.myReservations?.sessionActive ?? "Session active")}
         </p>
         <div className="flex items-baseline gap-0.5">
@@ -149,11 +149,11 @@ const QrImage = ({ token, size = 148 }) => (
 const QrFrame = ({ token, size = 148, badgeText }) => (
   <div className="relative flex flex-col items-center gap-3 w-full">
     {badgeText && (
-      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-500 text-white text-[10px] font-black uppercase tracking-widest shadow-sm shadow-green-200 dark:shadow-none">
+      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2C2DE0] text-white text-[10px] font-black uppercase tracking-widest shadow-sm shadow-[#2C2DE0] dark:shadow-none">
         <ScanLine size={11} /> {badgeText}
       </span>
     )}
-    <div className="rounded-2xl p-[3px] bg-gradient-to-br from-green-400 via-green-500 to-green-600 shadow-lg shadow-green-200/70 dark:shadow-green-900/30">
+    <div className="rounded-2xl p-[3px] bg-gradient-to-br from-[#2C2DE0] via-[#2C2DE0] to-[#2C2DE0] shadow-lg shadow-[#2C2DE0]/70 dark:shadow-[#2C2DE0]/30">
       <div className="rounded-[14px] overflow-hidden bg-white p-2">
         <QrImage token={token} size={size} />
       </div>
@@ -238,8 +238,8 @@ const ExtendModal = ({ reservation, onClose }) => {
 
         {success ? (
           <div className="py-14 flex flex-col items-center text-center px-6">
-            <div className="w-16 h-16 rounded-2xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center mb-4">
-              <CheckCircle2 size={30} className="text-green-500" />
+            <div className="w-16 h-16 rounded-2xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 flex items-center justify-center mb-4">
+              <CheckCircle2 size={30} className="text-[#2C2DE0]" />
             </div>
             <p className="text-base font-black text-gray-900 dark:text-white">{copy.extendSuccess ?? "Session extended!"}</p>
           </div>
@@ -283,16 +283,16 @@ const ExtendModal = ({ reservation, onClose }) => {
                           disabled={blocked}
                           onClick={() => { setChoice(opt.value); setErrorMsg(null); }}
                           className={`relative flex flex-col items-center justify-center py-5 rounded-2xl border transition-all font-bold text-sm ${selected
-                              ? "bg-green-500 border-green-500 text-white shadow-sm shadow-green-200 dark:shadow-none"
+                              ? "bg-[#2C2DE0] border-[#2C2DE0] text-white shadow-sm shadow-[#2C2DE0] dark:shadow-none"
                               : blocked
                                 ? "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-300 dark:text-gray-600 cursor-not-allowed"
-                                : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-green-400 hover:text-green-600"
+                                : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-[#2C2DE0] hover:text-[#2C2DE0]"
                             }`}
                         >
                           <Plus size={16} className="mb-1" />
                           <span>{opt.label}</span>
                           {newEndPreview && (
-                            <span className={`text-[10px] mt-1 font-normal ${selected ? "text-green-100" : "text-gray-400"}`}>
+                            <span className={`text-[10px] mt-1 font-normal ${selected ? "text-[#2C2DE0]" : "text-gray-400"}`}>
                               → {fmt(newEndPreview)}
                             </span>
                           )}
@@ -307,10 +307,10 @@ const ExtendModal = ({ reservation, onClose }) => {
                   </div>
 
                   {choice && previewNewEnd && (
-                    <div className="bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 rounded-xl px-4 py-3">
+                    <div className="bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 rounded-xl px-4 py-3">
                       <p className="text-[10px] text-gray-400 mb-0.5">{copy.newEndTime ?? "New end time"}</p>
                       <p className="text-sm font-black text-gray-900 dark:text-white">
-                        {fmt(reservation.startTime)} → <span className="text-green-600 dark:text-green-400">{fmt(previewNewEnd)}</span>
+                        {fmt(reservation.startTime)} → <span className="text-[#2C2DE0] dark:text-[#2C2DE0]">{fmt(previewNewEnd)}</span>
                       </p>
                     </div>
                   )}
@@ -327,7 +327,7 @@ const ExtendModal = ({ reservation, onClose }) => {
                       {copy.cancelBtn ?? "Cancel"}
                     </button>
                     <button onClick={handleExtend} disabled={isLoading || !choice}
-                      className="flex-1 py-2.5 rounded-xl text-sm font-bold text-white bg-green-500 hover:bg-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+                      className="flex-1 py-2.5 rounded-xl text-sm font-bold text-white bg-[#2C2DE0] hover:bg-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
                       {isLoading ? (copy.rescheduling ?? "Saving…") : (copy.extendConfirm ?? "Extend")}
                     </button>
                   </div>
@@ -448,8 +448,8 @@ const InlineSlotEditor = ({ reservation, now, onSuccess, onCancel }) => {
               <button key={opt.value}
                 onClick={() => { setDuration(opt.value); setSelectedSlot(null); setConfirmed(false); }}
                 className={`py-2 rounded-xl text-xs font-bold border transition-all ${duration === opt.value
-                  ? "bg-green-500 border-green-500 text-white shadow-sm"
-                  : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-green-300"
+                  ? "bg-[#2C2DE0] border-[#2C2DE0] text-white shadow-sm"
+                  : "bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#2C2DE0]"
                   }`}
               >{opt.label}</button>
             ))}
@@ -460,7 +460,7 @@ const InlineSlotEditor = ({ reservation, now, onSuccess, onCancel }) => {
           <div className="flex items-center justify-between mb-2">
             <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">{copy.newTime ?? "New time"}</p>
             <span className="flex items-center gap-2 text-[9px] text-gray-400">
-              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-green-100 dark:bg-green-900/60 border border-green-300 dark:border-green-700" />{resCopy.free ?? "Free"}</span>
+              <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-[#2C2DE0] dark:bg-[#2C2DE0]/60 border border-[#2C2DE0] dark:border-[#2C2DE0]" />{resCopy.free ?? "Free"}</span>
               <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-sm bg-gray-200 dark:bg-gray-700" />{resCopy.taken ?? "Taken"}</span>
             </span>
           </div>
@@ -477,14 +477,14 @@ const InlineSlotEditor = ({ reservation, now, onSuccess, onCancel }) => {
                   <button key={slot} disabled={state !== "free"}
                     onClick={() => { setSelectedSlot(slot); setErrorMsg(null); setConfirmed(false); }}
                     className={`py-2 rounded-xl text-xs font-bold transition-all ${isSelected
-                      ? "bg-green-500 text-white ring-2 ring-green-300 dark:ring-green-700 shadow-sm"
+                      ? "bg-[#2C2DE0] text-white ring-2 ring-[#2C2DE0] dark:ring-[#2C2DE0] shadow-sm"
                       : state === "taken"
                         ? "bg-gray-100 dark:bg-gray-700 text-gray-300 dark:text-gray-600 cursor-not-allowed line-through"
                         : state === "past"
                           ? "bg-white dark:bg-gray-800 text-gray-300 dark:text-gray-700 cursor-not-allowed opacity-40"
                           : state === "closed"
                             ? "bg-white dark:bg-gray-800 text-gray-200 dark:text-gray-700 cursor-not-allowed border border-dashed border-gray-200 dark:border-gray-700"
-                            : "bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 hover:bg-green-100 border border-green-100 dark:border-green-900"
+                            : "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0] hover:bg-[#2C2DE0] border border-[#2C2DE0] dark:border-[#2C2DE0]"
                       }`}
                   >{formatSlot(slot)}</button>
                 );
@@ -495,7 +495,7 @@ const InlineSlotEditor = ({ reservation, now, onSuccess, onCancel }) => {
         </div>
 
         {selectedSlot && endSlot && (
-          <div className="bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 rounded-xl px-3 py-2.5">
+          <div className="bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 rounded-xl px-3 py-2.5">
             <p className="text-[10px] text-gray-400 mb-0.5">{copy.newSession ?? "New session"}</p>
             <p className="text-sm font-black text-gray-900 dark:text-white">{formatSlot(selectedSlot)} → {formatSlot(endSlot)}</p>
           </div>
@@ -524,8 +524,8 @@ const InlineSlotEditor = ({ reservation, now, onSuccess, onCancel }) => {
             {copy.cancelBtn ?? "Cancel"}
           </button>
           <button onClick={handleSave} disabled={isLoading || !selectedSlot || !endSlot}
-            className={`flex-1 py-2.5 rounded-xl text-xs font-bold text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all ${confirmed ? "bg-yellow-500 hover:bg-yellow-600" : "bg-green-500 hover:bg-green-600"
-              }`}
+            className={`flex-1 py-2.5 rounded-xl text-xs font-bold text-white disabled:opacity-40 disabled:cursor-not-allowed transition-all ${confirmed ? "bg-yellow-500 hover:bg-yellow-600" : "bg-[#2C2DE0] hover:bg-[#2C2DE0]"
+              } text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
           >
             {isLoading ? (copy.rescheduling ?? "Saving…") : confirmed ? (copy.confirmYes ?? "Yes, confirm") : (copy.saveTime ?? "Save time")}
           </button>
@@ -596,11 +596,11 @@ const ActiveCard = ({ r, canManage, now }) => {
 
   return (
     <>
-      <div className="relative rounded-3xl overflow-hidden border border-green-200 dark:border-green-700 bg-white dark:bg-gray-950 shadow-lg shadow-green-100/60 dark:shadow-none">
+      <div className="relative rounded-3xl overflow-hidden border border-[#2C2DE0] dark:border-[#2C2DE0] bg-white dark:bg-gray-950 shadow-lg shadow-[#2C2DE0]/60 dark:shadow-none">
 
         <button
           onClick={() => setExpanded((p) => !p)}
-          className="w-full bg-gradient-to-r from-green-500 to-green-600 px-5 pt-4 pb-4 text-left"
+          className="w-full bg-gradient-to-r from-[#2C2DE0] to-[#2C2DE0] px-5 pt-4 pb-4 text-left"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -609,7 +609,7 @@ const ActiveCard = ({ r, canManage, now }) => {
               </div>
               <div>
                 <p className="text-white font-black text-sm">{t.common.active ?? "Active"}</p>
-                <p className="text-green-100 text-xs">{t.seats?.seat ?? "Seat"} {r.seat?.seatNumber}</p>
+                <p className="text-[#2C2DE0] text-xs">{t.seats?.seat ?? "Seat"} {r.seat?.seatNumber}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -635,7 +635,7 @@ const ActiveCard = ({ r, canManage, now }) => {
             {sessionNotEnded && <CountdownDisplay startTime={r.startTime} endTime={r.endTime} t={t} />}
 
             {r.qrCode && (
-              <div className="flex flex-col items-center gap-3 rounded-2xl bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 p-4">
+              <div className="flex flex-col items-center gap-3 rounded-2xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 p-4">
                 <QrFrame token={r.qrCode} size={160} badgeText={copy.scanAtEntrance ?? "Scan at entrance"} />
                 <div className="w-full flex items-center justify-between bg-white/80 dark:bg-gray-900/60 border border-gray-100 dark:border-gray-800 rounded-xl px-3 py-2">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400">{copy.reservationId ?? "Reservation ID"}</span>
@@ -650,7 +650,7 @@ const ActiveCard = ({ r, canManage, now }) => {
                 {canExtend && (
                   <button
                     onClick={() => setExtendOpen(true)}
-                    className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 hover:bg-green-100 dark:hover:bg-green-500/20 transition-all"
+                    className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold text-[#2C2DE0] dark:text-[#2C2DE0] bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/20 transition-all"
                   >
                     <Plus size={12} />{copy.extendBtn ?? "Extend"}
                   </button>
@@ -728,9 +728,9 @@ const PendingCard = ({ r, canManage, now }) => {
         </div>
 
         {checkinWindowOpen && sessionNotEnded && (
-          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded-xl bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20">
-            <CheckCircle2 size={12} className="text-green-500 flex-shrink-0" />
-            <p className="text-xs text-green-700 dark:text-green-400 font-medium">
+          <div className="mt-3 flex items-center gap-2 px-3 py-2 rounded-xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20">
+            <CheckCircle2 size={12} className="text-[#2C2DE0] flex-shrink-0" />
+            <p className="text-xs text-[#2C2DE0] dark:text-[#2C2DE0] font-medium">
               {copy.checkinWindowOpen ?? "Check-in is now open. Show your QR code at the library entrance."}
             </p>
           </div>
@@ -740,8 +740,8 @@ const PendingCard = ({ r, canManage, now }) => {
           <div className="mt-3">
             <button onClick={() => setQrOpen((p) => !p)}
               className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-bold transition-all border ${qrOpen
-                ? "bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/20 text-green-700 dark:text-green-400"
-                : "bg-gray-50 dark:bg-gray-900 border-gray-100 dark:border-gray-800 text-gray-500 dark:text-gray-400 hover:border-green-200 hover:text-green-600"
+                ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]/20 text-[#2C2DE0] dark:text-[#2C2DE0]"
+                : "bg-gray-50 dark:bg-gray-900 border-gray-100 dark:border-gray-800 text-gray-500 dark:text-gray-400 hover:border-[#2C2DE0] hover:text-[#2C2DE0]"
                 }`}>
               <span className="flex items-center gap-2"><QrCode size={13} />{copy.showQr ?? "Show QR code"}</span>
               <span className={`text-[10px] transition-transform duration-200 ${qrOpen ? "rotate-180" : ""}`}>▾</span>
@@ -776,7 +776,7 @@ const PendingCard = ({ r, canManage, now }) => {
             </button>
             {!checkinWindowOpen && sessionNotEnded && (
               <button onClick={() => { setEditOpen(true); setQrOpen(false); }}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 hover:bg-green-100 transition-all">
+                className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-bold text-[#2C2DE0] dark:text-[#2C2DE0] bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 hover:bg-[#2C2DE0] transition-all">
                 <RefreshCw size={12} />{copy.rescheduleBtn ?? "Reschedule"}
               </button>
             )}
@@ -843,20 +843,20 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
     <div className="flex items-center justify-between gap-4 mt-8 pt-6 border-t border-gray-100 dark:border-gray-800">
       <button onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1}
-        className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 hover:border-green-400 hover:text-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+        className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 hover:border-[#2C2DE0] hover:text-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all">
         <ChevronLeft size={16} /><span className="hidden sm:inline">{copy.previous ?? "Previous"}</span>
       </button>
       <div className="flex items-center gap-1">
         {getPageNumbers().map((page, idx) =>
           page === "..." ? <span key={`e-${idx}`} className="px-2 text-gray-400">…</span> : (
             <button key={page} onClick={() => onPageChange(page)}
-              className={`w-9 h-9 rounded-xl text-sm font-bold transition-all ${currentPage === page ? "bg-green-500 text-white shadow-sm" : "bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-green-400 hover:text-green-600"}`}
+              className={`w-9 h-9 rounded-xl text-sm font-bold transition-all ${currentPage === page ? "bg-[#2C2DE0] text-white shadow-sm" : "bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-[#2C2DE0] hover:text-[#2C2DE0]"}`}
             >{page}</button>
           )
         )}
       </div>
       <button onClick={() => onPageChange(currentPage + 1)} disabled={currentPage === totalPages}
-        className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 hover:border-green-400 hover:text-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+        className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-950 text-gray-700 dark:text-gray-300 hover:border-[#2C2DE0] hover:text-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all">
         <span className="hidden sm:inline">{copy.next ?? "Next"}</span><ChevronRight size={16} />
       </button>
     </div>
@@ -972,7 +972,7 @@ const [now, setNow] = useState(() => DateTime.now().setZone("Africa/Mogadishu").
       {!isLoading && data.length > 0 && (
         <div className="flex flex-wrap gap-2 mb-6">
           {[
-            { key: "active", label: t.common.active, dot: "bg-green-500" },
+            { key: "active", label: t.common.active, dot: "bg-[#2C2DE0]" },
             { key: "pending", label: t.common.pending, dot: "bg-yellow-400" },
             { key: "completed", label: t.common.completed, dot: "bg-gray-400" },
             { key: "cancelled", label: t.common.cancelled, dot: "bg-red-400" },
@@ -994,7 +994,7 @@ const [now, setNow] = useState(() => DateTime.now().setZone("Africa/Mogadishu").
           <div className="w-14 h-14 rounded-2xl bg-gray-100 dark:bg-gray-900 flex items-center justify-center mb-4"><Inbox size={22} className="text-gray-300 dark:text-gray-600" /></div>
           <p className="font-bold text-gray-900 dark:text-white text-sm">{copy.empty}</p>
           <p className="text-gray-400 text-xs mt-1 mb-6">{copy.emptySub}</p>
-          <Link to="/seats" className="bg-green-500 hover:bg-green-600 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all shadow-sm shadow-green-200 dark:shadow-none">{copy.goSeats ?? "Browse seats"}</Link>
+          <Link to="/seats" className="bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-all shadow-sm shadow-[#2C2DE0] dark:shadow-none">{copy.goSeats ?? "Browse seats"}</Link>
         </div>
       )}
 
@@ -1029,7 +1029,7 @@ const [now, setNow] = useState(() => DateTime.now().setZone("Africa/Mogadishu").
       )}
 
       <div className="mt-10 text-center">
-        <Link to="/dashboard" className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors">{copy.backHome}</Link>
+        <Link to="/dashboard" className="text-sm font-semibold text-gray-500 dark:text-gray-400 hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] transition-colors">{copy.backHome}</Link>
       </div>
     </section>
   );

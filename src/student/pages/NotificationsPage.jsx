@@ -28,24 +28,24 @@ import AdminHeader from "../../admin/components/Header/AdminHeader";
 
 // ── Type UI map ────────────────────────────────────────────────────────────────
 const TYPE_UI = {
-  reservation_created: { Icon: Calendar, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
-  reservation_approved: { Icon: Calendar, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
+  reservation_created: { Icon: Calendar, dot: "bg-[#2C2DE0]", icon: "text-[#2C2DE0]", bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" },
+  reservation_approved: { Icon: Calendar, dot: "bg-[#2C2DE0]", icon: "text-[#2C2DE0]", bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" },
   reservation_rejected: { Icon: Calendar, dot: "bg-red-500", icon: "text-red-500", bg: "bg-red-50 dark:bg-red-500/10" },
   reservation_cancelled: { Icon: Calendar, dot: "bg-gray-400", icon: "text-gray-500", bg: "bg-gray-100 dark:bg-gray-800" },
   reservation_expired: { Icon: Clock, dot: "bg-gray-400", icon: "text-gray-500", bg: "bg-gray-100 dark:bg-gray-800" },
   reservation_noshow: { Icon: Clock, dot: "bg-gray-400", icon: "text-gray-500", bg: "bg-gray-100 dark:bg-gray-800" },
   reservation_start_warning: { Icon: Clock, dot: "bg-orange-500", icon: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-500/10" },
-  reservation_reminder_15: { Icon: Clock, dot: "bg-green-400", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
-  reservation_reminder_10: { Icon: Clock, dot: "bg-green-600", icon: "text-green-600", bg: "bg-green-50 dark:bg-green-500/10" },
-  checkin_success: { Icon: Calendar, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
+  reservation_reminder_15: { Icon: Clock, dot: "bg-[#2C2DE0]", icon: "text-[#2C2DE0]", bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" },
+  reservation_reminder_10: { Icon: Clock, dot: "bg-[#2C2DE0]", icon: "text-[#2C2DE0]", bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" },
+  checkin_success: { Icon: Calendar, dot: "bg-[#2C2DE0]", icon: "text-[#2C2DE0]", bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" },
   book_due_soon: { Icon: BookOpen, dot: "bg-orange-500", icon: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-500/10" },
   book_overdue: { Icon: BookOpen, dot: "bg-red-500", icon: "text-red-500", bg: "bg-red-50 dark:bg-red-500/10" },
-  book_returned: { Icon: BookOpen, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
+  book_returned: { Icon: BookOpen, dot: "bg-[#2C2DE0]", icon: "text-[#2C2DE0]", bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" },
   book_borrowed: { Icon: BookOpen, dot: "bg-blue-500", icon: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
   book_extended: { Icon: BookOpen, dot: "bg-blue-500", icon: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-500/10" },
   book_lost: { Icon: BookOpen, dot: "bg-red-500", icon: "text-red-500", bg: "bg-red-50 dark:bg-red-500/10" },
-  student_verified: { Icon: Settings, dot: "bg-green-500", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
-  user_created: { Icon: Settings, dot: "bg-green-400", icon: "text-green-500", bg: "bg-green-50 dark:bg-green-500/10" },
+  student_verified: { Icon: Settings, dot: "bg-[#2C2DE0]", icon: "text-[#2C2DE0]", bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" },
+  user_created: { Icon: Settings, dot: "bg-[#2C2DE0]", icon: "text-[#2C2DE0]", bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" },
   system: { Icon: Settings, dot: "bg-gray-400", icon: "text-gray-500", bg: "bg-gray-100 dark:bg-gray-800" },
   warning: { Icon: AlertTriangle, dot: "bg-orange-500", icon: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-500/10" },
   announcement: { Icon: Megaphone, dot: "bg-purple-500", icon: "text-purple-500", bg: "bg-purple-50 dark:bg-purple-500/10" },
@@ -157,7 +157,7 @@ const NotificationsPage = () => {
           {unreadCount > 0 && (
             <button
               onClick={markAllAsRead}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 hover:bg-green-100 transition-all"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-[#2C2DE0] dark:text-[#2C2DE0] bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 hover:bg-[#2C2DE0] transition-all text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <CheckCheck size={13} />Mark all read
             </button>

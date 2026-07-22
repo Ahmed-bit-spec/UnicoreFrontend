@@ -52,11 +52,11 @@ const StepCard = ({ step, index, isLast }) => {
   return (
     <div className="relative flex gap-5">
       <div className="flex flex-col items-center flex-shrink-0">
-        <div className="w-10 h-10 rounded-2xl bg-[#58CC02] flex items-center justify-center shadow-sm shadow-green-200 dark:shadow-none flex-shrink-0">
+        <div className="w-10 h-10 rounded-2xl bg-[#58CC02] flex items-center justify-center shadow-sm shadow-[#2C2DE0] dark:shadow-none flex-shrink-0">
           <Icon size={18} className="text-white" strokeWidth={2} />
         </div>
         {!isLast && (
-          <div className="w-px flex-1 bg-gradient-to-b from-green-300 dark:from-green-700 to-transparent mt-2 min-h-[32px]" />
+          <div className="w-px flex-1 bg-gradient-to-b from-[#2C2DE0] dark:from-[#2C2DE0] to-transparent mt-2 min-h-[32px]" />
         )}
       </div>
 
@@ -66,7 +66,7 @@ const StepCard = ({ step, index, isLast }) => {
           className="w-full flex items-start justify-between gap-3 text-left group"
         >
           <div className="flex-1 min-w-0">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-green-500 block mb-1">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2C2DE0] block mb-1">
               Step {String(index + 1).padStart(2, "0")}
             </span>
             <h3 className="text-base font-black text-gray-900 dark:text-white leading-tight">
@@ -84,9 +84,9 @@ const StepCard = ({ step, index, isLast }) => {
             <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
               {step.desc}
             </p>
-            <div className="flex items-start gap-2.5 bg-green-50 dark:bg-green-500/10 border border-green-100 dark:border-green-500/20 rounded-xl px-3.5 py-3">
-              <CheckCircle2 size={13} className="text-green-500 flex-shrink-0 mt-0.5" />
-              <p className="text-xs text-green-700 dark:text-green-400 leading-relaxed">
+            <div className="flex items-start gap-2.5 bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border border-[#2C2DE0] dark:border-[#2C2DE0]/20 rounded-xl px-3.5 py-3">
+              <CheckCircle2 size={13} className="text-[#2C2DE0] flex-shrink-0 mt-0.5" />
+              <p className="text-xs text-[#2C2DE0] dark:text-[#2C2DE0] leading-relaxed">
                 {step.tip}
               </p>
             </div>

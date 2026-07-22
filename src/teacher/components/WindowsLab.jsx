@@ -98,7 +98,7 @@ export default function WindowsLab({ question, value, onChange }) {
   return (
     <div className="-mx-6 -my-6 h-[560px] flex flex-col bg-[#0c1929] text-neutral-200 overflow-hidden">
       <div className="h-9 bg-[#1a2b42] flex items-center px-4 border-b border-white/10 gap-2">
-        <Monitor className="w-4 h-4 text-green-500" />
+        <Monitor className="w-4 h-4 text-[#2C2DE0]" />
         <span className="text-xs font-medium">{t("exam.windowsLab") || "Windows Lab Simulation"}</span>
         <span className="text-[10px] text-neutral-500 ml-auto">{t("exam.windowsDemoMode") || "Demo mode — no login required"}</span>
       </div>
@@ -112,7 +112,7 @@ export default function WindowsLab({ question, value, onChange }) {
               type="button"
               onClick={() => { setPath([item]); setSelected(null); }}
               className={`w-full flex items-center gap-2 px-2 py-1.5 rounded hover:bg-white/5 ${
-                path[0] === item ? "bg-green-950/30 text-green-300" : ""
+                path[0] === item ? "bg-[#2C2DE0]/30 text-[#2C2DE0]" : ""
               }`}
             >
               <HardDrive className="w-3.5 h-3.5" />
@@ -129,7 +129,7 @@ export default function WindowsLab({ question, value, onChange }) {
                 <button
                   type="button"
                   onClick={() => setPath(path.slice(0, i + 1))}
-                  className="hover:text-green-500 whitespace-nowrap"
+                  className="hover:text-[#2C2DE0] whitespace-nowrap"
                 >
                   {seg === "This PC" ? (t("exam.thisPC") || "This PC") : seg === "Recycle Bin" ? (t("exam.recycleBin") || "Recycle Bin") : seg}
                 </button>
@@ -138,10 +138,10 @@ export default function WindowsLab({ question, value, onChange }) {
           </div>
 
           <div className="h-9 border-b border-white/10 flex items-center gap-2 px-3">
-            <button type="button" onClick={createFolder} className="flex items-center gap-1 text-[11px] px-2 py-1 rounded bg-white/5 hover:bg-green-950/30">
+            <button type="button" onClick={createFolder} className="flex items-center gap-1 text-[11px] px-2 py-1 rounded bg-white/5 hover:bg-[#2C2DE0]/30 text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               <Plus className="w-3 h-3" /> {t("exam.folder") || "Folder"}
             </button>
-            <button type="button" onClick={createFile} className="flex items-center gap-1 text-[11px] px-2 py-1 rounded bg-white/5 hover:bg-green-950/30">
+            <button type="button" onClick={createFile} className="flex items-center gap-1 text-[11px] px-2 py-1 rounded bg-white/5 hover:bg-[#2C2DE0]/30 text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               <Plus className="w-3 h-3" /> {t("exam.file") || "File"}
             </button>
             <button type="button" onClick={deleteSelected} disabled={!selected} className="flex items-center gap-1 text-[11px] px-2 py-1 rounded bg-white/5 hover:bg-red-950/30 disabled:opacity-40 ml-auto">
@@ -157,11 +157,11 @@ export default function WindowsLab({ question, value, onChange }) {
                 onClick={() => navigate(name)}
                 onDoubleClick={() => entry.type === "folder" && navigate(name)}
                 className={`flex flex-col items-center gap-1.5 p-2 rounded-lg hover:bg-white/5 ${
-                  selected === name ? "bg-green-950/30 ring-1 ring-green-600" : ""
+                  selected === name ? "bg-[#2C2DE0]/30 ring-1 ring-[#2C2DE0]" : ""
                 }`}
               >
                 {entry.type === "folder" ? (
-                  <Folder className="w-10 h-10 text-green-500" />
+                  <Folder className="w-10 h-10 text-[#2C2DE0]" />
                 ) : (
                   <File className="w-10 h-10 text-neutral-400" />
                 )}
@@ -176,7 +176,7 @@ export default function WindowsLab({ question, value, onChange }) {
       </div>
 
       <div className="h-8 bg-[#1a2b42] border-t border-white/10 flex items-center px-3 gap-2 text-[10px] text-neutral-500">
-        <span className="w-2 h-2 rounded-full bg-green-500" />
+        <span className="w-2 h-2 rounded-full bg-[#2C2DE0]" />
         {question?.question || t("exam.windowsDefaultInstruction") || "File system interaction recorded for grading"}
       </div>
     </div>

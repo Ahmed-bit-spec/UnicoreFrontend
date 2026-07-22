@@ -10,7 +10,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 
 const StripCard = ({ icon: Icon, label, value, href, tone }) => {
   const tones = {
-    green:  { bg: "bg-green-50 dark:bg-green-500/10", icon: "text-green-600 dark:text-green-400" },
+    green:  { bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10", icon: "text-[#2C2DE0] dark:text-[#2C2DE0]" },
     blue:   { bg: "bg-blue-50 dark:bg-blue-500/10",   icon: "text-blue-600 dark:text-blue-400"   },
     amber:  { bg: "bg-amber-50 dark:bg-amber-500/10", icon: "text-amber-600 dark:text-amber-400" },
     gray:   { bg: "bg-gray-100 dark:bg-white/5",       icon: "text-gray-600 dark:text-gray-300"   },

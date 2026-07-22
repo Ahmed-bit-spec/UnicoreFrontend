@@ -21,8 +21,8 @@ const LibraryStatusPanel = ({ stats, loading }) => {
       value: loading ? "—" : String(stats?.occupiedSeats ?? 0),
       sub: `of ${stats?.totalSeats ?? 0} total`,
       icon: Armchair,
-      color: "text-green-500",
-      bg: "bg-green-500/10",
+      color: "text-[#2C2DE0]",
+      bg: "bg-[#2C2DE0]/10",
     },
     {
       label: "Available Seats",
@@ -37,8 +37,8 @@ const LibraryStatusPanel = ({ stats, loading }) => {
       value: loading ? "—" : String(stats?.borrowedBooks ?? 0),
       sub: `${stats?.overdueBooks ?? 0} overdue`,
       icon: BookOpen,
-      color: "text-green-500",
-      bg: "bg-green-500/10",
+      color: "text-[#2C2DE0]",
+      bg: "bg-[#2C2DE0]/10",
     },
     {
       label: "Active Today",
@@ -82,7 +82,7 @@ const LibraryStatusPanel = ({ stats, loading }) => {
           >
             Seat Occupancy
           </span>
-          <span className="text-[11px] font-bold text-green-500">
+          <span className="text-[11px] font-bold text-[#2C2DE0]">
             {loading ? "—" : `${occupancyPct}%`}
           </span>
         </div>
@@ -97,7 +97,7 @@ const LibraryStatusPanel = ({ stats, loading }) => {
               initial={{ width: 0 }}
               animate={{ width: `${occupancyPct}%` }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="h-full rounded-full bg-green-500"
+              className="h-full rounded-full bg-[#2C2DE0]"
             />
           )}
         </div>

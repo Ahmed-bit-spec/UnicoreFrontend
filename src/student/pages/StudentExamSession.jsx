@@ -322,13 +322,13 @@ export default function StudentExamSession() {
         className={`h-9 flex items-center justify-center gap-6 text-xs font-medium shrink-0 border-b exam-no-select ${
           violationCount > 0
             ? "bg-amber-50 border-amber-200 text-amber-800 dark:bg-amber-900/20 dark:border-amber-800 dark:text-amber-300"
-            : "bg-green-50 border-green-100 text-green-800 dark:bg-green-950/10 dark:border-green-900 dark:text-green-300"
+            : "bg-[#2C2DE0] border-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/10 dark:border-[#2C2DE0] dark:text-[#2C2DE0]"
         }`}
       >
         <span className="flex items-center gap-2">
           <span
             className={`integrity-dot ${
-              isFullscreen ? "text-green-500" : "text-red-500"
+              isFullscreen ? "text-[#2C2DE0]" : "text-red-500"
             }`}
           />
           {isFullscreen

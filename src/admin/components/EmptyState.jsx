@@ -17,7 +17,7 @@ const EmptyState = ({
       animate={{ opacity: 1, scale: 1 }}
       className="flex flex-col items-center justify-center py-16 px-6 text-center"
     >
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-500/10 text-green-500 ring-1 ring-green-500/20">
+      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#2C2DE0]/10 text-[#2C2DE0] ring-1 ring-[#2C2DE0]/20">
         <Icon size={24} strokeWidth={1.5} />
       </div>
       <h3 className="text-sm font-bold text-gray-900 dark:text-white">

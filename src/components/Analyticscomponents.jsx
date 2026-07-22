@@ -12,7 +12,7 @@ export const KpiCard = ({ icon: Icon, label, value, sub, color, trend, trendValu
       {sub && <p className="text-[10px] text-gray-400 dark:text-gray-500">{sub}</p>}
     </div>
     {trendValue != null && (
-      <div className={`shrink-0 text-right ${trend === "up" ? "text-green-500" : "text-red-400"}`}>
+      <div className={`shrink-0 text-right ${trend === "up" ? "text-[#2C2DE0]" : "text-red-400"}`}>
         <p className="text-xs font-black">{trend === "up" ? "↑" : "↓"} {Math.abs(trendValue)}%</p>
         <p className="text-[9px] text-gray-400">vs last mo.</p>
       </div>
@@ -71,7 +71,7 @@ export const PeriodSelector = ({ value, onChange }) => (
 );
 
 // ─── Ranked list ──────────────────────────────────────────────────────────────
-export const RankList = ({ items = [], valueKey = "count", nameKey = "fullName", labelKey, badgeColor = "bg-green-500" }) => {
+export const RankList = ({ items = [], valueKey = "count", nameKey = "fullName", labelKey, badgeColor = "bg-[#2C2DE0]" }) => {
   const max = items[0]?.[valueKey] || 1;
   return (
     <div className="space-y-2.5">

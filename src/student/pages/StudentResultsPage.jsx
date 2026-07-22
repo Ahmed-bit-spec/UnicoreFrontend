@@ -72,7 +72,7 @@ export default function StudentResultsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20 bg-gray-50 dark:bg-zinc-950 min-h-screen">
-        <Loader2 className="w-8 h-8 animate-spin text-green-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#2C2DE0]" />
       </div>
     );
   }
@@ -101,7 +101,7 @@ export default function StudentResultsPage() {
         {/* Big score metric row */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-200 dark:border-zinc-800">
           <div className="text-center p-3">
-            <p className={`text-3xl font-black ${isFailed ? "text-red-500" : "text-green-500"}`}>
+            <p className={`text-3xl font-black ${isFailed ? "text-red-500" : "text-[#2C2DE0]"}`}>
               {detail.percentage}%
             </p>
             <p className="text-xs text-gray-400 mt-1 uppercase tracking-wider font-bold">Grade</p>
@@ -114,7 +114,7 @@ export default function StudentResultsPage() {
           </div>
           <div className="text-center p-3 flex flex-col items-center justify-center">
             <span className={`px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest
-              ${isFailed ? "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400" : "bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-400"}`}
+              ${isFailed ? "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400" : "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/10 dark:text-[#2C2DE0]"}`}
             >
               {isFailed ? "Failed" : "Passed"}
             </span>
@@ -158,13 +158,13 @@ export default function StudentResultsPage() {
                     value={appealReason}
                     onChange={(e) => setAppealReason(e.target.value)}
                     placeholder="Provide clear educational grounds or reference rubric issues..."
-                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={submittingAppeal}
-                  className="w-full flex items-center justify-center gap-2 py-2 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl disabled:opacity-50"
+                  className="w-full flex items-center justify-center gap-2 py-2 bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white font-bold rounded-xl disabled:opacity-50 text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   {submittingAppeal ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                   Submit Dispute
@@ -208,8 +208,8 @@ export default function StudentResultsPage() {
                 {/* Correct answer display */}
                 {ans.correctAnswer !== undefined && (
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-wider text-green-500 mb-1">Correct Answer</p>
-                    <div className="p-3 bg-green-50/50 dark:bg-green-500/5 border border-green-200 dark:border-green-500/10 rounded-xl text-sm text-green-700 dark:text-green-400">
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#2C2DE0] mb-1">Correct Answer</p>
+                    <div className="p-3 bg-[#2C2DE0]/50 dark:bg-[#2C2DE0]/5 border border-[#2C2DE0] dark:border-[#2C2DE0]/10 rounded-xl text-sm text-[#2C2DE0] dark:text-[#2C2DE0]">
                       {Array.isArray(ans.correctAnswer) ? ans.correctAnswer.join(", ") : String(ans.correctAnswer)}
                     </div>
                   </div>
@@ -239,7 +239,7 @@ export default function StudentResultsPage() {
                   {appeal ? (
                     <span className={`px-2.5 py-1 rounded text-xs font-bold uppercase tracking-wider
                       ${appeal.status === "pending" ? "bg-yellow-100 text-yellow-800" :
-                        appeal.status === "modified" || appeal.status === "accepted" ? "bg-green-100 text-green-800" :
+                        appeal.status === "modified" || appeal.status === "accepted" ? "bg-[#2C2DE0] text-[#2C2DE0]" :
                                                       "bg-red-100 text-red-800"}`}
                     >
                       Dispute: {appeal.status} {appeal.modifiedScore !== null && `(New score: ${appeal.modifiedScore})`}
@@ -266,7 +266,7 @@ export default function StudentResultsPage() {
     <div className="space-y-6 max-w-5xl mx-auto p-4 md:p-6 bg-gray-50 dark:bg-zinc-950 min-h-screen">
       <div>
         <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
-          <Award className="w-7 h-7 text-green-500" />
+          <Award className="w-7 h-7 text-[#2C2DE0]" />
           Exam Results
         </h1>
         <p className="text-gray-500 text-sm">
@@ -287,13 +287,13 @@ export default function StudentResultsPage() {
             return (
               <div
                 key={res._id}
-                className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 hover:border-green-300 dark:hover:border-green-500/30 transition-all flex flex-col justify-between gap-4"
+                className="bg-white dark:bg-zinc-900 p-5 rounded-2xl border border-gray-200 dark:border-zinc-800 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]/30 transition-all flex flex-col justify-between gap-4"
               >
                 <div className="space-y-2">
                   <div className="flex justify-between items-start gap-2">
                     <h3 className="font-bold text-gray-900 dark:text-white line-clamp-1">{res.examTitle}</h3>
                     <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider shrink-0
-                      ${isFailed ? "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400" : "bg-green-50 text-green-700 dark:bg-green-500/10 dark:text-green-400"}`}
+                      ${isFailed ? "bg-red-50 text-red-700 dark:bg-red-500/10 dark:text-red-400" : "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/10 dark:text-[#2C2DE0]"}`}
                     >
                       {isFailed ? "Fail" : "Pass"}
                     </span>
@@ -317,7 +317,7 @@ export default function StudentResultsPage() {
                   onClick={() => fetchDetail(res._id)}
                   className="w-full flex items-center justify-center gap-1.5 py-2.5 bg-gray-50 hover:bg-gray-100 dark:bg-zinc-850 dark:hover:bg-zinc-800 text-gray-700 dark:text-gray-250 text-xs font-bold rounded-xl transition-colors"
                 >
-                  <Play className="w-3 h-3 text-green-500 fill-current" /> View Detailed Feedback
+                  <Play className="w-3 h-3 text-[#2C2DE0] fill-current" /> View Detailed Feedback
                 </button>
               </div>
             );

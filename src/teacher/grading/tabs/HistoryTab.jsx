@@ -26,7 +26,7 @@ export default function HistoryTab({ examId, subId }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-20">
-        <Loader2 className="w-6 h-6 animate-spin text-green-500" />
+        <Loader2 className="w-6 h-6 animate-spin text-[#2C2DE0]" />
       </div>
     );
   }
@@ -51,7 +51,7 @@ export default function HistoryTab({ examId, subId }) {
           return (
             <div key={idx} className="relative">
               {/* Dot */}
-              <span className="absolute -left-[26px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-zinc-900 bg-green-500" />
+              <span className="absolute -left-[26px] top-1.5 w-3.5 h-3.5 rounded-full border-2 border-white dark:border-zinc-900 bg-[#2C2DE0]" />
 
               <div>
                 <p className="text-xs font-semibold text-gray-900 dark:text-white">

@@ -15,7 +15,7 @@ const SettingsSection = ({ icon: Icon, title, children }) => (
     className="rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl p-6"
   >
     <div className="flex items-center gap-3 mb-5">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500/10 text-green-500">
+      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#2C2DE0]/10 text-[#2C2DE0]">
         <Icon size={18} />
       </div>
       <h2 className="text-sm font-bold text-gray-900 dark:text-white">{title}</h2>
@@ -36,7 +36,7 @@ const ToggleRow = ({ label, defaultOn = false }) => {
         onClick={() => setOn((v) => !v)}
         className={cn(
           "relative h-6 w-11 rounded-full transition-colors",
-          on ? "bg-green-500" : "bg-gray-300 dark:bg-gray-700"
+          on ? "bg-[#2C2DE0]" : "bg-gray-300 dark:bg-gray-700"
         )}
       >
         <span
@@ -64,7 +64,7 @@ const SettingsPage = () => {
           <button
             type="button"
             onClick={() => toast.message(ap.toast.saved)}
-            className="rounded-xl bg-green-500 px-4 py-2.5 text-xs font-bold text-white hover:bg-green-600 transition-colors"
+            className="rounded-xl bg-[#2C2DE0] px-4 py-2.5 text-xs font-bold text-white hover:bg-[#2C2DE0] transition-colors"
           >
             {ap.common.save}
           </button>
@@ -92,7 +92,7 @@ const SettingsPage = () => {
                   className={cn(
                     "rounded-lg px-3 py-1.5 text-xs font-bold transition-colors",
                     language === lang
-                      ? "bg-green-500 text-white"
+                      ? "bg-[#2C2DE0] text-white"
                       : "bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300"
                   )}
                 >

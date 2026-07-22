@@ -8,7 +8,7 @@ import PageHeader from "@/admin/components/PageHeader";
 import { KpiCard, Section, ChartTooltip, RankList, OverdueTable } from "./Analyticscomponents";
 import { useAnalyticsBooks } from "@/hooks/useAnalytics";
 
-const PIE_COLORS = ["#22c55e", "#3b82f6", "#f97316", "#a855f7", "#ec4899", "#9ca3af", "#14b8a6", "#f59e0b"];
+const PIE_COLORS = ["#2C2DE0", "#3b82f6", "#f97316", "#a855f7", "#ec4899", "#9ca3af", "#14b8a6", "#f59e0b"];
 
 const BooksPage = () => {
     const { data, isLoading } = useAnalyticsBooks();
@@ -22,7 +22,7 @@ const BooksPage = () => {
             <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <KpiCard icon={BookOpen} label="Borrowed Now" value={status.borrowed ?? 0} color="bg-orange-500" />
                 <KpiCard icon={AlertTriangle} label="Overdue" value={data?.overdueBooks?.length ?? 0} color="bg-red-500" />
-                <KpiCard icon={CheckCircle} label="Returned On Time" value={`${ret.onTimePct ?? 0}%`} color="bg-green-500" sub={`${ret.onTime ?? 0} books`} />
+                <KpiCard icon={CheckCircle} label="Returned On Time" value={`${ret.onTimePct ?? 0}%`} color="bg-[#2C2DE0]" sub={`${ret.onTime ?? 0} books`} />
                 <KpiCard icon={BookOpen} label="Unused Books" value={data?.unusedBooks?.length ?? 0} color="bg-gray-500" sub="never borrowed" />
             </div>
 
@@ -81,7 +81,7 @@ const BooksPage = () => {
                 <Section title="Return Performance">
                     <div className="mb-4 flex gap-4">
                         {[
-                            { label: "On Time", value: ret.onTime ?? 0, color: "bg-green-500" },
+                            { label: "On Time", value: ret.onTime ?? 0, color: "bg-[#2C2DE0]" },
                             { label: "Late", value: ret.late ?? 0, color: "bg-red-400" },
                         ].map(item => (
                             <div key={item.label} className="flex-1 rounded-xl bg-gray-50 p-4 dark:bg-white/5">
@@ -92,7 +92,7 @@ const BooksPage = () => {
                     </div>
                     <div className="h-3 overflow-hidden rounded-full bg-gray-100 dark:bg-white/10">
                         <div
-                            className="h-full rounded-full bg-green-500 transition-all duration-700"
+                            className="h-full rounded-full bg-[#2C2DE0] transition-all duration-700"
                             style={{ width: `${ret.onTimePct ?? 0}%` }}
                         />
                     </div>

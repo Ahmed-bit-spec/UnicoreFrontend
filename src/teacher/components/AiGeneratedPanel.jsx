@@ -44,7 +44,7 @@ export default function AIGeneratePanel({ onQuestionsGenerated }) {
       <button
         onClick={generate}
         disabled={isGenerating}
-        className="bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300 px-3 py-2 rounded-lg font-medium text-sm hover:bg-green-200 disabled:opacity-50 flex items-center gap-1.5"
+        className="bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0] dark:text-[#2C2DE0] px-3 py-2 rounded-lg font-medium text-sm hover:bg-[#2C2DE0] disabled:opacity-50 flex items-center gap-1.5 text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
       >
         ✨ {isGenerating ? "Generating…" : "Generate with AI"}
       </button>

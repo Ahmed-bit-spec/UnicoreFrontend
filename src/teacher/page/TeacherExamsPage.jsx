@@ -350,7 +350,7 @@ export default function TeacherExamsPage() {
                     type="checkbox"
                     checked={!!examForm.security[key]}
                     onChange={() => toggleSecurity(key)}
-                    className="w-4 h-4 accent-green-600"
+                    className="w-4 h-4 accent-[#2C2DE0]"
                   />
                   {label}
                 </label>
@@ -405,7 +405,7 @@ export default function TeacherExamsPage() {
                   key={type}
                   onClick={() => addQuestion(type)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${variant === "primary"
-                    ? "bg-green-100 text-green-700 hover:bg-green-200 dark:bg-green-900 dark:text-green-300"
+                    ? "bg-[#2C2DE0] text-[#2C2DE0] hover:bg-[#2C2DE0] dark:bg-[#2C2DE0] dark:text-[#2C2DE0]"
                     : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-900 dark:text-neutral-300"
                     }`}
                 >
@@ -419,7 +419,7 @@ export default function TeacherExamsPage() {
             <button onClick={() => saveExam("active")} className="text-sm font-medium text-neutral-500 hover:text-neutral-700 dark:text-neutral-400">
               Save & publish
             </button>
-            <button onClick={() => saveExam("draft")} className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700">
+            <button onClick={() => saveExam("draft")} className="bg-[#2C2DE0] text-white px-6 py-2 rounded-lg font-medium hover:bg-[#2C2DE0]">
               Save exam
             </button>
           </div>
@@ -452,7 +452,7 @@ export default function TeacherExamsPage() {
           </h1>
           <p className="text-neutral-500 text-sm">{t?.exam?.manageExams || "Create and manage your university exams."}</p>
         </div>
-        <button onClick={() => setIsBuilding(true)} className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2">
+        <button onClick={() => setIsBuilding(true)} className="bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2">
           <Plus className="w-4 h-4" /> {t?.exam?.newExam || "New exam"}
         </button>
       </div>
@@ -473,7 +473,7 @@ export default function TeacherExamsPage() {
             <div className="space-y-2 mb-6">
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-500">Token</span>
-                <span className="font-mono bg-neutral-100 dark:bg-neutral-700 px-2 rounded text-green-700 dark:text-green-400">{exam.token}</span>
+                <span className="font-mono bg-neutral-100 dark:bg-neutral-700 px-2 rounded text-[#2C2DE0] dark:text-[#2C2DE0]">{exam.token}</span>
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-500">Time limit</span>
@@ -481,7 +481,7 @@ export default function TeacherExamsPage() {
               </div>
               <div className="flex justify-between text-sm">
                 <span className="text-neutral-500">Status</span>
-                <span className={`px-2 rounded-full text-xs font-medium ${exam.status === "active" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"}`}>
+                <span className={`px-2 rounded-full text-xs font-medium ${exam.status === "active" ? "bg-[#2C2DE0] text-[#2C2DE0]" : "bg-gray-100 text-gray-700"}`}>
                   {exam.status.toUpperCase()}
                 </span>
               </div>
@@ -492,7 +492,7 @@ export default function TeacherExamsPage() {
                 {t?.exam?.viewSubmissions || "View submissions"}
               </Link>
               {exam.status === "draft" && (
-                <button onClick={() => publishExam(exam._id)} className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded-lg font-medium text-sm transition-colors">
+                <button onClick={() => publishExam(exam._id)} className="flex-1 bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white py-2 rounded-lg font-medium text-sm transition-colors">
                   {t?.exam?.publish || "Publish"}
                 </button>
               )}

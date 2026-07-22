@@ -36,7 +36,7 @@ const STATUS_TONE = {
 
 const STATUS_DOT = {
   pending: "bg-yellow-400",
-  active: "bg-green-500",
+  active: "bg-[#2C2DE0]",
   completed: "bg-blue-500",
   cancelled: "bg-gray-400",
   no_show: "bg-red-500",
@@ -56,7 +56,7 @@ const StatCard = ({ label, value, color, icon: Icon, pulse, sub }) => (
     <div className={`relative flex size-10 shrink-0 items-center justify-center rounded-xl ${color}`}>
       <Icon size={18} className="text-white" />
       {pulse && (
-        <span className="absolute -right-0.5 -top-0.5 size-2.5 animate-pulse rounded-full bg-green-400 ring-2 ring-white dark:ring-gray-900" />
+        <span className="absolute -right-0.5 -top-0.5 size-2.5 animate-pulse rounded-full bg-[#2C2DE0] ring-2 ring-white dark:ring-gray-900" />
       )}
     </div>
     <div>
@@ -87,7 +87,7 @@ const TimelineStep = ({ label, time, done, active, last }) => (
   <div className="flex items-start gap-3">
     <div className="flex flex-col items-center">
       <div className={`flex size-6 shrink-0 items-center justify-center rounded-full text-[10px] font-black ring-2 ${done
-        ? "bg-green-500 text-white ring-green-200 dark:ring-green-900"
+        ? "bg-[#2C2DE0] text-white ring-[#2C2DE0] dark:ring-[#2C2DE0]"
         : active
           ? "bg-yellow-400 text-white ring-yellow-200 dark:ring-yellow-900"
           : "bg-gray-100 text-gray-400 ring-gray-100 dark:bg-white/10 dark:text-gray-500 dark:ring-white/10"
@@ -95,7 +95,7 @@ const TimelineStep = ({ label, time, done, active, last }) => (
         {done ? "✓" : active ? "●" : "○"}
       </div>
       {!last && (
-        <div className={`mt-1 w-px flex-1 ${done ? "bg-green-300 dark:bg-green-800" : "bg-gray-200 dark:bg-white/10"}`}
+        <div className={`mt-1 w-px flex-1 ${done ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]" : "bg-gray-200 dark:bg-white/10"}`}
           style={{ height: 20 }} />
       )}
     </div>
@@ -302,7 +302,7 @@ const SeatReservationsPage = () => {
       label: p.colUser,
       render: (row) => (
         <div className="flex items-center gap-2.5">
-          <div className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-green-500/10 text-[10px] font-black text-green-700 ring-1 ring-green-500/20 dark:text-green-400">
+          <div className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#2C2DE0]/10 text-[10px] font-black text-[#2C2DE0] ring-1 ring-[#2C2DE0]/20 dark:text-[#2C2DE0]">
             {row.user?.avatar
               ? <img src={row.user.avatar} alt="" className="size-full object-cover" />
               : (row.user?.fullName || "?").slice(0, 2).toUpperCase()}
@@ -323,7 +323,7 @@ const SeatReservationsPage = () => {
       label: p.colSeat,
       render: (row) => (
         <div className="flex items-center gap-1.5">
-          <Armchair size={13} className="text-green-500 flex-shrink-0" />
+          <Armchair size={13} className="text-[#2C2DE0] flex-shrink-0" />
           <span className="text-xs font-black text-gray-900 dark:text-white">
             {row.seat?.seatNumber || "—"}
           </span>
@@ -414,7 +414,7 @@ const SeatReservationsPage = () => {
       {/* Stats strip */}
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-5">
         <StatCard label={p.statsToday} value={stats.todayTotal} color="bg-gray-700 dark:bg-gray-600" icon={CalendarDays} />
-        <StatCard label={p.statsActive} value={stats.activeNow} color="bg-green-500" icon={Radio} pulse sub={p.statsActiveSub} />
+        <StatCard label={p.statsActive} value={stats.activeNow} color="bg-[#2C2DE0]" icon={Radio} pulse sub={p.statsActiveSub} />
         <StatCard label={p.statsPending} value={stats.pending} color="bg-yellow-500" icon={Clock} />
         <StatCard label={p.statsCancelled} value={stats.cancelled} color="bg-red-500" icon={Ban} />
         <StatCard label={p.statsCompleted} value={stats.completed} color="bg-blue-500" icon={CheckCheck} />
@@ -549,7 +549,7 @@ const SeatReservationsPage = () => {
       >
         {detailLoading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="size-6 animate-spin rounded-full border-2 border-green-500 border-t-transparent" />
+            <div className="size-6 animate-spin rounded-full border-2 border-[#2C2DE0] border-t-transparent" />
           </div>
         ) : detailData ? (
           <div className="space-y-4">

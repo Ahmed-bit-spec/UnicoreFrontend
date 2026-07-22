@@ -56,9 +56,9 @@ const Empty = ({ icon: Icon, title, sub }) => (
 const ProgressBar = ({ percent }) => (
   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginTop: "5px" }}>
     <div style={{ flex: 1, height: "3px", background: "#f1f5f9", borderRadius: "2px", overflow: "hidden", maxWidth: "90px" }}>
-      <div style={{ height: "100%", background: "#16a34a", borderRadius: "2px", width: `${percent}%`, transition: "width 0.4s" }} />
+      <div style={{ height: "100%", background: "#2C2DE0", borderRadius: "2px", width: `${percent}%`, transition: "width 0.4s" }} />
     </div>
-    <span style={{ fontSize: "10px", color: "#16a34a", fontWeight: 800, minWidth: "28px", fontVariantNumeric: "tabular-nums" }}>{percent}%</span>
+    <span style={{ fontSize: "10px", color: "#2C2DE0", fontWeight: 800, minWidth: "28px", fontVariantNumeric: "tabular-nums" }}>{percent}%</span>
   </div>
 );
 
@@ -85,7 +85,7 @@ const BookRow = ({ book, right, sub, badge }) => {
         <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
           <p style={{
             fontSize: "13.5px", fontWeight: 700, lineHeight: 1.3,
-            color: hov ? "#16a34a" : "#0f172a",
+            color: hov ? "#2C2DE0" : "#0f172a",
             overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
             transition: "color 0.15s", fontFamily: "'Georgia', serif", letterSpacing: "-0.02em",
           }}>
@@ -99,7 +99,7 @@ const BookRow = ({ book, right, sub, badge }) => {
         {sub}
       </div>
       {right && <div style={{ flexShrink: 0 }}>{right}</div>}
-      <ChevronRight size={14} color={hov ? "#16a34a" : "#cbd5e1"} style={{ flexShrink: 0, transition: "color 0.15s" }} />
+      <ChevronRight size={14} color={hov ? "#2C2DE0" : "#cbd5e1"} style={{ flexShrink: 0, transition: "color 0.15s" }} />
     </div>
   );
 };
@@ -123,7 +123,7 @@ const MyLibrary = () => {
   if (isLoading) return (
     <div style={{ minHeight: "100vh", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "14px" }}>
-        <div style={{ width: "32px", height: "32px", border: "2px solid #16a34a", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+        <div style={{ width: "32px", height: "32px", border: "2px solid #2C2DE0", borderTopColor: "transparent", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
         <p style={{ color: "#94a3b8", fontSize: "13px" }}>Loading your library…</p>
       </div>
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
@@ -135,7 +135,7 @@ const MyLibrary = () => {
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px", textAlign: "center", padding: "0 24px" }}>
         <AlertCircle size={28} color="#ef4444" />
         <p style={{ fontSize: "14px", fontWeight: 700, color: "#0f172a" }}>Failed to load your library</p>
-        <button onClick={() => window.location.reload()} style={{ color: "#16a34a", fontSize: "13px", background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "6px" }}>
+        <button onClick={() => window.location.reload()} style={{ color: "#2C2DE0", fontSize: "13px", background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: "6px" }}>
           <RefreshCw size={12} /> Retry
         </button>
       </div>
@@ -181,7 +181,7 @@ const MyLibrary = () => {
                 boxShadow: activeTab === id ? "0 2px 12px rgba(22,163,74,0.1)" : "0 1px 3px rgba(0,0,0,0.04)",
               }}
             >
-              <Icon size={18} color={activeTab === id ? "#16a34a" : "#d1d5db"} style={{ transition: "color 0.18s" }} />
+              <Icon size={18} color={activeTab === id ? "#2C2DE0" : "#d1d5db"} style={{ transition: "color 0.18s" }} />
               <span style={{ fontSize: "22px", fontWeight: 900, color: activeTab === id ? "#0f172a" : "#94a3b8", lineHeight: 1, fontVariantNumeric: "tabular-nums" }}>
                 {counts[id]}
               </span>
@@ -195,7 +195,7 @@ const MyLibrary = () => {
         {/* Section header */}
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
-            {active && <active.icon size={15} color="#16a34a" />}
+            {active && <active.icon size={15} color="#2C2DE0" />}
             <h2 style={{ fontSize: "15px", fontWeight: 800, color: "#0f172a", margin: 0, letterSpacing: "-0.025em", fontFamily: "'Georgia', serif" }}>
               {active?.label}
             </h2>
@@ -219,7 +219,7 @@ const MyLibrary = () => {
                       onClick={(e) => { e.stopPropagation(); toggleFavorite(book._id); }}
                       style={{ background: "none", border: "none", cursor: "pointer", padding: "4px" }}
                     >
-                      <Heart size={15} style={{ fill: "#16a34a", color: "#16a34a" }} />
+                      <Heart size={15} style={{ fill: "#2C2DE0", color: "#2C2DE0" }} />
                     </button>
                   }
                 />
@@ -268,7 +268,7 @@ const MyLibrary = () => {
                   return (
                     <BookRow key={bm._id} book={book}
                       sub={bm.note ? <p style={{ fontSize: "11.5px", color: "#94a3b8", marginTop: "3px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", margin: "3px 0 0" }}>{bm.note}</p> : null}
-                      right={<span style={{ fontSize: "13px", fontWeight: 800, color: "#16a34a", fontVariantNumeric: "tabular-nums" }}>p.{bm.page}</span>}
+                      right={<span style={{ fontSize: "13px", fontWeight: 800, color: "#2C2DE0", fontVariantNumeric: "tabular-nums" }}>p.{bm.page}</span>}
                     />
                   );
                 })

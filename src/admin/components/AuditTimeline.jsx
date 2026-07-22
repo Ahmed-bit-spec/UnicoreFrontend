@@ -29,7 +29,7 @@ const AuditTimeline = ({ items = [], labels }) => {
             className="relative flex gap-4 pb-6 last:pb-0"
           >
             <div className="flex flex-col items-center">
-              <span className="flex size-8 items-center justify-center rounded-full bg-green-500/10 text-green-600 ring-1 ring-green-500/20 dark:text-green-400">
+              <span className="flex size-8 items-center justify-center rounded-full bg-[#2C2DE0]/10 text-[#2C2DE0] ring-1 ring-[#2C2DE0]/20 dark:text-[#2C2DE0]">
                 <Activity size={15} />
               </span>
               {index < items.length - 1 && (

@@ -34,12 +34,12 @@ export default function FilesTab({ submission }) {
                   href={url}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex flex-col items-center gap-2 p-4 bg-gray-50 dark:bg-zinc-800 rounded-xl border border-gray-200 dark:border-zinc-700 hover:border-green-400 dark:hover:border-green-500 transition-colors group"
+                  className="flex flex-col items-center gap-2 p-4 bg-gray-50 dark:bg-zinc-800 rounded-xl border border-gray-200 dark:border-zinc-700 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] transition-colors group"
                 >
                   {isImage ? (
                     <img src={url} alt={filename} className="w-full h-24 object-cover rounded-lg" />
                   ) : (
-                    <FileText className="w-10 h-10 text-gray-400 group-hover:text-green-500 transition-colors" />
+                    <FileText className="w-10 h-10 text-gray-400 group-hover:text-[#2C2DE0] transition-colors" />
                   )}
                   <span className="text-xs text-gray-600 dark:text-gray-400 truncate max-w-full text-center">
                     {filename}

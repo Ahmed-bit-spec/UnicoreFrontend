@@ -52,7 +52,7 @@ const MemberProfileModal = ({ member, groupId, open, onClose, currentUserId }) =
 
   const display = profile ?? member;
   const isSelf = currentUserId && String(display._id) === String(currentUserId);
-  const statusColor = display.status === "online" ? "bg-green-500" : display.status === "away" ? "bg-yellow-400" : "bg-gray-300";
+  const statusColor = display.status === "online" ? "bg-[#2C2DE0]" : display.status === "away" ? "bg-yellow-400" : "bg-gray-300";
 
   const handleSendMessage = async () => {
     try {
@@ -109,9 +109,9 @@ const MemberProfileModal = ({ member, groupId, open, onClose, currentUserId }) =
           )}
 
           {isUserVerified(display) && (
-            <p className="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-green-600 dark:text-green-400">
+            <p className="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-[#2C2DE0] dark:text-[#2C2DE0]">
               <svg viewBox="0 0 16 16" className="w-3.5 h-3.5">
-                <circle cx="8" cy="8" r="8" className="fill-green-500" />
+                <circle cx="8" cy="8" r="8" className="fill-[#2C2DE0]" />
                 <path d="M4.5 8.2l2 2 5-4.5" fill="none" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               UNISO Verified

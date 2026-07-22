@@ -34,27 +34,27 @@ import { requestPushPermission, shouldPromptToday } from "@/firebase/pushPermiss
 
 // ── Type → icon map ───────────────────────────────────────────────────────────
 const TYPE_UI = {
-  reservation_created:      { Icon: Calendar,      dot: "bg-green-500",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
-  reservation_approved:     { Icon: Calendar,      dot: "bg-green-500",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
+  reservation_created:      { Icon: Calendar,      dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
+  reservation_approved:     { Icon: Calendar,      dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
   reservation_rejected:     { Icon: Calendar,      dot: "bg-black",      icon: "text-black dark:text-white", bg: "bg-gray-100 dark:bg-gray-800" },
   reservation_cancelled:    { Icon: Calendar,      dot: "bg-gray-500",   icon: "text-gray-600 dark:text-white", bg: "bg-gray-100 dark:bg-gray-800" },
   reservation_expired:      { Icon: Clock,         dot: "bg-gray-500",   icon: "text-gray-600 dark:text-gray-300", bg: "bg-gray-100 dark:bg-gray-800" },
   reservation_noshow:       { Icon: Clock,         dot: "bg-gray-500",   icon: "text-gray-600 dark:text-gray-300", bg: "bg-gray-100 dark:bg-gray-800" },
   reservation_start_warning:{ Icon: Clock,         dot: "bg-orange-500", icon: "text-orange-500", bg: "bg-orange-50 dark:bg-orange-500/10" },
-  reservation_reminder_15:  { Icon: Clock,         dot: "bg-green-400",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
-  reservation_reminder_10:  { Icon: Clock,         dot: "bg-green-600",  icon: "text-green-600",  bg: "bg-green-50 dark:bg-green-500/10"   },
-  checkin_success:          { Icon: Calendar,      dot: "bg-green-500",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
+  reservation_reminder_15:  { Icon: Clock,         dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
+  reservation_reminder_10:  { Icon: Clock,         dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
+  checkin_success:          { Icon: Calendar,      dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
   book_due_soon:            { Icon: BookOpen,      dot: "bg-black",      icon: "text-black dark:text-white", bg: "bg-gray-100 dark:bg-gray-800" },
   book_overdue:             { Icon: BookOpen,      dot: "bg-black",      icon: "text-black dark:text-white", bg: "bg-gray-100 dark:bg-gray-800" },
-  book_returned:            { Icon: BookOpen,      dot: "bg-green-500",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
-  book_borrowed:            { Icon: BookOpen,      dot: "bg-green-500",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
+  book_returned:            { Icon: BookOpen,      dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
+  book_borrowed:            { Icon: BookOpen,      dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
   book_extended:            { Icon: BookOpen,      dot: "bg-blue-500",   icon: "text-blue-500",   bg: "bg-blue-50 dark:bg-blue-500/10"     },
   book_lost:                { Icon: BookOpen,      dot: "bg-black",      icon: "text-black dark:text-white", bg: "bg-gray-100 dark:bg-gray-800" },
-  student_verified:         { Icon: Settings,      dot: "bg-green-400",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
-  user_created:             { Icon: Settings,      dot: "bg-green-400",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
+  student_verified:         { Icon: Settings,      dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
+  user_created:             { Icon: Settings,      dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
   system:                   { Icon: Settings,      dot: "bg-gray-500",   icon: "text-gray-600 dark:text-gray-300", bg: "bg-gray-100 dark:bg-gray-800" },
   warning:                  { Icon: AlertTriangle, dot: "bg-black",      icon: "text-black dark:text-white", bg: "bg-gray-100 dark:bg-gray-800" },
-  announcement:             { Icon: Megaphone,     dot: "bg-green-500",  icon: "text-green-500",  bg: "bg-green-50 dark:bg-green-500/10"   },
+  announcement:             { Icon: Megaphone,     dot: "bg-[#2C2DE0]",  icon: "text-[#2C2DE0]",  bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10"   },
 };
 
 const getUI = (type) =>
@@ -124,7 +124,7 @@ const ToastBanner = ({ notif, resolve, onDismiss, onClick }) => {
             <Icon size={16} className={icon} />
           </div>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <p style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#22c55e", marginBottom: 3 }}>
+            <p style={{ fontSize: 9, fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.1em", color: "#2C2DE0", marginBottom: 3 }}>
               New Notification
             </p>
             <p style={{ fontSize: 13, fontWeight: 700, color: "#fff", lineHeight: 1.3, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 1, WebkitBoxOrient: "vertical" }}>
@@ -149,7 +149,7 @@ const ToastBanner = ({ notif, resolve, onDismiss, onClick }) => {
           </div>
         </div>
         <div style={{ height: 3, background: "rgba(255,255,255,0.07)" }}>
-          <div style={{ height: "100%", background: "#22c55e", borderRadius: 99, width: `${progress}%`, transition: "width 50ms linear" }} />
+          <div style={{ height: "100%", background: "#2C2DE0", borderRadius: 99, width: `${progress}%`, transition: "width 50ms linear" }} />
         </div>
       </div>
     </div>,
@@ -219,7 +219,7 @@ const NotifItem = ({ n, onRead, onDismiss, resolve }) => {
     <div
       onClick={handleClick}
       className={`group relative flex items-start gap-3 px-4 py-3.5 cursor-pointer transition-colors hover:bg-gray-50 dark:hover:bg-white/[0.04] ${
-        !n.isRead ? "bg-green-50/50 dark:bg-green-500/[0.07]" : ""
+        !n.isRead ? "bg-[#2C2DE0]/50 dark:bg-[#2C2DE0]/[0.07]" : ""
       }`}
     >
       {!n.isRead && (
@@ -337,14 +337,14 @@ export const NotificationPanel = () => {
         onClick={() => setOpen((p) => !p)}
         className={`relative w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
           open
-            ? "bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400"
+            ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0]"
             : "hover:bg-gray-100 dark:hover:bg-white/10 text-gray-600 dark:text-gray-400"
         }`}
         aria-label={n.title ?? "Notifications"}
       >
         <Bell size={18} className={pulse ? "animate-pulse" : ""} />
         {unreadCount > 0 && (
-          <span className={`absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] rounded-full bg-green-500 text-white text-[9px] font-black flex items-center justify-center px-1 shadow-sm ring-2 ring-white dark:ring-black ${pulse ? "animate-pulse" : ""}`}>
+          <span className={`absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] rounded-full bg-[#2C2DE0] text-white text-[9px] font-black flex items-center justify-center px-1 shadow-sm ring-2 ring-white dark:ring-black ${pulse ? "animate-pulse" : ""}`}>
             {unreadCount > 99 ? "99+" : unreadCount}
           </span>
         )}
@@ -364,7 +364,7 @@ export const NotificationPanel = () => {
                 {n.title ?? "Notifications"}
               </p>
               {unreadCount > 0 && (
-                <span className="px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 text-[10px] font-black border border-green-200 dark:border-green-500/20 whitespace-nowrap flex-shrink-0">
+                <span className="px-2 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0] text-[10px] font-black border border-[#2C2DE0] dark:border-[#2C2DE0]/20 whitespace-nowrap flex-shrink-0">
                   {unreadCount} {n.unread ?? "unread"}
                 </span>
               )}
@@ -374,7 +374,7 @@ export const NotificationPanel = () => {
                 <button
                   onClick={enablePush}
                   disabled={pushBusy}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-black text-black dark:text-white bg-black/5 dark:bg-white/10 hover:bg-green-50 dark:hover:bg-green-500/10 hover:text-green-700 dark:hover:text-green-300 transition-all whitespace-nowrap disabled:opacity-50"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-black text-black dark:text-white bg-black/5 dark:bg-white/10 hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] transition-all whitespace-nowrap disabled:opacity-50 text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   title="Enable push notifications"
                 >
                   Enable push
@@ -383,7 +383,7 @@ export const NotificationPanel = () => {
               {unreadCount > 0 && (
                 <button
                   onClick={markAllAsRead}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-500/10 transition-all whitespace-nowrap"
+                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-[#2C2DE0] dark:text-[#2C2DE0] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 transition-all whitespace-nowrap text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                 >
                   <CheckCheck size={12} />
                   {n.markAllRead ?? "Mark all read"}
@@ -415,7 +415,7 @@ export const NotificationPanel = () => {
               >
                 {f.label}
                 {f.value === "all" && unreadCount > 0 && (
-                  <span className="ml-1.5 inline-flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-green-500 text-white text-[9px] font-black">
+                  <span className="ml-1.5 inline-flex items-center justify-center min-w-[16px] h-4 px-1 rounded-full bg-[#2C2DE0] text-white text-[9px] font-black">
                     {unreadCount > 99 ? "99+" : unreadCount}
                   </span>
                 )}

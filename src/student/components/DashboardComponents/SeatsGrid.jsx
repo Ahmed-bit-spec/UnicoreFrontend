@@ -57,7 +57,7 @@ const Pagination = ({ page, totalPages, onChange }) => {
       <button
         onClick={() => onChange(page - 1)}
         disabled={page === 1}
-        className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
       >
         <ChevronLeft size={15} />
       </button>
@@ -66,7 +66,7 @@ const Pagination = ({ page, totalPages, onChange }) => {
           key={p}
           onClick={() => onChange(p)}
           className={`w-8 h-8 rounded-xl text-xs font-bold transition-all ${p === page
-            ? "bg-green-500 text-white shadow-sm shadow-green-200 dark:shadow-none"
+            ? "bg-[#2C2DE0] text-white shadow-sm shadow-[#2C2DE0] dark:shadow-none"
             : "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900"
             }`}
         >
@@ -76,7 +76,7 @@ const Pagination = ({ page, totalPages, onChange }) => {
       <button
         onClick={() => onChange(page + 1)}
         disabled={page === totalPages}
-        className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+        className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
       >
         <ChevronRight size={15} />
       </button>
@@ -112,7 +112,7 @@ const SeatCard = ({
         ? "border-gray-100 dark:border-gray-800 opacity-60 cursor-not-allowed"
         : isGirlsOnly
           ? "border-pink-100 dark:border-pink-900/50 hover:border-pink-300 dark:hover:border-pink-700 hover:shadow-lg hover:shadow-pink-100/50 dark:hover:shadow-pink-900/20 cursor-pointer"
-          : "border-green-100 dark:border-green-900/50 hover:border-green-300 dark:hover:border-green-700 hover:shadow-lg hover:shadow-green-100/50 dark:hover:shadow-green-900/20 cursor-pointer"
+          : "border-[#2C2DE0] dark:border-[#2C2DE0]/50 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] hover:shadow-lg hover:shadow-[#2C2DE0]/50 dark:hover:shadow-[#2C2DE0]/20 cursor-pointer"
         }`}
     >
       {isGirlsOnly && (
@@ -124,7 +124,7 @@ const SeatCard = ({
         ? "bg-red-50 dark:bg-red-500/10 text-red-400"
         : disabled
           ? "bg-gray-100 dark:bg-gray-800 text-gray-400"
-          : "bg-green-50 dark:bg-green-500/10 text-green-500"
+          : "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0]"
         }`}>
         {isReservedNow || isFullyBooked
           ? t.taken
@@ -136,12 +136,12 @@ const SeatCard = ({
       </span>
       <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3 transition-colors ${isReservedNow || isFullyBooked
         ? "bg-gray-100 dark:bg-gray-800"
-        : "bg-green-50 dark:bg-green-500/10 group-hover:bg-green-100 dark:group-hover:bg-green-500/20"
+        : "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 group-hover:bg-[#2C2DE0] dark:group-hover:bg-[#2C2DE0]/20"
         }`}>
         <Armchair
           size={22}
           strokeWidth={1.5}
-          className={isReservedNow || isFullyBooked ? "text-gray-300 dark:text-gray-600" : "text-green-500"}
+          className={isReservedNow || isFullyBooked ? "text-gray-300 dark:text-gray-600" : "text-[#2C2DE0]"}
         />
       </div>
       <p className="font-bold text-gray-900 dark:text-white text-sm">
@@ -158,8 +158,8 @@ const SeatCard = ({
           ? "bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed"
           : isGirlsOnly
             ? "bg-pink-500 hover:bg-pink-600 active:bg-pink-700 text-white shadow-sm shadow-pink-200 dark:shadow-none"
-            : "bg-green-500 hover:bg-green-600 active:bg-green-700 text-white shadow-sm shadow-green-200 dark:shadow-none"
-          }`}
+            : "bg-[#2C2DE0] hover:bg-[#2C2DE0] active:bg-[#2C2DE0] text-white shadow-sm shadow-[#2C2DE0] dark:shadow-none"
+          } text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
       >
         {isReservedNow || isFullyBooked
           ? t.notAvailable
@@ -273,7 +273,7 @@ const ReservedTable = ({ reservations, isLoading, lang, t, common }) => {
                             {fmt(r.startTime, lang)} – {fmt(r.endTime, lang)}
                           </span>
                           <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${r.status === "active"
-                            ? "bg-green-50 dark:bg-green-500/10 text-green-500"
+                            ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0]"
                             : "bg-yellow-50 dark:bg-yellow-500/10 text-yellow-500"
                             }`}>
                             {r.status}
@@ -290,7 +290,7 @@ const ReservedTable = ({ reservations, isLoading, lang, t, common }) => {
                     ) : (
                       <div className="flex flex-col gap-1">
                         {freeSlots.map((slot, i) => (
-                          <span key={i} className="text-xs text-green-600 dark:text-green-400 font-medium whitespace-nowrap">
+                          <span key={i} className="text-xs text-[#2C2DE0] dark:text-[#2C2DE0] font-medium whitespace-nowrap">
                             {minsToTime(slot.from)} – {minsToTime(slot.to)}
                           </span>
                         ))}
@@ -427,7 +427,7 @@ const SeatsGrid = () => {
           </div>
           <button
             onClick={handleRefetch}
-            className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 transition-all"
+            className="w-8 h-8 rounded-xl flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 transition-all text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
           >
             <RefreshCw size={14} className={isFetching ? "animate-spin" : ""} />
           </button>
@@ -442,7 +442,7 @@ const SeatsGrid = () => {
       <div className="grid grid-cols-3 gap-3 mb-6">
         {[
           { label: seatsText.totalSeats, value: totalSeats, color: "text-gray-900 dark:text-white" },
-          { label: seatsText.available, value: availableCount, color: "text-green-500" },
+          { label: seatsText.available, value: availableCount, color: "text-[#2C2DE0]" },
           { label: seatsText.reserved, value: reservedCount, color: "text-red-400" },
         ].map((stat) => (
           <div

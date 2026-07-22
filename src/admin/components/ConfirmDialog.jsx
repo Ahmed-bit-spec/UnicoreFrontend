@@ -21,7 +21,7 @@ const ConfirmDialog = ({
   const confirmClass =
     variant === "danger"
       ? "bg-red-500 hover:bg-red-600 text-white"
-      : "bg-green-500 hover:bg-green-600 text-white";
+      : "bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white";
 
   return (
     <Modal

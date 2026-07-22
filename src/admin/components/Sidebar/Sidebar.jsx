@@ -33,7 +33,7 @@ const SidebarNavItem = ({
           className={cn(
             "group flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200",
             isActive
-              ? "text-green-500"
+              ? "text-[#2C2DE0]"
               : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/5"
           )}
         >
@@ -56,7 +56,7 @@ const SidebarNavItem = ({
               transition={{ duration: 0.2 }}
               className="overflow-hidden"
             >
-              <div className="mt-1 space-y-0.5 border-l border-green-500/20 ml-5 pl-2">
+              <div className="mt-1 space-y-0.5 border-l border-[#2C2DE0]/20 ml-5 pl-2">
                 {item.children.map((child) => (
                   <SidebarNavItem
                     key={child.id}
@@ -84,7 +84,7 @@ const SidebarNavItem = ({
           "group relative flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold transition-all duration-200",
           depth > 0 && "py-2 text-xs",
           active
-            ? "bg-green-500/10 text-green-600 dark:text-green-400"
+            ? "bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0]"
             : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-white/5"
         )
       }
@@ -94,7 +94,7 @@ const SidebarNavItem = ({
           {active && (
             <motion.span
               layoutId="admin-sidebar-active"
-              className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-green-500"
+              className="absolute left-0 top-1/2 h-6 w-1 -translate-y-1/2 rounded-r-full bg-[#2C2DE0]"
             />
           )}
           <Icon size={depth > 0 ? 16 : 18} className="shrink-0" />
@@ -138,7 +138,7 @@ const Sidebar = ({ collapsed, onToggleCollapse, mobileOpen, onCloseMobile }) => 
             <p className="text-sm font-black text-gray-900 dark:text-white truncate">
               {ap.brand}
             </p>
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-green-500">
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-[#2C2DE0]">
               {ap.roleLabel}
             </p>
           </div>

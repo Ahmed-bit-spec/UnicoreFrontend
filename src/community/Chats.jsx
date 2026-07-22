@@ -133,8 +133,8 @@ const Chats = () => {
       <div className="hidden sm:flex flex-1 flex-col min-w-0 bg-white dark:bg-gray-950">
         {!active ? (
           <div className="flex-1 flex flex-col items-center justify-center text-center px-8">
-            <div className="w-16 h-16 rounded-2xl bg-green-50 dark:bg-green-950/30 flex items-center justify-center mb-4">
-              <MessageCircle size={28} className="text-green-500" />
+            <div className="w-16 h-16 rounded-2xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/30 flex items-center justify-center mb-4">
+              <MessageCircle size={28} className="text-[#2C2DE0]" />
             </div>
             <p className="text-sm font-semibold text-gray-600 dark:text-gray-400">
               {t["chat.select"] ?? "Select a conversation"}
@@ -164,7 +164,7 @@ const Chats = () => {
                     <div className={`max-w-[70%] ${isMine ? "items-end" : "items-start"} flex flex-col`}>
                       <div
                         className={`px-4 py-2.5 text-sm leading-relaxed shadow-sm ${isMine
-                          ? "bg-green-500 text-white rounded-2xl rounded-br-sm"
+                          ? "bg-[#2C2DE0] text-white rounded-2xl rounded-br-sm"
                           : "bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 rounded-2xl rounded-bl-sm"
                           }`}
                       >
@@ -183,7 +183,7 @@ const Chats = () => {
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && !e.shiftKey && (e.preventDefault(), handleSend())}
                 placeholder={t["chat.placeholder"] ?? "Type a message…"}
-                className="flex-1 px-4 py-3 rounded-2xl text-sm bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500/30"
+                className="flex-1 px-4 py-3 rounded-2xl text-sm bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30"
               />
               <button
                 onClick={handleSend}

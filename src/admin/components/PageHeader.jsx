@@ -19,7 +19,7 @@ const PageHeader = ({
   >
     <div>
       {badge && (
-        <span className="inline-block mb-2 text-[10px] font-bold uppercase tracking-widest text-green-500">
+        <span className="inline-block mb-2 text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0]">
           {badge}
         </span>
       )}

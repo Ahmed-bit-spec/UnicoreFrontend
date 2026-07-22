@@ -55,7 +55,7 @@ export default function OverviewTab({ submission, exam }) {
             </div>
             <div className="h-3 bg-gray-100 dark:bg-zinc-800 rounded-full overflow-hidden">
               <div
-                className={`h-full rounded-full transition-all duration-700 ${pct >= 60 ? "bg-green-500" : "bg-red-500"}`}
+                className={`h-full rounded-full transition-all duration-700 ${pct >= 60 ? "bg-[#2C2DE0]" : "bg-red-500"}`}
                 style={{ width: `${pct}%` }}
               />
             </div>
@@ -90,7 +90,7 @@ export default function OverviewTab({ submission, exam }) {
                     <td className="py-2 text-right font-mono text-xs text-blue-600 dark:text-blue-400">
                       {ans.autoScore ?? 0}
                     </td>
-                    <td className="py-2 text-right font-mono text-xs text-green-600 dark:text-green-400">
+                    <td className="py-2 text-right font-mono text-xs text-[#2C2DE0] dark:text-[#2C2DE0]">
                       {ans.manualScore ?? <span className="text-gray-400">—</span>}
                     </td>
                     <td className="py-2 text-right text-xs text-gray-500">{ans.maxMarks}</td>
@@ -130,10 +130,10 @@ export default function OverviewTab({ submission, exam }) {
         {/* Cheating log */}
         <div className="bg-white dark:bg-zinc-900 rounded-2xl border border-gray-200 dark:border-zinc-800 p-4">
           <div className="flex items-center gap-2 mb-3">
-            <Shield className={`w-4 h-4 ${cheatingLogs.length > 0 ? "text-red-500" : "text-green-500"}`} />
+            <Shield className={`w-4 h-4 ${cheatingLogs.length > 0 ? "text-red-500" : "text-[#2C2DE0]"}`} />
             <h3 className="text-sm font-bold text-gray-900 dark:text-white">Security Log</h3>
             {cheatingLogs.length === 0 && (
-              <span className="ml-auto text-xs text-green-600 dark:text-green-400 flex items-center gap-1">
+              <span className="ml-auto text-xs text-[#2C2DE0] dark:text-[#2C2DE0] flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" /> Clean
               </span>
             )}
@@ -184,7 +184,7 @@ function InfoRow({ icon: Icon, label, value }) {
 
 function ScoreCard({ label, value, max, color, suffix = "" }) {
   const colors = {
-    green: "text-green-600 dark:text-green-400",
+    green: "text-[#2C2DE0] dark:text-[#2C2DE0]",
     blue:  "text-blue-600 dark:text-blue-400",
     red:   "text-red-600 dark:text-red-400",
   };
@@ -204,7 +204,7 @@ function TypeBadge({ type }) {
     essay: "bg-purple-100 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400",
     lab: "bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-400",
     truefalse: "bg-teal-100 text-teal-700 dark:bg-teal-500/10 dark:text-teal-400",
-    os_linux: "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400",
+    os_linux: "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/10 dark:text-[#2C2DE0]",
     design_lab: "bg-pink-100 text-pink-700 dark:bg-pink-500/10 dark:text-pink-400",
   };
   return (

@@ -57,7 +57,7 @@ const LanguageToggle = () => {
   return (
     <button
       onClick={() => setLang?.(isSo ? "en" : "so")}
-      className="flex items-center gap-1.5 px-2.5 h-[34px] rounded-lg border border-gray-200 dark:border-gray-800 text-xs font-extrabold text-gray-600 dark:text-gray-300 hover:bg-green-50 dark:hover:bg-white/5 hover:border-[#58CC02]/40 hover:text-[#3F9100] dark:hover:text-[#9DE83A] transition-colors"
+      className="flex items-center gap-1.5 px-2.5 h-[34px] rounded-lg border border-gray-200 dark:border-gray-800 text-xs font-extrabold text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0] dark:hover:bg-white/5 hover:border-[#58CC02]/40 hover:text-[#3F9100] dark:hover:text-[#9DE83A] transition-colors"
       aria-label="Change language"
       title={isSo ? "Switch to English" : "U bedel Af-Soomaali"}
     >

@@ -9,7 +9,7 @@ import PageHeader from "@/admin/components/PageHeader";
 import { KpiCard, Section, ChartTooltip, PeriodSelector, RankList } from "./Analyticscomponents";
 import { useAnalyticsReservations } from "@/hooks/useAnalytics";
 
-const PIE_COLORS = ["#22c55e", "#3b82f6", "#f97316", "#a855f7", "#9ca3af"];
+const PIE_COLORS = ["#2C2DE0", "#3b82f6", "#f97316", "#a855f7", "#9ca3af"];
 
 const ReservationsPage = () => {
     const [period, setPeriod] = useState("30d");
@@ -28,7 +28,7 @@ const ReservationsPage = () => {
             {/* Attendance KPIs */}
             <div className="mb-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 <KpiCard icon={CalendarCheck} label="Total Reservations" value={att.total} color="bg-blue-500" />
-                <KpiCard icon={CalendarCheck} label="Attendance Rate" value={`${att.attendanceRate ?? 0}%`} color="bg-green-500" sub="attended / total" />
+                <KpiCard icon={CalendarCheck} label="Attendance Rate" value={`${att.attendanceRate ?? 0}%`} color="bg-[#2C2DE0]" sub="attended / total" />
                 <KpiCard icon={TrendingDown} label="No-Show Rate" value={`${att.noShowRate ?? 0}%`} color="bg-red-500" sub="lower is better" />
                 <KpiCard icon={TrendingDown} label="Cancellation Rate" value={`${att.cancellationRate ?? 0}%`} color="bg-orange-500" />
             </div>
@@ -43,7 +43,7 @@ const ReservationsPage = () => {
                                 tickFormatter={v => v.slice(5)} />
                             <YAxis tick={{ fontSize: 10 }} stroke="#9ca3af" />
                             <Tooltip content={<ChartTooltip />} />
-                            <Line type="monotone" dataKey="count" stroke="#22c55e" strokeWidth={2} dot={false} name="Reservations" />
+                            <Line type="monotone" dataKey="count" stroke="#2C2DE0" strokeWidth={2} dot={false} name="Reservations" />
                         </LineChart>
                     </ResponsiveContainer>
                 </Section>
@@ -91,7 +91,7 @@ const ReservationsPage = () => {
                 <Section title="Attendance Analysis">
                     <div className="space-y-3">
                         {[
-                            { label: "Attended", value: att.attended, total: att.total, color: "bg-green-500" },
+                            { label: "Attended", value: att.attended, total: att.total, color: "bg-[#2C2DE0]" },
                             { label: "No-shows", value: att.noShow, total: att.total, color: "bg-red-400" },
                             { label: "Cancelled", value: att.cancelled, total: att.total, color: "bg-orange-400" },
                         ].map(item => (
@@ -124,7 +124,7 @@ const ReservationsPage = () => {
                             <XAxis type="number" tick={{ fontSize: 10 }} stroke="#9ca3af" />
                             <YAxis dataKey="seatNumber" type="category" tick={{ fontSize: 10 }} stroke="#9ca3af" width={52} />
                             <Tooltip content={<ChartTooltip />} />
-                            <Bar dataKey="count" fill="#22c55e" radius={[0, 6, 6, 0]} name="Uses" />
+                            <Bar dataKey="count" fill="#2C2DE0" radius={[0, 6, 6, 0]} name="Uses" />
                         </BarChart>
                     </ResponsiveContainer>
                 </Section>

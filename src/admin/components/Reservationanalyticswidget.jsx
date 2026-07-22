@@ -43,7 +43,7 @@ const CustomTooltip = ({ active, payload, label, isDark }) => {
           : "bg-white border-black/10 text-black"
       )}
     >
-      <p className="text-green-500 font-bold">{payload[0].value}</p>
+      <p className="text-[#2C2DE0] font-bold">{payload[0].value}</p>
       <p className={isDark ? "text-white/40" : "text-black/40"}>{label}</p>
     </div>
   );
@@ -152,7 +152,7 @@ const ReservationAnalyticsWidget = ({
               className={cn(
                 "text-[11px] font-semibold px-3 py-1 rounded-md transition-colors",
                 tab === t.key
-                  ? "bg-green-500 text-black"
+                  ? "bg-[#2C2DE0] text-black"
                   : isDark
                   ? "text-white/40 hover:text-white hover:bg-white/6"
                   : "text-black/40 hover:text-black hover:bg-black/5"
@@ -212,7 +212,7 @@ const ReservationAnalyticsWidget = ({
                       key={i}
                       fill={
                         i === 0
-                          ? "#22c55e"
+                          ? "#2C2DE0"
                           : isDark
                           ? "rgba(255,255,255,.15)"
                           : "rgba(0,0,0,.1)"
@@ -228,8 +228,8 @@ const ReservationAnalyticsWidget = ({
               >
                 <defs>
                   <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%"   stopColor="#22c55e" stopOpacity={0.25} />
-                    <stop offset="100%" stopColor="#22c55e" stopOpacity={0}    />
+                    <stop offset="0%"   stopColor="#2C2DE0" stopOpacity={0.25} />
+                    <stop offset="100%" stopColor="#2C2DE0" stopOpacity={0}    />
                   </linearGradient>
                 </defs>
                 <CartesianGrid
@@ -252,13 +252,13 @@ const ReservationAnalyticsWidget = ({
                 <Area
                   type="monotone"
                   dataKey="value"
-                  stroke="#22c55e"
+                  stroke="#2C2DE0"
                   strokeWidth={2}
                   fill="url(#areaGrad)"
                   dot={false}
                   activeDot={{
                     r: 4,
-                    fill: "#22c55e",
+                    fill: "#2C2DE0",
                     stroke: isDark ? "#000" : "#fff",
                     strokeWidth: 2,
                   }}

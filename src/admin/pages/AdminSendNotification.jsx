@@ -30,7 +30,7 @@ const RECIPIENT_TYPES = [
 ];
 
 const STATUS_BADGE = {
-  sent:      "bg-green-50 dark:bg-green-500/10 text-green-600 dark:text-green-400 border-green-100 dark:border-green-500/20",
+  sent:      "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0] border-[#2C2DE0] dark:border-[#2C2DE0]/20",
   scheduled: "bg-black/5 dark:bg-white/5 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-white/10",
   draft:     "bg-gray-100 dark:bg-white/5 text-gray-500 border-gray-200 dark:border-white/10",
   failed:    "bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-100 dark:border-red-500/20",
@@ -124,8 +124,8 @@ const NotifForm = ({ initial, onClose, onSave }) => {
                 <button key={value} onClick={() => set("recipientType", value)}
                   className={`flex flex-col items-center gap-1.5 py-3 rounded-xl border text-xs font-bold transition-all ${
                     form.recipientType === value
-                      ? "bg-green-500 border-green-500 text-white shadow-sm"
-                      : "bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:border-green-300"
+                      ? "bg-[#2C2DE0] border-[#2C2DE0] text-white shadow-sm"
+                      : "bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:border-[#2C2DE0]"
                   }`}>
                   <Icon size={15} />{label}
                 </button>
@@ -141,7 +141,7 @@ const NotifForm = ({ initial, onClose, onSave }) => {
               <textarea value={form.specificUsers} onChange={(e) => set("specificUsers", e.target.value)}
                 placeholder="507f1f77bcf86cd799439011, 507f1f77bcf86cd799439012"
                 rows={2}
-                className="w-full px-4 py-2.5 text-sm bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-green-400 transition-colors resize-none font-mono"
+                className="w-full px-4 py-2.5 text-sm bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#2C2DE0] transition-colors resize-none font-mono"
               />
             </div>
           )}
@@ -159,7 +159,7 @@ const NotifForm = ({ initial, onClose, onSave }) => {
               </label>
               <input value={form[key]} onChange={(e) => set(key, e.target.value)}
                 placeholder={placeholder}
-                className="w-full px-4 py-2.5 text-sm bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-green-400 transition-colors font-mono"
+                className="w-full px-4 py-2.5 text-sm bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#2C2DE0] transition-colors font-mono"
               />
             </div>
           ))}
@@ -169,7 +169,7 @@ const NotifForm = ({ initial, onClose, onSave }) => {
               Schedule For <span className="normal-case font-normal">(leave blank to send now)</span>
             </label>
             <input type="datetime-local" value={form.scheduledAt} onChange={(e) => set("scheduledAt", e.target.value)}
-              className="w-full px-4 py-2.5 text-sm bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-green-400 transition-colors"
+              className="w-full px-4 py-2.5 text-sm bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#2C2DE0] transition-colors"
             />
           </div>
 
@@ -187,7 +187,7 @@ const NotifForm = ({ initial, onClose, onSave }) => {
               Cancel
             </button>
             <button onClick={handleSave}
-              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white bg-green-500 hover:bg-green-600 transition-all">
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold text-white bg-[#2C2DE0] hover:bg-[#2C2DE0] transition-all text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
               {form.scheduledAt ? <><Clock size={14} />Schedule</> : <><Send size={14} />Send Now</>}
             </button>
           </div>
@@ -288,7 +288,7 @@ const AdminNotificationsPage = () => {
         </div>
         <button
           onClick={() => { setEditing(null); setShowForm(true); }}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-green-500 hover:bg-green-600 transition-all shadow-sm shadow-green-200 dark:shadow-none"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold text-white bg-[#2C2DE0] hover:bg-[#2C2DE0] transition-all shadow-sm shadow-[#2C2DE0] dark:shadow-none"
         >
           <Plus size={15} />{n.create ?? "Create Notification"}
         </button>
@@ -303,8 +303,8 @@ const AdminNotificationsPage = () => {
         ].map(({ label, value, Icon }) => (
           <div key={label} className="bg-white dark:bg-gray-950 rounded-2xl border border-gray-100 dark:border-white/5 px-4 py-4">
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-7 h-7 rounded-xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center">
-                <Icon size={13} className="text-green-500" />
+              <div className="w-7 h-7 rounded-xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 flex items-center justify-center">
+                <Icon size={13} className="text-[#2C2DE0]" />
               </div>
               <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400">{label}</p>
             </div>
@@ -321,13 +321,13 @@ const AdminNotificationsPage = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search by key…"
-            className="w-full pl-9 pr-4 py-2.5 text-sm bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-green-400 transition-colors"
+            className="w-full pl-9 pr-4 py-2.5 text-sm bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:border-[#2C2DE0] transition-colors"
           />
         </div>
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
-          className="px-3 py-2.5 text-sm bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-green-400 transition-colors"
+          className="px-3 py-2.5 text-sm bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#2C2DE0] transition-colors"
         >
           <option value="all">All Types</option>
           {TYPES.map((tp) => <option key={tp.value} value={tp.value}>{tp.label}</option>)}
@@ -335,7 +335,7 @@ const AdminNotificationsPage = () => {
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="px-3 py-2.5 text-sm bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-green-400 transition-colors"
+          className="px-3 py-2.5 text-sm bg-white dark:bg-gray-950 border border-gray-200 dark:border-white/10 rounded-xl text-gray-900 dark:text-white focus:outline-none focus:border-[#2C2DE0] transition-colors"
         >
           <option value="all">All Statuses</option>
           <option value="sent">Sent</option>
@@ -344,7 +344,7 @@ const AdminNotificationsPage = () => {
         </select>
         <button
           onClick={() => refetch()}
-          className="w-10 h-10 rounded-xl flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-400 hover:text-green-600 hover:border-green-400 dark:hover:border-green-500/50 transition-all"
+          className="w-10 h-10 rounded-xl flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-400 hover:text-[#2C2DE0] hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]/50 transition-all"
         >
           <RefreshCw size={15} />
         </button>
@@ -399,7 +399,7 @@ const AdminNotificationsPage = () => {
                 </span>
                 <button
                   onClick={() => setExpanded(isExpanded ? null : notif._id)}
-                  className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-green-600 transition-colors whitespace-nowrap"
+                  className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 hover:text-[#2C2DE0] transition-colors whitespace-nowrap"
                 >
                   <BarChart2 size={12} />
                   {stats.readCount ?? 0}/{stats.total ?? 0}
@@ -409,7 +409,7 @@ const AdminNotificationsPage = () => {
                   {notif.status !== "sent" && (
                     <button
                       onClick={() => { setEditing(notif); setShowForm(true); }}
-                      className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:text-green-600 hover:bg-green-50 dark:hover:bg-green-500/10 transition-all"
+                      className="w-7 h-7 rounded-lg flex items-center justify-center text-gray-400 hover:text-[#2C2DE0] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 transition-all"
                     >
                       <Edit2 size={13} />
                     </button>
@@ -428,7 +428,7 @@ const AdminNotificationsPage = () => {
                   <div className="flex items-center gap-6 pt-3 border-t border-gray-100 dark:border-white/5 flex-wrap">
                     {[
                       { label: "Delivered", value: stats.total ?? 0,      cls: "text-gray-900 dark:text-white" },
-                      { label: "Read",      value: stats.readCount ?? 0,  cls: "text-green-500"               },
+                      { label: "Read",      value: stats.readCount ?? 0,  cls: "text-[#2C2DE0]"               },
                       { label: "Read Rate", value: `${readRate}%`,        cls: "text-gray-900 dark:text-white" },
                     ].map(({ label, value, cls }) => (
                       <div key={label}>
@@ -454,7 +454,7 @@ const AdminNotificationsPage = () => {
                   {(stats.total ?? 0) > 0 && (
                     <div className="mt-3">
                       <div className="h-1.5 rounded-full bg-gray-100 dark:bg-white/10 overflow-hidden">
-                        <div className="h-full bg-green-500 rounded-full transition-all" style={{ width: `${readRate}%` }} />
+                        <div className="h-full bg-[#2C2DE0] rounded-full transition-all" style={{ width: `${readRate}%` }} />
                       </div>
                     </div>
                   )}

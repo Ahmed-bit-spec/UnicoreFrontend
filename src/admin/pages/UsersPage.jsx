@@ -228,7 +228,7 @@ const UsersPage = () => {
       key: "avatar",
       label: p.avatar,
       render: (row) => (
-        <div className="flex size-9 items-center justify-center overflow-hidden rounded-full bg-green-500/10 text-xs font-bold text-green-700 ring-1 ring-green-500/20 dark:text-green-400">
+        <div className="flex size-9 items-center justify-center overflow-hidden rounded-full bg-[#2C2DE0]/10 text-xs font-bold text-[#2C2DE0] ring-1 ring-[#2C2DE0]/20 dark:text-[#2C2DE0]">
           {row.avatar ? (
             <img src={row.avatar} alt={row.fullName || p.avatar} className="size-full object-cover" />
           ) : (
@@ -405,7 +405,7 @@ const UsersPage = () => {
               type="button"
               disabled={updateMutation.isPending || createMutation.isPending}
               onClick={submitForm}
-              className="rounded-xl bg-green-500 px-4 py-2 text-xs font-bold text-white shadow-sm shadow-green-500/20 transition-colors hover:bg-green-600 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-xl bg-[#2C2DE0] px-4 py-2 text-xs font-bold text-white shadow-sm shadow-[#2C2DE0]/20 transition-colors hover:bg-[#2C2DE0] disabled:cursor-not-allowed disabled:opacity-60 text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               {updateMutation.isPending || createMutation.isPending ? p.saving : c.save}
             </button>
@@ -415,17 +415,17 @@ const UsersPage = () => {
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.fullName}
-            <input className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white" value={form.fullName} onChange={(event) => setForm((current) => ({ ...current, fullName: event.target.value }))} />
+            <input className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white" value={form.fullName} onChange={(event) => setForm((current) => ({ ...current, fullName: event.target.value }))} />
             {formErrors.fullName && <span className="text-[11px] font-semibold text-red-500">{formErrors.fullName}</span>}
           </label>
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.email}
-            <input className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white" value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} />
+            <input className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white" value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} />
             {formErrors.email && <span className="text-[11px] font-semibold text-red-500">{formErrors.email}</span>}
           </label>
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.studentId}
-            <input className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white" value={form.studentId} onChange={(event) => setForm((current) => ({ ...current, studentId: event.target.value }))} />
+            <input className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white" value={form.studentId} onChange={(event) => setForm((current) => ({ ...current, studentId: event.target.value }))} />
           </label>
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {creatingUser ? p.password : p.newPassword}
@@ -433,7 +433,7 @@ const UsersPage = () => {
               type="password"
               autoComplete="new-password"
               placeholder={editingUser ? p.passwordOptional : p.passwordPlaceholder}
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
               value={form.password}
               onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
             />
@@ -445,7 +445,7 @@ const UsersPage = () => {
               type="password"
               autoComplete="new-password"
               placeholder={p.confirmPasswordPlaceholder}
-              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
+              className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-white/5 dark:text-white"
               value={form.confirmPassword}
               onChange={(event) => setForm((current) => ({ ...current, confirmPassword: event.target.value }))}
             />
@@ -453,7 +453,7 @@ const UsersPage = () => {
           </label>
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.role}
-            <select className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-gray-950 dark:text-white" value={form.role} onChange={(event) => setForm((current) => ({ ...current, role: event.target.value }))}>
+            <select className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-gray-950 dark:text-white" value={form.role} onChange={(event) => setForm((current) => ({ ...current, role: event.target.value }))}>
               <option value="student">{p.roleStudent}</option>
               <option value="admin">{p.roleAdmin}</option>
             </select>
@@ -461,7 +461,7 @@ const UsersPage = () => {
           </label>
           <label className="space-y-1.5 text-xs font-semibold text-gray-600 dark:text-gray-300">
             {p.accountStatus}
-            <select className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-green-500/40 focus:ring-2 focus:ring-green-500/20 dark:border-white/10 dark:bg-gray-950 dark:text-white" value={form.accountStatus} onChange={(event) => setForm((current) => ({ ...current, accountStatus: event.target.value }))}>
+            <select className="w-full rounded-xl border border-gray-200/80 bg-white/80 px-3 py-2 text-sm text-gray-900 outline-none focus:border-[#2C2DE0]/40 focus:ring-2 focus:ring-[#2C2DE0]/20 dark:border-white/10 dark:bg-gray-950 dark:text-white" value={form.accountStatus} onChange={(event) => setForm((current) => ({ ...current, accountStatus: event.target.value }))}>
               <option value="active">{p.statusActive}</option>
               <option value="suspended">{p.statusSuspended}</option>
               <option value="banned">{p.statusBanned}</option>
@@ -472,11 +472,11 @@ const UsersPage = () => {
           <div className="grid gap-3 rounded-xl border border-gray-200/70 bg-white/50 p-3 dark:border-white/10 dark:bg-white/[0.03]">
             <label className="flex items-center justify-between gap-3 text-xs font-semibold text-gray-600 dark:text-gray-300">
               {p.emailVerification}
-              <input type="checkbox" checked={form.emailVerified} onChange={(event) => setForm((current) => ({ ...current, emailVerified: event.target.checked }))} className="rounded border-gray-300 text-green-500 focus:ring-green-500/30" />
+              <input type="checkbox" checked={form.emailVerified} onChange={(event) => setForm((current) => ({ ...current, emailVerified: event.target.checked }))} className="rounded border-gray-300 text-[#2C2DE0] focus:ring-[#2C2DE0]/30" />
             </label>
             <label className="flex items-center justify-between gap-3 text-xs font-semibold text-gray-600 dark:text-gray-300">
               {p.universityVerification}
-              <input type="checkbox" checked={form.universityVerified} onChange={(event) => setForm((current) => ({ ...current, universityVerified: event.target.checked }))} className="rounded border-gray-300 text-green-500 focus:ring-green-500/30" />
+              <input type="checkbox" checked={form.universityVerified} onChange={(event) => setForm((current) => ({ ...current, universityVerified: event.target.checked }))} className="rounded border-gray-300 text-[#2C2DE0] focus:ring-[#2C2DE0]/30" />
             </label>
           </div>
         </div>

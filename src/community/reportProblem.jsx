@@ -10,7 +10,7 @@ const Banner = ({ type, message }) => {
   const ok = type === "success";
   return (
     <div className={`flex items-start gap-2 rounded-xl px-3.5 py-3 border text-xs leading-relaxed ${ok
-      ? "bg-green-50 dark:bg-green-500/10 border-green-100 dark:border-green-500/20 text-green-700 dark:text-green-400"
+      ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]/20 text-[#2C2DE0] dark:text-[#2C2DE0]"
       : "bg-red-50 dark:bg-red-500/10 border-red-100 dark:border-red-500/20 text-red-600 dark:text-red-400"
       }`}>
       {ok ? <CheckCircle2 size={13} className="flex-shrink-0 mt-0.5" /> : <AlertCircle size={13} className="flex-shrink-0 mt-0.5" />}
@@ -38,7 +38,7 @@ const Field = ({ label, children, optional }) => (
   </div>
 );
 
-const inputCls = "w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-3 px-3.5";
+const inputCls = "w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#2C2DE0] dark:focus:border-[#2C2DE0] transition-all py-3 px-3.5";
 
 const CATEGORIES = [
   { key: "bug", label: "Bug", icon: Bug },
@@ -117,12 +117,12 @@ const ReportProblem = () => {
                 type="button"
                 onClick={() => setCategory(c.key)}
                 className={`flex flex-col items-center gap-1.5 px-2 py-3 rounded-xl border text-center transition-all duration-150 ${active
-                  ? "bg-green-50 dark:bg-green-500/10 border-green-300 dark:border-green-700"
-                  : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800"
+                  ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]"
+                  : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]"
                   }`}
               >
-                <c.icon size={17} className={active ? "text-green-600 dark:text-green-400" : "text-gray-400"} />
-                <span className={`text-[11px] font-bold leading-tight ${active ? "text-green-700 dark:text-green-400" : "text-gray-600 dark:text-gray-300"}`}>
+                <c.icon size={17} className={active ? "text-[#2C2DE0] dark:text-[#2C2DE0]" : "text-gray-400"} />
+                <span className={`text-[11px] font-bold leading-tight ${active ? "text-[#2C2DE0] dark:text-[#2C2DE0]" : "text-gray-600 dark:text-gray-300"}`}>
                   {c.label}
                 </span>
               </button>

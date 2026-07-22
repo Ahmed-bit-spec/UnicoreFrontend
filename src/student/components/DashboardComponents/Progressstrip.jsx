@@ -20,7 +20,7 @@ const ProgressStrip = ({ stats = {} }) => {
         <Link
           key={key}
           to={href}
-          className="group bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-2xl px-4 py-4 flex items-center gap-3.5 hover:border-green-300 dark:hover:border-green-700 hover:-translate-y-0.5 transition-all duration-150"
+          className="group bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-2xl px-4 py-4 flex items-center gap-3.5 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] hover:-translate-y-0.5 transition-all duration-150"
         >
           <div
             className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"

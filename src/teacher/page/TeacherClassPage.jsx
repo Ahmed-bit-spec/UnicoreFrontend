@@ -29,9 +29,9 @@ const Skeleton = ({ className }) => (
 
 // Accent color by index (cycles)
 const ACCENTS = [
-  { bg: "bg-green-50 dark:bg-green-500/10", text: "text-green-600 dark:text-green-400", dot: "bg-green-500" },
+  { bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10", text: "text-[#2C2DE0] dark:text-[#2C2DE0]", dot: "bg-[#2C2DE0]" },
   { bg: "bg-gray-50 dark:bg-zinc-800/50",   text: "text-gray-900 dark:text-white",   dot: "bg-gray-500"  },
-  { bg: "bg-green-50 dark:bg-green-500/10", text: "text-green-600 dark:text-green-400", dot: "bg-green-500" },
+  { bg: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10", text: "text-[#2C2DE0] dark:text-[#2C2DE0]", dot: "bg-[#2C2DE0]" },
   { bg: "bg-gray-50 dark:bg-zinc-800/50",   text: "text-gray-900 dark:text-white",   dot: "bg-gray-500"  },
 ];
 
@@ -76,7 +76,7 @@ const TeacherClassesPage = () => {
       {/* ── Header ── */}
       <motion.div {...fadeUp(0)} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-green-600 dark:text-green-400 mb-1">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0] dark:text-[#2C2DE0] mb-1">
             {p.teaching || "Teaching"}
           </p>
           <h1 className="text-xl font-black text-gray-900 dark:text-white">{p.myClasses || "My Classes"}</h1>
@@ -92,7 +92,7 @@ const TeacherClassesPage = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder={p.searchPlaceholder || "Search classes…"}
-            className="w-full pl-8 pr-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30"
+            className="w-full pl-8 pr-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30"
           />
         </div>
       </motion.div>
@@ -124,7 +124,7 @@ const TeacherClassesPage = () => {
             {search ? (p.noMatch || "No classes match your search.") : (p.noClasses || "No classes assigned yet.")}
           </p>
           {search && (
-            <button onClick={() => setSearch("")} className="text-xs text-green-600 dark:text-green-400 font-semibold hover:underline">
+            <button onClick={() => setSearch("")} className="text-xs text-[#2C2DE0] dark:text-[#2C2DE0] font-semibold hover:underline">
               {p.clearSearch || "Clear search"}
             </button>
           )}
@@ -156,7 +156,7 @@ const TeacherClassesPage = () => {
 
                   {/* Course name + code */}
                   <div className="mb-3">
-                    <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors line-clamp-2">
+                    <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug group-hover:text-[#2C2DE0] dark:group-hover:text-[#2C2DE0] transition-colors line-clamp-2">
                       {cls.course.title}
                     </h3>
                     <p className={cn("text-[11px] font-bold mt-0.5", accent.text)}>

@@ -29,7 +29,7 @@ export default function DesignReviewTab({ submission }) {
             onClick={() => setViewport(id)}
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg transition-colors
               ${viewport === id
-                ? "bg-green-100 dark:bg-green-500/10 text-green-700 dark:text-green-400"
+                ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0]"
                 : "text-gray-500 hover:bg-gray-100 dark:hover:bg-zinc-800"
               }`}
           >

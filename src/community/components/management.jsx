@@ -39,7 +39,7 @@ const RequestCard = ({ request, resolved, onApprove, onReject }) => {
     return (
         <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-xl p-4">
             <div className="flex items-center gap-3 mb-2">
-                <img src={request.studentId?.photo || ""} alt="" className="w-8 h-8 rounded-full bg-green-500" />
+                <img src={request.studentId?.photo || ""} alt="" className="w-8 h-8 rounded-full bg-[#2C2DE0]" />
                 <div>
                     <p className="font-bold text-sm text-black dark:text-white">{request.studentId?.name}</p>
                     <p className="text-[11px] text-black/40 dark:text-white/40">{new Date(request.createdAt).toLocaleString()}</p>
@@ -47,7 +47,7 @@ const RequestCard = ({ request, resolved, onApprove, onReject }) => {
                 {resolved && (
                     <span
                         className={`ml-auto text-[10px] font-bold px-2 py-0.5 rounded-full ${request.status === "approved"
-                                ? "bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400"
+                                ? "bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#2C2DE0] dark:text-[#2C2DE0]"
                                 : "bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-400"
                             }`}
                     >
@@ -207,7 +207,7 @@ const BroadcastPanel = ({ groupId }) => {
                 rows={3}
                 className="w-full p-2 rounded-lg text-sm bg-black/5 dark:bg-white/5 text-black dark:text-white focus:outline-none"
             />
-            {sent !== null && <p className="text-xs text-green-600">Sent to {sent} members.</p>}
+            {sent !== null && <p className="text-xs text-[#2C2DE0]">Sent to {sent} members.</p>}
             <button onClick={handleSend} disabled={sending} className={`px-4 py-1.5 rounded-lg ${BTN_PRIMARY}`}>
                 {sending ? "Sending..." : "Send broadcast"}
             </button>

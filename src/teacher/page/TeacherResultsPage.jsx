@@ -50,7 +50,7 @@ export default function TeacherResultsPage() {
   if (loading && !resultsData) {
     return (
       <div className="flex items-center justify-center py-32 bg-gray-50 dark:bg-zinc-950 min-h-screen">
-        <Loader2 className="w-8 h-8 animate-spin text-green-500" />
+        <Loader2 className="w-8 h-8 animate-spin text-[#2C2DE0]" />
       </div>
     );
   }
@@ -69,7 +69,7 @@ export default function TeacherResultsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-black text-gray-900 dark:text-white flex items-center gap-2">
-            <BarChart2 className="w-7 h-7 text-green-500" />
+            <BarChart2 className="w-7 h-7 text-[#2C2DE0]" />
             Results & Analytics
           </h1>
           <p className="text-gray-500 text-sm">
@@ -82,7 +82,7 @@ export default function TeacherResultsPage() {
           <select
             value={selectedExamId}
             onChange={(e) => setSelectedExamId(e.target.value)}
-            className="px-4 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl text-sm font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="px-4 py-2 bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 rounded-xl text-sm font-semibold text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]"
           >
             <option value="">-- Choose Exam --</option>
             {exams.map((ex) => (
@@ -96,7 +96,7 @@ export default function TeacherResultsPage() {
             disabled={loading}
             className="p-2 border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-gray-500 rounded-xl hover:bg-gray-50 dark:hover:bg-zinc-800 transition-colors"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-green-500" : ""}`} />
+            <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin text-[#2C2DE0]" : ""}`} />
           </button>
         </div>
       </div>
@@ -131,7 +131,7 @@ export default function TeacherResultsPage() {
                         {bar.count}
                       </span>
                       <div
-                        className="w-full bg-gradient-to-t from-green-500/80 to-emerald-400 rounded-t-md group-hover:opacity-90 transition-all cursor-pointer"
+                        className="w-full bg-gradient-to-t from-[#2C2DE0]/80 to-emerald-400 rounded-t-md group-hover:opacity-90 transition-all cursor-pointer"
                         style={{ height: `${pct}%` }}
                         title={`${bar.count} students scored in ${bar.range}%`}
                       />
@@ -152,10 +152,10 @@ export default function TeacherResultsPage() {
                 <div className="border-t border-gray-100 dark:border-zinc-800 pt-3">
                   <div className="flex justify-between text-xs text-gray-500 mb-1">
                     <span>Pass / Fail split</span>
-                    <span className="font-semibold text-green-600">{stats.passRate || 0}% passed</span>
+                    <span className="font-semibold text-[#2C2DE0]">{stats.passRate || 0}% passed</span>
                   </div>
                   <div className="h-3 bg-red-100 dark:bg-red-500/10 rounded-full overflow-hidden flex">
-                    <div className="h-full bg-green-500" style={{ width: `${stats.passRate || 0}%` }} />
+                    <div className="h-full bg-[#2C2DE0]" style={{ width: `${stats.passRate || 0}%` }} />
                   </div>
                 </div>
               </div>
@@ -192,7 +192,7 @@ export default function TeacherResultsPage() {
                       <td className="py-3 text-right font-mono text-xs font-bold text-gray-800 dark:text-gray-200">
                         {q.avgEarned} / {q.maxMarks}
                       </td>
-                      <td className="py-3 text-right font-mono text-xs font-bold text-green-600 dark:text-green-400">
+                      <td className="py-3 text-right font-mono text-xs font-bold text-[#2C2DE0] dark:text-[#2C2DE0]">
                         {q.correctRate}%
                       </td>
                       <td className="py-3 text-right">
@@ -213,7 +213,7 @@ export default function TeacherResultsPage() {
 function MetricCard({ icon: Icon, label, value, unit, color }) {
   const colors = {
     indigo: "from-indigo-500/10 to-indigo-500/5 text-indigo-600 border-indigo-100 dark:border-zinc-800",
-    green:  "from-green-500/10 to-green-500/5 text-green-600 border-green-100 dark:border-zinc-800",
+    green:  "from-[#2C2DE0]/10 to-[#2C2DE0]/5 text-[#2C2DE0] border-[#2C2DE0] dark:border-zinc-800",
     blue:   "from-blue-500/10 to-blue-500/5 text-blue-600 border-blue-100 dark:border-zinc-800",
     purple: "from-purple-500/10 to-purple-500/5 text-purple-600 border-purple-100 dark:border-zinc-800",
   };
@@ -242,7 +242,7 @@ function StatRow({ label, value }) {
 
 function DifficultyBadge({ level }) {
   const configs = {
-    easy: "bg-green-100 text-green-700 dark:bg-green-500/10 dark:text-green-400",
+    easy: "bg-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/10 dark:text-[#2C2DE0]",
     medium: "bg-yellow-100 text-yellow-700 dark:bg-yellow-500/10 dark:text-yellow-400",
     hard: "bg-red-100 text-red-700 dark:bg-red-500/10 dark:text-red-400",
   };

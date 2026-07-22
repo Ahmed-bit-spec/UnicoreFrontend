@@ -40,7 +40,7 @@ export default function TeacherNotesTab({ grades, onUpdateGrade, answers }) {
                 value={g.privateNotes ?? ""}
                 onChange={(e) => onUpdateGrade(qid, "privateNotes", e.target.value)}
                 placeholder="Enter private grading notes, edge cases, or exception reasons..."
-                className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg text-sm focus:ring-2 focus:ring-green-500 outline-none resize-y"
+                className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-lg text-sm focus:ring-2 focus:ring-[#2C2DE0] outline-none resize-y"
               />
             </div>
           );

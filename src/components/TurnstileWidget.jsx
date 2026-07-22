@@ -57,7 +57,7 @@ function TurnstileReal({ onVerify, onExpire, className }) {
             className="w-full"
           />
         ) : (
-          <div className="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 border-t-green-500 animate-spin" />
+          <div className="w-5 h-5 rounded-full border-2 border-gray-300 dark:border-gray-600 border-t-[#2C2DE0] animate-spin" />
         )}
       </div>
 

@@ -24,7 +24,7 @@ const ThemeToggle = ({ className = "", size = "md", showLabel = false }) => {
         text-gray-500 dark:text-gray-400
         hover:text-gray-900 dark:hover:text-white
         hover:bg-gray-100 dark:hover:bg-gray-800
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-green-400/50
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2C2DE0]/50
         transition-all duration-150
         ${showLabel ? "px-3 py-2 text-sm font-semibold" : sizeClasses[size] || sizeClasses.md}
         ${className}

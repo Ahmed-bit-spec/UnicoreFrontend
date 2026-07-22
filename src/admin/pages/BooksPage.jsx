@@ -43,7 +43,7 @@ const getFormatOpts = (T) => [
 ];
 
 const getStatusOpts = (T) => [
-  { value: "active", label: T.statusActive, dot: "bg-green-500" },
+  { value: "active", label: T.statusActive, dot: "bg-[#2C2DE0]" },
   { value: "archived", label: T.statusArchived, dot: "bg-gray-400" },
 ];
 
@@ -88,7 +88,7 @@ const DropZone = ({ accept, label, hint, icon: Icon, preview, onFile, onClear, T
   return (
     <div
       className={`relative rounded-2xl border-2 border-dashed transition-all cursor-pointer select-none
-        ${drag ? "border-green-400 bg-green-50 dark:bg-green-500/10" : "border-gray-200 dark:border-white/10 hover:border-green-300 dark:hover:border-green-600"}
+        ${drag ? "border-[#2C2DE0] bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" : "border-gray-200 dark:border-white/10 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]"}
         ${preview ? "p-2" : "p-5"}`}
       onClick={() => inputRef.current.click()}
       onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
@@ -103,9 +103,9 @@ const DropZone = ({ accept, label, hint, icon: Icon, preview, onFile, onClear, T
           {accept.includes("image") ? (
             <img src={preview} alt="cover" className="w-full h-40 object-cover rounded-xl" />
           ) : (
-            <div className="flex items-center gap-3 px-3 py-3 bg-green-50 dark:bg-green-500/10 rounded-xl">
-              <FileText size={20} className="text-green-600 dark:text-green-400 flex-shrink-0" />
-              <span className="text-xs font-semibold text-green-700 dark:text-green-400 truncate">{T.pdfAvailable}</span>
+            <div className="flex items-center gap-3 px-3 py-3 bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 rounded-xl">
+              <FileText size={20} className="text-[#2C2DE0] dark:text-[#2C2DE0] flex-shrink-0" />
+              <span className="text-xs font-semibold text-[#2C2DE0] dark:text-[#2C2DE0] truncate">{T.pdfAvailable}</span>
             </div>
           )}
           <button
@@ -118,8 +118,8 @@ const DropZone = ({ accept, label, hint, icon: Icon, preview, onFile, onClear, T
         </div>
       ) : (
         <div className="flex flex-col items-center gap-2 text-center">
-          <div className={`size-10 rounded-xl flex items-center justify-center ${drag ? "bg-green-100 dark:bg-green-500/20" : "bg-gray-100 dark:bg-white/5"}`}>
-            <Icon size={18} className={drag ? "text-green-600" : "text-gray-400"} />
+          <div className={`size-10 rounded-xl flex items-center justify-center ${drag ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/20" : "bg-gray-100 dark:bg-white/5"}`}>
+            <Icon size={18} className={drag ? "text-[#2C2DE0]" : "text-gray-400"} />
           </div>
           <div>
             <p className="text-xs font-bold text-gray-700 dark:text-gray-200">{label}</p>
@@ -165,21 +165,21 @@ const Field = ({ label, required, children, className = "" }) => (
 
 const Input = ({ className = "", ...props }) => (
   <input
-    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400 transition-all ${className}`}
+    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all ${className}`}
     {...props}
   />
 );
 
 const Textarea = ({ className = "", ...props }) => (
   <textarea
-    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400 transition-all resize-none ${className}`}
+    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-3 py-2.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all resize-none ${className}`}
     {...props}
   />
 );
 
 const Select = ({ className = "", children, ...props }) => (
   <select
-    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-900 px-3 py-2.5 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400 transition-all ${className}`}
+    className={`w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-gray-900 px-3 py-2.5 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all ${className}`}
     {...props}
   >
     {children}
@@ -342,8 +342,8 @@ const BookForm = ({ initial, onSubmit, isSaving, T }) => {
               type="button"
               onClick={() => set("format", opt.value)}
               className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold border transition-all ${form.format === opt.value
-                ? "bg-green-500 border-green-500 text-white shadow-sm"
-                : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:border-green-300 dark:hover:border-green-700"
+                ? "bg-[#2C2DE0] border-[#2C2DE0] text-white shadow-sm"
+                : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-400 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]"
                 }`}
             >
               <opt.icon size={13} />
@@ -430,7 +430,7 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
           </button>
           <button
             onClick={() => { onClose(); onEdit(book); }}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-green-500 hover:bg-green-600 text-white transition-colors shadow-sm"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white transition-colors shadow-sm"
           >
             <Pencil size={13} /> {T.actionEdit}
           </button>
@@ -466,7 +466,7 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
             <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] px-4 py-3">
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">{T.fieldShelf}</p>
               <p className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-1.5">
-                <MapPin size={12} className="text-green-500" /> {book.shelfLocation}
+                <MapPin size={12} className="text-[#2C2DE0]" /> {book.shelfLocation}
               </p>
             </div>
           )}
@@ -474,19 +474,19 @@ const ViewModal = ({ book, open, onClose, onEdit, T }) => {
             <div className="rounded-xl border border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] px-4 py-3">
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">{T.colCopies}</p>
               <p className="text-sm font-bold text-gray-900 dark:text-white">
-                <span className="text-green-600 dark:text-green-400">{book.availableCopies}</span>
+                <span className="text-[#2C2DE0] dark:text-[#2C2DE0]">{book.availableCopies}</span>
                 <span className="text-gray-400"> / {book.totalCopies} {T.copies}</span>
               </p>
             </div>
           )}
           {["ebook", "both"].includes(book.format) && (
-            <div className={`rounded-xl border px-4 py-3 ${hasEbook(book) ? "border-green-200 dark:border-green-500/20 bg-green-50 dark:bg-green-500/10" : "border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03]"}`}>
+            <div className={`rounded-xl border px-4 py-3 ${hasEbook(book) ? "border-[#2C2DE0] dark:border-[#2C2DE0]/20 bg-[#2C2DE0] dark:bg-[#2C2DE0]/10" : "border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03]"}`}>
               <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">PDF</p>
               {hasEbook(book) ? (
                 // No public URL — the PDF is private on Cloudinary. Route through
                 // the protected reader page, which streams it server-side.
                 <a href={`/read/${book._id}`}
-                  className="flex items-center gap-1.5 text-sm font-bold text-green-600 dark:text-green-400 hover:underline">
+                  className="flex items-center gap-1.5 text-sm font-bold text-[#2C2DE0] dark:text-[#2C2DE0] hover:underline">
                   <ExternalLink size={13} /> {T.pdfAvailable}
                 </a>
               ) : (
@@ -549,7 +549,7 @@ const FilterPill = ({ label, value, options, onChange }) => (
     <select
       value={value}
       onChange={(e) => onChange(e.target.value)}
-      className="appearance-none pl-3 pr-7 py-2 rounded-xl text-xs font-bold border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500/30 cursor-pointer"
+      className="appearance-none pl-3 pr-7 py-2 rounded-xl text-xs font-bold border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 cursor-pointer"
     >
       {options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
     </select>
@@ -690,7 +690,7 @@ const BooksPage = () => {
 
       <div className="flex items-start justify-between gap-4 flex-wrap">
         <div className="flex items-center gap-3">
-          <div className="size-10 rounded-2xl bg-green-500 flex items-center justify-center shadow-lg shadow-green-500/30">
+          <div className="size-10 rounded-2xl bg-[#2C2DE0] flex items-center justify-center shadow-lg shadow-[#2C2DE0]/30">
             <Library size={20} className="text-white" />
           </div>
           <div>
@@ -700,7 +700,7 @@ const BooksPage = () => {
         </div>
         <button
           onClick={() => setEditing({})}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-green-500 hover:bg-green-600 text-white text-sm font-bold transition-all shadow-sm shadow-green-500/20"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white text-sm font-bold transition-all shadow-sm shadow-[#2C2DE0]/20"
         >
           <Plus size={16} />
           {T.actionAdd}
@@ -712,7 +712,7 @@ const BooksPage = () => {
         <StatCard label={T.statsPhysical} value={stats.physical} icon={BookOpen} accent="bg-emerald-600" />
         <StatCard label={T.statsEbook} value={stats.ebook} icon={FileText} accent="bg-blue-600" />
         <StatCard label={T.statsBoth} value={stats.both} icon={Layers} accent="bg-violet-600" />
-        <StatCard label={T.statsActive} value={stats.active} icon={Bookmark} accent="bg-green-500" />
+        <StatCard label={T.statsActive} value={stats.active} icon={Bookmark} accent="bg-[#2C2DE0]" />
         <StatCard label={T.statsArchived} value={stats.archived} icon={Archive} accent="bg-red-500" />
       </div>
 
@@ -723,7 +723,7 @@ const BooksPage = () => {
             type="text"
             placeholder={T.searchPlaceholder}
             onChange={(e) => handleSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500/30 transition-all"
+            className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 text-sm text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 transition-all"
           />
         </div>
 
@@ -753,7 +753,7 @@ const BooksPage = () => {
           onClick={exportBooksCsv}
           disabled={books.length === 0}
           title={T.actionExport}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 hover:border-green-400 hover:text-green-600 dark:hover:text-green-400 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-gray-200 dark:border-white/10 text-gray-600 dark:text-gray-300 hover:border-[#2C2DE0] hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
         >
           <Download size={14} />
           <span className="text-xs font-semibold hidden sm:inline">{T.actionExport}</span>
@@ -763,7 +763,7 @@ const BooksPage = () => {
       <div className="rounded-2xl border border-gray-200/70 dark:border-white/10 bg-white dark:bg-white/[0.03] overflow-hidden">
         {isLoading ? (
           <div className="flex items-center justify-center py-20 gap-3">
-            <Loader2 size={20} className="animate-spin text-green-500" />
+            <Loader2 size={20} className="animate-spin text-[#2C2DE0]" />
             <span className="text-sm text-gray-400">{T.loading}</span>
           </div>
         ) : isError ? (
@@ -827,7 +827,7 @@ const BooksPage = () => {
                       <td className="px-4 py-3">
                         {["physical", "both"].includes(book.format) ? (
                           <div className="text-xs">
-                            <span className="font-bold text-green-600 dark:text-green-400">{book.availableCopies}</span>
+                            <span className="font-bold text-[#2C2DE0] dark:text-[#2C2DE0]">{book.availableCopies}</span>
                             <span className="text-gray-400"> / {book.totalCopies}</span>
                           </div>
                         ) : (
@@ -845,7 +845,7 @@ const BooksPage = () => {
                             <Eye size={13} />
                           </button>
                           <button onClick={() => setEditing(book)}
-                            className="size-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-green-50 dark:hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                            className="size-7 rounded-lg flex items-center justify-center text-gray-400 hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] transition-colors"
                             title={T.actionEdit}>
                             <Pencil size={13} />
                           </button>
@@ -873,7 +873,7 @@ const BooksPage = () => {
               <button
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page <= 1}
-                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-500 hover:border-green-400 hover:text-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-500 hover:border-[#2C2DE0] hover:text-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronLeft size={14} />
               </button>
@@ -884,8 +884,8 @@ const BooksPage = () => {
                     key={pg}
                     onClick={() => setPage(pg)}
                     className={`size-8 rounded-lg text-xs font-bold transition-all ${pg === page
-                      ? "bg-green-500 text-white shadow-sm"
-                      : "border border-gray-200 dark:border-white/10 text-gray-500 hover:border-green-400 hover:text-green-600"
+                      ? "bg-[#2C2DE0] text-white shadow-sm"
+                      : "border border-gray-200 dark:border-white/10 text-gray-500 hover:border-[#2C2DE0] hover:text-[#2C2DE0]"
                       }`}
                   >
                     {pg}
@@ -895,7 +895,7 @@ const BooksPage = () => {
               <button
                 onClick={() => setPage((p) => Math.min(pagination.totalPages, p + 1))}
                 disabled={page >= pagination.totalPages}
-                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-500 hover:border-green-400 hover:text-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-white/10 text-gray-500 hover:border-[#2C2DE0] hover:text-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
               >
                 <ChevronRight size={14} />
               </button>
@@ -929,7 +929,7 @@ const BooksPage = () => {
             <button
               onClick={() => document.getElementById("book-form-submit").click()}
               disabled={isSaving}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-green-500 hover:bg-green-600 disabled:opacity-50 text-white transition-colors shadow-sm"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold bg-[#2C2DE0] hover:bg-[#2C2DE0] disabled:opacity-50 text-white transition-colors shadow-sm"
             >
               {isSaving
                 ? <><Loader2 size={13} className="animate-spin" /> {T.saving}</>

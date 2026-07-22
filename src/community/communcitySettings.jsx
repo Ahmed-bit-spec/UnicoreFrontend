@@ -39,7 +39,7 @@ const Banner = ({ type, message }) => {
   const ok = type === "success";
   return (
     <div className={`flex items-start gap-2 rounded-xl px-3.5 py-3 border text-xs leading-relaxed ${ok
-      ? "bg-green-50 dark:bg-green-500/10 border-green-100 dark:border-green-500/20 text-green-700 dark:text-green-400"
+      ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]/20 text-[#2C2DE0] dark:text-[#2C2DE0]"
       : "bg-red-50 dark:bg-red-500/10 border-red-100 dark:border-red-500/20 text-red-600 dark:text-red-400"
       }`}>
       {ok ? <CheckCircle2 size={13} className="shrink-0 mt-0.5" /> : <AlertCircle size={13} className="shrink-0 mt-0.5" />}
@@ -90,14 +90,14 @@ const RadioCard = ({ active, onClick, icon: Icon, title, subtitle }) => (
     type="button"
     onClick={onClick}
     className={`flex items-center justify-between px-4 py-3.5 rounded-xl border text-left transition-all duration-150 w-full ${active
-      ? "bg-green-50 dark:bg-green-500/10 border-green-300 dark:border-green-700"
-      : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-green-200 dark:hover:border-green-800"
-      }`}
+      ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]"
+      : "bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0]"
+      } text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group`}
   >
     <div className="flex items-center gap-3">
-      {Icon && <Icon size={16} className={active ? "text-green-600 dark:text-green-400" : "text-gray-400"} />}
+      {Icon && <Icon size={16} className={active ? "text-[#2C2DE0] dark:text-[#2C2DE0]" : "text-gray-400"} />}
       <div>
-        <p className={`text-sm font-bold leading-tight ${active ? "text-green-700 dark:text-green-400" : "text-gray-700 dark:text-gray-200"}`}>{title}</p>
+        <p className={`text-sm font-bold leading-tight ${active ? "text-[#2C2DE0] dark:text-[#2C2DE0]" : "text-gray-700 dark:text-gray-200"}`}>{title}</p>
         {subtitle && <p className="text-[10px] text-gray-400 mt-0.5">{subtitle}</p>}
       </div>
     </div>
@@ -221,7 +221,7 @@ const ProfileSection = ({ user, setUser, isSo }) => {
             onChange={(e) => setDisplayName(e.target.value)}
             maxLength={60}
             placeholder={isSo ? "Sida ay kuula muuqan doonto bulshada" : "How your name appears to the community"}
-            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-3 px-3.5"
+            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#2C2DE0] dark:focus:border-[#2C2DE0] transition-all py-3 px-3.5"
           />
           <p className="text-[10px] text-gray-400">
             {isSo ? "Waxay ka duwan tahay magacaad ee jaamacadda ee la xaqiijiyay." : "Separate from your verified university name shown above."}
@@ -238,7 +238,7 @@ const ProfileSection = ({ user, setUser, isSo }) => {
             maxLength={280}
             rows={3}
             placeholder={isSo ? "Wax yar naga sheeg..." : "Tell your classmates a little about yourself…"}
-            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all p-3.5 resize-none"
+            className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#2C2DE0] dark:focus:border-[#2C2DE0] transition-all p-3.5 resize-none"
           />
           <p className="text-[10px] text-gray-400 text-right">{bio.length}/280</p>
         </div>
@@ -253,12 +253,12 @@ const ProfileSection = ({ user, setUser, isSo }) => {
               onChange={(e) => setSkillInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addSkill())}
               placeholder={isSo ? "Geli xirfad kuxiga Enter" : "Add a skill, press Enter"}
-              className="flex-1 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-2.5 px-3.5"
+              className="flex-1 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#2C2DE0] dark:focus:border-[#2C2DE0] transition-all py-2.5 px-3.5"
             />
             <button
               type="button"
               onClick={addSkill}
-              className="w-10 h-10 flex-shrink-0 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-green-100 dark:hover:bg-green-500/20 text-gray-500 hover:text-green-600 flex items-center justify-center transition-colors"
+              className="w-10 h-10 flex-shrink-0 rounded-xl bg-gray-100 dark:bg-gray-800 hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/20 text-gray-500 hover:text-[#2C2DE0] flex items-center justify-center transition-colors text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
             >
               <Plus size={16} />
             </button>
@@ -266,9 +266,9 @@ const ProfileSection = ({ user, setUser, isSo }) => {
           {skills.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-1">
               {skills.map((s) => (
-                <span key={s} className="inline-flex items-center gap-1.5 bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 text-xs font-semibold px-3 py-1.5 rounded-full">
+                <span key={s} className="inline-flex items-center gap-1.5 bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0] text-xs font-semibold px-3 py-1.5 rounded-full">
                   {s}
-                  <button onClick={() => removeSkill(s)} className="hover:text-green-900 dark:hover:text-green-200">
+                  <button onClick={() => removeSkill(s)} className="hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0]">
                     <X size={11} />
                   </button>
                 </span>
@@ -568,7 +568,7 @@ const SecuritySection = ({ isGoogleUser, isSo }) => {
                   type={f.show ? "text" : "password"}
                   value={f.value}
                   onChange={(e) => f.set(e.target.value)}
-                  className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-3 pl-10 pr-11"
+                  className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#2C2DE0] dark:focus:border-[#2C2DE0] transition-all py-3 pl-10 pr-11"
                 />
                 <button type="button" onClick={f.toggle} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
                   {f.show ? <EyeOff size={15} /> : <Eye size={15} />}
@@ -600,7 +600,7 @@ const SecuritySection = ({ isGoogleUser, isSo }) => {
                   <p className="text-[11px] text-gray-400">{s.location || ""} {s.lastActive ? `· ${s.lastActive}` : ""}</p>
                 </div>
                 {s.current && (
-                  <span className="text-[10px] font-bold text-green-600 dark:text-green-400 uppercase">{isSo ? "Hadda" : "This device"}</span>
+                  <span className="text-[10px] font-bold text-[#2C2DE0] dark:text-[#2C2DE0] uppercase">{isSo ? "Hadda" : "This device"}</span>
                 )}
               </div>
             ))}
@@ -632,7 +632,7 @@ const HelpSection = ({ isSo }) => (
       <a
         key={item.label}
         href={item.href}
-        className="flex items-center justify-between px-4 py-3.5 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-green-200 dark:hover:border-green-800 hover:bg-green-50/50 dark:hover:bg-green-500/5 transition-colors"
+        className="flex items-center justify-between px-4 py-3.5 rounded-xl border border-gray-100 dark:border-gray-800 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] hover:bg-[#2C2DE0]/50 dark:hover:bg-[#2C2DE0]/5 transition-colors"
       >
         <span className="flex items-center gap-3 text-sm font-semibold text-gray-700 dark:text-gray-200">
           <item.icon size={16} className="text-gray-400" />

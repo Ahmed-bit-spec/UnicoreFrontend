@@ -35,7 +35,7 @@ const Roadmaps = () => {
     <div className="w-full px-4 sm:px-6 py-6" style={{ fontFamily: "'Geist Variable', 'Inter', sans-serif" }}>
       <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100 dark:border-gray-800">
         <div className="flex items-center gap-2">
-          <Map size={20} className="text-green-500" />
+          <Map size={20} className="text-[#2C2DE0]" />
           <h1 className="text-lg font-black text-gray-900 dark:text-white">
             {t["sidebar.roadmaps"] ?? "Roadmaps"}
           </h1>
@@ -70,7 +70,7 @@ const Roadmaps = () => {
       )}
 
       {loading ? (
-        <div className="flex justify-center py-20"><Spinner size={20} className="text-green-500" /></div>
+        <div className="flex justify-center py-20"><Spinner size={20} className="text-[#2C2DE0]" /></div>
       ) : roadmaps.length === 0 ? (
         <div className="text-center py-24">
           <BookOpen size={36} className="mx-auto text-gray-300 mb-3" />
@@ -83,15 +83,15 @@ const Roadmaps = () => {
             <Link
               key={rm._id}
               to={`/community/roadmaps/${rm._id}`}
-              className="block p-5 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-green-200 dark:hover:border-green-900 hover:shadow-sm transition-all group"
+              className="block p-5 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-[#2C2DE0] dark:hover:border-[#2C2DE0] hover:shadow-sm transition-all group"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-green-50 dark:bg-green-950/40 flex items-center justify-center text-2xl flex-shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/40 flex items-center justify-center text-2xl flex-shrink-0">
                   {rm.icon ?? "🗺️"}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <h2 className="text-base font-black text-gray-900 dark:text-white group-hover:text-green-600 transition-colors">
+                    <h2 className="text-base font-black text-gray-900 dark:text-white group-hover:text-[#2C2DE0] transition-colors">
                       {rm.title}
                     </h2>
                     <span className="flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-900 text-gray-500">
@@ -105,9 +105,9 @@ const Roadmaps = () => {
                   {rm.progressPercent > 0 && (
                     <div className="mt-2.5 flex items-center gap-2">
                       <div className="h-1.5 w-32 rounded-full bg-gray-100 dark:bg-gray-900 overflow-hidden">
-                        <div className="h-full bg-green-500" style={{ width: `${rm.progressPercent}%` }} />
+                        <div className="h-full bg-[#2C2DE0]" style={{ width: `${rm.progressPercent}%` }} />
                       </div>
-                      <span className="text-[10px] font-bold text-green-600">{rm.progressPercent}%</span>
+                      <span className="text-[10px] font-bold text-[#2C2DE0]">{rm.progressPercent}%</span>
                     </div>
                   )}
 
@@ -118,7 +118,7 @@ const Roadmaps = () => {
                     </div>
                     <span className="text-xs text-gray-400">{timeAgo(rm.createdAt)}</span>
                     {rm.semesterTag && (
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-950/40 text-green-600">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0]/40 text-[#2C2DE0]">
                         {rm.semesterTag}
                       </span>
                     )}
@@ -134,7 +134,7 @@ const Roadmaps = () => {
                     </div>
                   )}
                 </div>
-                <ChevronRight size={18} className="text-gray-300 group-hover:text-green-500 flex-shrink-0 mt-1" />
+                <ChevronRight size={18} className="text-gray-300 group-hover:text-[#2C2DE0] flex-shrink-0 mt-1" />
               </div>
             </Link>
           ))}

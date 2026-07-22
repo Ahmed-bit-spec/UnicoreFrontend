@@ -57,7 +57,7 @@ export default function ImageUploadField({ value, onChange, label = "Image" }) {
           </button>
         </div>
       ) : (
-        <label className="flex items-center gap-2 border-2 border-dashed rounded-lg p-4 cursor-pointer text-sm text-neutral-500 hover:border-green-400 dark:border-neutral-600 w-fit">
+        <label className="flex items-center gap-2 border-2 border-dashed rounded-lg p-4 cursor-pointer text-sm text-neutral-500 hover:border-[#2C2DE0] dark:border-neutral-600 w-fit">
           {uploading ? <Upload className="w-4 h-4 animate-pulse" /> : <ImageIcon className="w-4 h-4" />}
           {uploading ? "Uploading..." : "Click to upload an image"}
           <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" className="hidden" onChange={handleFile} disabled={uploading} />

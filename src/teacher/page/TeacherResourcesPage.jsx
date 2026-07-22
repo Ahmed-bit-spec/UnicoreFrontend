@@ -20,12 +20,12 @@ export default function TeacherResourcesPage() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <FolderOpen className="text-green-500" />
+            <FolderOpen className="text-[#2C2DE0]" />
             {p.title || "Resources"}
           </h1>
           <p className="text-sm text-gray-500 mt-1">{p.subtitle || "Upload lecture notes, slides, PDFs, and other course materials."}</p>
         </div>
-        <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-colors">
+        <button className="bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white px-4 py-2.5 rounded-xl font-medium flex items-center gap-2 transition-colors text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group">
           <UploadCloud className="w-4 h-4" /> {p.uploadResource || "Upload Resource"}
         </button>
       </div>
@@ -37,7 +37,7 @@ export default function TeacherResourcesPage() {
             <input 
               type="text" 
               placeholder={p.searchPlaceholder || "Search resources..."} 
-              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-zinc-800/50 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-green-500 dark:text-white"
+              className="w-full pl-10 pr-4 py-2.5 bg-gray-50 dark:bg-zinc-800/50 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:text-white"
               value={search}
               onChange={e => setSearch(e.target.value)}
             />
@@ -65,8 +65,8 @@ export default function TeacherResourcesPage() {
               {mockResources.map((res) => (
                 <tr key={res.id} className="hover:bg-gray-50/50 dark:hover:bg-zinc-800/30 transition-colors group">
                   <td className="py-4 pl-4 text-sm font-semibold text-gray-900 dark:text-white flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-green-50 dark:bg-green-500/10 flex items-center justify-center shrink-0">
-                      <FileText className="w-4 h-4 text-green-600 dark:text-green-400" />
+                    <div className="w-8 h-8 rounded-lg bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 flex items-center justify-center shrink-0">
+                      <FileText className="w-4 h-4 text-[#2C2DE0] dark:text-[#2C2DE0]" />
                     </div>
                     {res.title}
                   </td>
@@ -83,7 +83,7 @@ export default function TeacherResourcesPage() {
                   </td>
                   <td className="py-4 pr-4 text-right">
                     <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <button className="p-1.5 text-gray-400 hover:text-green-500 hover:bg-green-50 dark:hover:bg-green-500/10 rounded-md transition-colors" title={p.download || "Download"}>
+                      <button className="p-1.5 text-gray-400 hover:text-[#2C2DE0] hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/10 rounded-md transition-colors text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group" title={p.download || "Download"}>
                         <Download className="w-4 h-4" />
                       </button>
                       <button className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-md transition-colors" title={p.deleteResource || "Delete"}>

@@ -44,7 +44,7 @@ const minDate = () => {
 
 // ─── Status config ────────────────────────────────────────────────────────────
 const STATUS = {
-    active: { dot: "bg-green-500", badge: "bg-green-50 dark:bg-green-500/10 text-green-700 dark:text-green-400 border-green-200 dark:border-green-500/20" },
+    active: { dot: "bg-[#2C2DE0]", badge: "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 text-[#2C2DE0] dark:text-[#2C2DE0] border-[#2C2DE0] dark:border-[#2C2DE0]/20" },
     returned: { dot: "bg-gray-400", badge: "bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-gray-700" },
     overdue: { dot: "bg-red-500 animate-pulse", badge: "bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 border-red-200 dark:border-red-500/20" },
     lost: { dot: "bg-orange-500", badge: "bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-200 dark:border-orange-500/20" },
@@ -88,7 +88,7 @@ const SearchDropdown = ({ placeholder, onSearch, results, onSelect, selected, re
     return (
         <div className="relative">
             {selected ? (
-                <div className="flex items-center justify-between rounded-xl border border-green-200 dark:border-green-500/30 bg-green-50 dark:bg-green-500/10 px-3 py-2.5">
+                <div className="flex items-center justify-between rounded-xl border border-[#2C2DE0] dark:border-[#2C2DE0]/30 bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 px-3 py-2.5">
                     {renderSelected(selected)}
                     <button onClick={() => onSelect(null)} className="ml-2 text-gray-400 hover:text-red-400 transition-colors">
                         <X size={14} />
@@ -102,7 +102,7 @@ const SearchDropdown = ({ placeholder, onSearch, results, onSelect, selected, re
                         onChange={(e) => { setQ(e.target.value); setOpen(true); }}
                         onFocus={() => setOpen(true)}
                         placeholder={placeholder}
-                        className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400"
+                        className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0]"
                     />
                     {loading && <Loader2 size={13} className="absolute right-3 top-1/2 -translate-y-1/2 animate-spin text-gray-400" />}
                 </div>
@@ -200,10 +200,10 @@ const IssueModal = ({ onClose, onSuccess, t }) => {
                             )}
                             renderSelected={(b) => (
                                 <div className="flex items-center gap-2">
-                                    <BookOpen size={14} className="text-green-500" />
+                                    <BookOpen size={14} className="text-[#2C2DE0]" />
                                     <div>
                                         <p className="text-sm font-bold text-gray-900 dark:text-white">{b.title}</p>
-                                        <p className="text-xs text-green-600 dark:text-green-400">{b.availableCopies} {p.available}</p>
+                                        <p className="text-xs text-[#2C2DE0] dark:text-[#2C2DE0]">{b.availableCopies} {p.available}</p>
                                     </div>
                                 </div>
                             )}
@@ -225,7 +225,7 @@ const IssueModal = ({ onClose, onSuccess, t }) => {
                             loading={loadingStudents}
                             renderItem={(s) => (
                                 <div className="flex items-center gap-3">
-                                    <div className="size-8 rounded-full bg-green-500/10 flex items-center justify-center text-[10px] font-black text-green-600">
+                                    <div className="size-8 rounded-full bg-[#2C2DE0]/10 flex items-center justify-center text-[10px] font-black text-[#2C2DE0]">
                                         {(s.fullName || s.name || "?").slice(0, 2).toUpperCase()}
                                     </div>
                                     <div>
@@ -236,10 +236,10 @@ const IssueModal = ({ onClose, onSuccess, t }) => {
                             )}
                             renderSelected={(s) => (
                                 <div className="flex items-center gap-2">
-                                    <User size={14} className="text-green-500" />
+                                    <User size={14} className="text-[#2C2DE0]" />
                                     <div>
                                         <p className="text-sm font-bold text-gray-900 dark:text-white">{s.fullName || s.name}</p>
-                                        <p className="text-xs text-green-600 dark:text-green-400">{s.studentId || s.email}</p>
+                                        <p className="text-xs text-[#2C2DE0] dark:text-[#2C2DE0]">{s.studentId || s.email}</p>
                                     </div>
                                 </div>
                             )}
@@ -250,7 +250,7 @@ const IssueModal = ({ onClose, onSuccess, t }) => {
                     <div>
                         <label className="block text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-2">{p.dueDate}</label>
                         <input type="date" value={dueDate} min={minDate()} onChange={(e) => setDueDate(e.target.value)}
-                            className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400" />
+                            className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0]" />
                     </div>
 
                     {/* Notes */}
@@ -258,7 +258,7 @@ const IssueModal = ({ onClose, onSuccess, t }) => {
                         <label className="block text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-2">{p.notes} <span className="normal-case font-normal text-gray-400">({p.optional})</span></label>
                         <textarea value={notes} onChange={(e) => setNotes(e.target.value)} rows={2}
                             placeholder={p.notesPlaceholder}
-                            className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2.5 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400" />
+                            className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2.5 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0]" />
                     </div>
                 </div>
 
@@ -268,7 +268,7 @@ const IssueModal = ({ onClose, onSuccess, t }) => {
                         {p.cancel}
                     </button>
                     <button onClick={() => mutate()} disabled={isPending || !canSubmit || selectedBook?.availableCopies === 0}
-                        className="flex-1 py-2.5 rounded-xl text-sm font-bold text-white bg-green-500 hover:bg-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm">
+                        className="flex-1 py-2.5 rounded-xl text-sm font-bold text-white bg-[#2C2DE0] hover:bg-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm">
                         {isPending ? <span className="flex items-center justify-center gap-2"><Loader2 size={14} className="animate-spin" />{p.issuing}</span> : p.issueBook}
                     </button>
                 </div>
@@ -307,7 +307,7 @@ const DetailModal = ({ borrowId, onClose, onAction, t }) => {
                 <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
                     {isLoading ? (
                         <div className="flex items-center justify-center py-12">
-                            <Loader2 size={24} className="animate-spin text-green-500" />
+                            <Loader2 size={24} className="animate-spin text-[#2C2DE0]" />
                         </div>
                     ) : b ? (
                         <>
@@ -384,7 +384,7 @@ const DetailModal = ({ borrowId, onClose, onAction, t }) => {
                     <div className="flex-shrink-0 flex flex-wrap gap-2 px-6 pb-6 pt-3 border-t border-gray-100 dark:border-gray-800">
                         {["active", "overdue"].includes(b.status) && !b.returnedAt && (
                             <button onClick={() => onAction("return", b._id)}
-                                className="flex items-center gap-1.5 rounded-xl bg-green-500 hover:bg-green-600 text-white px-4 py-2 text-xs font-bold transition-all">
+                                className="flex items-center gap-1.5 rounded-xl bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white px-4 py-2 text-xs font-bold transition-all">
                                 <RotateCcw size={13} />{p.returnBook}
                             </button>
                         )}
@@ -470,14 +470,14 @@ const BorrowManagementPage = () => {
             <div className="flex items-center justify-between mb-6">
                 <PageHeader title={p.title} subtitle={p.subtitle} />
                 <button onClick={() => setIssueOpen(true)}
-                    className="flex items-center gap-2 rounded-xl bg-green-500 hover:bg-green-600 text-white px-4 py-2.5 text-sm font-bold transition-all shadow-sm shadow-green-200 dark:shadow-none">
+                    className="flex items-center gap-2 rounded-xl bg-[#2C2DE0] hover:bg-[#2C2DE0] text-white px-4 py-2.5 text-sm font-bold transition-all shadow-sm shadow-[#2C2DE0] dark:shadow-none">
                     <Plus size={16} />{p.issueBook}
                 </button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 mb-6">
-                <StatCard label={p.statsActive} value={stats.active} icon={BookOpen} accent="bg-green-500" />
+                <StatCard label={p.statsActive} value={stats.active} icon={BookOpen} accent="bg-[#2C2DE0]" />
                 <StatCard label={p.statsOverdue} value={stats.overdue} icon={AlertTriangle} accent="bg-red-500" pulse={stats.overdue > 0} />
                 <StatCard label={p.statsReturnedToday} value={stats.returnedToday} icon={CheckCircle2} accent="bg-gray-600" />
                 <StatCard label={p.statsTotal} value={stats.total} icon={BarChart3} accent="bg-black dark:bg-white/20" />
@@ -489,14 +489,14 @@ const BorrowManagementPage = () => {
                     <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                     <input value={search} onChange={(e) => { setSearch(e.target.value); setPage(1); }}
                         placeholder={p.searchPlaceholder}
-                        className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-950 pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:border-green-400" />
+                        className="w-full rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-950 pl-9 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0]" />
                 </div>
                 <div className="flex gap-2 flex-wrap">
                     {statusOptions.map((opt) => (
                         <button key={opt.value} onClick={() => { setStatus(opt.value); setPage(1); }}
                             className={`px-3 py-2 rounded-xl text-xs font-bold border transition-all ${status === opt.value
-                                ? "bg-green-500 border-green-500 text-white"
-                                : "bg-white dark:bg-gray-950 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-green-300"
+                                ? "bg-[#2C2DE0] border-[#2C2DE0] text-white"
+                                : "bg-white dark:bg-gray-950 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#2C2DE0]"
                                 }`}>
                             {opt.label}
                         </button>
@@ -508,7 +508,7 @@ const BorrowManagementPage = () => {
             <div className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-950 overflow-hidden">
                 {isLoading ? (
                     <div className="flex items-center justify-center py-16">
-                        <Loader2 size={24} className="animate-spin text-green-500" />
+                        <Loader2 size={24} className="animate-spin text-[#2C2DE0]" />
                     </div>
                 ) : rows.length === 0 ? (
                     <div className="flex flex-col items-center justify-center py-16 text-center">
@@ -573,7 +573,7 @@ const BorrowManagementPage = () => {
                                                     </button>
                                                     {["active", "overdue"].includes(row.status) && !row.returnedAt && (
                                                         <button onClick={() => handleAction("return", row._id)}
-                                                            className="flex items-center gap-1 rounded-lg px-2 py-1.5 text-[10px] font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/10 hover:bg-green-100 dark:hover:bg-green-500/20 transition-colors">
+                                                            className="flex items-center gap-1 rounded-lg px-2 py-1.5 text-[10px] font-bold text-[#2C2DE0] dark:text-[#2C2DE0] bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 hover:bg-[#2C2DE0] dark:hover:bg-[#2C2DE0]/20 transition-colors">
                                                             <RotateCcw size={11} />{p.return}
                                                         </button>
                                                     )}
@@ -593,12 +593,12 @@ const BorrowManagementPage = () => {
                         <p className="text-xs text-gray-400">{pagination.total} {p.totalRecords}</p>
                         <div className="flex items-center gap-2">
                             <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1}
-                                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-green-400 hover:text-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+                                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#2C2DE0] hover:text-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all">
                                 <ChevronLeft size={14} />
                             </button>
                             <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{page} / {pagination.totalPages}</span>
                             <button onClick={() => setPage((p) => Math.min(pagination.totalPages, p + 1))} disabled={page === pagination.totalPages}
-                                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-green-400 hover:text-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all">
+                                className="size-8 rounded-lg flex items-center justify-center border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:border-[#2C2DE0] hover:text-[#2C2DE0] disabled:opacity-40 disabled:cursor-not-allowed transition-all">
                                 <ChevronRight size={14} />
                             </button>
                         </div>

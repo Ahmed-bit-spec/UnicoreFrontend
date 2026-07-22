@@ -9,7 +9,7 @@ const Banner = ({ type, message }) => {
   const ok = type === "success";
   return (
     <div className={`flex items-start gap-2 rounded-xl px-3.5 py-3 border text-xs leading-relaxed ${ok
-      ? "bg-green-50 dark:bg-green-500/10 border-green-100 dark:border-green-500/20 text-green-700 dark:text-green-400"
+      ? "bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 border-[#2C2DE0] dark:border-[#2C2DE0]/20 text-[#2C2DE0] dark:text-[#2C2DE0]"
       : "bg-red-50 dark:bg-red-500/10 border-red-100 dark:border-red-500/20 text-red-600 dark:text-red-400"
       }`}>
       {ok ? <CheckCircle2 size={13} className="flex-shrink-0 mt-0.5" /> : <AlertCircle size={13} className="flex-shrink-0 mt-0.5" />}
@@ -28,7 +28,7 @@ const Card = ({ title, icon: Icon, children }) => (
   </div>
 );
 
-const inputCls = "w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-green-400/40 focus:border-green-400 dark:focus:border-green-500 transition-all py-3 px-3.5";
+const inputCls = "w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/40 focus:border-[#2C2DE0] dark:focus:border-[#2C2DE0] transition-all py-3 px-3.5";
 
 const CONTACT_TYPES = [
   { icon: HelpCircle, title: "General Support", subtitle: "Questions about using the platform." },
@@ -85,7 +85,7 @@ const ContactUs = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {CONTACT_TYPES.map((c) => (
           <div key={c.title} className="flex items-start gap-3 rounded-2xl border border-gray-100 dark:border-gray-800 px-4 py-4">
-            <div className="w-9 h-9 rounded-xl bg-green-50 dark:bg-green-500/10 flex items-center justify-center flex-shrink-0">
+            <div className="w-9 h-9 rounded-xl bg-[#2C2DE0] dark:bg-[#2C2DE0]/10 flex items-center justify-center flex-shrink-0">
               <c.icon size={16} className="text-[#58CC02]" />
             </div>
             <div>

@@ -73,7 +73,7 @@ export default function AIQuestionGenerator({ onClose, onSaved }) {
       <div className="bg-white dark:bg-zinc-900 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-2xl border border-gray-200 dark:border-zinc-800">
         <div className="flex items-center justify-between p-5 border-b border-gray-100 dark:border-zinc-800">
           <h3 className="font-bold text-gray-900 dark:text-white flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-green-500" />
+            <Sparkles className="w-4 h-4 text-[#2C2DE0]" />
             AI Question Generator
           </h3>
           <button onClick={onClose} className="p-1 hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-lg text-gray-400">
@@ -91,7 +91,7 @@ export default function AIQuestionGenerator({ onClose, onSaved }) {
                   value={topic}
                   onChange={e => setTopic(e.target.value)}
                   placeholder="e.g. Binary Search Trees"
-                  className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                  className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                 />
               </div>
 
@@ -101,7 +101,7 @@ export default function AIQuestionGenerator({ onClose, onSaved }) {
                   <select
                     value={difficulty}
                     onChange={e => setDifficulty(e.target.value)}
-                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                   >
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
@@ -116,7 +116,7 @@ export default function AIQuestionGenerator({ onClose, onSaved }) {
                     max={20}
                     value={count}
                     onChange={e => setCount(Math.min(20, Math.max(1, parseInt(e.target.value) || 1)))}
-                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-gray-50 dark:bg-zinc-800 border border-gray-200 dark:border-zinc-700 rounded-xl text-sm focus:ring-2 focus:ring-[#2C2DE0] focus:outline-none"
                   />
                 </div>
               </div>
@@ -131,7 +131,7 @@ export default function AIQuestionGenerator({ onClose, onSaved }) {
                       onClick={() => toggleType(opt.id)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors ${
                         types.includes(opt.id)
-                          ? "bg-green-100 border-green-400 text-green-700 dark:bg-green-900/40 dark:text-green-300"
+                          ? "bg-[#2C2DE0] border-[#2C2DE0] text-[#2C2DE0] dark:bg-[#2C2DE0]/40 dark:text-[#2C2DE0]"
                           : "bg-white border-gray-200 text-gray-600 dark:bg-zinc-800 dark:border-zinc-700 dark:text-gray-300"
                       }`}
                     >
@@ -144,7 +144,7 @@ export default function AIQuestionGenerator({ onClose, onSaved }) {
               <button
                 onClick={handleGenerate}
                 disabled={generating}
-                className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white font-bold text-sm py-2.5 rounded-xl"
+                className="w-full flex items-center justify-center gap-2 bg-[#2C2DE0] hover:bg-[#2C2DE0] disabled:opacity-60 text-white font-bold text-sm py-2.5 rounded-xl text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
                 {generating ? "Generating..." : "Generate Preview"}
@@ -188,7 +188,7 @@ export default function AIQuestionGenerator({ onClose, onSaved }) {
               <button
                 onClick={handleSaveToBank}
                 disabled={saving || preview.length === 0}
-                className="w-full flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 disabled:opacity-60 text-white font-bold text-sm py-2.5 rounded-xl"
+                className="w-full flex items-center justify-center gap-2 bg-[#2C2DE0] hover:bg-[#2C2DE0] disabled:opacity-60 text-white font-bold text-sm py-2.5 rounded-xl text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
               >
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <BookOpen className="w-4 h-4" />}
                 {saving ? "Saving..." : "Save to Question Bank"}

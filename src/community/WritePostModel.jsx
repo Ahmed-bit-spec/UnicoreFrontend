@@ -365,7 +365,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
         <div className="flex items-center gap-2 mt-5 pt-5 border-t border-gray-100 dark:border-gray-800">
           <button
             onClick={() => imageInputRef.current?.click()}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-green-500 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-[13px] font-semibold text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900 hover:text-[#2C2DE0] transition-colors"
           >
             <Image size={16} />
             {t["write.photo"] ?? "Photo"}
@@ -442,7 +442,7 @@ const WritePostModal = ({ open, onClose, onCreated }) => {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-green-100 dark:bg-green-950/40 text-green-700 dark:text-green-400 text-[12px] font-semibold"
+                className="flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0]/40 text-[#2C2DE0] dark:text-[#2C2DE0] text-[12px] font-semibold"
               >
                 #{tag}
                 <button onClick={() => removeTag(tag)} className="hover:text-red-500 transition-colors">

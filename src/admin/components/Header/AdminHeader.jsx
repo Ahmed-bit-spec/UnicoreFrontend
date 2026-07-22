@@ -98,7 +98,7 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
                 {crumb.path ? (
                   <Link
                     to={crumb.path}
-                    className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                    className="hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] transition-colors"
                   >
                     {crumb.label}
                   </Link>
@@ -124,7 +124,7 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
 
           <Link
             to="/community"
-            className="hidden sm:flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-green-500/10 hover:text-green-600 dark:hover:text-green-400 transition-colors"
+            className="hidden sm:flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] dark:hover:text-[#2C2DE0] transition-colors"
           >
             <Users size={15} />
             {t["navbar.community"] ?? "Community"}
@@ -144,9 +144,9 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
             <button
               type="button"
               onClick={() => setProfileOpen((v) => !v)}
-              className="flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-white/10 pl-1 pr-2 py-1 hover:border-green-500/30 transition-colors"
+              className="flex items-center gap-2 rounded-xl border border-gray-200/80 dark:border-white/10 pl-1 pr-2 py-1 hover:border-[#2C2DE0]/30 transition-colors"
             >
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-green-400 to-green-600 text-xs font-bold text-white">
+              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#2C2DE0] to-[#2C2DE0] text-xs font-bold text-white">
                 {initials}
               </span>
               <span className="hidden md:block text-xs font-semibold text-gray-700 dark:text-gray-200 max-w-[100px] truncate">
@@ -169,7 +169,7 @@ const AdminHeader = ({ onMenuClick, pageTitle, breadcrumbs = [] }) => {
                   </div>
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-green-500/10 hover:text-green-600 transition-colors"
+                    className="flex w-full items-center gap-2 px-4 py-2.5 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-[#2C2DE0]/10 hover:text-[#2C2DE0] transition-colors text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
                   >
                     <User size={14} />
                     {ap.header.viewProfile}

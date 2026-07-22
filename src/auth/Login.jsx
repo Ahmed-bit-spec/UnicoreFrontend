@@ -167,11 +167,11 @@ const LoginPage = () => {
           {loading && (
             <div className="flex flex-col items-center text-center py-12 anim-fadeup">
               <div className="relative w-16 h-16 mb-6">
-                <div className="absolute inset-0 rounded-full border-4 border-green-100 dark:border-green-900" />
-                <div className="absolute inset-0 rounded-full border-4 border-green-500 border-t-transparent animate-spin" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] dark:border-[#2C2DE0]" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#2C2DE0] border-t-transparent animate-spin" />
                 {/* Key icon inside spinner */}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                  className="absolute inset-0 m-auto text-green-500">
+                  className="absolute inset-0 m-auto text-[#2C2DE0]">
                   <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"
                     stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -184,7 +184,7 @@ const LoginPage = () => {
               <div className="flex gap-1 mt-5">
                 {[0, 1, 2].map((i) => (
                   <span key={i}
-                    className="w-2 h-2 rounded-full bg-green-500 animate-bounce"
+                    className="w-2 h-2 rounded-full bg-[#2C2DE0] animate-bounce"
                     style={{ animationDelay: `${i * 150}ms` }}
                   />
                 ))}
@@ -233,7 +233,7 @@ const LoginPage = () => {
                     autoComplete="off"
                     autoCapitalize="none"
                     spellCheck={false}
-                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
+                    className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all"
                   />
                 </div>
 
@@ -249,7 +249,7 @@ const LoginPage = () => {
                       onChange={handleChange}
                       placeholder={t("auth.passwordPlaceholder")}
                       autoComplete="new-password"
-                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pr-11 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-400/30 focus:border-green-400 transition-all"
+                      className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 pr-11 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#2C2DE0] transition-all"
                     />
                     <button
                       type="button"
@@ -264,7 +264,7 @@ const LoginPage = () => {
                 <div className="flex justify-end -mt-2">
                   <Link
                     to="/forgot-password"
-                    className="text-xs text-green-600 dark:text-green-400 font-semibold hover:underline"
+                    className="text-xs text-[#2C2DE0] dark:text-[#2C2DE0] font-semibold hover:underline"
                   >
                     {t("auth.forgotPassword")}
                   </Link>
@@ -295,7 +295,7 @@ const LoginPage = () => {
 
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-6 text-center">
                 {t("auth.noAccount")}{" "}
-                <Link to="/signup" className="text-green-600 dark:text-green-400 font-semibold hover:underline">
+                <Link to="/signup" className="text-[#2C2DE0] dark:text-[#2C2DE0] font-semibold hover:underline">
                   {t("auth.createOne")}
                 </Link>
               </p>
@@ -311,11 +311,11 @@ const LoginPage = () => {
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
-            backgroundImage: "radial-gradient(circle, #22c55e 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(circle, #2C2DE0 1px, transparent 1px)",
             backgroundSize: "20px 20px",
           }}
         />
-        <div className="absolute top-0 left-0 right-0 h-1 bg-green-500" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#2C2DE0]" />
 
         <div className="relative z-10 max-w-sm">
           <div className="w-14 h-14 rounded-2xl bg-[#58CC02]

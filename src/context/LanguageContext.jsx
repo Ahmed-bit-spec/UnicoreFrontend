@@ -126,7 +126,7 @@ export const LanguageProvider = ({ children }) => {
       {showSomaliPrompt && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/45 px-4 backdrop-blur-sm">
           <div className="w-full max-w-sm overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl dark:border-gray-800 dark:bg-gray-950">
-            <div className="h-1 bg-green-500" />
+            <div className="h-1 bg-[#2C2DE0]" />
             <div className="p-6 text-center">
               <p className="text-base font-black text-gray-900 dark:text-white">
                 {so.language.browserSomaliQuestion}

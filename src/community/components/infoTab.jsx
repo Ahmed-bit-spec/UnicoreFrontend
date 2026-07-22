@@ -129,7 +129,7 @@ const InfoTab = ({ group, canManage, onSaved }) => {
                         groupAdmins.map((m) => (
                             <span
                                 key={m.user._id}
-                                className="text-xs font-bold px-2 py-1 rounded-full bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400"
+                                className="text-xs font-bold px-2 py-1 rounded-full bg-[#2C2DE0] dark:bg-[#2C2DE0] text-[#2C2DE0] dark:text-[#2C2DE0]"
                             >
                                 {m.user.name}
                             </span>

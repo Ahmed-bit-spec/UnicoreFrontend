@@ -89,10 +89,10 @@ const QuizWithOwl = ({ onComplete }) => {
       {/* Streak + XP chips, Duolingo-style */}
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black text-white text-xs font-black">
-          <Flame size={13} className="text-green-500" />
+          <Flame size={13} className="text-[#2C2DE0]" />
           {streak} day streak
         </div>
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-black">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#2C2DE0] border border-[#2C2DE0] text-[#2C2DE0] text-xs font-black">
           +{xp} XP
         </div>
       </div>
@@ -100,7 +100,7 @@ const QuizWithOwl = ({ onComplete }) => {
       {/* Progress bar across questions */}
       <div className="w-full h-2 rounded-full bg-gray-100 overflow-hidden">
         <div
-          className="h-full bg-green-500 rounded-full transition-all duration-300"
+          className="h-full bg-[#2C2DE0] rounded-full transition-all duration-300"
           style={{ width: `${((qIndex + (locked ? 1 : 0)) / MOCK_QUESTIONS.length) * 100}%` }}
         />
       </div>
@@ -114,13 +114,13 @@ const QuizWithOwl = ({ onComplete }) => {
             const isSelected = selected === idx;
             const isCorrectOpt = idx === question.correctIndex;
 
-            let stateClass = "border-gray-200 bg-white text-black hover:border-green-300";
+            let stateClass = "border-gray-200 bg-white text-black hover:border-[#2C2DE0]";
             if (locked && isCorrectOpt) {
-              stateClass = "border-green-500 bg-green-50 text-green-700";
+              stateClass = "border-[#2C2DE0] bg-[#2C2DE0] text-[#2C2DE0]";
             } else if (locked && isSelected && !isCorrectOpt) {
               stateClass = "border-red-400 bg-red-50 text-red-600";
             } else if (!locked && isSelected) {
-              stateClass = "border-green-500 bg-green-50 text-green-700";
+              stateClass = "border-[#2C2DE0] bg-[#2C2DE0] text-[#2C2DE0]";
             }
 
             return (
@@ -131,7 +131,7 @@ const QuizWithOwl = ({ onComplete }) => {
                 className={`flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border-2 text-sm font-bold text-left transition-all ${stateClass}`}
               >
                 <span>{opt}</span>
-                {locked && isCorrectOpt && <Check size={16} className="text-green-600 shrink-0" />}
+                {locked && isCorrectOpt && <Check size={16} className="text-[#2C2DE0] shrink-0" />}
                 {locked && isSelected && !isCorrectOpt && <X size={16} className="text-red-500 shrink-0" />}
               </button>
             );

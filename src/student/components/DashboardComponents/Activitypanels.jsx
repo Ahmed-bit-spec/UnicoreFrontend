@@ -9,13 +9,13 @@ const PanelShell = ({ icon: Icon, title, viewAllHref, children }) => (
   <div className="bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-800 rounded-2xl overflow-hidden flex flex-col">
     <div className="flex items-center justify-between px-5 py-3.5 border-b border-gray-100 dark:border-gray-800">
       <div className="flex items-center gap-2">
-        <Icon size={15} className="text-green-500" strokeWidth={2.3} />
+        <Icon size={15} className="text-[#2C2DE0]" strokeWidth={2.3} />
         <span className="text-[13px] font-black text-gray-900 dark:text-white">{title}</span>
       </div>
       {viewAllHref && (
         <Link
           to={viewAllHref}
-          className="text-[11px] font-bold text-green-500 hover:text-green-600 flex items-center gap-0.5"
+          className="text-[11px] font-bold text-[#2C2DE0] hover:text-[#2C2DE0] flex items-center gap-0.5"
         >
           View all <ChevronRight size={12} />
         </Link>

@@ -58,7 +58,7 @@ const UserManagement = () => {
       <main className="max-w-6xl mx-auto px-6 py-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-widest text-green-500">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-[#2C2DE0]">
               {t.admin.panel}
             </p>
             <h1 className="mt-2 text-2xl font-black text-gray-900 dark:text-white">
@@ -96,7 +96,7 @@ const UserManagement = () => {
                       <select
                         value={user.role}
                         onChange={(e) => handleRoleChange(user._id, e.target.value)}
-                        className="rounded-lg border border-gray-300 bg-white px-2.5 py-1 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-green-500 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
+                        className="rounded-lg border border-gray-300 bg-white px-2.5 py-1 text-xs font-bold focus:outline-none focus:ring-2 focus:ring-[#2C2DE0] dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100"
                       >
                         <option value="student">Student</option>
                         <option value="admin">Admin</option>
