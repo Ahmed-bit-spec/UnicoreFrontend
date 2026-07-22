@@ -447,16 +447,19 @@ const VerifyUniversityId = () => {
                       disabled={isLockedOut}
                       className="w-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-16 py-3 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2C2DE0]/30 focus:border-[#4F51FF] transition-all disabled:opacity-50"
                     />
-                    <button 
-                      onClick={() => setShowPassword(v => !v)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-bold text-gray-400 hover:text-[#2C2DE0] dark:text-[#4F51FF] transition-colors"
-                    >
-                      {showPassword ? copy.hide : copy.show}
-                    </button>
+                  <button 
+  type="button"
+  onClick={() => setShowPassword(v => !v)}
+  className="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-bold text-gray-400 hover:text-[#2C2DE0] dark:text-[#4F51FF] transition-colors"
+>
+  {showPassword ? copy.hide : copy.show}
+</button>
                   </div>
                 </div>
 
                 {/* 5. Confirm / create password */}
+
+
 <button
   type="submit"
   disabled={!fullName.trim() || !password.trim() || isLockedOut}
