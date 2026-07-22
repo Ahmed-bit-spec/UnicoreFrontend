@@ -57,20 +57,20 @@ export const GraduateBot = ({
       aria-label={label}
       tabIndex={0}
       {...handlers}
-      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
+      className="hover:translate-y-0.5 active:translate-y-1 transition-all duration-150 group"
     >
       <svg viewBox="0 0 100 120" width={size} height={size * 1.2} fill="none" style={{ transformOrigin: "50% 100%", ...reaction }}>
         <ellipse cx="50" cy="114" rx="26" ry="5" fill="#14171a" opacity="0.1" />
         <rect x="34" y="86" width="10" height="22" rx="4" fill="#2D6A00" />
         <rect x="56" y="86" width="10" height="22" rx="4" fill="#2D6A00" />
-        <rect x="24" y="46" width="52" height="46" rx="14" fill="#2C2DE0" style={{ animation: "mBreathe 4.5s ease-in-out infinite" }} />
+        <rect x="24" y="46" width="52" height="46" rx="14" fill="#EEF2FF" style={{ animation: "mBreathe 4.5s ease-in-out infinite" }} />
         <rect x="34" y="58" width="32" height="22" rx="8" fill="#EEF2FF" />
         <g style={{ transformOrigin: "74px 56px", animation: "mWaveRight 6s ease-in-out infinite", animationDelay: "4s" }}>
-          <rect x="70" y="40" width="9" height="26" rx="4.5" fill="#2C2DE0" />
+          <rect x="70" y="40" width="9" height="26" rx="4.5" fill="#EEF2FF" />
         </g>
-        <rect x="21" y="56" width="9" height="22" rx="4.5" fill="#2C2DE0" />
+        <rect x="21" y="56" width="9" height="22" rx="4.5" fill="#EEF2FF" />
         <g style={{ transformOrigin: "50px 30px", animation: "mLookAround 7s ease-in-out infinite" }}>
-          <rect x="28" y="10" width="44" height="38" rx="14" fill="#2C2DE0" />
+          <rect x="28" y="10" width="44" height="38" rx="14" fill="#EEF2FF" />
           <rect x="36" y="20" width="28" height="18" rx="6" fill="#14171a" />
           <circle cx="45" cy="29" r="2.6" fill="#6366F1" style={{ animation: "mBlink 5s ease-in-out infinite" }} />
           <circle cx="55" cy="29" r="2.6" fill="#6366F1" style={{ animation: "mBlink 5s ease-in-out infinite" }} />
@@ -98,26 +98,26 @@ export const Sprout = ({ size = 70, event, label = "Sprout, your cheerful compan
       aria-label={label}
       tabIndex={0}
       {...handlers}
-      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
+      className="hover:translate-y-0.5 active:translate-y-1 transition-all duration-150 group"
     >
       <svg viewBox="0 0 90 100" width={size} height={size * 1.1} fill="none" style={{ transformOrigin: "50% 100%", ...reaction }}>
         <ellipse cx="45" cy="94" rx="22" ry="4.5" fill="#14171a" opacity="0.1" />
         <g style={{ animation: "mBreathe 3.2s ease-in-out infinite" }}>
-          <path d="M40 16 Q26 4 14 10 Q22 22 38 24Z" fill="#2C2DE0" />
-          <path d="M50 16 Q64 4 76 10 Q68 22 52 24Z" fill="#2C2DE0" style={{ transformOrigin: "60px 14px", animation: "mWaveRight 5s ease-in-out infinite" }} />
+          <path d="M40 16 Q26 4 14 10 Q22 22 38 24Z" fill="#6EDB8F" />
+          <path d="M50 16 Q64 4 76 10 Q68 22 52 24Z" fill="#6EDB8F" style={{ transformOrigin: "60px 14px", animation: "mWaveRight 5s ease-in-out infinite" }} />
           <ellipse cx="45" cy="58" rx="32" ry="34" fill="#6366F1" />
           <ellipse cx="45" cy="64" rx="20" ry="22" fill="#EEF2FF" />
           <g style={{ transformOrigin: "16px 56px", animation: "mWaveLeft 6s ease-in-out infinite", animationDelay: "4s" }}>
-            <ellipse cx="13" cy="50" rx="7" ry="14" fill="#2C2DE0" />
+            <ellipse cx="13" cy="50" rx="7" ry="14" fill="#6EDB8F" />
           </g>
-          <ellipse cx="77" cy="62" rx="7" ry="14" fill="#2C2DE0" />
+          <ellipse cx="77" cy="62" rx="7" ry="14" fill="#6EDB8F" />
           <circle cx="36" cy="56" r="6" fill="#14171a" style={{ animation: "mBlink 4.5s ease-in-out infinite" }} />
           <circle cx="54" cy="56" r="6" fill="#14171a" style={{ animation: "mBlink 4.5s ease-in-out infinite" }} />
           <circle cx="38" cy="54" r="1.8" fill="#fff" />
           <circle cx="56" cy="54" r="1.8" fill="#fff" />
           <path d="M37 66 Q45 73 53 66" stroke="#2D6A00" strokeWidth="2.4" fill="none" strokeLinecap="round" />
-          <ellipse cx="34" cy="92" rx="7" ry="3.5" fill="#2C2DE0" />
-          <ellipse cx="56" cy="92" rx="7" ry="3.5" fill="#2C2DE0" />
+          <ellipse cx="34" cy="92" rx="7" ry="3.5" fill="#6EDB8F" />
+          <ellipse cx="56" cy="92" rx="7" ry="3.5" fill="#6EDB8F" />
         </g>
       </svg>
     </button>
@@ -137,7 +137,7 @@ export const SpiritBot = ({ size = 92, event, label = "SpiritBot, your AI study 
       aria-label={label}
       tabIndex={0}
       {...handlers}
-      className="bg-[#2C2DE0] text-white text-sm font-bold shadow-[0_4px_0_#1E1FAA] hover:translate-y-0.5 hover:shadow-[0_2px_0_#1E1FAA] active:translate-y-1 active:shadow-none transition-all duration-150 group"
+      className="hover:translate-y-0.5 active:translate-y-1 transition-all duration-150 group"
     >
       <svg viewBox="0 0 96 110" width={size} height={size * 1.15} fill="none" style={{ transformOrigin: "50% 100%", ...reaction }}>
         <ellipse cx="48" cy="104" rx="20" ry="4" fill="#14171a" opacity="0.08" />
