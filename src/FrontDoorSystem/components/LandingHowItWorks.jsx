@@ -32,10 +32,9 @@ const HowItWorks = ({ t }) => {
       <div className="w-full max-w-350 mx-auto px-6 lg:px-10 py-24 sm:py-28">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1E1FAA] " style={{ textShadow: "0 2px 0 #1E1FAA" }}>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1E1FAA] ">
               {t?.landing?.sectionHowItWorks || "How It Works"}
             </span>
-            {/* Hard text removed, fully dynamic now */}
             <h2 className="mt-3 text-3xl sm:text-4xl font-black text-black dark:text-white leading-tight max-w-lg">
               {t?.landing?.howItWorksTitle || "Up and running in three simple steps"}
             </h2>
@@ -44,16 +43,16 @@ const HowItWorks = ({ t }) => {
           <Link
             to="/seats"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl   bg-[#2C2DE0]
-    text-white
-    text-sm
-    font-bold
-    shadow-[0_4px_0_#1E1FAA]
-    hover:translate-y-0.5
-    hover:shadow-[0_2px_0_#1E1FAA]
-    active:translate-y-1
-    active:shadow-none
-    transition-all
-    duration-150 hover:opacity-90  shrink-0 group"
+            text-white
+            text-sm
+            font-bold
+            shadow-[0_4px_0_#1E1FAA]
+            hover:translate-y-0.5
+            hover:shadow-[0_2px_0_#1E1FAA]
+            active:translate-y-1
+            active:shadow-none
+            transition-all
+            duration-150 hover:opacity-90  shrink-0 group"
           >
             {t?.landing?.createAccount || "Create Account"}
             <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -61,8 +60,6 @@ const HowItWorks = ({ t }) => {
         </div>
 
         <div className="relative">
-          {/* Connector line between step icons */}
-          <div className="hidden sm:block absolute top-10 left-[calc(16.66%+28px)] right-[calc(16.66%+28px)] h-px bg-[#2C2DE0]/20" />
 
           <div className="grid sm:grid-cols-3 gap-8 sm:gap-10">
             {steps.map((step, i) => {
@@ -76,16 +73,16 @@ const HowItWorks = ({ t }) => {
                   transition={{ delay: i * 0.12 }}
                 >
                   <div className="relative w-12 h-12 rounded-2xl   bg-[#2C2DE0]
-    text-white
-    text-sm
-    font-bold
-    shadow-[0_4px_0_#1E1FAA]
-    hover:translate-y-0.5
-    hover:shadow-[0_2px_0_#1E1FAA]
-    active:translate-y-1
-    active:shadow-none
-    transition-all
-    duration-150 flex items-center justify-center mb-6">
+                    text-white
+                    text-sm
+                    font-bold
+                    shadow-[0_4px_0_#1E1FAA]
+                    hover:translate-y-0.5
+                    hover:shadow-[0_2px_0_#1E1FAA]
+                    active:translate-y-1
+                    active:shadow-none
+                    transition-all
+                    duration-150 flex items-center justify-center mb-6">
                     <Icon size={20} className="text-white" strokeWidth={2.5} />
                     {/* Step number badge */}
                     <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-white dark:bg-black border border-[#2C2DE0]/50 flex items-center justify-center text-[9px] font-black text-[#2C2DE0]">

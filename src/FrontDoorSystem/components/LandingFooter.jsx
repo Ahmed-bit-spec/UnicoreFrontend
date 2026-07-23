@@ -29,10 +29,9 @@ const LandingFooter = () => {
         <div className="lg:col-span-1">
           <UnicoreLogo size="md" />
           <p className="mt-4 text-sm text-black/50 dark:text-white/40 leading-relaxed max-w-xs">
-            {t?.footer?.tagline}
-          </p>
+            {t?.landing?.footer?.tagline}          </p>
           <div className="flex flex-col gap-2 mt-5">
-              <a
+            <a
 
               href="mailto:info@elibrary.com"
               className="flex items-center gap-2 text-sm text-black/50 dark:text-white/40 hover:text-[#2C2DE0] transition-colors">
@@ -42,12 +41,11 @@ const LandingFooter = () => {
               {t?.common?.university}, Mogadishu
             </span>
           </div>
-</div>
+        </div>
         {/* Quick links */}
         <div>
           <p className="text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0] mb-4">
-            {t?.footer?.quickLinks}
-          </p>
+            {t?.landing?.footer?.quickLinks}          </p>
           <ul className="flex flex-col gap-2.5">
             {[
               { label: t?.navbar?.home, to: "/" },
@@ -111,20 +109,20 @@ const LandingFooter = () => {
           </div>
         </div>
 
-      {/* Bottom bar */}
-      <div className="w-full border-t border-black/5 dark:border-white/5">
-        <div className="w-full max-w-350 mx-auto px-6 lg:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-black/50 dark:text-white/30 text-center sm:text-left">
-            © 2026 UNICORE — {t?.common?.university}. {t?.footer?.allRightsReserved}
-          </p>
-          <span className="flex items-center gap-1.5 text-xs text-[#2C2DE0] font-bold">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#2C2DE0] animate-pulse" />
-            {t?.footer?.liveSystem}
-          </span>
-        </div>
+        {/* Bottom bar */}
+        <div className="w-full border-t border-black/5 dark:border-white/5">
+          <div className="w-full max-w-350 mx-auto px-6 lg:px-10 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p className="text-xs text-black/50 dark:text-white/30 text-center sm:text-left">
+              © 2026 UNICORE — {t?.common?.university}. {t?.footer?.allRightsReserved}
+            </p>
+            <span className="flex items-center gap-1.5 text-xs text-[#2C2DE0] font-bold">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2C2DE0] animate-pulse" />
+              {t?.footer?.liveSystem}
+            </span>
+          </div>
         </div>
 
-        </div>
+      </div>
     </footer>
   );
 };

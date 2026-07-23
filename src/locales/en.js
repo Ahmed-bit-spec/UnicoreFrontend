@@ -75,121 +75,145 @@ const en = {
   landing: {
     // Hero
     heroBadge: "Uniso Integrated Core System",
-    heroDescription: "An integrated academic platform designed for UNISO students to streamline campus resources and learning. The system enables users to remotely reserve library seats and access digital books from home, utilize an integrated AI assistant for study support, take online examinations, and collaborate through community chats, posts, and virtual meetings.",
+    heroDescription: "UniCore is the digital campus platform that connects students with learning, resources, AI support, exams, and community — all in one place.",
     createAccount: "Get Started — It's Free",
     exploreFeatures: "Explore Features",
 
-    // Hero stats
-    students: "Students",
-    books: "Digital Books",
-    seats: "Study Seats",
-    onlineAccess: "Online Access",
+    heroTitleFirst: "The Future of",
+    heroTitleHighlight: "Digital Learning",
+    heroTitleLast: "at UNISO",
+
+    aiSupport: "AI Learning Support",
+    access: "Digital Access",
+    services: "Integrated Services",
+    platform: "Unified Platform",
+
 
     // Features section
-    sectionFeatures: "What the system does",
-    headingMain: "Everything your university needs",
-    headingSub: " in one platform",
+    sectionFeatures: "UniCore Features",
+    headingMain: "Everything students need",
+    headingSub: " in one intelligent platform",
     features: [
       {
         // [0]
         title: "Seat Reservation System",
         desc: "Reserve your library seat before you arrive. Choose any time slot and walk in guaranteed.",
       },
-      {
-        // [1]
-        title: "E-Library & Academic Resources",
-        desc: "Access thousands of textbooks, past exam papers, and research papers with powerful full-text search.",
+
+        {
+        title: "Digital Library & Resources",
+        desc: "Access textbooks, research materials, and academic resources from anywhere with powerful search."
       },
       {
-        // [2]
         title: "AI-Powered Learning Assistant",
-        desc: "Summarize any book instantly, get 24/7 study support, and ask questions across all your subjects.",
+        desc: "Get personalized study support, summaries, explanations, and academic guidance anytime."
       },
+
+    
       {
         // [3]
         title: "Fair Access for Everyone",
         desc: "Role-based access and one reservation per student keeps everything fair for the community.",
       },
       {
-        // [4] — Online Examinations
-        title: "Online Examinations",
-        desc: "Secure browser-locked exams with randomized question sets, automated grading, and instant results.",
+        title: "Online Examination System",
+        desc: "Take secure online exams with automated grading, question management, and instant results."
       },
       {
-        // [5] — Community
-        title: "Community & Collaboration",
-        desc: "Connect with peers in course-specific forums, share study notes, and collaborate on group projects.",
+        title: "Student Community & Collaboration",
+        desc: "Connect with classmates, share knowledge, discuss courses, and collaborate together."
       },
+      {
+        title: "Virtual Meetings",
+        desc: "Join online meetings, academic discussions, and collaborative sessions from anywhere."
+      }
     ],
+// How It Works section
+sectionHowItWorks: "How It Works",
+howItWorksTitle: "Get started with UniCore in a few simple steps",
 
-    // How It Works section
-    sectionHowItWorks: "How It Works",
-    howItWorksTitle: "Get started in a few simple steps",
-    howItWorksSteps: [
-      {
-        title: "Create Your Account",
-        desc: "Sign up with Google or your regular email address to secure and save your data.",
-      },
-      {
-        title: "Verify Your Identity",
-        desc: "Choose to enter using your 'Id' for full access, or as a 'Guest' if you just want to preview the system.",
-      },
-      {
-        title: "Access Your Dashboard",
-        desc: "Manage your courses, library reservations, examinations, and AI assistant—all in one place.",
-      },
-    ],
+howItWorksSteps: [
+  {
+    title: "Create Your Account",
+    desc: "Register securely using your email and create your UniCore account.",
+  },
+  {
+    title: "University Verification",
+    desc: "Your university identity is verified to ensure secure access to academic services and resources.",
+  },
+  {
+    title: "Access Your Digital Campus",
+    desc: "Use your dashboard to access the digital library, AI assistant, online exams, community, and campus services.",
+  },
+],
 
-    // FAQ section
-    faqs: [
-      {
-        question: "What is the main advantage of using this system?",
-        answer: "The biggest advantage is having all your academic needs in one place—from reserving library seats and reading books to taking exams, saving you the time and effort of switching between different systems.",
-      },
-      {
-        question: "How does the system make using the library easier?",
-        answer: "The system allows you to reserve a physical seat in the library from home so you can secure your spot. You can also read e-books online without needing to visit the university campus.",
-      },
-      {
-        question: "How does the AI assistant work?",
-        answer: "The AI assistant is specifically designed to summarize the content of the exact page you are currently reading. It helps you quickly understand the text without having to leave the book.",
-      },
-      {
-        question: "Are online exams secure?",
-        answer: "Yes, they are highly secure. Exams open in a locked environment (secure browser) that prevents cheating, and they feature strict time limits and automated submission.",
-      },
-      {
-        question: "Who can use UNICORE?",
-        answer: "UNICORE is designed for students, lecturers, librarians, and administrators of the University of Somalia. Everyone gets a unique dashboard tailored to their specific role.",
-      },
-      {
-        question: "Is it free for students?",
-        answer: "Yes, it is completely free for all officially enrolled students at the University of Somalia.",
-      },
-      {
-        question: "Can I use it on my phone?",
-        answer: "Yes, UNICORE is fully responsive and is designed to work seamlessly on any smartphone, tablet, or laptop.",
-      },
-      {
-        question: "How do I get support?",
-        answer: "You can send us a direct message through the 'Contact Us' section, and we will respond within 24 hours. For urgent matters, you can visit the library office in person.",
-      },
-    ],
+commonQuestions: "Common questions",
+faqs: [
+  {
+    question: "What is UniCore?",
+    answer: "UniCore is an integrated digital campus platform for University of Somalia students, combining academic resources, AI learning support, online examinations, and student collaboration in one system.",
+  },
+  {
+    question: "What can students do with UniCore?",
+    answer: "Students can access digital books, reserve study spaces, use AI learning support, take online exams, communicate with classmates, and manage academic activities through one platform.",
+  },
+  {
+    question: "How does university verification work?",
+    answer: "After creating an account, users are verified by the university to ensure secure access based on their academic role and permissions.",
+  },
+  {
+    question: "How does the AI assistant help students?",
+    answer: "The UniCore AI assistant helps students understand learning materials, answer academic questions, summarize content, and provide study support.",
+  },
+  {
+    question: "Are online examinations secure?",
+    answer: "UniCore provides secure online examination features including controlled access, time management, and automated assessment tools.",
+  },
+  {
+    question: "Who can use UniCore?",
+    answer: "UniCore supports students, lecturers, librarians, and administrators. Each user receives features and access based on their role.",
+  },
+  {
+    question: "Can I access UniCore from my phone?",
+    answer: "Yes. UniCore is designed to work across smartphones, tablets, and computers so students can access services anywhere.",
+  },
+  {
+    question: "Is UniCore available for all students?",
+    answer: "UniCore is designed for officially enrolled University of Somalia students and authorized university users.",
+  },
+  {
+    question: "How can I get support?",
+    answer: "Users can contact the UniCore support team through the Contact Us section for assistance with technical or academic platform issues.",
+  },
+],
+// FAQ CTA banner
+    faqCtaEyebrow: "Jaamacadda Soomaaliya",
 
-    // FAQ CTA banner
-    faqCtaEyebrow: "University of Somalia",
-    faqCtaTitle: "Are you ready to modernize your education?",
-    faqCtaDescription: "Create a free account today, and start reserving seats and reading books right from your home.",
-    getStarted: "Get Started for Free",
+    faqCtaTitle: "Miyaad diyaar u tahay inaad aragto habka cusub ee waxbarashada dhijitalka ah?",
+
+    faqCtaDescription:
+      "Samayso koontaada UniCore maanta si aad hal meel uga hesho taageerada AI-ga, agabka waxbarashada, imtixaannada intanet-ka, iyo adeegyada jaamacadda.",
+
+    getStarted: "Ku Biloow Bilaash",
 
     footer: {
-      tagline: "UNICORE is the unified academic platform for the University of Somalia — library, exams, AI, and community all in one system.",
-      quickLinks: "Quick Links",
-      ctaEyebrow: "Get Started",
-      ctaTitle: "Your university account unlocks everything on day one.",
-      allRightsReserved: "All rights reserved.",
-      liveSystem: "Live System"
+      tagline:
+        "UniCore waa nidaamka dhijitalka ah ee Jaamacadda Soomaaliya — oo hal meel ku isgu keenaya waxbarashada AI-ga, agabka waxreadiska, imtixaannada, iyo bulshada ardayda.",
+
+      quickLinks: "Dhabbalaha Fudud",
+
+      ctaEyebrow: "Ku Biloow Hadda",
+
+      ctaTitle:
+        "Koontaada UniCore waxay kuu furaysaa adeegyada jaamacadda laga bilaabo maalinta koowaad.",
+
+      allRightsReserved:
+        "Xaqdoonka oo dhan waa la dhowray.",
+
+      liveSystem:
+        "Nidaamka Tooska Ah"
     },
+
   },
 
   // ── About page ────────────────────────────────────────────────

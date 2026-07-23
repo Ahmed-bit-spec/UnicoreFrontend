@@ -34,7 +34,7 @@ const Features = ({ t }) => {
           </span>
           <h2 className="mt-3 text-2xl sm:text-3xl lg:text-4xl font-black text-black dark:text-white leading-tight">
             {t?.landing?.headingMain || "Everything your university needs,"}{" "}
-            <span className="text-[#1E1FAA]" style={{ textShadow: "0 2px 0 #2C2DE0" }}>
+            <span className="text-[#1E1FAA]" >
               {t?.landing?.headingSub || "in one platform"}
             </span>
           </h2>

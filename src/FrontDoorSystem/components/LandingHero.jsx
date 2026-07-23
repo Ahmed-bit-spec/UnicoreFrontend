@@ -15,7 +15,7 @@ const stagger = { animate: { transition: { staggerChildren: 0.09 } } };
 const Hero = ({ t }) => (
   <section className="relative w-full bg-white dark:bg-black" aria-label="Hero">
 
-  
+
 
     {/* Green gradient glow — dark mode */}
     <div
@@ -52,22 +52,32 @@ const Hero = ({ t }) => (
         </motion.div>
 
         {/* Headline */}
-     <motion.h1
-  variants={fadeUp}
-  className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tight text-black dark:text-white"
->
-  UNISO{" "}
-  <span
-    className="font-black text-[#2C2DE0]"
-    style={{
-      textShadow: "0 2px 0 #1E1FAA"
-    }}
-  >
-    Academic
-  </span>
-  <br />
-  Digital Ecosystem
-</motion.h1>
+        <motion.h1
+          variants={fadeUp}
+          className="
+    text-4xl
+    sm:text-5xl
+    lg:text-6xl
+    xl:text-7xl
+    font-black
+    leading-[1.2]
+    tracking-tight
+    text-black
+    dark:text-white
+  "
+        >
+          {t?.landing?.heroTitleFirst}{" "}
+
+          <span
+            className="font-black text-[#2C2DE0]  sm:[text-shadow:0_2px_0_#1E1FAA]
+"
+
+          >
+            {t?.landing?.heroTitleHighlight}
+          </span>{" "}
+
+          {t?.landing?.heroTitleLast}
+        </motion.h1>
 
         {/* Description */}
         <motion.p
@@ -123,10 +133,24 @@ const Hero = ({ t }) => (
           className="flex flex-wrap items-center justify-center gap-3 mt-14"
         >
           {[
-            { value: "500+", label: t?.landing?.students || "Students" },
-            { value: "1,200+", label: t?.landing?.books || "Digital Books" },
-            { value: "40", label: t?.landing?.seats || "Study Seats" },
-            { value: "24/7", label: t?.landing?.onlineAccess || "Online Access" },
+
+            {
+              value: "AI",
+              label: t?.landing?.aiSupport || "AI Learning Support"
+            },
+            {
+              value: "24/7",
+              label: t?.landing?.access || "Digital Access"
+            },
+            {
+              value: "4+",
+              label: t?.landing?.services || "Integrated Services"
+            },
+            {
+              value: "1",
+              label: t?.landing?.platform || "Unified Platform"
+            }
+
           ].map((s) => (
             <div
               key={s.label}

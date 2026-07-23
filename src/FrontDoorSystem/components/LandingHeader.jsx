@@ -1,14 +1,13 @@
 // src/components/LandingHeader.jsx
-// Fixes:
-//  1. useDarkMode defaults to LIGHT (false) instead of system preference.
-//  2. isLight = !dark  — always matches the active theme so nav text
-//     is never white-on-white or black-on-black, before or after scroll.
-//  3. Removed duplicate/conflicting className props on buttons (React only
-//     keeps the last one — several buttons had a stray unused first className).
-//  4. Header height reduced (h-16 → h-14) with matching padding/shadow tweaks.
-//  5. All #58CC02 / #46A302 (green) swapped to #2C2DE0 / #1E1FAA (brand blue).
-//  6. Restored a missing <a ...> opening tag in the mobile drawer module list
-//     that was breaking the JSX fragment (the "Unreachable code" error).
+// i18n pass on top of previous fixes:
+//  - Every remaining hardcoded string (mega-menu item descriptions, the
+//    mega-menu intro paragraph, and all aria-labels) now reads from `t`
+//    with the old English copy kept as the fallback, so nothing breaks
+//    until en.js / so.js are updated. See the bottom of this file's
+//    accompanying chat message for the full list of new keys to add.
+//  - Everything else (dark mode default, isLight logic, dedup'd
+//    classNames, h-14 header, blue palette, mobile drawer fix) is
+//    unchanged from the previous pass.
 
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -48,32 +47,32 @@ const getMegaMenuSections = (t) => [
   {
     title: t?.modules?.digitalLearning || "Digital Learning",
     items: [
-      { icon: Presentation, label: t?.modules?.eLearning || "E-Learning Platform", desc: "Interactive digital courses for every learner" },
-      { icon: ClipboardList, label: t?.modules?.courses || "Courses Management", desc: "Browse and manage curriculum & content" },
-      { icon: FileText, label: t?.modules?.exams || "Online Examinations", desc: "Secure, convenient online exams" },
+      { icon: Presentation, label: t?.modules?.eLearning || "E-Learning Platform", desc: t?.modules?.eLearningDesc || "Interactive digital courses for every learner" },
+      { icon: ClipboardList, label: t?.modules?.courses || "Courses Management", desc: t?.modules?.coursesDesc || "Browse and manage curriculum & content" },
+      { icon: FileText, label: t?.modules?.exams || "Online Examinations", desc: t?.modules?.examsDesc || "Secure, convenient online exams" },
     ],
   },
   {
     title: t?.modules?.libraryServices || "Library Services",
     items: [
-      { icon: BookOpen, label: t?.modules?.library || "Digital Library", desc: "Access thousands of resources anytime" },
-      { icon: Search, label: t?.modules?.bookSearch || "Book Search", desc: "Powerful catalog search" },
-      { icon: Archive, label: t?.modules?.bookReservation || "Book Reservation", desc: "Reserve and borrow physical & digital books" },
+      { icon: BookOpen, label: t?.modules?.library || "Digital Library", desc: t?.modules?.libraryDesc || "Access thousands of resources anytime" },
+      { icon: Search, label: t?.modules?.bookSearch || "Book Search", desc: t?.modules?.bookSearchDesc || "Powerful catalog search" },
+      { icon: Archive, label: t?.modules?.bookReservation || "Book Reservation", desc: t?.modules?.bookReservationDesc || "Reserve and borrow physical & digital books" },
     ],
   },
   {
     title: t?.modules?.community || "Community",
     items: [
-      { icon: LayoutDashboard, label: t?.modules?.dashboard || "Personal Dashboard", desc: "Your courses, library activity & progress" },
-      { icon: Users, label: t?.modules?.collaboration || "Collaboration Spaces", desc: "Connect and work together with peers" },
-      { icon: GraduationCap, label: t?.modules?.academic || "Academic Records", desc: "Track grades, schedules & milestones" },
+      { icon: LayoutDashboard, label: t?.modules?.dashboard || "Personal Dashboard", desc: t?.modules?.dashboardDesc || "Your courses, library activity & progress" },
+      { icon: Users, label: t?.modules?.collaboration || "Collaboration Spaces", desc: t?.modules?.collaborationDesc || "Connect and work together with peers" },
+      { icon: GraduationCap, label: t?.modules?.academic || "Academic Records", desc: t?.modules?.academicDesc || "Track grades, schedules & milestones" },
     ],
   },
   {
     title: t?.modules?.aiSystem || "AI System",
     items: [
-      { icon: Bot, label: t?.modules?.aiAssistant || "AI Assistant", desc: "24/7 intelligent support for everyone" },
-      { icon: Sparkles, label: t?.modules?.smartSearch || "Smart Search", desc: "Semantic, context-aware search" },
+      { icon: Bot, label: t?.modules?.aiAssistant || "AI Assistant", desc: t?.modules?.aiAssistantDesc || "24/7 intelligent support for everyone" },
+      { icon: Sparkles, label: t?.modules?.smartSearch || "Smart Search", desc: t?.modules?.smartSearchDesc || "Semantic, context-aware search" },
     ],
   },
 ];
@@ -84,14 +83,14 @@ const MegaMenu = ({ t }) => (
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: 8 }}
     transition={{ duration: 0.18 }}
-    className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-215 z-100"
+    className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[min(90vw,53.75rem)] z-100"
   >
     <div className="h-0.5 bg-[#2C2DE0]" />
     <div className="bg-white dark:bg-black border border-black/10 dark:border-white/10 rounded-b-2xl shadow-2xl p-6">
       <p className="text-[12px] text-black/40 dark:text-white/40 mb-5 max-w-2xl leading-relaxed">
-        UNICORE unifies library, AI learning, online examinations, and community into one intelligent university system.
+        {t?.modules?.megaDescription || "UNICORE unifies library, AI learning, online examinations, and community into one intelligent university system."}
       </p>
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
         {getMegaMenuSections(t).map((section) => (
           <div key={section.title}>
             <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#2C2DE0] mb-3">{section.title}</p>
@@ -120,7 +119,7 @@ const MegaMenu = ({ t }) => (
   </motion.div>
 );
 
-const LanguageSwitcher = ({ lang, setLang, isLightPage }) => {
+const LanguageSwitcher = ({ lang, setLang, isLightPage, t }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -140,7 +139,7 @@ const LanguageSwitcher = ({ lang, setLang, isLightPage }) => {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        aria-label="Change language"
+        aria-label={t?.aria?.changeLanguage || "Change language"}
         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold transition-colors ${btnCls} ${open ? "border-[#2C2DE0]!" : ""}`}
       >
         <Globe size={14} className={open ? "text-[#2C2DE0]" : ""} />
@@ -217,9 +216,9 @@ const LandingHeader = () => {
   return (
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${headerBg}`}>
-        <div className="w-full max-w-350 mx-auto px-6 lg:px-10 h-14 flex items-center gap-6">
+        <div className="w-full max-w-350 mx-auto px-4 sm:px-6 lg:px-10 h-14 flex items-center gap-4 lg:gap-6">
 
-          <Link to="/" className="shrink-0">
+          <Link to="/" className="shrink-0 min-w-0">
             <UnicoreLogo size="md" isLight={isLight} />
           </Link>
 
@@ -250,13 +249,13 @@ const LandingHeader = () => {
             </div>
           </nav>
 
-          <div className="flex items-center gap-2 ml-auto shrink-0">
-            <LanguageSwitcher lang={language || "en"} setLang={setLanguage || (() => { })} isLightPage={isLight} />
+          <div className="flex items-center gap-1.5 sm:gap-2 ml-auto shrink-0">
+            <LanguageSwitcher lang={language || "en"} setLang={setLanguage || (() => { })} isLightPage={isLight} t={t} />
 
             <button
               type="button"
               onClick={() => setDark((d) => !d)}
-              aria-label="Toggle dark mode"
+              aria-label={t?.aria?.toggleDarkMode || "Toggle dark mode"}
               className={`hidden lg:flex w-8 h-8 items-center justify-center rounded-lg border transition-colors ${
                 isLight
                   ? "border-black/15 text-black/50 hover:text-black hover:border-black/30"
@@ -286,7 +285,7 @@ const LandingHeader = () => {
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
+              aria-label={t?.aria?.openMenu || "Open menu"}
               className={`lg:hidden w-9 h-9 rounded-xl flex items-center justify-center border transition-colors ${isLight
                 ? "border-black/15 text-black/70 hover:bg-black/5"
                 : "border-white/15 text-white/80 hover:bg-white/10"
@@ -319,7 +318,7 @@ const LandingHeader = () => {
                   <button
                     type="button"
                     onClick={() => setDark((d) => !d)}
-                    aria-label="Toggle dark mode"
+                    aria-label={t?.aria?.toggleDarkMode || "Toggle dark mode"}
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-black/50 dark:text-white/50 hover:bg-black/5 dark:hover:bg-white/5"
                   >
                     {dark ? <Sun size={16} /> : <Moon size={16} />}
@@ -327,7 +326,7 @@ const LandingHeader = () => {
                   <button
                     type="button"
                     onClick={() => setMenuOpen(false)}
-                    aria-label="Close menu"
+                    aria-label={t?.aria?.closeMenu || "Close menu"}
                     className="w-9 h-9 rounded-xl flex items-center justify-center text-black/50 dark:text-white/50 hover:bg-black/5 dark:hover:bg-white/5"
                   >
                     <X size={18} />

@@ -72,124 +72,137 @@ const so = {
   },
 
   // ── Landing page ──────────────────────────────────────────────
-  landing: {
+ landing: {
     // Hero
-    heroBadge: "Nidaamka Mideysan ee UNISO (Central System)",
-    heroDescription: "Nidaamkan wuxuu ardayda UNISO u sahlayaa inay gurigooda ka qabsadaan kuraasta maktabadda, akhrisanna karaan buug kasta oo dhijitaal ah. Waxaa kaloo ku dhex jira kaaliye AI ah oo ka caawinaya buuk aqriska, iyo qayb imtixanaadka lab ah laku galo, iyo madal wada-shaqayn ah oo leh oo ardaydu ku wada sheekaysan karaan (chat) iyo furan karaan meeting video call, waxna ku wadaagi karaan.",
-    createAccount: "Ku biir — Waa Bilaash",
-    exploreFeatures: "Eeg Waxyaabaha uu Qabto",
+    heroBadge: "Nidaamka Midsaysan ee Uniso",
+    heroDescription: "UniCore waa madal dhijital ah ee Jaamacadda Soomaaliya oo isku xerta ardayda, waxbarashada, agabka, caawinta AI-ga, imtixaannada, iyo bulshada — oo dhan hal meel.",
+    createAccount: "Samayso Koonto — Waa Bilaash",
+    exploreFeatures: "Baro Waxa Uu Qabto",
 
-    // Hero stats
-    students: "Ardayda",
-    books: "Buugaagta Dhijitaalka ah",
-    seats: "Kuraasta Maktabadda",
-    onlineAccess: "Adeeg furan 24/7",
+    heroTitleFirst: "Mustaqbalka",
+    heroTitleHighlight: "Waxbarashada Dhijitaalka ah",
+    heroTitleLast: "ee UNISO",
+
+    aiSupport: "Taageerada Waxbarashada AI-ga",
+    access: "Galitaanka Dhijitaalka ah",
+    services: "Adeegyada Midsaysan",
+    platform: "Madasha Midsaysan",
 
     // Features section
-    sectionFeatures: "Waxa uu Nidaamku Qabanayo",
-    headingMain: "Wax kasta oo jaamacaddu u baahan tahay,",
-    headingSub: "hal meel ka hel",
+    sectionFeatures: "Muxuu Nidaamku Qabtaa",
+    headingMain: "Wax kasta oo jaamacaddaadu u baahan tahay",
+    headingSub: " hal madal oo kaliya",
     features: [
       {
         // [0]
-        title: "Qabsashada Kuraasta (Reservation)",
-        desc: "Sii qabso kursigaaga maktabadda ka hor intaadan imaan. Dooro waqtiga adiga kuu ku habboon si aad booskaaga u sii xaqiijisato.",
+        title: "Sii Qabsashada Kuraasta",
+        desc: "Sii qabsado kursigaaga maktabadda inta aadan imaanin. Doorasho waqtiga aad rabto iyo boos kuu xaqiijisan.",
       },
       {
         // [1]
-        title: "E-Maktabad & Agabka Waxbarashada",
-        desc: "Hel kumanaan buugaag ah, imtixaanaadkii hore, iyo maqaallo cilmiyeed adoo isticmaalaya nidaamka raadinta ee aadka u dheereeya.",
+        title: "Maktabadda Dhijital-ka ah",
+        desc: "Ka hel buugaagta waxbarashada, cilmi-baarisyada, iyo agabka akhriska meel kasta oo aad joogto.",
       },
       {
         // [2]
-        title: "Kaaliyaha AI ee Waxbarashada",
-        desc: "Soo koob buug kasta isla markaana hel taageero daraasadeed 24/7 iyo jawaabaha su'aalaha maadooyinkaaga oo dhan.",
+        title: "Caawiyaha Waxbarashada ee AI-ga",
+        desc: "Hel taageero waxbarasho, soo-koobid qoraallada, iyo sharraxaad maaddooyinka ah waqti kasta.",
       },
       {
         // [3]
-        title: "Garsoor iyo Fursad Loo Wada Siman Yahay",
-        desc: "Xaddididda reservation-ka iyo gelitaanka ku salaysan doorka qofka waxay xaqiijinaysaa in qof kastaa helo fursad la mid ah ta saaxiibadiis.",
+        title: "Fursad Buuxda oo Loo Dhan Yahay",
+        desc: "Boos qabsasho hal mar ah arday kasta si dadka dhan ay si caddaalad ah ugu wada faa'iideystaan.",
       },
       {
         // [4]
-        title: "Imtixaanadka Online-ka ah",
-        desc: "Imtixaanno ammaan ah oo wata su'aalo kala duwan, waqti xaddidan, iyo saxid toos ah oo aad natiijada durbadiiba ku helayso.",
+        title: "Nidaamka Imtixaannada Intanet-ka",
+        desc: "U fadhiiso imtixaanno ammaan ah iyadoo la helayo sixid otomaatiko ah iyo natiijooyin dhakhso ah.",
       },
       {
         // [5]
-        title: "Xiriirka iyo Wada-shaqaynta Bulshada",
-        desc: "La xiriir saaxiibadaada koorsada, wadaaga casharrada, isla markaana si wadajir ah ugu shaqeeya mashaariicda kooxda.",
+        title: "Bulshada Ardayda iyo Wadashaqaynta",
+        desc: "Isku xiryo ardayda kale, wadaag aqoonta, ka wada hadla koorsooyinka, kuna wadashaqeeya si wada jir ah.",
       },
+      {
+        // [6]
+        title: "Kulamada Intanet-ka (Virtual Meetings)",
+        desc: "Ka dhan baaq ama ku batir kulamada intanet-ka, wada-hadallada waxbarashada, iyo kuwo kooxda meel kasta oo aad joogto.",
+      }
     ],
 
     // How It Works section
-    sectionHowItWorks: "Sida uu u Shaqeeyo",
-    howItWorksTitle: "Ku bilow dhowr tillaabo oo fudud", // Kani waa cinwaanka cusub ee dynamic-ga ah
-    howItWorksSteps: [
-      {
-        title: "Furo Akoonkaaga",
-        desc: "Isku-diiwaangeli Google ama iimaylkaaga caadiga ah si aad u badbaadsato xogtaada.",
-      },
-      {
-        title: "Xaqiiji Aqoonsigaaga",
-        desc: "Dooro inaad ku gasho 'Student ID' si aad u hesho adeegyada oo dhan, ama 'Guest' haddii aad rabto inaad nidaamka aragto uun.",
-      },
-      {
-        title: "Gal Dashboard-kaaga",
-        desc: "Halkaan ka maamulo maadooyinkaaga, boosaska maktabadda, imtixaanada, iyo kaaliyaha AI — dhammaan hal meel.",
-      },
-    ],
+    // How It Works section
+  sectionHowItWorks: "Sida uu U Shaqayso",
+  howItWorksTitle: "Ku biloow UniCore tillaabooyinkaan fudud",
 
-    // FAQ section
-    faqs: [
-      {
-        question: "Maxay tahay faa'iidada ugu weyn ee aan ka helayo nidaamkan?",
-        answer: "Faa'iidada ugu weyn waa inuu hal meel kuugu keenayo dhammaan baahiyahaaga waxbarasho — laga soo bilaabo qabsashada kuraasta maktabadda, akhriska buugaagta, ilaa gelitaanka imtixaanada, adigoon waqti isaga lumin nidaamyo kala duwan.",
-      },
-      {
-        question: "Sidee buu nidaamku iigu sahlayaa isticmaalka maktabadda?",
-        answer: "Nidaamku wuxuu kuu oggolaanayaa inaad gurigaaga ka sii qabsato kursi maktabadda ah si aad boos u hubsatid. Sidoo kale, waxaad online ku akhrisan kartaa e-buugaagta adigoon imaanin xarunta jaamacadda.",
-      },
-      {
-        question: "Sidee buu u shaqeeyaa kaaliyaha AI-ga?",
-        answer: "Kaaliyaha AI-gu wuxuu si gaar ah ugu talagalay inuu kuu soo koobo dulucda bogga aad xilligaas akhrinayso uun. Wuxuu kaa caawinayaa inaad si degdeg ah u fahamto qoraalka adigoon ka dhex bixin buugga.",
-      },
-      {
-        question: "Ma ammaan baa imtixaanada online-ka ah?",
-        answer: "Haa, aad bay u ammaan yihiin. Imtixaanadu waxay ku furmayaan browser xiran (secure browser) oo ka hortagaya qishka, wuxuuna leeyahay waqti go'an iyo xirid toos ah.",
-      },
-      {
-        question: "Yaa isticmaali kara UNICORE?",
-        answer: "UNICORE waxaa loogu talagalay ardayda, macallimiinta, maktabad-shubayaasha, iyo maamulka Jaamacadda Soomaaliya. Qof kasta wuxuu helayaa dashboard u gaar ah shaqadiisa.",
-      },
-      {
-        question: "Ma bilaash baa u yahay ardayda?",
-        answer: "Haa, gabi ahaanba waa bilaash ardayda rasmiga ah ee ka tirsan Jaamacadda Soomaaliya.",
-      },
-      {
-        question: "Ma ku isticmaali karaa taleefankayga?",
-        answer: "Haa, UNICORE waa mid loo naqshadeeyay (responsive) inay si weyn ugu shaqayso taleefan kasta, tablet, ama laptop.",
-      },
-      {
-        question: "Sideen caawinaad u heli karaa?",
-        answer: "Waxaad farriin toos ah noogu soo reebi kartaa qaybta 'Xiriirka' (Contact Us), waxaanan kuugu soo jawaabaynaa 24 saac gudahood. Xaaladaha degdegga ah, booqo xafiiska maktabadda.",
-      },
-    ],
+howItWorksSteps: [
+  {
+    title: "Samayso Koonto",
+    desc: "Ka samayso koonto UniCore adoo adeegsanaya emailkaaga.",
+  },
+  {
+    title: "Xaqiijinta Jaamacadda",
+    desc: "Xaqiiji xogtaada jaamacadda si aad u hesho dhammaan adeegyada waxbarashada.",
+  },
+ {
+    title: "Isticmaal Boggaaga (Dashboard)",
+    desc: "Ka hel boggaaga dhexe maktabadda, caawiyaha AI-ga, imtixaannada, iyo dhammaan adeegyada Jaamacadda.",
+  },
+],
+
+commonQuestions: "Su'aalaha Badanaa La Isweydiiyo",
+  faqs: [
+    {
+      question: "Waa maxay UniCore?",
+      answer: "UniCore waa nidaam dhijital ah ee Jaamacadda Soomaaliya, oo hal meel ku isgu keenaya agabka waxbarashada, taageerada AI-ga, imtixaannada intanet-ka, iyo wada-shaqaynta ardayda.",
+    },
+    {
+      question: "Maxay ardaydu ku qaban karaan UniCore?",
+      answer: "Ardaydu waxay ka heli karaan buugaagta, sii qabsashada kuraasta maktabadda, caawinta maskaxda macmalka ah, u fadhiisiga imtixaannada, iyo wada-sheekaysiga ardayda kale.",
+    },
+    {
+      question: "Sidee u shaqeysaa xaqiijinta xogta?",
+      answer: "Waxaad toos u gelinaysaa ID-gaaga ama lambarkaaga ardaynimo ee jaamacadda si aad markaaba u hesho dhammaan adeegyada kuu gaarka ah.",
+    },
+    {
+      question: "Sidee ayuu caawiyaha maskaxda macmalka ah uga caawiyaa ardayda waxbarashada?",
+      answer: "Nidaamku wuxuu ka caawiyaa ardayda fahamka casharrada, jawaabaha su'aalaha, iyo soo-koobida qoraallada waaweyn.",
+    },
+    {
+      question: "Ma ammaan yihiin imtixaannada intanet-ka?",
+      answer: "Haa, waa kuwo aad u ammaan badan. Nidaamku wuxuu leeyahay xaddidaad waqti, ilaalinta qishka, iyo sixid otomaatiko ah.",
+    },
+    {
+      question: "Yaa adeegsan kara UniCore?",
+      answer: "UniCore waxaa loogu talagalay ardayda, macallimiinta, shaqaalaha maktabadda, iyo maamulka. Qof kasta wuxuu leeyahay boos u gaar ah.",
+    },
+    {
+      question: "Miyaan ka isticmaali karaa UniCore telefonkayga?",
+      answer: "Haa, UniCore si buuxda ayay ugu shaqaysaa telefonnada, tablets-ka, iyo kombuyuutarrada.",
+    },
+    {
+      question: "UniCore ma u buuxdaa dhammaan ardayda?",
+      answer: "Haa, UniCore waxaa loogu talagalay dhammaan ardayda rasmiga ah ee Jaamacadda Soomaaliya.",
+    },
+    {
+      question: "Sidee aan ku heli karaa taageero?",
+      answer: "Waxaad fariin toos ah noogu soo diri kartaa qaybta 'Naga Soo Xiriir', waxaana kaaga jawaabaynaa si dhakhso ah.",
+    },
+  ], 
 
     // FAQ CTA banner
     faqCtaEyebrow: "Jaamacadda Soomaaliya",
-    faqCtaTitle: "Ma diyaar baad u tahay inaad casriyeyso waxbarashadaada?",
-    faqCtaDescription: "Furo akoon bilaash ah maanta, bilowna inaad sii qabsato kuraasta iyo inaad akhriso buugaagta adoo gurigaaga jooga.",
-    getStarted: "Ku Bilow Bilaash",
+    faqCtaTitle: "Miyaad diyaar u tahay inaad casriyeeyso waxbarashadaada?",
+    faqCtaDescription: "Samayso koonto bilaash ah maanta, kuraasta sii qabsad, oo buugaagta ka akhriso gurigaaga.",
+    getStarted: "Biloow Hadda oo Bilaash ah",
 
-    // Ku dar qaybta footer-ka ee faylkaaga JSON-ka ee Soomaaliga ah
     footer: {
-      tagline: "UNICORE waa madal mideysan oo Jaamacadda Soomaaliya u gaar ah — maktabadda, imtixaanada, AI-ga, iyo bulshada oo dhan hal nidaam ku wada jira.",
-      quickLinks: "Xiriirada Degdega ah",
-      ctaEyebrow: "Bilow Hadda",
-      ctaTitle: "Akoonkaaga jaamacadda wuxuu kuu furayaa wax walba maalinta koowaad.",
-      allRightsReserved: "Xuquuqda oo dhan waa dhowran yihiin.",
-      liveSystem: "Nidaamka oo Shaqaynaya"
+      tagline: "UNICORE waa madasha waxbarashada midsaysan ee Jaamacadda Soomaaliya — maktabadda, imtixaannada, AI-ga, iyo bulshada oo dhan hal nidaam.",
+      quickLinks: "Xiriirada Mudsan",
+      ctaEyebrow: "Biloow Hadda",
+      ctaTitle: "Koontaada jaamacaddu waxay kuu furaysaa wax kasta laga bilaabo maalinta koowaad.",
+      allRightsReserved: "Xaqdoonka oo dhan waa la dhowray.",
+      liveSystem: "Nidaamka Tooska Ah"
     },
   },
 
