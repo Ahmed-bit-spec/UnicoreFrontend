@@ -268,40 +268,93 @@ faqs: [
     alreadyHaveAccount: "Already have an account? Sign in",
   },
 
-  // ── Contact page ──────────────────────────────────────────────
-  contact: {
-    eyebrow: "Get in Touch",
-    titleBefore: "We're here to",
-    titleHighlight: "help you",
-    intro: "Have a question, a problem with your reservation, or feedback? Send us a message and we'll reply within 24 hours.",
-    selectTopic: "What is your message about?",
-    sendMessage: "Send a Message",
-    failed: "Failed to send. Please email us directly at info@elibrary.com",
-    messageSent: "Message sent!",
-    messageSentSub: "We'll reply to your email within 24 hours.",
-    subject: "Subject",
-    subjectPlaceholder: "e.g. Reservation issue, Book request...",
-    message: "Message",
-    messagePlaceholder: "Write your message here...",
-    sending: "Sending...",
-    send: "Send Message",
-    namePlaceholder: "Ahmed Ali",
-    emailPlaceholder: "ahmed@example.com",
-    contactInfo: "Contact Info",
-    location: "Location",
-    responseTime: "Response Time",
-    within24: "Within 24 hours",
-    urgentTitle: "For urgent issues",
-    urgentBody: "If your reservation is broken or you cannot access your account, visit the library desk in person during operating hours:",
-    hoursDaily: "7:00 AM – 5:00 PM, every day.",
-    quickLinks: "Quick Links",
-    links: {
-      library: "Browse Library",
-      exams: "My Exams",
-      forum: "Community Forum",
-      dashboard: "My Dashboard",
-    },
+ // ── Contact page ──────────────────────────────────────────────
+contact: {
+  eyebrow: "Contact Us",
+
+  titleBefore: "We are ready",
+
+  titleHighlight: "to help you",
+
+  intro:
+    "Have a question, technical issue, or feedback about UniCore? Send us a message and our team will respond within 24 hours.",
+
+  selectTopic: "What is your message about?",
+
+  sendMessage: "Send Message",
+
+  failed:
+    "Message sending failed. Please contact us directly at: info@uniso.com",
+
+  messageSent:
+    "Message sent successfully!",
+
+  messageSentSub:
+    "Our team will respond to your email within 24 hours.",
+
+  subject: "Subject",
+
+  subjectPlaceholder:
+    "Example: Account access issue, AI assistant question, Technical support...",
+
+  message: "Message",
+
+  messagePlaceholder:
+    "Write your message here...",
+
+  sending:
+    "Sending...",
+
+  send:
+    "Send Message",
+
+  namePlaceholder:
+    "Ahmed Ali",
+
+  emailPlaceholder:
+    "ahmed@example.com",
+
+  contactInfo:
+    "Contact Information",
+
+  location:
+    "Location",
+
+  responseTime:
+    "Response Time",
+
+  within24:
+    "Within 24 hours",
+
+  urgentTitle:
+    "Urgent Issues",
+
+  urgentBody:
+    "For urgent account, access, or technical problems, please contact the university support team during working hours.",
+
+  hoursDaily:
+    "7:00 AM – 5:00 PM, every day.",
+
+  quickLinks:
+    "Quick Links",
+
+  links: {
+    library:
+      "Digital Library",
+
+    exams:
+      "Online Examinations",
+
+    ai:
+      "AI Assistant",
+
+    forum:
+      "Student Community",
+
+    dashboard:
+      "My Dashboard",
   },
+},
 
   banner: {
     // Verification Banner

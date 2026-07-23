@@ -9,7 +9,7 @@
 //    classNames, h-14 header, blue palette, mobile drawer fix) is
 //    unchanged from the previous pass.
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import {
@@ -35,7 +35,10 @@ const useDarkMode = () => {
     return false;
   });
 
-  useEffect(() => {
+  // useLayoutEffect (not useEffect) so this runs synchronously right after
+  // the DOM is committed but BEFORE the browser paints. useEffect runs after
+  // paint, which is what caused the "flash light, then flip to dark" jump.
+  useLayoutEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
     localStorage.setItem("unicore_theme", dark ? "dark" : "light");
   }, [dark]);
@@ -181,7 +184,9 @@ const LanguageSwitcher = ({ lang, setLang, isLightPage, t }) => {
 const LandingHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(() =>
+    typeof window === "undefined" ? false : window.scrollY > 16
+  );
   const [dark, setDark] = useDarkMode();
   const { t, language, setLanguage } = useLanguage() || {};
   const { pathname } = useLocation();

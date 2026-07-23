@@ -156,8 +156,8 @@ const Hero = ({ t }) => (
               key={s.label}
               className="px-5 py-3 rounded-2xl border border-black/10 dark:border-white/10 bg-black/2 dark:bg-white dark:bg-gray-900/5"
             >
-              <p className="text-xl font-black text-black dark:text-white">{s.value}</p>
-              <p className="text-[10px] text-black/40 dark:text-white/40 uppercase tracking-wider mt-0.5">{s.label}</p>
+              <p className="text-xl font-black text-black dark:text-black">{s.value}</p>
+              <p className="text-[10px] text-black/40 dark:text-black/40 uppercase tracking-wider mt-0.5">{s.label}</p>
             </div>
           ))}
         </motion.div>

@@ -78,18 +78,18 @@ const About = () => {
         <div className="w-full max-w-350 mx-auto px-6 lg:px-10 pt-32 pb-20 text-center">
           <motion.div {...fadeUp}>
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0]" style={{ textShadow: "0 2px 0 #1E1FAA" }}>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[#2C2DE0]">
                 {t?.about?.eyebrow || "About the System"}
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-black dark:text-white leading-[1.05] tracking-tight">
               {t?.about?.titleBefore || "Built for"}{" "}
-              <span className="text-[#2C2DE0]" style={{ textShadow: "0 2px 0 #1E1FAA" }}>
+              <span className="text-[#2C2DE0] sm:[text-shadow:0_2px_0_#1E1FAA]">
                 {t?.about?.titleHighlight || "University of Somalia"}
               </span>{" "}
               {t?.about?.titleAfter || "Students"}
             </h1>
-            <p className="mt-6 text-base text-white/55 max-w-2xl mx-auto leading-relaxed">
+            <p className="mt-6 text-base text-black dark:text-white max-w-2xl mx-auto leading-relaxed">
               {t?.about?.intro ||
                 "UNICORE is a unified academic platform that combines seat reservation, digital library access, AI-powered learning tools, online examinations, and community collaboration — all in one place."}
             </p>

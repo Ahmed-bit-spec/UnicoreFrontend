@@ -99,7 +99,7 @@ const Contact = () => {
               onClick={() => setForm((p) => ({ ...p, topic: tp.value, subject: tp.labelKey }))}
               className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-sm font-semibold transition-all ${form.topic === tp.value
                   ? "bg-[#2C2DE0]/10 border-[#2C2DE0]/50 text-[#2C2DE0]"
-                  : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-white/60 hover:border-[#2C2DE0]/30 bg-white dark:bg-white dark:bg-gray-900/4"
+                  : "border-gray-200 dark:border-white/10 text-gray-600 dark:text-black/60 hover:border-[#2C2DE0]/30 bg-white dark:bg-white dark:bg-gray-900/4"
                 }`}
             >
               <span>{tp.icon}</span>
@@ -229,7 +229,7 @@ const Contact = () => {
                 {
                   icon: Mail,
                   label: t?.common?.email || "Email",
-                  content: <a href="mailto:info@elibrary.com" className="text-sm text-gray-700 dark:text-gray-300 font-medium hover:text-[#2C2DE0] transition-colors">info@elibrary.com</a>,
+                  content: <a href="mailto:info@uniso.com" className="text-sm text-gray-700 dark:text-gray-300 font-medium hover:text-[#2C2DE0] transition-colors">info@euniso.com</a>,
                 },
                 {
                   icon: MapPin,
